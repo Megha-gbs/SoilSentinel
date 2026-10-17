@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#121e16">
+  <title>Researcher Workspace · SoilSentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --ink: #16241a;
+      --muted: #5e6d60;
+      --paper: #f4f3ec;
+      --card: #ffffff;
+      --line: #d7ded0;
+      --tech-dark: #121e16;
+      --leaf: #657e50;
+      --lime: #c5d886;
+      --cyan: #397b8c;
+      --risk-low: #2e7d32;
+      --risk-med: #b25900;
+      --risk-high: #b72121;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Top Navigation */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(244, 243, 236, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand span { font-weight: 400; opacity: 0.8; }
+    .topbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .user-pill {
+      font-size: 12px;
+      background: #e3ebd8;
+      color: #274026;
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-family: 'DM Mono', monospace;
+    }
+    .select-control {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 7px 14px;
+      font: inherit;
+      font-size: 13px;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .btn-logout {
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 7px 14px;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-logout:hover { background: #e5eadb; }
+
+    /* Layout */
+    .dashboard-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 36px 5% 72px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--leaf);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .dash-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    /* Telemetry Overview Cards */
+    .telemetry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .telemetry-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .telemetry-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .telemetry-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .telemetry-sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .badge-low { background: #e8f5e9; color: #2e7d32; }
+    .badge-medium { background: #fff3e0; color: #e65100; }
+    .badge-high { background: #ffebee; color: #c62828; }
+
+    /* Section Boxes */
+    .section-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .section-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      width: 100%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+    th {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      background: #f7f9f3;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #eef2e7;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafcf7; }
+    .mono { font-family: 'DM Mono', monospace; }
+
+    /* Scenario Matrix */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .scenario-card {
+      background: #fafcf6;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .scenario-card h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: #274026;
+      text-transform: uppercase;
+    }
+    .scenario-stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    /* Audit Box */
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      background: #121e16;
+      color: #e4ebd8;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .audit-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .audit-item label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #9ab390;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .audit-item span {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: #ffffff;
+      word-break: break-all;
+    }
+
+    /* Historical series table pagination/scroll */
+    .history-scroll {
+      max-height: 380px;
+      overflow-y: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 20px 5%;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      ◉ soil<span>sentinel</span> <i>[RESEARCH]</i>
+    </a>
+    <div class="topbar-controls">
+      <span class="user-pill" id="user-display">🔬 Researcher</span>
+      
+      <label for="eval-date-select" class="sr-only" style="display:none">Evaluation Date</label>
+      <select id="eval-date-select" class="select-control" aria-label="Select evaluation month">
+        <option value="">Loading dates...</option>
+      </select>
+
+      <button id="logout-btn" class="btn-logout">Log out ↗</button>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+
+    <!-- Header info -->
+    <section class="dash-header">
+      <div>
+        <p class="eyebrow">SCIENTIFIC OBSERVATORY / REGIONAL SOIL REANALYSIS</p>
+        <h1>Deterministic Hydro-Thermal Telemetry</h1>
+      </div>
+      <div>
+        <span style="font-size:12px; color:var(--muted)">Target Date:</span> 
+        <strong id="meta-eval-date" class="mono" style="background:#121e16; color:#fff; padding:3px 10px; border-radius:4px">--</strong>
+      </div>
+    </section>
+
+    <!-- Top Telemetry 4 Cards -->
+    <section class="telemetry-grid">
+      <div class="telemetry-card">
+        <div class="telemetry-label">Composite Risk Index</div>
+        <div class="telemetry-val" id="val-score">--</div>
+        <div class="telemetry-sub">
+          <span class="badge" id="val-category">Evaluating</span> · Range: 0.0 - 100.0
+        </div>
+      </div>
+      <div class="telemetry-card">
+        <div class="telemetry-label">Atmospheric vs Baseline Split</div>
+        <div class="telemetry-val" style="font-size:24px" id="val-split">-- / --</div>
+        <div class="telemetry-sub">Atmospheric stress (70%) / Soil vulnerability (30%)</div>
+      </div>
+      <div class="telemetry-card">
+        <div class="telemetry-label">Longitudinal Trajectory</div>
+        <div class="telemetry-val" style="font-size:22px" id="val-trajectory">--</div>
+        <div class="telemetry-sub" id="val-deltas">MoM: -- · YoY: --</div>
+      </div>
+      <div class="telemetry-card">
+        <div class="telemetry-label">Historical Percentile</div>
+        <div class="telemetry-val" id="val-percentile">--</div>
+        <div class="telemetry-sub" id="val-mean">Mean: -- · 60-Month Series</div>
+      </div>
+    </section>
+
+    <!-- 5 Indicators Comprehensive Deep Dive -->
+    <section class="section-box">
+      <h2 class="section-title">Component Indicators & Physical Sub-Scores</h2>
+      <p class="section-desc">Deterministic weighting and physical bounds derived from NASA POWER and SoilGrids 250m.</p>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Weight</th>
+              <th>Raw Metric Value</th>
+              <th>Sub-Score (0-100)</th>
+              <th>Weighted Contrib.</th>
+              <th>Biophysical Rationale</th>
+            </tr>
+          </thead>
+          <tbody id="indicators-table-body">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Canonical Scenarios Benchmark Comparison -->
+    <section class="section-box">
+      <h2 class="section-title">Canonical 30-Day Scenario Stress Tests</h2>
+      <p class="section-desc">Model response under standard meteorological stress conditions.</p>
+      <div class="scenario-grid" id="scenario-grid">
+        <!-- Dynamically populated -->
+      </div>
+      <p id="scenario-summary-narrative" style="font-size:13px; color:var(--muted); margin-top:16px; line-height:1.6"></p>
+    </section>
+
+    <!-- 60-Month Longitudinal Chronology -->
+    <section class="section-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px">
+        <div>
+          <h2 class="section-title">60-Month Historical Observation Record</h2>
+          <p class="section-desc" style="margin-bottom:0">Sequential monthly risk assessments from 2020-01 through 2024-12.</p>
+        </div>
+      </div>
+      <div class="history-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Score</th>
+              <th>Risk Category</th>
+              <th>Classification Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="history-table-body">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Audit & Provenance Verification -->
+    <section class="section-box" style="padding:0; overflow:hidden">
+      <div style="padding:20px 24px 14px">
+        <h2 class="section-title">Audit Trail & Traceability Proof</h2>
+        <p class="section-desc">Immutable append-only log record with zero personally identifiable information (PII).</p>
+      </div>
+      <div class="audit-grid">
+        <div class="audit-item">
+          <label>Assessment ID</label>
+          <span id="audit-id">--</span>
+        </div>
+        <div class="audit-item">
+          <label>Engine Version</label>
+          <span id="audit-version">v1.0.0-baseline</span>
+        </div>
+        <div class="audit-item">
+          <label>Append-Only Audit Log</label>
+          <span id="audit-logpath">logs/audit_log.csv</span>
+        </div>
+        <div class="audit-item">
+          <label>Logged Recommendation IDs</label>
+          <span id="audit-rec-ids">--</span>
+        </div>
+        <div class="audit-item">
+          <label>PII Redacted</label>
+          <span style="color:#81c784">✔ STRICT ZERO-PII PRESERVED</span>
+        </div>
+        <div class="audit-item">
+          <label>Execution Status</label>
+          <span id="audit-status" style="color:#81c784">COMPLETE (Deterministic)</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div>SOILSENTINEL SCIENTIFIC ARCHITECTURE · IBM Z DATATHON 2026</div>
+    <div>Pure Python & Node.js · LinuxONE s390x & AMD64 Compatible</div>
+  </footer>
+
+  <script>
+    let activeDate = '';
+
+    async function init() {
+      // 1. Auth check
+      try {
+        const res = await fetch('/api/researcher/workspace');
+        if (!res.ok) throw new Error('Unauthenticated');
+        const data = await res.json();
+        if (data.user) {
+          document.getElementById('user-display').textContent = `🔬 ${data.user.name || 'Researcher'}`;
+        }
+      } catch (err) {
+        window.location.replace('/auth.html?mode=login&role=researcher');
+        return;
+      }
+
+      // 2. Fetch dates
+      try {
+        const res = await fetch('/api/assessment/dates');
+        const json = await res.json();
+        const dates = json.available_dates || [];
+        const dateSelect = document.getElementById('eval-date-select');
+        dateSelect.innerHTML = '';
+
+        dates.forEach(d => {
+          const opt = document.createElement('option');
+          opt.value = d;
+          opt.textContent = `📅 ${d}`;
+          dateSelect.appendChild(opt);
+        });
+
+        if (dates.length > 0) {
+          activeDate = dates[dates.length - 1];
+          dateSelect.value = activeDate;
+          await loadAssessment(activeDate);
+        }
+
+        dateSelect.addEventListener('change', async (e) => {
+          activeDate = e.target.value;
+          await loadAssessment(activeDate);
+        });
+      } catch (e) {
+        console.error('Date load error:', e);
+      }
+
+      // 3. Logout
+      document.getElementById('logout-btn').addEventListener('click', async () => {
+        await fetch('/api/auth/logout', { method: 'POST' });
+        window.location.assign('/index.html');
+      });
+    }
+
+    async function loadAssessment(dateStr) {
+      try {
+        const url = `/api/assessment/evaluate?date=${encodeURIComponent(dateStr)}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Failed to evaluate');
+        const json = await res.json();
+        renderDashboard(json.payload || json);
+      } catch (e) {
+        console.error('Assessment evaluation failed:', e);
+      }
+    }
+
+    function renderDashboard(p) {
+      if (!p) return;
+      const meta = p.metadata || {};
+      const risk = p.risk_assessment || {};
+      const ind = risk.indicators || {};
+      const recov = p.recovery_tracking || {};
+      const scen = p.scenario_comparison || {};
+      const history = p.historical_series || [];
+      const audit = p.audit_reference || {};
+
+      // Header
+      document.getElementById('meta-eval-date').textContent = meta.evaluation_date || activeDate;
+
+      // Cards
+      const score = typeof risk.score === 'number' ? risk.score.toFixed(1) : '--';
+      const cat = risk.risk_category || 'Evaluating';
+      document.getElementById('val-score').textContent = score;
+      const catBadge = document.getElementById('val-category');
+      catBadge.textContent = cat;
+      catBadge.className = 'badge ' + (cat === 'Low' ? 'badge-low' : (cat === 'High' ? 'badge-high' : 'badge-medium'));
+
+      const dyn = typeof risk.dynamic_environmental_stress === 'number' ? risk.dynamic_environmental_stress.toFixed(1) : '--';
+      const base = typeof risk.baseline_soil_vulnerability === 'number' ? risk.baseline_soil_vulnerability.toFixed(1) : '--';
+      document.getElementById('val-split').textContent = `${dyn} / ${base}`;
+
+      document.getElementById('val-trajectory').textContent = recov.recovery_status || 'STABLE';
+      const mom = recov.mom_delta !== null && recov.mom_delta !== undefined ? `${recov.mom_delta > 0 ? '+' : ''}${recov.mom_delta.toFixed(1)} pts` : 'N/A';
+      const yoy = recov.yoy_delta !== null && recov.yoy_delta !== undefined ? `${recov.yoy_delta > 0 ? '+' : ''}${recov.yoy_delta.toFixed(1)} pts` : 'N/A';
+      document.getElementById('val-deltas').textContent = `MoM: ${mom} · YoY: ${yoy}`;
+
+      document.getElementById('val-percentile').textContent = recov.historical_percentile !== undefined ? `${recov.historical_percentile.toFixed(1)}%` : '--';
+      const mean = typeof recov.historical_mean === 'number' ? recov.historical_mean.toFixed(1) : '--';
+      document.getElementById('val-mean').textContent = `Mean: ${mean} · Max: ${recov.historical_max?.toFixed(1) || '--'}`;
+
+      // Table 5 indicators
+      renderIndicatorsTable(ind);
+
+      // Scenario comparisons
+      renderScenarioCards(scen.comparisons || {});
+      document.getElementById('scenario-summary-narrative').textContent = scen.summary_narrative || '';
+
+      // History
+      renderHistoryTable(history);
+
+      // Audit box
+      document.getElementById('audit-id').textContent = audit.assessment_id || meta.assessment_id || '--';
+      document.getElementById('audit-version').textContent = audit.engine_version || meta.engine_version || 'v1.0.0-baseline';
+      document.getElementById('audit-logpath').textContent = audit.log_path || 'logs/audit_log.csv';
+      document.getElementById('audit-rec-ids').textContent = (audit.recommendation_ids || []).join(', ') || 'N/A';
+      document.getElementById('audit-status').textContent = meta.assessment_status || 'COMPLETE (Deterministic)';
+    }
+
+    function renderIndicatorsTable(ind) {
+      const tbody = document.getElementById('indicators-table-body');
+      tbody.innerHTML = '';
+
+      const rows = [
+        { name: 'Moisture Deficit', data: ind.moisture_deficit, raw: d => d.raw_value ? `${(d.raw_value*100).toFixed(2)}% m³/m³` : '--', note: 'Root-zone moisture relative to wilting and field capacity.' },
+        { name: 'Precipitation Deficit', data: ind.precipitation_deficit, raw: d => d.moisture_buffering_factor ? `Buffering: ${(d.moisture_buffering_factor*100).toFixed(0)}%` : '--', note: 'Cumulative rainfall deficit mitigated by soil storage buffer.' },
+        { name: 'Thermal Stress', data: ind.thermal_stress, raw: d => d.raw_value ? `${d.raw_value.toFixed(1)} °C` : '--', note: 'Mean atmospheric temperature exceeding threshold.' },
+        { name: 'SOC Vulnerability', data: ind.soc_vulnerability, raw: d => d.raw_value ? `${d.raw_value.toFixed(1)} g/kg` : '--', note: 'Organic matter depletion reducing water holding capacity.' },
+        { name: 'pH Deviation', data: ind.ph_deviation, raw: d => d.raw_value ? `pH ${d.raw_value.toFixed(2)}` : '--', note: 'Distance from optimal agronomic range [6.0 - 7.5].' }
+      ];
+
+      rows.forEach(r => {
+        const d = r.data || {};
+        const sub = typeof d.sub_score === 'number' ? d.sub_score.toFixed(1) : '--';
+        const wt = typeof d.weight === 'number' ? `${(d.weight * 100).toFixed(0)}%` : '--';
+        const contrib = typeof d.weighted_score === 'number' ? d.weighted_score.toFixed(2) : '--';
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${r.name}</strong></td>
+          <td class="mono">${wt}</td>
+          <td class="mono">${r.raw(d)}</td>
+          <td class="mono" style="font-weight:700">${sub}</td>
+          <td class="mono">${contrib}</td>
+          <td style="color:var(--muted); font-size:12px">${r.note}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderScenarioCards(comps) {
+      const grid = document.getElementById('scenario-grid');
+      grid.innerHTML = '';
+
+      const keys = Object.keys(comps);
+      if (keys.length === 0) {
+        grid.innerHTML = '<p style="color:var(--muted)">No scenario comparison data available.</p>';
+        return;
+      }
+
+      keys.forEach(k => {
+        const s = comps[k];
+        const card = document.createElement('div');
+        card.className = 'scenario-card';
+        card.innerHTML = `
+          <h3>${s.scenario_name.replace('_', ' ')}</h3>
+          <p style="font-size:12px; color:var(--muted); margin-bottom:6px">${s.scenario_description || ''}</p>
+          <div class="scenario-stat-row">
+            <span>Atmospheric Stress Score:</span>
+            <strong class="mono">${s.scenario_atmospheric_score?.toFixed(1) || '--'} / 100</strong>
+          </div>
+          <div class="scenario-stat-row">
+            <span>Delta vs Baseline:</span>
+            <strong class="mono" style="color:${s.delta_score > 0 ? '#b71c1c' : '#2e7d32'}">${s.delta_score > 0 ? '+' : ''}${s.delta_score?.toFixed(1) || '--'} pts</strong>
+          </div>
+          <div class="scenario-stat-row">
+            <span>Category Shift:</span>
+            <strong class="mono">${s.category_shift || 'UNCHANGED'}</strong>
+          </div>
+          <p style="font-size:11px; color:#495748; margin-top:4px">${s.resilience_assessment || ''}</p>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderHistoryTable(series) {
+      const tbody = document.getElementById('history-table-body');
+      tbody.innerHTML = '';
+
+      series.slice().reverse().forEach(row => {
+        const tr = document.createElement('tr');
+        const badgeClass = row.risk_category === 'Low' ? 'badge-low' : (row.risk_category === 'High' ? 'badge-high' : 'badge-medium');
+        tr.innerHTML = `
+          <td class="mono"><strong>${row.date}</strong></td>
+          <td class="mono">${typeof row.score === 'number' ? row.score.toFixed(2) : '--'}</td>
+          <td><span class="badge ${badgeClass}">${row.risk_category}</span></td>
+          <td style="font-size:11px; color:var(--muted)">Empirical NASA/SoilGrids</td>
+          <td>
+            <button class="select-control" style="padding:3px 10px; font-size:11px" onclick="jumpToDate('${row.date}')">Evaluate ↗</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function jumpToDate(dateStr) {
+      const sel = document.getElementById('eval-date-select');
+      sel.value = dateStr;
+      activeDate = dateStr;
+      loadAssessment(dateStr);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

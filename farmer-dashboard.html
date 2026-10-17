@@ -1,0 +1,1264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1a2d21">
+  <title>Farmer Farm Workspace · SoilSentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --ink: #1b2e21;
+      --muted: #5e6f60;
+      --paper: #f4f2ea;
+      --card-bg: #ffffff;
+      --line: #d8decf;
+      --leaf: #6b8255;
+      --lime: #c5d886;
+      --gold: #b37400;
+      --risk-low: #257937;
+      --risk-med: #b25900;
+      --risk-high: #b72121;
+      --shadow-sm: 0 2px 8px rgba(27,46,33,0.06);
+      --shadow-md: 0 10px 24px rgba(27,46,33,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Top Navigation */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(244, 242, 234, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand span { font-weight: 400; opacity: 0.8; }
+    .topbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .user-pill {
+      font-size: 12px;
+      background: #e8ecdf;
+      padding: 7px 14px;
+      border-radius: 99px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .select-control {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 8px 14px;
+      font: inherit;
+      font-size: 13px;
+      color: var(--ink);
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .select-control:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 1px;
+    }
+    .btn-logout {
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 8px 16px;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-logout:hover {
+      background: #e6ebd9;
+    }
+
+    /* Main Container */
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 36px 5% 72px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Header Section */
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--leaf);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .dash-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+    .dash-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .date-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      background: #1b2e21;
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    /* Risk Hero Card */
+    .risk-hero {
+      background: linear-gradient(135deg, #1b2e21 0%, #25402e 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .risk-hero::after {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(197, 216, 134, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .score-circle-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-right: 28px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .score-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      color: #fff;
+    }
+    .score-max {
+      font-size: 20px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+    }
+    .score-badge {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 18px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .badge-low { background: #2e7d32; color: #fff; }
+    .badge-medium { background: #e65100; color: #fff; }
+    .badge-high { background: #c62828; color: #fff; }
+
+    .hero-narrative {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hero-narrative h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: #e4edd0;
+    }
+    .hero-narrative p {
+      font-size: 15px;
+      color: #d1dcce;
+      line-height: 1.7;
+    }
+    .metric-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .metric-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+    }
+    .metric-pill strong {
+      color: #c5d886;
+      margin-left: 4px;
+    }
+
+    /* Indicators Grid */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .section-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .indicators-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+    .indicator-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .indicator-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .indicator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .indicator-icon {
+      font-size: 24px;
+    }
+    .indicator-weight {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      background: #edf1e6;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .indicator-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .indicator-value-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .sub-score-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .raw-metric {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .progress-bar-bg {
+      height: 6px;
+      background: #e9eee0;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.6s ease;
+    }
+
+    /* Recommendations Section */
+    .recs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .rec-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .rec-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .urgency-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .urgency-critical { background: #ffcdd2; color: #b71c1c; }
+    .urgency-high { background: #ffe0b2; color: #e65100; }
+    .urgency-moderate { background: #fff9c4; color: #f57f17; }
+    .urgency-maintenance { background: #c8e6c9; color: #2e7d32; }
+
+    .cost-badge {
+      font-size: 11px;
+      background: #edf1e6;
+      color: var(--muted);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .rec-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .rec-reason {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .rec-steps {
+      background: #f8faf4;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+    }
+    .rec-steps strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--leaf);
+    }
+    .rec-steps ul {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .rec-limitations {
+      font-size: 11px;
+      color: #7b887a;
+      border-top: 1px dashed var(--line);
+      padding-top: 10px;
+    }
+
+    /* Crop Eligibility Banner & Cards */
+    .crop-section {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+    .crop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .season-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      background: #eef3e2;
+      color: #3b5030;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-weight: 600;
+    }
+    .withheld-banner {
+      background: #fbe9e7;
+      border: 1px solid #ffab91;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .withheld-icon {
+      font-size: 32px;
+    }
+    .withheld-text h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #c62828;
+      margin-bottom: 6px;
+    }
+    .withheld-text p {
+      font-size: 13px;
+      color: #5d4037;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .crops-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .crop-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      background: #fafcf6;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .crop-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .crop-meta {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      gap: 12px;
+    }
+    .crop-rationale {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #495748;
+    }
+
+    /* What-If Interactive Simulator */
+    .simulator-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+    .slider-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 24px 0;
+    }
+    .slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .slider-label span {
+      font-family: 'DM Mono', monospace;
+      color: var(--leaf);
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: #243b2b;
+      cursor: pointer;
+    }
+    .sim-button {
+      background: #20382a;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .sim-button:hover { background: #2f523d; }
+    .sim-results {
+      margin-top: 24px;
+      background: #f7f9f2;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+      display: none;
+    }
+    .sim-results.active { display: block; }
+    .sim-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .sim-stat {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .sim-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; font-family: 'DM Mono', monospace; }
+    .sim-stat-val { font-size: 20px; font-weight: 700; margin-top: 4px; }
+
+    /* Notice & Disclaimer */
+    .disclaimer-card {
+      background: #edf1e6;
+      border-left: 4px solid var(--leaf);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .disclaimer-card strong { color: var(--ink); }
+
+    /* Footer */
+    .dash-footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 5%;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* RTL support */
+    [dir="rtl"] { text-align: right; }
+    [dir="rtl"] .topbar { direction: rtl; }
+    [dir="rtl"] .dash-header { direction: rtl; }
+    [dir="rtl"] .risk-hero { direction: rtl; }
+    [dir="rtl"] .score-circle-wrap { padding-right: 0; padding-left: 28px; border-right: none; border-left: 1px solid rgba(255,255,255,0.15); }
+    [dir="rtl"] .indicators-grid { direction: rtl; }
+    [dir="rtl"] .recs-container { direction: rtl; }
+    [dir="rtl"] .crops-grid { direction: rtl; }
+    [dir="rtl"] .slider-row { direction: rtl; }
+    [dir="rtl"] .rec-steps ul { padding-left: 0; padding-right: 18px; }
+    [dir="rtl"] .disclaimer-card { border-left: none; border-right: 4px solid var(--leaf); border-radius: 10px 0 0 10px; }
+    [dir="rtl"] .dash-footer { direction: rtl; }
+
+    @media (max-width: 840px) {
+      .risk-hero { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+      .score-circle-wrap { padding: 0 0 20px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+      [dir="rtl"] .score-circle-wrap { padding: 0 0 20px 0; border-left: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+      .slider-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      ◉ soil<span>sentinel</span>
+    </a>
+    <div class="topbar-controls">
+      <span class="user-pill" id="user-display">🧑🏽‍🌾 Farmer</span>
+      
+      <!-- Date Evaluation Selector -->
+      <label for="eval-date-select" class="sr-only" style="display:none">Evaluation Month</label>
+      <select id="eval-date-select" class="select-control" aria-label="Select evaluation month">
+        <option value="">Loading dates...</option>
+      </select>
+
+      <!-- Multilingual Selector (20 languages) -->
+      <label for="lang-select" class="sr-only" style="display:none">Choose language</label>
+      <select id="lang-select" class="select-control" aria-label="Choose interface language">
+        <option value="en">🇬🇧 English</option>
+        <option value="te">🇮🇳 తెలుగు — Telugu</option>
+        <option value="hi">🇮🇳 हिन्दी — Hindi</option>
+        <option value="ta">🇮🇳 தமிழ் — Tamil</option>
+        <option value="kn">🇮🇳 ಕನ್ನಡ — Kannada</option>
+        <option value="ml">🇮🇳 മലയാളം — Malayalam</option>
+        <option value="mr">🇮🇳 मराठी — Marathi</option>
+        <option value="bn">🇮🇳 বাংলা — Bengali</option>
+        <option value="gu">🇮🇳 ગુજરાતી — Gujarati</option>
+        <option value="pa">🇮🇳 ਪੰਜਾਬੀ — Punjabi</option>
+        <option value="or">🇮🇳 ଓଡ଼ିଆ — Odia</option>
+        <option value="as">🇮🇳 অসমীয়া — Assamese</option>
+        <option value="ur">🇮🇳 اردو — Urdu</option>
+        <option value="sa">🕉️ संस्कृत — Sanskrit</option>
+        <option value="es">🇪🇸 Español — Spanish</option>
+        <option value="fr">🇫🇷 Français — French</option>
+        <option value="pt">🇵🇹 Português — Portuguese</option>
+        <option value="ar">🇸🇦 العربية — Arabic</option>
+        <option value="id">🇮🇩 Bahasa Indonesia</option>
+        <option value="sw">🌍 Kiswahili — Swahili</option>
+      </select>
+
+      <button id="logout-btn" class="btn-logout" data-t="logout">Log out ↗</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-container">
+
+    <!-- Header info -->
+    <section class="dash-header">
+      <div>
+        <p class="eyebrow" data-t="eyebrow">FARMER WORKSPACE / FIELD LEVEL SOIL INTELLIGENCE</p>
+        <h1 data-t="greeting">Your Field Health Assessment</h1>
+      </div>
+      <div class="dash-meta">
+        <div><span data-t="eval_month">Evaluation Month:</span> <strong id="meta-date" class="date-badge">--</strong></div>
+        <div style="font-size:11px" id="meta-status">Status: Verified</div>
+      </div>
+    </section>
+
+    <!-- Risk Hero Card -->
+    <section class="risk-hero">
+      <div class="score-circle-wrap">
+        <div class="score-value" id="risk-score">--</div>
+        <div class="score-max">/ 100</div>
+        <div class="score-badge badge-medium" id="risk-category">Evaluating</div>
+      </div>
+      <div class="hero-narrative">
+        <div class="metric-pills">
+          <div class="metric-pill"><span data-t="mom">MoM Delta:</span> <strong id="pill-mom">--</strong></div>
+          <div class="metric-pill"><span data-t="trajectory">Trajectory:</span> <strong id="pill-trajectory">--</strong></div>
+          <div class="metric-pill"><span data-t="percentile">Historical Rank:</span> <strong id="pill-percentile">--</strong></div>
+        </div>
+        <h2 id="hero-headline">Processing soil and weather signals...</h2>
+        <p id="hero-explanation">Connecting to the SoilSentinel physics-based hydro-thermal risk engine.</p>
+      </div>
+    </section>
+
+    <!-- 5 Contributing Indicators Breakdown -->
+    <section>
+      <h2 class="section-title" data-t="indicators_title">Contributing Soil & Climate Indicators</h2>
+      <p class="section-desc" data-t="indicators_desc">Dynamic atmospheric stress (70%) combined with baseline soil vulnerability (30%).</p>
+      <div class="indicators-grid" id="indicators-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Prioritized Actions & Recommendations -->
+    <section>
+      <h2 class="section-title" data-t="recs_title">Prioritized Farm Management Interventions</h2>
+      <p class="section-desc" data-t="recs_desc">Ranked by agronomic urgency and weighted physical risk contribution.</p>
+      <div class="recs-container" id="recs-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Crop Recommendation Eligibility Section -->
+    <section class="crop-section">
+      <div class="crop-header">
+        <div>
+          <h2 class="section-title" style="margin-bottom:2px" data-t="crop_title">Crop Recommendation & Season Advisory</h2>
+          <p class="section-desc" style="margin-bottom:0" data-t="crop_desc">Biophysical safety checks protect against sowing failures under extreme stress.</p>
+        </div>
+        <span class="season-tag" id="season-tag">Season: --</span>
+      </div>
+
+      <div id="crop-content">
+        <!-- Rendered dynamically (either withheld banner or crop cards) -->
+      </div>
+    </section>
+
+    <!-- What-If Scenario Stress Testing -->
+    <section class="simulator-box">
+      <h2 class="section-title" data-t="sim_title">Interactive What-If Scenario Stress Test</h2>
+      <p class="section-desc" data-t="sim_desc">Simulate hypothetical rainfall and temperature variations over the next 30 days to test field resilience.</p>
+      
+      <div class="slider-row">
+        <div class="slider-group">
+          <label class="slider-label" for="slider-precip">
+            <span data-t="sim_rain">Hypothetical Daily Rainfall:</span>
+            <span id="slider-precip-val">0.0 mm/day</span>
+          </label>
+          <input type="range" id="slider-precip" min="0" max="25" step="0.5" value="0.0">
+        </div>
+        <div class="slider-group">
+          <label class="slider-label" for="slider-temp">
+            <span data-t="sim_temp">Hypothetical Average Temp:</span>
+            <span id="slider-temp-val">38.0 °C</span>
+          </label>
+          <input type="range" id="slider-temp" min="10" max="48" step="1" value="38">
+        </div>
+      </div>
+
+      <button id="sim-run-btn" class="sim-button" data-t="sim_btn">Simulate 30-Day Scenario ↗</button>
+
+      <div class="sim-results" id="sim-results-box">
+        <div class="sim-metrics-grid">
+          <div class="sim-stat">
+            <div class="sim-stat-label">Simulated Score</div>
+            <div class="sim-stat-val" id="sim-res-score">--</div>
+          </div>
+          <div class="sim-stat">
+            <div class="sim-stat-label">Baseline Shift</div>
+            <div class="sim-stat-val" id="sim-res-delta">--</div>
+          </div>
+          <div class="sim-stat">
+            <div class="sim-stat-label">Stress Shift</div>
+            <div class="sim-stat-val" id="sim-res-shift">--</div>
+          </div>
+        </div>
+        <p id="sim-res-narrative" style="font-size:13px; line-height:1.6; color:#364937; margin-bottom:8px"></p>
+        <div id="sim-res-assumptions" style="font-size:11px; color:var(--muted)"></div>
+      </div>
+    </section>
+
+    <!-- Standard Agronomic & Non-ML Notice -->
+    <div class="disclaimer-card">
+      <strong data-t="notice_title">Agronomic Notice & Methodology:</strong>
+      <span data-t="notice_body">
+        The SoilSentinel risk index is an empirical engineering heuristic based on regional reanalysis (NASA POWER) and digital soil mapping (SoilGrids 250m). It is a deterministic rule-based screening tool, NOT a machine-learned prediction model or localized certified agricultural prescription.
+      </span>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="dash-footer">
+    <div>
+      <span>SOILSENTINEL · FIELD VERIFIED INTELLIGENCE</span> · 
+      <span id="footer-engine">Engine: v1.0.0-baseline</span>
+    </div>
+    <div id="footer-audit">Audit Reference: --</div>
+  </footer>
+
+  <script>
+    // -------------------------------------------------------------------------
+    // Translations & Localization Data (20 Languages)
+    // -------------------------------------------------------------------------
+    const langStrings = {
+      en: {
+        eyebrow: "FARMER WORKSPACE / FIELD LEVEL SOIL INTELLIGENCE",
+        greeting: "Your Field Health Assessment",
+        eval_month: "Evaluation Month:",
+        mom: "MoM Delta:",
+        trajectory: "Trajectory:",
+        percentile: "Historical Rank:",
+        indicators_title: "Contributing Soil & Climate Indicators",
+        indicators_desc: "Dynamic atmospheric stress (70%) combined with baseline soil vulnerability (30%).",
+        recs_title: "Prioritized Farm Management Interventions",
+        recs_desc: "Ranked by agronomic urgency and weighted physical risk contribution.",
+        crop_title: "Crop Recommendation & Season Advisory",
+        crop_desc: "Biophysical safety checks protect against sowing failures under extreme stress.",
+        sim_title: "Interactive What-If Scenario Stress Test",
+        sim_desc: "Simulate hypothetical rainfall and temperature variations over the next 30 days to test field resilience.",
+        sim_rain: "Hypothetical Daily Rainfall:",
+        sim_temp: "Hypothetical Average Temp:",
+        sim_btn: "Simulate 30-Day Scenario ↗",
+        notice_title: "Agronomic Notice & Methodology:",
+        notice_body: "The SoilSentinel risk index is an empirical engineering heuristic based on regional reanalysis (NASA POWER) and digital soil mapping (SoilGrids 250m). It is a deterministic rule-based screening tool, NOT a machine-learned prediction model or localized certified agricultural prescription.",
+        logout: "Log out ↗"
+      },
+      hi: {
+        eyebrow: "किसान कार्यक्षेत्र / खेत स्तर की मिट्टी की जानकारी",
+        greeting: "आपके खेत का स्वास्थ्य आकलन",
+        eval_month: "मूल्यांकन माह:",
+        mom: "मासिक बदलाव:",
+        trajectory: "प्रवृत्ति:",
+        percentile: "ऐतिहासिक रैंक:",
+        indicators_title: "मिट्टी और मौसम के प्रमुख संकेतक",
+        indicators_desc: "गतिशील वायुमंडलीय तनाव (70%) और मिट्टी की अंतर्निहित संवेदनशीलता (30%)।",
+        recs_title: "प्राथमिकता वाले कृषि प्रबंधन उपाय",
+        recs_desc: "गंभीरता और जोखिम योगदान के आधार पर क्रमबद्ध।",
+        crop_title: "फसल सिफारिश और मौसमी सलाह",
+        crop_desc: "चरम तनाव में फसल विफलता से बचाव के लिए जैविक सुरक्षा जांच।",
+        sim_title: "इंटरएक्टिव 'क्या-अगर' परिदृश्य परीक्षण",
+        sim_desc: "खेत की सहनशीलता जांचने के लिए अगले 30 दिनों में बारिश और तापमान के बदलाव का अनुकरण करें।",
+        sim_rain: "अनुमानित दैनिक वर्षा:",
+        sim_temp: "अनुमानित औसत तापमान:",
+        sim_btn: "30-दिवसीय परिदृश्य चलाएं ↗",
+        notice_title: "कृषि संबंधी सूचना और कार्यप्रणाली:",
+        notice_body: "सॉइलसेंटिनल जोखिम सूचकांक नासा पावर और सॉइल-ग्रिड्स 250 मीटर पर आधारित एक इंजीनियरिंग अनुमान है। यह एक पारदर्शी नियम-आधारित जांच उपकरण है, कोई प्रमाणित नुस्खा नहीं।",
+        logout: "लॉग आउट ↗"
+      },
+      te: {
+        eyebrow: "రైతు వర్క్‌స్పేస్ / క్షేత్ర స్థాయి నేల విజ్ఞానం",
+        greeting: "మీ పొలం ఆరోగ్య అంచనా",
+        eval_month: "అంచనా నెల:",
+        mom: "నెలవారీ మార్పు:",
+        trajectory: "ధోరణి:",
+        percentile: "చారిత్రక ర్యాంక్:",
+        indicators_title: "నేల మరియు వాతావరణ సూచికలు",
+        indicators_desc: "వాతావరణ ఒత్తిడి (70%) మరియు నేల అంతర్లీన బలహీనత (30%) సమ్మేళనం.",
+        recs_title: "ప్రాధాన్యతా వ్యవసాయ సూచనలు",
+        recs_desc: "తీవ్రత మరియు శారీరక ప్రమాద ప్రభావం ప్రకారం వర్గీకరించబడింది.",
+        crop_title: "పంట సిఫార్సు & సీజన్ సలహా",
+        crop_desc: "తీవ్రమైన ఒత్తిడిలో పంట నష్టం జరగకుండా జీవభౌతిక భద్రతా తనిఖీలు.",
+        sim_title: "పరిస్థితుల ఒత్తిడి పరీక్ష (వాట్-ఇఫ్)",
+        sim_desc: "రాబోయే 30 రోజుల్లో వర్షం మరియు ఉష్ణోగ్రత మార్పులను అనుకరించి పరీక్షించండి.",
+        sim_rain: "ఊహాజనిత రోజువారీ వర్షపాతం:",
+        sim_temp: "ఊహాజనిత సగటు ఉష్ణోగ్రత:",
+        sim_btn: "30-రోజుల సిమ్యులేషన్ చేయండి ↗",
+        notice_title: "వ్యవసాయ గమనిక మరియు పద్ధతి:",
+        notice_body: "సాయిల్ సెంటినెల్ రిస్క్ ఇండెక్స్ నాసా పవర్ మరియు సాయిల్‌గ్రిడ్స్ ఆధారంగా నిర్మించబడిన పారదర్శక సాంకేతిక పద్ధతి.",
+        logout: "లాగ్ అవుట్ ↗"
+      },
+      ur: {
+        eyebrow: "کسان ورک اسپیس / فیلڈ لیول مٹی کی تفہیم",
+        greeting: "آپ کے کھیت کی صحت کا جائزہ",
+        eval_month: "جائزے کا مہینہ:",
+        mom: "ماہانہ تبدیلی:",
+        trajectory: "رجحان:",
+        percentile: "تاریخی درجہ:",
+        indicators_title: "مٹی اور موسم کے اشارے",
+        indicators_desc: "موسمیاتی دباؤ (70%) اور مٹی کی قدرتی کمزوری (30%)۔",
+        recs_title: "اہم زرعی تجاویز",
+        recs_desc: "ضرورت اور خطرے کے تناسب کے مطابق ترتیب شدہ۔",
+        crop_title: "فصل کی سفارش اور موسمی مشورہ",
+        crop_desc: "شدید دباؤ کے دوران فصل کی تباہی سے بچاؤ کے اصول۔",
+        sim_title: "موسمی حالات کی جانچ (سیمولیشن)",
+        sim_desc: "اگلے 30 دنوں کے دوران بارش اور درجہ حرارت کے اثرات دیکھیں۔",
+        sim_rain: "متوقع روزانہ بارش:",
+        sim_temp: "متوقع درجہ حرارت:",
+        sim_btn: "سیمولیشن چلائیں ↗",
+        notice_title: "زرعی انتباہ اور طریقہ کار:",
+        notice_body: "سائل سینٹینیل رسک انڈیکس ناسا پاور اور سائل گرڈز ڈیٹا پر مبنی اصول پر کام کرتا ہے۔",
+        logout: "لاگ آؤٹ ↗"
+      },
+      ar: {
+        eyebrow: "مساحة عمل المزارع / صحة التربة الحقلية",
+        greeting: "تقييم صحة حقلك الزراعي",
+        eval_month: "شهر التقييم:",
+        mom: "التغير الشهري:",
+        trajectory: "المسار:",
+        percentile: "المرتبة التاريخية:",
+        indicators_title: "مؤشرات التربة والمناخ",
+        indicators_desc: "الإجهاد المناخي (70%) مع ضعف التربة الأساسي (30%).",
+        recs_title: "التدخلات الإدارية ذات الأولوية",
+        recs_desc: "مرتبة حسب الأهمية والمساهمة في المخاطر.",
+        crop_title: "توصيات المحاصيل والإرشاد الموسمي",
+        crop_desc: "إجراءات أمان بيوفيزيائية لمنع فشل المحاصيل.",
+        sim_title: "اختبار السيناريوهات الافتراضية",
+        sim_desc: "محاكاة هطول الأمطار ودرجات الحرارة لـ 30 يوماً.",
+        sim_rain: "هطول الأمطار اليومي الافتراضي:",
+        sim_temp: "متوسط درجات الحرارة الافتراضي:",
+        sim_btn: "تشغيل المحاكاة ↗",
+        notice_title: "إشعار زراعي والمنهجية:",
+        notice_body: "مؤشر SoilSentinel هو أداة فحص تجريبية محددة تعتمد على بيانات NASA POWER و SoilGrids.",
+        logout: "تسجيل الخروج ↗"
+      }
+    };
+
+    let currentAssessment = null;
+    let selectedDate = '';
+
+    // Initialize UI
+    async function init() {
+      // 1. Authenticate & load workspace
+      try {
+        const res = await fetch('/api/farmer/workspace');
+        if (!res.ok) throw new Error('Unauthenticated');
+        const data = await res.json();
+        if (data.user) {
+          document.getElementById('user-display').textContent = `🧑🏽‍🌾 ${data.user.name || 'Farmer'}`;
+        }
+      } catch (err) {
+        window.location.replace('/auth.html?mode=login&role=farmer');
+        return;
+      }
+
+      // 2. Fetch available dates
+      try {
+        const dRes = await fetch('/api/assessment/dates');
+        const dData = await dRes.json();
+        const dates = dData.available_dates || [];
+        const dateSelect = document.getElementById('eval-date-select');
+        dateSelect.innerHTML = '';
+        
+        dates.forEach(d => {
+          const opt = document.createElement('option');
+          opt.value = d;
+          opt.textContent = `📅 ${d}`;
+          dateSelect.appendChild(opt);
+        });
+
+        if (dates.length > 0) {
+          selectedDate = dates[dates.length - 1]; // Latest by default
+          dateSelect.value = selectedDate;
+          await loadAssessment(selectedDate);
+        }
+
+        dateSelect.addEventListener('change', async (e) => {
+          selectedDate = e.target.value;
+          await loadAssessment(selectedDate);
+        });
+      } catch (err) {
+        console.error('Failed to load dates:', err);
+      }
+
+      // 3. Language setup
+      const langSelect = document.getElementById('lang-select');
+      let savedLang = 'en';
+      try {
+        const s = localStorage.getItem('soilsentinel_lang');
+        if (s) savedLang = s;
+      } catch (_) {}
+      langSelect.value = savedLang;
+      applyLanguage(savedLang);
+
+      langSelect.addEventListener('change', (e) => {
+        const l = e.target.value;
+        try { localStorage.setItem('soilsentinel_lang', l); } catch (_) {}
+        applyLanguage(l);
+      });
+
+      // 4. Logout setup
+      document.getElementById('logout-btn').addEventListener('click', async () => {
+        await fetch('/api/auth/logout', { method: 'POST' });
+        window.location.assign('/index.html');
+      });
+
+      // 5. Simulator slider listeners
+      const sPrecip = document.getElementById('slider-precip');
+      const sPrecipVal = document.getElementById('slider-precip-val');
+      const sTemp = document.getElementById('slider-temp');
+      const sTempVal = document.getElementById('slider-temp-val');
+      const simBtn = document.getElementById('sim-run-btn');
+
+      sPrecip.addEventListener('input', () => {
+        sPrecipVal.textContent = `${parseFloat(sPrecip.value).toFixed(1)} mm/day`;
+      });
+      sTemp.addEventListener('input', () => {
+        sTempVal.textContent = `${parseFloat(sTemp.value).toFixed(1)} °C`;
+      });
+
+      simBtn.addEventListener('click', runSimulation);
+    }
+
+    // Load Real Assessment from Backend
+    async function loadAssessment(dateStr) {
+      try {
+        const url = `/api/assessment/evaluate?date=${encodeURIComponent(dateStr)}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Evaluation failed');
+        const json = await res.json();
+        currentAssessment = json.payload || json;
+        renderDashboard(currentAssessment);
+      } catch (err) {
+        console.error('Failed to evaluate assessment:', err);
+      }
+    }
+
+    // Render Dashboard Content
+    function renderDashboard(p) {
+      if (!p) return;
+
+      const meta = p.metadata || {};
+      const risk = p.risk_assessment || {};
+      const recs = p.recommendations || {};
+      const recov = p.recovery_tracking || {};
+      const crop = p.crop_eligibility || {};
+      const audit = p.audit_reference || {};
+
+      // Meta date
+      document.getElementById('meta-date').textContent = meta.evaluation_date || selectedDate;
+      document.getElementById('meta-status').textContent = `Engine: ${meta.engine_version || 'v1.0.0-baseline'} · Status: ${meta.assessment_status || 'COMPLETE'}`;
+
+      // Score & category
+      const score = typeof risk.score === 'number' ? risk.score.toFixed(1) : '--';
+      const cat = risk.risk_category || 'Evaluating';
+      const scoreEl = document.getElementById('risk-score');
+      const catEl = document.getElementById('risk-category');
+      
+      scoreEl.textContent = score;
+      catEl.textContent = cat;
+      catEl.className = 'score-badge ' + (cat === 'Low' ? 'badge-low' : (cat === 'High' ? 'badge-high' : 'badge-medium'));
+
+      // Narrative & pills
+      document.getElementById('pill-mom').textContent = recov.mom_delta !== null && recov.mom_delta !== undefined 
+        ? `${recov.mom_delta > 0 ? '+' : ''}${recov.mom_delta.toFixed(1)} pts` 
+        : 'N/A';
+      document.getElementById('pill-trajectory').textContent = recov.recovery_status || 'STABLE';
+      document.getElementById('pill-percentile').textContent = recov.historical_percentile !== undefined 
+        ? `${recov.historical_percentile.toFixed(0)}th percentile` 
+        : '--';
+
+      document.getElementById('hero-headline').textContent = cat === 'Low'
+        ? 'Soil conditions are stable with minimal seasonal stress.'
+        : (cat === 'High' 
+          ? 'Elevated hydro-thermal stress detected: proactive soil care required.' 
+          : 'Moderate hydro-thermal pressure observed across key indicators.');
+      
+      document.getElementById('hero-explanation').textContent = risk.explanation || recov.evidence_summary || 'Analysis complete.';
+
+      // Indicators Grid
+      renderIndicators(risk.indicators || {});
+
+      // Recommendations Cards
+      renderRecommendations(recs.top_three_recommendations || recs.recommendations || []);
+
+      // Crop Advisory
+      renderCropSection(crop);
+
+      // Footer
+      if (audit.assessment_id) {
+        document.getElementById('footer-audit').textContent = `Audit Ref: ${audit.assessment_id} (Logged)`;
+      }
+    }
+
+    function renderIndicators(ind) {
+      const container = document.getElementById('indicators-list');
+      container.innerHTML = '';
+
+      const items = [
+        { key: 'moisture_deficit', name: 'Moisture Deficit', icon: '💧', data: ind.moisture_deficit, raw: d => d.raw_value ? `${(d.raw_value*100).toFixed(1)}% m³/m³` : '' },
+        { key: 'precipitation_deficit', name: 'Precipitation Deficit', icon: '🌧️', data: ind.precipitation_deficit, raw: d => d.moisture_buffering_factor ? `Buffering: ${(d.moisture_buffering_factor*100).toFixed(0)}%` : '' },
+        { key: 'thermal_stress', name: 'Thermal Stress', icon: '🌡️', data: ind.thermal_stress, raw: d => d.raw_value ? `${d.raw_value.toFixed(1)} °C` : '' },
+        { key: 'soc_vulnerability', name: 'SOC Vulnerability', icon: '🌱', data: ind.soc_vulnerability, raw: d => d.raw_value ? `${d.raw_value.toFixed(1)} g/kg` : '' },
+        { key: 'ph_deviation', name: 'pH Deviation', icon: '🧪', data: ind.ph_deviation, raw: d => d.raw_value ? `pH ${d.raw_value.toFixed(2)}` : '' }
+      ];
+
+      items.forEach(item => {
+        const d = item.data || {};
+        const sub = typeof d.sub_score === 'number' ? d.sub_score : 0;
+        const weight = d.weight ? `${(d.weight * 100).toFixed(0)}% wt` : '';
+        const rawStr = item.raw(d);
+
+        // Progress bar color
+        const color = sub < 35 ? '#2e7d32' : (sub < 65 ? '#e65100' : '#c62828');
+
+        const card = document.createElement('div');
+        card.className = 'indicator-card';
+        card.innerHTML = `
+          <div class="indicator-header">
+            <span class="indicator-icon">${item.icon}</span>
+            <span class="indicator-weight">${weight}</span>
+          </div>
+          <div class="indicator-name">${item.name}</div>
+          <div class="indicator-value-row">
+            <span class="sub-score-num" style="color:${color}">${sub.toFixed(1)}</span>
+            <span class="raw-metric">${rawStr}</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width:${Math.min(100, Math.max(0, sub))}%; background:${color}"></div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderRecommendations(list) {
+      const container = document.getElementById('recs-list');
+      container.innerHTML = '';
+
+      if (!list || list.length === 0) {
+        container.innerHTML = '<p style="color:var(--muted)">No critical interventions required at current stress levels.</p>';
+        return;
+      }
+
+      list.forEach(r => {
+        const urgClass = r.urgency === 'CRITICAL' ? 'urgency-critical' 
+          : (r.urgency === 'HIGH' ? 'urgency-high' 
+          : (r.urgency === 'MODERATE' ? 'urgency-moderate' : 'urgency-maintenance'));
+
+        const steps = (r.actionable_steps || []).map(s => `<li>${s}</li>`).join('');
+
+        const card = document.createElement('div');
+        card.className = 'rec-card';
+        card.innerHTML = `
+          <div>
+            <div class="rec-top">
+              <span class="urgency-badge ${urgClass}">${r.urgency || 'Action'}</span>
+              <span class="cost-badge">${r.cost_category || 'Management'}</span>
+            </div>
+            <h3 style="margin-top:10px">${r.title || 'Soil Management Action'}</h3>
+            <p class="rec-reason" style="margin-top:6px">${r.reason || ''}</p>
+          </div>
+          <div class="rec-steps">
+            <strong>Action Steps:</strong>
+            <ul>${steps}</ul>
+          </div>
+          ${r.limitations ? `<div class="rec-limitations"><strong>Limitation:</strong> ${r.limitations}</div>` : ''}
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderCropSection(crop) {
+      const container = document.getElementById('crop-content');
+      const tag = document.getElementById('season-tag');
+      tag.textContent = `Season: ${crop.season || 'Annual'}`;
+
+      if (crop.is_eligible === false) {
+        // Withheld banner
+        const reasons = (crop.withhold_explanations || crop.withhold_reasons || []).join(' ');
+        container.innerHTML = `
+          <div class="withheld-banner">
+            <span class="withheld-icon">🛡️</span>
+            <div class="withheld-text">
+              <h3>Planting Recommendations Withheld</h3>
+              <p>${reasons || 'Current hydro-thermal stress or soil degradation exceeds safe biophysical thresholds for reliable germination.'}</p>
+              <p style="font-size:12px; margin-bottom:0; color:#8d6e63"><strong>Agronomic Guidance:</strong> Focus on soil moisture conservation and remediation before investing in seed sowing.</p>
+            </div>
+          </div>
+        `;
+      } else {
+        // Suitable crops list
+        const crops = crop.recommended_crops || [];
+        if (crops.length === 0) {
+          container.innerHTML = '<p style="color:var(--muted)">Standard seasonal crop selection permitted under normal local advisory.</p>';
+          return;
+        }
+
+        let html = '<div class="crops-grid">';
+        crops.forEach(c => {
+          html += `
+            <div class="crop-card">
+              <div class="crop-name">${c.crop_name}</div>
+              <div class="crop-meta">
+                <span>🌱 ${c.category || 'Crop'}</span>
+                <span>💧 ${c.water_requirement || 'Normal'} Water</span>
+              </div>
+              <div class="crop-rationale">${c.agronomic_rationale || ''}</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:4px">⏱️ Growth: ${c.growth_duration_days || 'Standard'}</div>
+            </div>
+          `;
+        });
+        html += '</div>';
+
+        if (crop.management_advisory) {
+          html += `<p style="font-size:13px; color:var(--muted); margin-top:16px"><strong>Seasonal Advice:</strong> ${crop.management_advisory}</p>`;
+        }
+        container.innerHTML = html;
+      }
+    }
+
+    // Run What-If Simulation
+    async function runSimulation() {
+      const precip = parseFloat(document.getElementById('slider-precip').value);
+      const temp = parseFloat(document.getElementById('slider-temp').value);
+      const btn = document.getElementById('sim-run-btn');
+
+      btn.disabled = true;
+      btn.textContent = 'Simulating...';
+
+      try {
+        const res = await fetch('/api/assessment/scenario', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            date: selectedDate,
+            rainfall_mm: precip,
+            temp_c: temp,
+            horizon_days: 30
+          })
+        });
+
+        if (!res.ok) throw new Error('Simulation failed');
+        const json = await res.json();
+        const data = json.comparison || (json.payload && json.payload.comparison) || json.payload || json;
+
+        // Render results
+        const box = document.getElementById('sim-results-box');
+        box.classList.add('active');
+
+        const simScore = typeof data.scenario_atmospheric_score === 'number' ? data.scenario_atmospheric_score.toFixed(1) : (data.scenario_atmospheric_score || '--');
+        document.getElementById('sim-res-score').textContent = `${simScore} / 100`;
+        const delta = data.delta_score;
+        const deltaEl = document.getElementById('sim-res-delta');
+        deltaEl.textContent = `${delta > 0 ? '+' : ''}${delta.toFixed(1)} pts`;
+        deltaEl.style.color = delta > 0 ? '#b71c1c' : (delta < 0 ? '#2e7d32' : 'inherit');
+
+        document.getElementById('sim-res-shift').textContent = data.category_shift || 'UNCHANGED';
+        document.getElementById('sim-res-narrative').textContent = data.resilience_assessment || '';
+
+        const assumptions = (data.assumptions || []).slice(0, 3).map(a => `• ${a}`).join('<br>');
+        document.getElementById('sim-res-assumptions').innerHTML = `<strong>Model Assumptions:</strong><br>${assumptions}`;
+      } catch (err) {
+        console.error('Simulation error:', err);
+        alert('Simulation failed. Please check parameters and try again.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Simulate 30-Day Scenario ↗';
+      }
+    }
+
+    // Apply Language & Direction
+    function applyLanguage(code) {
+      const dict = Object.assign({}, langStrings.en, langStrings[code] || {});
+      const isRtl = (code === 'ur' || code === 'ar');
+      document.documentElement.lang = code;
+      document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const k = el.dataset.t;
+        if (dict[k]) {
+          el.textContent = dict[k];
+        }
+      });
+    }
+
+    // Start on DOM ready
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

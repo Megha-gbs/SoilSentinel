@@ -1,0 +1,454 @@
+{
+  "model_version": "v1.0.0-rf-proxy",
+  "engine_version": "v1.0.0-baseline",
+  "trained_at_utc": "2026-10-17T17:45:28.813058+00:00",
+  "algorithm": "Random Forest Classifier",
+  "target_column": "risk_category",
+  "classes": [
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "feature_columns": [
+    "air_temperature_c",
+    "air_humidity_percent",
+    "precipitation_mm_day",
+    "soil_temperature_layer1_c",
+    "soil_moisture_surface_fraction",
+    "soil_moisture_rootzone_fraction",
+    "precipitation_lag1_mm_day",
+    "air_temperature_lag1_c",
+    "precipitation_rolling_3m_mean_mm_day",
+    "temp_soil_air_diff_c",
+    "soil_moisture_depth_gradient",
+    "monthly_aridity_index",
+    "month_sin",
+    "month_cos"
+  ],
+  "feature_count": 14,
+  "dataset_total_samples": 60,
+  "date_coverage": {
+    "start": "2020-01",
+    "end": "2024-12"
+  },
+  "spatial_context": "Indo-Gangetic Agricultural Plains / Punjab",
+  "target_provenance": "SURROGATE_PROXY_LEARNING",
+  "target_provenance_notes": "Learned from rule-based Seasonal Hydro-Thermal Stress & Baseline Vulnerability Index categories. NOT an independently measured physical soil degradation metric.",
+  "split_methodology": {
+    "strategy": "Chronological Split",
+    "train_window": "2020-01 to 2022-12 (36 months)",
+    "validation_window": "2023-01 to 2023-12 (12 months)",
+    "test_window": "2024-01 to 2024-12 (12 months)",
+    "class_distribution_train": {
+      "Medium": 18,
+      "Low": 17,
+      "High": 1
+    },
+    "class_distribution_val": {
+      "Medium": 8,
+      "Low": 4
+    },
+    "class_distribution_test": {
+      "Medium": 7,
+      "Low": 3,
+      "High": 2
+    }
+  },
+  "evaluation_metrics": {
+    "validation": {
+      "split": "Validation (2023)",
+      "sample_count": 12,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "confusion_matrix": {
+        "labels": [
+          "High",
+          "Low",
+          "Medium"
+        ],
+        "matrix": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            8
+          ]
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "support": 0
+        },
+        "Low": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "support": 4
+        },
+        "Medium": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "support": 8
+        }
+      }
+    },
+    "test": {
+      "split": "Test (2024)",
+      "sample_count": 12,
+      "accuracy": 0.9167,
+      "macro_f1": 0.9267,
+      "weighted_f1": 0.9194,
+      "confusion_matrix": {
+        "labels": [
+          "High",
+          "Low",
+          "Medium"
+        ],
+        "matrix": [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            1,
+            6
+          ]
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "support": 2
+        },
+        "Low": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1_score": 0.8571,
+          "support": 3
+        },
+        "Medium": {
+          "precision": 1.0,
+          "recall": 0.8571,
+          "f1_score": 0.9231,
+          "support": 7
+        }
+      }
+    },
+    "timeseries_cv_4fold": {
+      "mean_accuracy": 0.9167,
+      "mean_macro_f1": 0.8497,
+      "folds": [
+        {
+          "fold": 1,
+          "train_start": "2020-01",
+          "train_end": "2020-12",
+          "train_count": 12,
+          "val_start": "2021-01",
+          "val_end": "2021-12",
+          "val_count": 12,
+          "accuracy": 0.9167,
+          "macro_f1": 0.9111
+        },
+        {
+          "fold": 2,
+          "train_start": "2020-01",
+          "train_end": "2021-12",
+          "train_count": 24,
+          "val_start": "2022-01",
+          "val_end": "2022-12",
+          "val_count": 12,
+          "accuracy": 0.8333,
+          "macro_f1": 0.5611
+        },
+        {
+          "fold": 3,
+          "train_start": "2020-01",
+          "train_end": "2022-12",
+          "train_count": 36,
+          "val_start": "2023-01",
+          "val_end": "2023-12",
+          "val_count": 12,
+          "accuracy": 1.0,
+          "macro_f1": 1.0
+        },
+        {
+          "fold": 4,
+          "train_start": "2020-01",
+          "train_end": "2023-12",
+          "train_count": 48,
+          "val_start": "2024-01",
+          "val_end": "2024-12",
+          "val_count": 12,
+          "accuracy": 0.9167,
+          "macro_f1": 0.9267
+        }
+      ]
+    }
+  },
+  "model_comparison_summary": {
+    "Dummy (Majority Class)": {
+      "val_accuracy": 0.6667,
+      "val_macro_f1": 0.4,
+      "test_accuracy": 0.5833,
+      "test_macro_f1": 0.2456
+    },
+    "Logistic Regression": {
+      "val_accuracy": 1.0,
+      "val_macro_f1": 1.0,
+      "test_accuracy": 0.9167,
+      "test_macro_f1": 0.9267
+    },
+    "Random Forest Classifier": {
+      "val_accuracy": 1.0,
+      "val_macro_f1": 1.0,
+      "test_accuracy": 0.9167,
+      "test_macro_f1": 0.9267
+    },
+    "Gradient Boosting Classifier": {
+      "val_accuracy": 1.0,
+      "val_macro_f1": 1.0,
+      "test_accuracy": 0.9167,
+      "test_macro_f1": 0.9267
+    }
+  },
+  "top_features": [
+    {
+      "feature": "air_humidity_percent",
+      "importance": 0.1603
+    },
+    {
+      "feature": "soil_moisture_depth_gradient",
+      "importance": 0.1426
+    },
+    {
+      "feature": "air_temperature_c",
+      "importance": 0.1404
+    },
+    {
+      "feature": "soil_moisture_surface_fraction",
+      "importance": 0.1371
+    },
+    {
+      "feature": "soil_moisture_rootzone_fraction",
+      "importance": 0.1218
+    },
+    {
+      "feature": "soil_temperature_layer1_c",
+      "importance": 0.0818
+    },
+    {
+      "feature": "precipitation_lag1_mm_day",
+      "importance": 0.0498
+    },
+    {
+      "feature": "precipitation_rolling_3m_mean_mm_day",
+      "importance": 0.0395
+    },
+    {
+      "feature": "air_temperature_lag1_c",
+      "importance": 0.0317
+    },
+    {
+      "feature": "temp_soil_air_diff_c",
+      "importance": 0.0293
+    },
+    {
+      "feature": "monthly_aridity_index",
+      "importance": 0.0286
+    },
+    {
+      "feature": "month_sin",
+      "importance": 0.0147
+    },
+    {
+      "feature": "precipitation_mm_day",
+      "importance": 0.0119
+    },
+    {
+      "feature": "month_cos",
+      "importance": 0.0106
+    }
+  ],
+  "shap_explainer": {
+    "explainer_path": "soil_risk_explainer.joblib",
+    "background_partition": "Training Partition (2020-01 to 2022-12, N=36)",
+    "explainer_type": "shap.TreeExplainer",
+    "output_space": "probability",
+    "classes": [
+      "High",
+      "Low",
+      "Medium"
+    ],
+    "base_values": {
+      "High": 0.0617,
+      "Low": 0.4708,
+      "Medium": 0.4675
+    },
+    "test_additivity_max_discrepancy": 0.010278,
+    "global_shap_importance": [
+      {
+        "rank": 1,
+        "feature": "soil_moisture_surface_fraction",
+        "mean_abs_shap_overall": 0.0777,
+        "mean_abs_shap_high": 0.0071,
+        "mean_abs_shap_low": 0.1157,
+        "mean_abs_shap_medium": 0.1104,
+        "rf_gini_importance": 0.1371,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 2,
+        "feature": "soil_moisture_rootzone_fraction",
+        "mean_abs_shap_overall": 0.0653,
+        "mean_abs_shap_high": 0.0101,
+        "mean_abs_shap_low": 0.097,
+        "mean_abs_shap_medium": 0.0887,
+        "rf_gini_importance": 0.1218,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 3,
+        "feature": "air_humidity_percent",
+        "mean_abs_shap_overall": 0.061,
+        "mean_abs_shap_high": 0.0284,
+        "mean_abs_shap_low": 0.0834,
+        "mean_abs_shap_medium": 0.0712,
+        "rf_gini_importance": 0.1603,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 4,
+        "feature": "soil_moisture_depth_gradient",
+        "mean_abs_shap_overall": 0.0509,
+        "mean_abs_shap_high": 0.0155,
+        "mean_abs_shap_low": 0.0739,
+        "mean_abs_shap_medium": 0.0632,
+        "rf_gini_importance": 0.1426,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 5,
+        "feature": "air_temperature_c",
+        "mean_abs_shap_overall": 0.0343,
+        "mean_abs_shap_high": 0.051,
+        "mean_abs_shap_low": 0.0112,
+        "mean_abs_shap_medium": 0.0409,
+        "rf_gini_importance": 0.1404,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 6,
+        "feature": "precipitation_rolling_3m_mean_mm_day",
+        "mean_abs_shap_overall": 0.0219,
+        "mean_abs_shap_high": 0.003,
+        "mean_abs_shap_low": 0.0323,
+        "mean_abs_shap_medium": 0.0303,
+        "rf_gini_importance": 0.0395,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 7,
+        "feature": "soil_temperature_layer1_c",
+        "mean_abs_shap_overall": 0.0165,
+        "mean_abs_shap_high": 0.0246,
+        "mean_abs_shap_low": 0.0072,
+        "mean_abs_shap_medium": 0.0176,
+        "rf_gini_importance": 0.0818,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 8,
+        "feature": "precipitation_lag1_mm_day",
+        "mean_abs_shap_overall": 0.0146,
+        "mean_abs_shap_high": 0.0098,
+        "mean_abs_shap_low": 0.02,
+        "mean_abs_shap_medium": 0.014,
+        "rf_gini_importance": 0.0498,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 9,
+        "feature": "monthly_aridity_index",
+        "mean_abs_shap_overall": 0.0109,
+        "mean_abs_shap_high": 0.0027,
+        "mean_abs_shap_low": 0.0138,
+        "mean_abs_shap_medium": 0.0163,
+        "rf_gini_importance": 0.0286,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 10,
+        "feature": "temp_soil_air_diff_c",
+        "mean_abs_shap_overall": 0.007,
+        "mean_abs_shap_high": 0.0077,
+        "mean_abs_shap_low": 0.0047,
+        "mean_abs_shap_medium": 0.0085,
+        "rf_gini_importance": 0.0293,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 11,
+        "feature": "air_temperature_lag1_c",
+        "mean_abs_shap_overall": 0.0064,
+        "mean_abs_shap_high": 0.0088,
+        "mean_abs_shap_low": 0.0045,
+        "mean_abs_shap_medium": 0.0059,
+        "rf_gini_importance": 0.0317,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 12,
+        "feature": "month_sin",
+        "mean_abs_shap_overall": 0.0049,
+        "mean_abs_shap_high": 0.0018,
+        "mean_abs_shap_low": 0.0064,
+        "mean_abs_shap_medium": 0.0065,
+        "rf_gini_importance": 0.0147,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 13,
+        "feature": "precipitation_mm_day",
+        "mean_abs_shap_overall": 0.0021,
+        "mean_abs_shap_high": 0.0026,
+        "mean_abs_shap_low": 0.001,
+        "mean_abs_shap_medium": 0.0029,
+        "rf_gini_importance": 0.0119,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      },
+      {
+        "rank": 14,
+        "feature": "month_cos",
+        "mean_abs_shap_overall": 0.002,
+        "mean_abs_shap_high": 0.0024,
+        "mean_abs_shap_low": 0.001,
+        "mean_abs_shap_medium": 0.0026,
+        "rf_gini_importance": 0.0106,
+        "indicator_weight_mapping": "Dynamic ML feature; separate from 5 rule-based indicator weights"
+      }
+    ]
+  }
+}

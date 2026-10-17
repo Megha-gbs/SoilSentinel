@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "assessment_id": "ASM-2024-12-20261017081909",
+    "assessment_id": "ASM-2024-12-20261017140936",
     "assessment_status": "COMPLETE",
-    "generated_at_utc": "2026-10-17T08:19:09.555161+00:00",
+    "generated_at_utc": "2026-10-17T14:09:37.004340+00:00",
     "engine_version": "v1.0.0-baseline",
     "index_name": "Seasonal Hydro-Thermal Stress & Baseline Vulnerability Index",
     "assumptions_label": "PROVISIONAL_ENGINEERING_HEURISTIC",
@@ -731,8 +731,146 @@
       "risk_category": "Medium"
     }
   ],
+  "ml_prediction": {
+    "status": "AVAILABLE",
+    "model_version": "v1.0.0-rf-proxy",
+    "model_type": "Random Forest Classifier",
+    "predicted_category": "Medium",
+    "class_probabilities": {
+      "High": 0.01,
+      "Low": 0.0,
+      "Medium": 0.99
+    },
+    "target_provenance": "SURROGATE_PROXY_LEARNING",
+    "top_drivers": [
+      "air_humidity_percent",
+      "soil_moisture_depth_gradient",
+      "air_temperature_c"
+    ],
+    "disclaimer": "Proxy surrogate prediction approximating the rule-based hydro-thermal risk index. Not an independently measured physical soil degradation metric."
+  },
+  "ml_explanation": {
+    "status": "AVAILABLE",
+    "model_version": "v1.0.0-rf-proxy",
+    "model_type": "Random Forest Classifier",
+    "predicted_class": "Medium",
+    "explained_class": "Medium",
+    "prediction_probability": 0.99,
+    "base_value": 0.4675,
+    "sum_shap_values": 0.5228,
+    "reconstituted_probability": 0.9903,
+    "additivity_discrepancy": 0.000278,
+    "additivity_tolerance": 0.02,
+    "output_space": "probability",
+    "top_features": [
+      {
+        "rank": 1,
+        "feature": "soil_moisture_surface_fraction",
+        "feature_value": 0.42,
+        "shap_value": 0.1318,
+        "absolute_impact": 0.1318,
+        "direction": "INCREASES_CLASS_PROBABILITY"
+      },
+      {
+        "rank": 2,
+        "feature": "soil_moisture_rootzone_fraction",
+        "feature_value": 0.45,
+        "shap_value": 0.1075,
+        "absolute_impact": 0.1075,
+        "direction": "INCREASES_CLASS_PROBABILITY"
+      },
+      {
+        "rank": 3,
+        "feature": "soil_moisture_depth_gradient",
+        "feature_value": 0.03,
+        "shap_value": 0.0804,
+        "absolute_impact": 0.0804,
+        "direction": "INCREASES_CLASS_PROBABILITY"
+      },
+      {
+        "rank": 4,
+        "feature": "air_humidity_percent",
+        "feature_value": 48.32,
+        "shap_value": 0.0782,
+        "absolute_impact": 0.0782,
+        "direction": "INCREASES_CLASS_PROBABILITY"
+      },
+      {
+        "rank": 5,
+        "feature": "precipitation_rolling_3m_mean_mm_day",
+        "feature_value": 0.43,
+        "shap_value": 0.0395,
+        "absolute_impact": 0.0395,
+        "direction": "INCREASES_CLASS_PROBABILITY"
+      }
+    ],
+    "all_feature_impacts": {
+      "air_temperature_c": 0.0204,
+      "air_humidity_percent": 0.0782,
+      "precipitation_mm_day": 0.0028,
+      "soil_temperature_layer1_c": 0.0096,
+      "soil_moisture_surface_fraction": 0.1318,
+      "soil_moisture_rootzone_fraction": 0.1075,
+      "precipitation_lag1_mm_day": 0.0207,
+      "air_temperature_lag1_c": 0.0047,
+      "precipitation_rolling_3m_mean_mm_day": 0.0395,
+      "temp_soil_air_diff_c": 0.0066,
+      "soil_moisture_depth_gradient": 0.0804,
+      "monthly_aridity_index": 0.0099,
+      "month_sin": 0.0038,
+      "month_cos": 0.0069
+    },
+    "original_features": {
+      "air_temperature_c": 14.02,
+      "air_humidity_percent": 48.32,
+      "precipitation_mm_day": 1.19,
+      "soil_temperature_layer1_c": 12.95,
+      "soil_moisture_surface_fraction": 0.42,
+      "soil_moisture_rootzone_fraction": 0.45,
+      "precipitation_lag1_mm_day": 0.0,
+      "air_temperature_lag1_c": 20.03,
+      "precipitation_rolling_3m_mean_mm_day": 0.43,
+      "temp_soil_air_diff_c": -1.07,
+      "soil_moisture_depth_gradient": 0.03,
+      "monthly_aridity_index": 1.49,
+      "month_sin": -0.0,
+      "month_cos": 1.0
+    },
+    "methodology": "TreeSHAP (interventional perturbation with training partition background)",
+    "causation_warning": "SHAP values quantify statistical feature attributions toward the surrogate model's predicted class probability. They do NOT represent physical causation or ground-truth soil degradation mechanisms.",
+    "disclaimer": "Surrogate model explanation approximating rule-based Seasonal Hydro-Thermal Stress & Baseline Vulnerability Index."
+  },
+  "independent_degradation_assessment": {
+    "status": "PENDING_INDEPENDENT_GROUND_TRUTH",
+    "validation_status": "NOT_VALIDATED_AGAINST_PHYSICAL_GROUND_TRUTH",
+    "model_execution": "BLOCKED_PENDING_INDEPENDENT_LABELS",
+    "target_definition": {
+      "primary_target": "PHYSICAL_SOIL_ORGANIC_CARBON_DEPLETION",
+      "metric": "delta_soc_percent_change",
+      "threshold": "decline > 10% over 5-year baseline",
+      "units": "g/kg",
+      "required_protocol": "Dry combustion elemental analysis (ISO 10694) or Walkley-Black wet oxidation"
+    },
+    "surrogate_comparison": {
+      "surrogate_model_role": "Rule-based screening index proxy (v1.0.0-rf-proxy)",
+      "surrogate_status": "OPERATIONAL_EMPIRICAL_SURROGATE",
+      "independent_model_status": "UNAVAILABLE"
+    },
+    "evidence": {
+      "meteorological_observations": "NASA POWER MERRA-2 (Monthly 2020-2024)",
+      "static_pedology_baseline": "ISRIC SoilGrids 250m (2020 snapshot)",
+      "satellite_canopy_vigor": "Sentinel-2 L2A BOA NDVI (10m)",
+      "field_soil_cores": "ZERO_OBSERVATIONS_IN_PUBLIC_DOMAIN"
+    },
+    "limitations": [
+      "Current risk score reflects seasonal hydro-thermal pressure, not confirmed physical degradation.",
+      "Sentinel-2 NDVI captures surface vegetative vigor, which is sensitive to crop phenology, irrigation, and harvest rather than direct soil structural loss.",
+      "ISRIC SoilGrids represents a spatial machine-learning estimate, not multi-temporal in-situ soil sampling.",
+      "Physical validation requires repeated georeferenced laboratory core samples."
+    ]
+  },
   "audit_reference": {
-    "assessment_id": "ASM-2024-12-20261017081909",
+    "assessment_id": "ASM-2024-12-20261017140936",
     "audit_logged": false,
     "log_path": "logs/audit_log.csv",
     "engine_version": "v1.0.0-baseline",
