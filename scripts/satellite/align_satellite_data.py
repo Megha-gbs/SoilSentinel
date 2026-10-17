@@ -1,8 +1,8 @@
 """
 SoilSentinel — Satellite Data Alignment Pipeline.
 
-Merges verified spaceborne satellite indicators (Copernicus Sentinel-2 Level-2A NDVI)
-with the authoritative SoilSentinel feature table (sireesha/feature_table.csv).
+Merges verified spaceborne satellite indicators (Copernicus Sentinel-2 Level-2A genuine
+spectral NDVI and SCL metrics) with the authoritative SoilSentinel feature table (sireesha/feature_table.csv).
 
 Key Principles:
 1. Strict 1-to-1 temporal matching on exact chronological dates ('2020-01' to '2024-12').
@@ -10,6 +10,7 @@ Key Principles:
 3. Preserves all 53 original feature columns untouched without dropping or renaming.
 4. Preserves boundary NaNs in lag/rolling features (row 0 lag1, rows 0-1 rolling3m).
 5. Explicit 'satellite_' namespace for all merged satellite indicators.
+6. Preserves missing/cloudy satellite months as NaN without synthetic zero-filling.
 
 Output:
   data/processed/satellite/aligned_feature_table_with_satellite.csv
@@ -75,12 +76,17 @@ def align_datasets(
     sat_cols_to_merge = [
         "date",
         "satellite_ndvi",
-        "satellite_vegetation_fraction",
-        "satellite_cloud_cover_percent",
+        "satellite_ndvi_median",
+        "satellite_ndvi_std",
+        "satellite_valid_pixel_fraction",
+        "satellite_cloud_shadow_pixel_fraction",
+        "satellite_scl_vegetation_fraction",
+        "satellite_scl_bare_soil_fraction",
         "satellite_quality_flag",
         "satellite_scene_id",
         "satellite_observation_date",
         "satellite_platform",
+        "satellite_processing_method",
         "satellite_data_source"
     ]
 
@@ -99,7 +105,13 @@ def align_datasets(
     assert pd.isna(df_aligned.loc[0, "precipitation_rolling_3m_mean_mm_day"]), "Row 0 rolling3m must remain NaN"
     assert pd.isna(df_aligned.loc[1, "precipitation_rolling_3m_mean_mm_day"]), "Row 1 rolling3m must remain NaN"
 
-    # 8. Save aligned dataset
+    # 8. Verify missing satellite months remain NaN (no silent zero-filling)
+    unusable_months = df_sat.loc[df_sat["satellite_quality_flag"] == "QUALITY_UNUSABLE_CLOUDY", "date"].tolist()
+    for m in unusable_months:
+        idx = df_aligned.index[df_aligned["date"] == m].tolist()[0]
+        assert pd.isna(df_aligned.loc[idx, "satellite_ndvi"]), f"Unusable month {m} must remain NaN"
+
+    # 9. Save aligned dataset
     out_file.parent.mkdir(parents=True, exist_ok=True)
     df_aligned.to_csv(out_file, index=False)
     logger.info("Successfully wrote aligned feature table to: %s (shape: %s)", out_file, df_aligned.shape)
@@ -113,4 +125,4 @@ if __name__ == "__main__":
     print(f"- Rows: {len(df)}")
     print(f"- Columns ({len(df.columns)} total): {list(df.columns)}")
     print("\nPreview of Aligned Satellite Features:")
-    print(df[["date", "air_temperature_c", "precipitation_mm_day", "soil_moisture_rootzone_fraction", "satellite_ndvi", "satellite_vegetation_fraction", "satellite_quality_flag"]].head(10))
+    print(df[["date", "air_temperature_c", "precipitation_mm_day", "soil_moisture_rootzone_fraction", "satellite_ndvi", "satellite_valid_pixel_fraction", "satellite_quality_flag"]].head(10))

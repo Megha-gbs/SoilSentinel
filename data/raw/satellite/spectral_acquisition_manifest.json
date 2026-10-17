@@ -1,0 +1,2194 @@
+{
+  "title": "SoilSentinel Sentinel-2 Level-2A Spectral Asset Acquisition Manifest",
+  "description": "Local 1 km x 1 km GeoTIFF subsets of B04 (Red), B08 (NIR), and SCL (Scene Classification)",
+  "study_area": {
+    "nominal_coordinates": [
+      30.73,
+      76.77
+    ],
+    "sampled_coordinates": [
+      30.7392,
+      76.7764
+    ],
+    "utm_crs": "EPSG:32643",
+    "utm_bounds": [
+      669558.7920826158,
+      3401547.0682555144,
+      670558.7920826158,
+      3402547.0682555144
+    ],
+    "window_size_meters": [
+      1000.0,
+      1000.0
+    ]
+  },
+  "acquisition_summary": {
+    "total_months": 60,
+    "successfully_acquired_months": 60,
+    "failed_months": 0,
+    "elapsed_seconds": 702.58,
+    "storage_directory": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets"
+  },
+  "records": [
+    {
+      "month": "2020-01",
+      "year": 2020,
+      "month_num": 1,
+      "scene_id": "S2B_43RFQ_20200110_1_L2A",
+      "datetime": "2020-01-10T05:40:17.650000Z",
+      "cloud_cover_percent": 1.34,
+      "vegetation_percent": 67.39,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200110_1_L2A_B04.tif",
+          "size_bytes": 19253,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200110_1_L2A_B08.tif",
+          "size_bytes": 20060,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200110_1_L2A_SCL.tif",
+          "size_bytes": 1330,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-02",
+      "year": 2020,
+      "month_num": 2,
+      "scene_id": "S2A_43RFQ_20200214_1_L2A",
+      "datetime": "2020-02-14T05:40:16.256000Z",
+      "cloud_cover_percent": 0.53,
+      "vegetation_percent": 67.7,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200214_1_L2A_B04.tif",
+          "size_bytes": 19271,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200214_1_L2A_B08.tif",
+          "size_bytes": 19886,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200214_1_L2A_SCL.tif",
+          "size_bytes": 1228,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-03",
+      "year": 2020,
+      "month_num": 3,
+      "scene_id": "S2B_43RFQ_20200310_0_L2A",
+      "datetime": "2020-03-10T05:40:20.936000Z",
+      "cloud_cover_percent": 2.78,
+      "vegetation_percent": 73.66,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200310_0_L2A_B04.tif",
+          "size_bytes": 19294,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200310_0_L2A_B08.tif",
+          "size_bytes": 19712,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200310_0_L2A_SCL.tif",
+          "size_bytes": 1327,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-04",
+      "year": 2020,
+      "month_num": 4,
+      "scene_id": "S2A_43RFQ_20200404_1_L2A",
+      "datetime": "2020-04-04T05:40:19.321000Z",
+      "cloud_cover_percent": 0.14,
+      "vegetation_percent": 78.12,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200404_1_L2A_B04.tif",
+          "size_bytes": 19509,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200404_1_L2A_B08.tif",
+          "size_bytes": 20170,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200404_1_L2A_SCL.tif",
+          "size_bytes": 1272,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-05",
+      "year": 2020,
+      "month_num": 5,
+      "scene_id": "S2A_43RFQ_20200524_1_L2A",
+      "datetime": "2020-05-24T05:40:28.852000Z",
+      "cloud_cover_percent": 0.28,
+      "vegetation_percent": 42.13,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200524_1_L2A_B04.tif",
+          "size_bytes": 19405,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200524_1_L2A_B08.tif",
+          "size_bytes": 19883,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200524_1_L2A_SCL.tif",
+          "size_bytes": 1255,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-06",
+      "year": 2020,
+      "month_num": 6,
+      "scene_id": "S2B_43RFQ_20200608_0_L2A",
+      "datetime": "2020-06-08T05:40:25.173000Z",
+      "cloud_cover_percent": 3.84,
+      "vegetation_percent": 50.66,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200608_0_L2A_B04.tif",
+          "size_bytes": 19737,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200608_0_L2A_B08.tif",
+          "size_bytes": 19921,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20200608_0_L2A_SCL.tif",
+          "size_bytes": 1374,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-07",
+      "year": 2020,
+      "month_num": 7,
+      "scene_id": "S2A_43RFQ_20200723_0_L2A",
+      "datetime": "2020-07-23T05:40:28.378000Z",
+      "cloud_cover_percent": 10.18,
+      "vegetation_percent": 72.73,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200723_0_L2A_B04.tif",
+          "size_bytes": 19507,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200723_0_L2A_B08.tif",
+          "size_bytes": 20071,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200723_0_L2A_SCL.tif",
+          "size_bytes": 1350,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-08",
+      "year": 2020,
+      "month_num": 8,
+      "scene_id": "S2A_43RFQ_20200822_0_L2A",
+      "datetime": "2020-08-22T05:40:28.614000Z",
+      "cloud_cover_percent": 27.33,
+      "vegetation_percent": 62.13,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200822_0_L2A_B04.tif",
+          "size_bytes": 18710,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200822_0_L2A_B08.tif",
+          "size_bytes": 18426,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200822_0_L2A_SCL.tif",
+          "size_bytes": 879,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-09",
+      "year": 2020,
+      "month_num": 9,
+      "scene_id": "S2A_43RFQ_20200921_0_L2A",
+      "datetime": "2020-09-21T05:40:27.966000Z",
+      "cloud_cover_percent": 1.53,
+      "vegetation_percent": 87.6,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200921_0_L2A_B04.tif",
+          "size_bytes": 19148,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200921_0_L2A_B08.tif",
+          "size_bytes": 19733,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20200921_0_L2A_SCL.tif",
+          "size_bytes": 1341,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-10",
+      "year": 2020,
+      "month_num": 10,
+      "scene_id": "S2B_43RFQ_20201006_1_L2A",
+      "datetime": "2020-10-06T05:40:26.572000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 80.87,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20201006_1_L2A_B04.tif",
+          "size_bytes": 19377,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20201006_1_L2A_B08.tif",
+          "size_bytes": 20104,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20201006_1_L2A_SCL.tif",
+          "size_bytes": 1339,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-11",
+      "year": 2020,
+      "month_num": 11,
+      "scene_id": "S2A_43RFQ_20201120_1_L2A",
+      "datetime": "2020-11-20T05:40:25.450000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 48.93,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20201120_1_L2A_B04.tif",
+          "size_bytes": 19133,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20201120_1_L2A_B08.tif",
+          "size_bytes": 20055,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20201120_1_L2A_SCL.tif",
+          "size_bytes": 1320,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2020-12",
+      "year": 2020,
+      "month_num": 12,
+      "scene_id": "S2A_43RFQ_20201210_1_L2A",
+      "datetime": "2020-12-10T05:40:19.521000Z",
+      "cloud_cover_percent": 0.05,
+      "vegetation_percent": 53.65,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20201210_1_L2A_B04.tif",
+          "size_bytes": 19293,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20201210_1_L2A_B08.tif",
+          "size_bytes": 20115,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20201210_1_L2A_SCL.tif",
+          "size_bytes": 1316,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-01",
+      "year": 2021,
+      "month_num": 1,
+      "scene_id": "S2A_43RFQ_20210129_1_L2A",
+      "datetime": "2021-01-29T05:40:23.288000Z",
+      "cloud_cover_percent": 0.05,
+      "vegetation_percent": 41.1,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210129_1_L2A_B04.tif",
+          "size_bytes": 18682,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210129_1_L2A_B08.tif",
+          "size_bytes": 19410,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210129_1_L2A_SCL.tif",
+          "size_bytes": 808,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-02",
+      "year": 2021,
+      "month_num": 2,
+      "scene_id": "S2A_43RFQ_20210208_1_L2A",
+      "datetime": "2021-02-08T05:40:22.075000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 59.74,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210208_1_L2A_B04.tif",
+          "size_bytes": 18903,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210208_1_L2A_B08.tif",
+          "size_bytes": 19565,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210208_1_L2A_SCL.tif",
+          "size_bytes": 1103,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-03",
+      "year": 2021,
+      "month_num": 3,
+      "scene_id": "S2B_43RFQ_20210305_1_L2A",
+      "datetime": "2021-03-05T05:40:22.100000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 52.97,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210305_1_L2A_B04.tif",
+          "size_bytes": 19406,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210305_1_L2A_B08.tif",
+          "size_bytes": 19966,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210305_1_L2A_SCL.tif",
+          "size_bytes": 1167,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-04",
+      "year": 2021,
+      "month_num": 4,
+      "scene_id": "S2B_43RFQ_20210424_1_L2A",
+      "datetime": "2021-04-24T05:40:17.471000Z",
+      "cloud_cover_percent": 0.11,
+      "vegetation_percent": 29.06,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210424_1_L2A_B04.tif",
+          "size_bytes": 19554,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210424_1_L2A_B08.tif",
+          "size_bytes": 19993,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210424_1_L2A_SCL.tif",
+          "size_bytes": 1280,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-05",
+      "year": 2021,
+      "month_num": 5,
+      "scene_id": "S2B_43RFQ_20210524_1_L2A",
+      "datetime": "2021-05-24T05:40:23.233000Z",
+      "cloud_cover_percent": 0.62,
+      "vegetation_percent": 35.58,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210524_1_L2A_B04.tif",
+          "size_bytes": 19740,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210524_1_L2A_B08.tif",
+          "size_bytes": 19867,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210524_1_L2A_SCL.tif",
+          "size_bytes": 1284,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-06",
+      "year": 2021,
+      "month_num": 6,
+      "scene_id": "S2B_43RFQ_20210623_0_L2A",
+      "datetime": "2021-06-23T05:40:23.556000Z",
+      "cloud_cover_percent": 0.84,
+      "vegetation_percent": 55.57,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210623_0_L2A_B04.tif",
+          "size_bytes": 19532,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210623_0_L2A_B08.tif",
+          "size_bytes": 19776,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20210623_0_L2A_SCL.tif",
+          "size_bytes": 1335,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-07",
+      "year": 2021,
+      "month_num": 7,
+      "scene_id": "S2A_43RFQ_20210708_0_L2A",
+      "datetime": "2021-07-08T05:40:25.748000Z",
+      "cloud_cover_percent": 5.73,
+      "vegetation_percent": 45.02,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210708_0_L2A_B04.tif",
+          "size_bytes": 18860,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210708_0_L2A_B08.tif",
+          "size_bytes": 18384,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210708_0_L2A_SCL.tif",
+          "size_bytes": 1200,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-08",
+      "year": 2021,
+      "month_num": 8,
+      "scene_id": "S2A_43RFQ_20210817_0_L2A",
+      "datetime": "2021-08-17T05:40:25.433000Z",
+      "cloud_cover_percent": 2.08,
+      "vegetation_percent": 89.6,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210817_0_L2A_B04.tif",
+          "size_bytes": 19555,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210817_0_L2A_B08.tif",
+          "size_bytes": 19917,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210817_0_L2A_SCL.tif",
+          "size_bytes": 1374,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-09",
+      "year": 2021,
+      "month_num": 9,
+      "scene_id": "S2A_43RFQ_20210916_0_L2A",
+      "datetime": "2021-09-16T05:40:24.655000Z",
+      "cloud_cover_percent": 2.07,
+      "vegetation_percent": 89.38,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210916_0_L2A_B04.tif",
+          "size_bytes": 19532,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210916_0_L2A_B08.tif",
+          "size_bytes": 20078,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20210916_0_L2A_SCL.tif",
+          "size_bytes": 1355,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-10",
+      "year": 2021,
+      "month_num": 10,
+      "scene_id": "S2A_43RFQ_20211016_1_L2A",
+      "datetime": "2021-10-16T05:40:28.419000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 75.19,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20211016_1_L2A_B04.tif",
+          "size_bytes": 19335,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20211016_1_L2A_B08.tif",
+          "size_bytes": 20065,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20211016_1_L2A_SCL.tif",
+          "size_bytes": 1330,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-11",
+      "year": 2021,
+      "month_num": 11,
+      "scene_id": "S2A_43RFQ_20211105_1_L2A",
+      "datetime": "2021-11-05T05:40:26.685000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 60.17,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20211105_1_L2A_B04.tif",
+          "size_bytes": 19105,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20211105_1_L2A_B08.tif",
+          "size_bytes": 20152,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20211105_1_L2A_SCL.tif",
+          "size_bytes": 1298,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2021-12",
+      "year": 2021,
+      "month_num": 12,
+      "scene_id": "S2B_43RFQ_20211210_1_L2A",
+      "datetime": "2021-12-10T05:40:17.609000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 55.19,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20211210_1_L2A_B04.tif",
+          "size_bytes": 19067,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20211210_1_L2A_B08.tif",
+          "size_bytes": 20048,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20211210_1_L2A_SCL.tif",
+          "size_bytes": 1250,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-01",
+      "year": 2022,
+      "month_num": 1,
+      "scene_id": "S2B_43RFQ_20220129_0_L2A",
+      "datetime": "2022-01-29T05:40:16.935000Z",
+      "cloud_cover_percent": 0.13,
+      "vegetation_percent": 64.72,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220129_0_L2A_B04.tif",
+          "size_bytes": 19146,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220129_0_L2A_B08.tif",
+          "size_bytes": 19925,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220129_0_L2A_SCL.tif",
+          "size_bytes": 1271,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-02",
+      "year": 2022,
+      "month_num": 2,
+      "scene_id": "S2B_43RFQ_20220218_0_L2A",
+      "datetime": "2022-02-18T05:40:16.666000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 67.76,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220218_0_L2A_B04.tif",
+          "size_bytes": 19314,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220218_0_L2A_B08.tif",
+          "size_bytes": 19997,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220218_0_L2A_SCL.tif",
+          "size_bytes": 1243,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-03",
+      "year": 2022,
+      "month_num": 3,
+      "scene_id": "S2B_43RFQ_20220310_0_L2A",
+      "datetime": "2022-03-10T05:40:20.898000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 71.55,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220310_0_L2A_B04.tif",
+          "size_bytes": 19338,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220310_0_L2A_B08.tif",
+          "size_bytes": 20028,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220310_0_L2A_SCL.tif",
+          "size_bytes": 1212,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-04",
+      "year": 2022,
+      "month_num": 4,
+      "scene_id": "S2A_43RFQ_20220424_0_L2A",
+      "datetime": "2022-04-24T05:40:27.905000Z",
+      "cloud_cover_percent": 0.02,
+      "vegetation_percent": 44.12,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220424_0_L2A_B04.tif",
+          "size_bytes": 20112,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220424_0_L2A_B08.tif",
+          "size_bytes": 20342,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220424_0_L2A_SCL.tif",
+          "size_bytes": 1306,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-05",
+      "year": 2022,
+      "month_num": 5,
+      "scene_id": "S2A_43RFQ_20220514_0_L2A",
+      "datetime": "2022-05-14T05:40:27.020000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 36.25,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220514_0_L2A_B04.tif",
+          "size_bytes": 19455,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220514_0_L2A_B08.tif",
+          "size_bytes": 19930,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220514_0_L2A_SCL.tif",
+          "size_bytes": 1275,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-06",
+      "year": 2022,
+      "month_num": 6,
+      "scene_id": "S2B_43RFQ_20220608_0_L2A",
+      "datetime": "2022-06-08T05:40:24.615000Z",
+      "cloud_cover_percent": 0.01,
+      "vegetation_percent": 12.43,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220608_0_L2A_B04.tif",
+          "size_bytes": 19315,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220608_0_L2A_B08.tif",
+          "size_bytes": 18841,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220608_0_L2A_SCL.tif",
+          "size_bytes": 954,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-07",
+      "year": 2022,
+      "month_num": 7,
+      "scene_id": "S2B_43RFQ_20220718_0_L2A",
+      "datetime": "2022-07-18T05:40:27.775000Z",
+      "cloud_cover_percent": 5.27,
+      "vegetation_percent": 71.78,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220718_0_L2A_B04.tif",
+          "size_bytes": 19336,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220718_0_L2A_B08.tif",
+          "size_bytes": 20191,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220718_0_L2A_SCL.tif",
+          "size_bytes": 1312,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-08",
+      "year": 2022,
+      "month_num": 8,
+      "scene_id": "S2A_43RFQ_20220812_0_L2A",
+      "datetime": "2022-08-12T05:40:35.150000Z",
+      "cloud_cover_percent": 8.52,
+      "vegetation_percent": 83.15,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220812_0_L2A_B04.tif",
+          "size_bytes": 19698,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220812_0_L2A_B08.tif",
+          "size_bytes": 20524,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20220812_0_L2A_SCL.tif",
+          "size_bytes": 1305,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-09",
+      "year": 2022,
+      "month_num": 9,
+      "scene_id": "S2B_43RFQ_20220906_0_L2A",
+      "datetime": "2022-09-06T05:40:24.711000Z",
+      "cloud_cover_percent": 15.1,
+      "vegetation_percent": 68.68,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220906_0_L2A_B04.tif",
+          "size_bytes": 20429,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220906_0_L2A_B08.tif",
+          "size_bytes": 21363,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20220906_0_L2A_SCL.tif",
+          "size_bytes": 1109,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-10",
+      "year": 2022,
+      "month_num": 10,
+      "scene_id": "S2A_43RFQ_20221031_0_L2A",
+      "datetime": "2022-10-31T05:40:26.887000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 59.86,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20221031_0_L2A_B04.tif",
+          "size_bytes": 19047,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20221031_0_L2A_B08.tif",
+          "size_bytes": 19947,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20221031_0_L2A_SCL.tif",
+          "size_bytes": 1315,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-11",
+      "year": 2022,
+      "month_num": 11,
+      "scene_id": "S2B_43RFQ_20221125_0_L2A",
+      "datetime": "2022-11-25T05:40:22.349000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 50.68,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20221125_0_L2A_B04.tif",
+          "size_bytes": 18750,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20221125_0_L2A_B08.tif",
+          "size_bytes": 19825,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20221125_0_L2A_SCL.tif",
+          "size_bytes": 1210,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2022-12",
+      "year": 2022,
+      "month_num": 12,
+      "scene_id": "S2B_43RFQ_20221205_0_L2A",
+      "datetime": "2022-12-05T05:40:20.273000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 55.4,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20221205_0_L2A_B04.tif",
+          "size_bytes": 18449,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20221205_0_L2A_B08.tif",
+          "size_bytes": 19601,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20221205_0_L2A_SCL.tif",
+          "size_bytes": 1082,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-01",
+      "year": 2023,
+      "month_num": 1,
+      "scene_id": "S2B_43RFQ_20230104_0_L2A",
+      "datetime": "2023-01-04T05:40:21.208000Z",
+      "cloud_cover_percent": 35.02,
+      "vegetation_percent": 28.76,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230104_0_L2A_B04.tif",
+          "size_bytes": 17892,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230104_0_L2A_B08.tif",
+          "size_bytes": 17924,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230104_0_L2A_SCL.tif",
+          "size_bytes": 761,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-02",
+      "year": 2023,
+      "month_num": 2,
+      "scene_id": "S2B_43RFQ_20230213_0_L2A",
+      "datetime": "2023-02-13T05:40:28.117000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 67.32,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230213_0_L2A_B04.tif",
+          "size_bytes": 19310,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230213_0_L2A_B08.tif",
+          "size_bytes": 18934,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230213_0_L2A_SCL.tif",
+          "size_bytes": 1239,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-03",
+      "year": 2023,
+      "month_num": 3,
+      "scene_id": "S2A_43RFQ_20230310_0_L2A",
+      "datetime": "2023-03-10T05:40:17.907000Z",
+      "cloud_cover_percent": 0.09,
+      "vegetation_percent": 54.29,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230310_0_L2A_B04.tif",
+          "size_bytes": 19079,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230310_0_L2A_B08.tif",
+          "size_bytes": 19674,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230310_0_L2A_SCL.tif",
+          "size_bytes": 1057,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-04",
+      "year": 2023,
+      "month_num": 4,
+      "scene_id": "S2A_43RFQ_20230409_0_L2A",
+      "datetime": "2023-04-09T05:40:23.127000Z",
+      "cloud_cover_percent": 0.18,
+      "vegetation_percent": 55.03,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230409_0_L2A_B04.tif",
+          "size_bytes": 19369,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230409_0_L2A_B08.tif",
+          "size_bytes": 20038,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230409_0_L2A_SCL.tif",
+          "size_bytes": 1259,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-05",
+      "year": 2023,
+      "month_num": 5,
+      "scene_id": "S2A_43RFQ_20230519_0_L2A",
+      "datetime": "2023-05-19T05:40:25.085000Z",
+      "cloud_cover_percent": 0.51,
+      "vegetation_percent": 47.23,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230519_0_L2A_B04.tif",
+          "size_bytes": 19416,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230519_0_L2A_B08.tif",
+          "size_bytes": 18807,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230519_0_L2A_SCL.tif",
+          "size_bytes": 1277,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-06",
+      "year": 2023,
+      "month_num": 6,
+      "scene_id": "S2B_43RFQ_20230603_0_L2A",
+      "datetime": "2023-06-03T05:40:27.005000Z",
+      "cloud_cover_percent": 0.43,
+      "vegetation_percent": 66.0,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230603_0_L2A_B04.tif",
+          "size_bytes": 19454,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230603_0_L2A_B08.tif",
+          "size_bytes": 20081,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230603_0_L2A_SCL.tif",
+          "size_bytes": 1323,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-07",
+      "year": 2023,
+      "month_num": 7,
+      "scene_id": "S2B_43RFQ_20230723_0_L2A",
+      "datetime": "2023-07-23T05:40:29.001000Z",
+      "cloud_cover_percent": 35.95,
+      "vegetation_percent": 47.47,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230723_0_L2A_B04.tif",
+          "size_bytes": 18106,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230723_0_L2A_B08.tif",
+          "size_bytes": 18212,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230723_0_L2A_SCL.tif",
+          "size_bytes": 930,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-08",
+      "year": 2023,
+      "month_num": 8,
+      "scene_id": "S2A_43RFQ_20230817_0_L2A",
+      "datetime": "2023-08-17T05:40:28.868000Z",
+      "cloud_cover_percent": 24.51,
+      "vegetation_percent": 53.8,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230817_0_L2A_B04.tif",
+          "size_bytes": 18468,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230817_0_L2A_B08.tif",
+          "size_bytes": 18448,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230817_0_L2A_SCL.tif",
+          "size_bytes": 1226,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-09",
+      "year": 2023,
+      "month_num": 9,
+      "scene_id": "S2A_43RFQ_20230906_0_L2A",
+      "datetime": "2023-09-06T05:40:28.350000Z",
+      "cloud_cover_percent": 0.5,
+      "vegetation_percent": 89.61,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230906_0_L2A_B04.tif",
+          "size_bytes": 19266,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230906_0_L2A_B08.tif",
+          "size_bytes": 19932,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20230906_0_L2A_SCL.tif",
+          "size_bytes": 1296,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-10",
+      "year": 2023,
+      "month_num": 10,
+      "scene_id": "S2B_43RFQ_20231011_0_L2A",
+      "datetime": "2023-10-11T05:40:24.761000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 81.97,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20231011_0_L2A_B04.tif",
+          "size_bytes": 19185,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20231011_0_L2A_B08.tif",
+          "size_bytes": 20052,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20231011_0_L2A_SCL.tif",
+          "size_bytes": 1317,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-11",
+      "year": 2023,
+      "month_num": 11,
+      "scene_id": "S2A_43RFQ_20231115_0_L2A",
+      "datetime": "2023-11-15T05:40:21.667000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 57.86,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20231115_0_L2A_B04.tif",
+          "size_bytes": 19080,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20231115_0_L2A_B08.tif",
+          "size_bytes": 19946,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20231115_0_L2A_SCL.tif",
+          "size_bytes": 1308,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2023-12",
+      "year": 2023,
+      "month_num": 12,
+      "scene_id": "S2B_43RFQ_20231210_0_L2A",
+      "datetime": "2023-12-10T05:40:19.254000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 62.53,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20231210_0_L2A_B04.tif",
+          "size_bytes": 19143,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20231210_0_L2A_B08.tif",
+          "size_bytes": 20188,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20231210_0_L2A_SCL.tif",
+          "size_bytes": 1323,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-01",
+      "year": 2024,
+      "month_num": 1,
+      "scene_id": "S2B_43RFQ_20240129_0_L2A",
+      "datetime": "2024-01-29T05:40:20.947000Z",
+      "cloud_cover_percent": 0.31,
+      "vegetation_percent": 11.61,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240129_0_L2A_B04.tif",
+          "size_bytes": 18303,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240129_0_L2A_B08.tif",
+          "size_bytes": 18131,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240129_0_L2A_SCL.tif",
+          "size_bytes": 761,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-02",
+      "year": 2024,
+      "month_num": 2,
+      "scene_id": "S2B_43RFQ_20240228_0_L2A",
+      "datetime": "2024-02-28T05:40:21.546000Z",
+      "cloud_cover_percent": 0.01,
+      "vegetation_percent": 58.17,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240228_0_L2A_B04.tif",
+          "size_bytes": 19383,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240228_0_L2A_B08.tif",
+          "size_bytes": 19990,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240228_0_L2A_SCL.tif",
+          "size_bytes": 1176,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-03",
+      "year": 2024,
+      "month_num": 3,
+      "scene_id": "S2B_43RFQ_20240309_0_L2A",
+      "datetime": "2024-03-09T05:40:18.027000Z",
+      "cloud_cover_percent": 0.1,
+      "vegetation_percent": 62.41,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240309_0_L2A_B04.tif",
+          "size_bytes": 19551,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240309_0_L2A_B08.tif",
+          "size_bytes": 20062,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240309_0_L2A_SCL.tif",
+          "size_bytes": 1226,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-04",
+      "year": 2024,
+      "month_num": 4,
+      "scene_id": "S2B_43RFQ_20240408_0_L2A",
+      "datetime": "2024-04-08T05:40:22.171000Z",
+      "cloud_cover_percent": 0.51,
+      "vegetation_percent": 63.56,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240408_0_L2A_B04.tif",
+          "size_bytes": 19744,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240408_0_L2A_B08.tif",
+          "size_bytes": 20309,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240408_0_L2A_SCL.tif",
+          "size_bytes": 1261,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-05",
+      "year": 2024,
+      "month_num": 5,
+      "scene_id": "S2B_43RFQ_20240528_0_L2A",
+      "datetime": "2024-05-28T05:40:22.837000Z",
+      "cloud_cover_percent": 0.04,
+      "vegetation_percent": 27.09,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240528_0_L2A_B04.tif",
+          "size_bytes": 19556,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240528_0_L2A_B08.tif",
+          "size_bytes": 19908,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20240528_0_L2A_SCL.tif",
+          "size_bytes": 1216,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-06",
+      "year": 2024,
+      "month_num": 6,
+      "scene_id": "S2A_43RFQ_20240602_0_L2A",
+      "datetime": "2024-06-02T05:40:26.981000Z",
+      "cloud_cover_percent": 0.07,
+      "vegetation_percent": 15.59,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240602_0_L2A_B04.tif",
+          "size_bytes": 19301,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240602_0_L2A_B08.tif",
+          "size_bytes": 18877,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240602_0_L2A_SCL.tif",
+          "size_bytes": 1098,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-07",
+      "year": 2024,
+      "month_num": 7,
+      "scene_id": "S2A_43RFQ_20240722_0_L2A",
+      "datetime": "2024-07-22T05:40:24.718000Z",
+      "cloud_cover_percent": 68.22,
+      "vegetation_percent": 12.0,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240722_0_L2A_B04.tif",
+          "size_bytes": 16624,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240722_0_L2A_B08.tif",
+          "size_bytes": 16712,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240722_0_L2A_SCL.tif",
+          "size_bytes": 761,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-08",
+      "year": 2024,
+      "month_num": 8,
+      "scene_id": "S2A_43RFQ_20240831_0_L2A",
+      "datetime": "2024-08-31T05:40:22.110000Z",
+      "cloud_cover_percent": 1.36,
+      "vegetation_percent": 90.51,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240831_0_L2A_B04.tif",
+          "size_bytes": 19627,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240831_0_L2A_B08.tif",
+          "size_bytes": 20175,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240831_0_L2A_SCL.tif",
+          "size_bytes": 1320,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-09",
+      "year": 2024,
+      "month_num": 9,
+      "scene_id": "S2A_43RFQ_20240920_0_L2A",
+      "datetime": "2024-09-20T05:40:24.037000Z",
+      "cloud_cover_percent": 0.04,
+      "vegetation_percent": 91.66,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240920_0_L2A_B04.tif",
+          "size_bytes": 19251,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240920_0_L2A_B08.tif",
+          "size_bytes": 19887,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240920_0_L2A_SCL.tif",
+          "size_bytes": 1326,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-10",
+      "year": 2024,
+      "month_num": 10,
+      "scene_id": "S2B_43RFQ_20241015_1_L2A",
+      "datetime": "2024-10-15T05:40:27.399000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 58.22,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20241015_1_L2A_B04.tif",
+          "size_bytes": 19193,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20241015_1_L2A_B08.tif",
+          "size_bytes": 18758,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20241015_1_L2A_SCL.tif",
+          "size_bytes": 1325,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-11",
+      "year": 2024,
+      "month_num": 11,
+      "scene_id": "S2A_43RFQ_20241119_0_L2A",
+      "datetime": "2024-11-19T05:40:22.717000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 46.86,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20241119_0_L2A_B04.tif",
+          "size_bytes": 18972,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20241119_0_L2A_B08.tif",
+          "size_bytes": 19799,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20241119_0_L2A_SCL.tif",
+          "size_bytes": 1139,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    },
+    {
+      "month": "2024-12",
+      "year": 2024,
+      "month_num": 12,
+      "scene_id": "S2B_43RFQ_20241204_0_L2A",
+      "datetime": "2024-12-04T05:40:23.460000Z",
+      "cloud_cover_percent": 0.0,
+      "vegetation_percent": 50.13,
+      "bands": {
+        "B04": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20241204_0_L2A_B04.tif",
+          "size_bytes": 19394,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "B08": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20241204_0_L2A_B08.tif",
+          "size_bytes": 20190,
+          "width": 100,
+          "height": 100,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        },
+        "SCL": {
+          "path": "C:\\Users\\bless\\OneDrive\\Desktop\\IBM\\data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20241204_0_L2A_SCL.tif",
+          "size_bytes": 1290,
+          "width": 50,
+          "height": 50,
+          "crs": "EPSG:32643",
+          "status": "DOWNLOADED_SUCCESS"
+        }
+      },
+      "overall_status": "DOWNLOADED"
+    }
+  ]
+}
