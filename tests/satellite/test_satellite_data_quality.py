@@ -44,10 +44,26 @@ def test_spectral_acquisition_manifest_and_geotiffs():
     records = mf["records"]
     assert len(records) == 60, f"Expected 60 monthly records, got {len(records)}"
 
-    # Check that GeoTIFF subsets exist and are readable
+    # Verify manifest portability (no machine-specific drive letters or absolute paths)
+    storage_dir = mf.get("acquisition_summary", {}).get("storage_directory", "")
+    assert not storage_dir.startswith(("/", "\\")) and ":" not in storage_dir, (
+        f"Storage directory must be project-relative: {storage_dir}"
+    )
+    assert storage_dir == "data/raw/satellite/spectral_subsets"
+
+    # Check that GeoTIFF subsets exist, are readable, and manifest paths are portable
     for rec in records:
         scene_id = rec["scene_id"]
         for band in ["B04", "B08", "SCL"]:
+            band_info = rec["bands"][band]
+            b_path = band_info.get("path", "")
+            assert not b_path.startswith(("/", "\\")) and ":" not in b_path, (
+                f"Band path must be project-relative: {b_path}"
+            )
+            assert b_path.startswith("data/raw/satellite/spectral_subsets/"), (
+                f"Unexpected band path prefix: {b_path}"
+            )
+
             tif_path = SUBSETS_DIR / f"{scene_id}_{band}.tif"
             assert tif_path.exists(), f"Missing GeoTIFF: {tif_path}"
             assert tif_path.stat().st_size > 500, f"GeoTIFF implausibly small: {tif_path}"

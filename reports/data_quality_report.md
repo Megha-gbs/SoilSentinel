@@ -62,9 +62,9 @@ The pipeline strictly enforces transparent boundary handling in accordance with 
 ```
 $ pytest tests/satellite/ -v
 ============================= test session starts =============================
-platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\bless\AppData\Local\Programs\Python\Python312\python.exe
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
 cachedir: .pytest_cache
-rootdir: C:\Users\bless\OneDrive\Desktop\IBM
+rootdir: <project-root>
 plugins: anyio-4.15.1
 collecting ... collected 11 items
 

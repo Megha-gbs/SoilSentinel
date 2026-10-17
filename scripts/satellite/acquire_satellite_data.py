@@ -42,6 +42,15 @@ MANIFEST_PATH = RAW_SATELLITE_DIR / "spectral_acquisition_manifest.json"
 RAW_SATELLITE_DIR.mkdir(parents=True, exist_ok=True)
 SUBSETS_DIR.mkdir(parents=True, exist_ok=True)
 
+
+def to_portable_path(p: Path) -> str:
+    """Convert an absolute or relative path to a repository-relative POSIX path for cross-platform portability."""
+    try:
+        return p.resolve().relative_to(PROJECT_ROOT.resolve()).as_posix()
+    except Exception:
+        return p.as_posix()
+
+
 STAC_ENDPOINT = "https://earth-search.aws.element84.com/v1/search"
 BBOX_LONLAT = [76.7700, 30.7350, 76.7850, 30.7450]
 
@@ -171,7 +180,7 @@ def download_spectral_subset(
             with rasterio.open(dst_path) as src:
                 if src.width > 0 and src.height > 0:
                     return {
-                        "path": str(dst_path),
+                        "path": to_portable_path(dst_path),
                         "size_bytes": dst_path.stat().st_size,
                         "width": src.width,
                         "height": src.height,
@@ -202,7 +211,7 @@ def download_spectral_subset(
             with rasterio.open(dst_path) as verify_src:
                 assert verify_src.width > 0 and verify_src.height > 0
                 return {
-                    "path": str(dst_path),
+                    "path": to_portable_path(dst_path),
                     "size_bytes": dst_path.stat().st_size,
                     "width": verify_src.width,
                     "height": verify_src.height,
@@ -214,7 +223,7 @@ def download_spectral_subset(
             time.sleep(1.0 * attempt)
 
     return {
-        "path": str(dst_path),
+        "path": to_portable_path(dst_path),
         "size_bytes": 0,
         "width": 0,
         "height": 0,
@@ -316,7 +325,7 @@ def download_all_spectral_assets(
             "successfully_acquired_months": success_count,
             "failed_months": len(records) - success_count,
             "elapsed_seconds": round(elapsed, 2),
-            "storage_directory": str(SUBSETS_DIR)
+            "storage_directory": to_portable_path(SUBSETS_DIR)
         },
         "records": manifest_records
     }

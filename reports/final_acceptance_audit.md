@@ -3,7 +3,7 @@
 **Audit Date:** October 2026  
 **Project:** SoilSentinel — IBM Z Datathon 2026  
 **Auditor / Role:** Senior Data Engineer, Geospatial Data Scientist & Technical Auditor  
-**Workspace:** `c:\Users\bless\OneDrive\Desktop\IBM`  
+**Workspace:** Repository Root (`.`)  
 **Git Working Branch:** `satellite-research`  
 **Teammate Context:** Mohit (Owner: Risk Scoring Engine, Backend, IBM LinuxONE Deployment)  
 
