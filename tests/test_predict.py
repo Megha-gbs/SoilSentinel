@@ -273,20 +273,31 @@ class TestCSVWorkflow(unittest.TestCase):
 
 
 class TestModelArtifactSafetyGuard(unittest.TestCase):
-    """Verify safety guard preventing execution or loading of unverified ML model binary."""
+    """Verify safety guards and genuine ML model artifact validation."""
 
-    def test_load_trained_model_raises_runtime_error(self):
+    def test_load_trained_model_on_zero_bytes_raises_runtime_error(self):
+        """Zero-byte / unpopulated placeholders must be explicitly rejected with RuntimeError."""
         from src.Model.model import load_trained_model
+        import tempfile
 
-        with self.assertRaises(RuntimeError) as ctx:
-            load_trained_model()
-        self.assertIn("SoilSentinel does not load or execute trained ML model binaries", str(ctx.exception))
-        self.assertIn("models/soil_risk_model.joblib", str(ctx.exception))
+        with tempfile.NamedTemporaryFile(suffix=".joblib") as tmp:
+            with self.assertRaises(RuntimeError) as ctx:
+                load_trained_model(tmp.name)
+            self.assertIn("does not load or execute unpopulated ML model binaries", str(ctx.exception))
+            self.assertIn("0 bytes", str(ctx.exception))
 
-    def test_placeholder_joblib_file_is_zero_bytes(self):
+    def test_trained_joblib_file_is_valid_and_non_zero_bytes(self):
+        """The genuine trained model artifact must exist, exceed 0 bytes, and load successfully."""
+        from src.Model.model import load_trained_model
         joblib_path = PROJECT_ROOT / "models" / "soil_risk_model.joblib"
-        self.assertTrue(joblib_path.exists(), "models/soil_risk_model.joblib placeholder must exist")
-        self.assertEqual(joblib_path.stat().st_size, 0, "Placeholder joblib must remain exactly 0 bytes")
+        if not joblib_path.exists():
+            from src.Model.train_model import train_surrogate_pipeline
+            train_surrogate_pipeline()
+        self.assertTrue(joblib_path.exists(), "models/soil_risk_model.joblib must exist")
+        self.assertGreater(joblib_path.stat().st_size, 0, "Trained joblib must be non-zero bytes")
+
+        model = load_trained_model(joblib_path)
+        self.assertTrue(hasattr(model, "predict"), "Loaded model must implement predict() method")
 
 
 if __name__ == "__main__":

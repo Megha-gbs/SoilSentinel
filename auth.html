@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17251d">
+<title>Sign in or create an account · SoilSentinel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.auth-shell{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(420px,.98fr);background:var(--paper)}
+.auth-story{position:relative;min-height:100vh;overflow:hidden;background:linear-gradient(180deg,#17251d30,#17251dea),url("assets/soil-hero-still.jpg") center/cover;color:#f2f0e7;padding:36px 7%;display:flex;flex-direction:column;justify-content:space-between}
+.auth-story:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 60% 40%,transparent,#17251d6b)}
+.auth-story>*{position:relative;z-index:1}
+.auth-brand{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:700;letter-spacing:-.6px}
+.auth-brand .brand-mark{width:29px;height:29px;border:1px solid var(--lime);border-radius:50% 50% 50% 4px;display:grid;place-items:center;color:var(--lime);font-family:var(--serif);transform:rotate(-15deg)}
+.auth-brand span:last-child{font-weight:400;opacity:.78;margin-left:-8px}.auth-brand i{color:var(--lime);font-style:normal;margin-left:-8px}
+.auth-story-copy{max-width:600px;padding:70px 0}
+.auth-story-copy .eyebrow{margin-bottom:24px}
+.auth-story-copy h1{font:500 clamp(44px,5.2vw,76px)/1.08 var(--serif);letter-spacing:-2.2px;margin:0 0 22px}
+.auth-story-copy h1 em{color:var(--lime);font-weight:500}
+.auth-story-copy p{max-width:420px;color:#d1d9cd;font-size:14px;line-height:1.9}
+.auth-story-foot{font:9px var(--mono);letter-spacing:1.2px;color:#c4d0be;display:flex;justify-content:space-between;gap:15px}
+.auth-panel{padding:34px clamp(24px,6vw,82px);display:flex;align-items:center;justify-content:center;position:relative}
+.auth-panel-inner{width:100%;max-width:440px}
+.auth-back{display:inline-flex;color:#718a5c;font-size:12px;margin-bottom:36px}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;background:#e5e8dc;padding:4px;border-radius:8px;margin:24px 0}
+.auth-tab{border:0;background:transparent;padding:12px 8px;border-radius:6px;font:600 12px var(--sans);color:#6c7668;cursor:pointer}
+.auth-tab.active{background:#fff;color:#243629;box-shadow:0 2px 9px #17251d0c}
+.auth-panel h2{font:500 35px/1.15 var(--serif);letter-spacing:-.8px;margin:0 0 10px;color:#202c23}
+.auth-subtitle{font-size:12px;line-height:1.8;color:#687165;margin:0 0 22px}
+.role-picker{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
+.role-option{border:1px solid #cbd1c1;border-radius:8px;padding:12px;display:flex;gap:10px;align-items:center;cursor:pointer;background:#f7f6f0;transition:border-color .2s,background .2s}
+.role-option.selected{border-color:#718a5c;background:#e7ebdf;box-shadow:inset 0 0 0 1px #718a5c}
+.role-option input{accent-color:#526d43}
+.role-symbol{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#dce5cf;color:#405a35;font-size:16px}
+.role-option strong{font-size:11px;display:block}.role-option small{font-size:9px;color:#74806e;display:block;margin-top:4px}
+.field{display:block;margin:13px 0}.field label{display:block;font-size:11px;font-weight:600;margin-bottom:7px;color:#374438}
+.field input{width:100%;padding:13px 14px;border:1px solid #d0d5c9;border-radius:6px;background:#fffdf8;color:#243629;font:13px var(--sans);outline:none;transition:border-color .2s,box-shadow .2s}
+.field input:focus{border-color:#718a5c;box-shadow:0 0 0 3px #718a5c20}
+.field input::placeholder{color:#a0a79a}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.auth-submit{width:100%;border:0;border-radius:6px;background:#213a28;color:#f2f0e7;padding:15px 16px;display:flex;justify-content:space-between;align-items:center;font:600 12px var(--sans);cursor:pointer;margin-top:17px;transition:background .2s,transform .2s}
+.auth-submit:hover{background:#314f35;transform:translateY(-1px)}
+.auth-legal{font-size:10px;color:#81897b;line-height:1.8;margin:15px 0 0}
+.auth-notice{display:none;margin-top:15px;padding:12px 13px;border-radius:6px;background:#e6eadf;border:1px solid #cbd7bd;color:#40543b;font-size:11px;line-height:1.7}
+.auth-notice.show{display:block}.auth-submit:disabled{opacity:.7;cursor:wait}.auth-notice{line-height:1.7}
+.auth-foot-mobile{display:none}
+@media(max-width:850px){.auth-shell{grid-template-columns:1fr}.auth-story{min-height:300px;padding:24px 6%}.auth-story-copy{padding:44px 0 22px}.auth-story-copy h1{font-size:48px}.auth-story-foot{font-size:8px}.auth-panel{padding:35px 6% 55px}.auth-back{margin-bottom:25px}}
+@media(max-width:480px){.auth-story{min-height:280px}.auth-story-copy h1{font-size:41px}.auth-story-copy p{font-size:12px}.auth-story-foot span:last-child{display:none}.auth-panel h2{font-size:31px}.role-picker{gap:7px}.role-option{padding:10px 7px;gap:6px}.role-symbol{width:27px;height:27px}.field-row{grid-template-columns:1fr;gap:0}}
+@media(prefers-reduced-motion:reduce){.role-option,.field input,.auth-submit{transition:none}}
+
+.demo-login{margin:0 0 20px;padding:14px;border:1px solid #d4ddc9;border-radius:10px;background:linear-gradient(135deg,#edf1e6,#f8f6ef)}
+.demo-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:9px;letter-spacing:1.2px;font-weight:800;color:#435b3b}
+.demo-pill{font-size:8px;letter-spacing:.4px;border-radius:99px;background:#dce7d2;padding:5px 7px}
+.demo-login>p{font-size:11px;line-height:1.6;color:#64705d;margin:8px 0 11px}
+.demo-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.demo-button{display:flex;align-items:center;gap:8px;text-align:left;border:1px solid #d0d9c5;border-radius:8px;background:#fffdf7;padding:10px;cursor:pointer;color:#233d2b}
+.demo-button>span:first-child{font-size:20px}.demo-button>span:nth-child(2){display:flex;flex-direction:column;gap:3px;flex:1}.demo-button strong{font-size:11px}.demo-button small{font-size:9px;color:#7a8174}.demo-button>b{font-size:15px}.demo-button:hover{border-color:#6e8961;transform:translateY(-1px)}
+.demo-credentials{margin-top:10px;font-size:10px;color:#5d6957}.demo-credentials summary{cursor:pointer}.demo-credentials p{line-height:1.8;margin-bottom:0;overflow-wrap:anywhere}
+@media(max-width:480px){.demo-buttons{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<div class="auth-shell">
+<section class="auth-story">
+<a class="auth-brand" href="index.html"><span class="brand-mark">s</span> soil<span>sentinel</span><i>.</i></a>
+<div class="auth-story-copy">
+<p class="eyebrow"><span class="pulse"></span> THE FUTURE STARTS BELOW</p>
+<h1>Know your soil.<br><em>Grow a better future.</em></h1>
+<p>Join a shared mission to understand the ground beneath us. Practical insights for farmers. Transparent evidence for researchers.</p>
+</div>
+<div class="auth-story-foot"><span>PREVENT · RESTORE · TRACK</span><span>SOIL / CLIMATE / LIFE</span></div>
+</section>
+<main class="auth-panel">
+<div class="auth-panel-inner">
+<a class="auth-back" href="index.html">← Back to SoilSentinel</a>
+<p class="mono" style="color:#718a5c;font-size:9px;letter-spacing:1.5px;margin-bottom:12px">YOUR SOILSENTINEL ACCOUNT</p>
+<h2 id="form-title">Create your account</h2>
+<p class="auth-subtitle" id="form-subtitle">Choose your path and get started with SoilSentinel.</p>
+<div class="auth-tabs" role="tablist" aria-label="Account action">
+<button class="auth-tab active" type="button" data-mode="register" role="tab" aria-selected="true">Create account</button>
+<button class="auth-tab" type="button" data-mode="login" role="tab" aria-selected="false">Sign in</button>
+</div>
+<div class="demo-login" aria-label="Hackathon demo login">
+  <div class="demo-heading"><span>QUICK DEMO ACCESS</span><span class="demo-pill">LOCAL / DEVELOPMENT</span></div>
+  <p>Try either role without registering. Demo accounts are created automatically when the local server starts.</p>
+  <div class="demo-buttons">
+    <button type="button" class="demo-button" data-demo="farmer"><span aria-hidden="true">🌱</span><span><strong>Enter as Farmer</strong><small>Visual soil guidance</small></span><b>→</b></button>
+    <button type="button" class="demo-button" data-demo="researcher"><span aria-hidden="true">🔬</span><span><strong>Enter as Researcher</strong><small>Evidence and analysis</small></span><b>→</b></button>
+  </div>
+  <details class="demo-credentials"><summary>Show demo credentials</summary><p><strong>Farmer:</strong> farmer.demo@soilsentinel.local<br><strong>Researcher:</strong> researcher.demo@soilsentinel.local<br><strong>Password for both:</strong> DemoSoil2026!</p></details>
+</div>
+<form id="auth-form">
+<div class="role-picker" aria-label="Choose your role">
+<label class="role-option selected"><span class="role-symbol">♧</span><span><strong>Farmer</strong><small>Practical soil guidance</small></span><input type="radio" name="role" value="farmer" checked></label>
+<label class="role-option"><span class="role-symbol">⌕</span><span><strong>Researcher</strong><small>Data and evidence</small></span><input type="radio" name="role" value="researcher"></label>
+</div>
+<div class="field" id="name-field"><label for="full-name">Full name</label><input id="full-name" name="name" autocomplete="name" placeholder="Enter your full name"></div>
+<div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+<div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="new-password" minlength="10" placeholder="At least 10 characters" required></div>
+<div class="field" id="confirm-field"><label for="confirm-password">Confirm password</label><input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="10" placeholder="Re-enter your password"></div>
+<button class="auth-submit" type="submit"><span id="submit-label">Create account</span><span>→</span></button>
+<div class="auth-notice" id="auth-notice" role="status"></div>
+<p class="auth-legal" id="auth-legal">Your account is protected with server-side password hashing and a secure session. Never share your password.</p>
+</form>
+</div>
+</main>
+</div>
+<script>
+(() => {
+ const params = new URLSearchParams(location.search);
+ const form = document.querySelector("#auth-form");
+ const tabs = [...document.querySelectorAll(".auth-tab")];
+ const roleInputs = [...document.querySelectorAll('input[name="role"]')];
+ const roleLabels = [...document.querySelectorAll(".role-option")];
+ const nameField = document.querySelector("#name-field");
+ const confirmField = document.querySelector("#confirm-field");
+ const nameInput = document.querySelector("#full-name");
+ const confirmInput = document.querySelector("#confirm-password");
+ const title = document.querySelector("#form-title");
+ const subtitle = document.querySelector("#form-subtitle");
+ const submitLabel = document.querySelector("#submit-label");
+ const notice = document.querySelector("#auth-notice");
+ let mode = params.get("mode") === "login" ? "login" : "register";
+ const requestedRole = params.get("role");
+ if (requestedRole === "researcher" || requestedRole === "farmer") {
+   roleInputs.forEach(input => input.checked = input.value === requestedRole);
+ }
+ function updateRoleStyle() {
+   roleLabels.forEach(label => label.classList.toggle("selected", label.querySelector("input").checked));
+ }
+ function setMode(next) {
+   mode = next;
+   tabs.forEach(tab => {
+     const active = tab.dataset.mode === mode;
+     tab.classList.toggle("active", active);
+     tab.setAttribute("aria-selected", String(active));
+   });
+   const registering = mode === "register";
+   title.textContent = registering ? "Create your account" : "Welcome back";
+   subtitle.textContent = registering ? "Choose your path and get started with SoilSentinel." : "Sign in to continue to your SoilSentinel workspace.";
+   submitLabel.textContent = registering ? "Create account" : "Sign in";
+   nameField.style.display = registering ? "" : "none";
+   confirmField.style.display = registering ? "" : "none";
+   nameInput.required = registering;
+   confirmInput.required = registering;
+   document.querySelector("#password").autocomplete = registering ? "new-password" : "current-password";
+   notice.classList.remove("show");
+ }
+ tabs.forEach(tab => tab.addEventListener("click", () => setMode(tab.dataset.mode)));
+ roleInputs.forEach(input => input.addEventListener("change", updateRoleStyle));
+ form.addEventListener("submit", async event => {
+   event.preventDefault();
+   notice.classList.remove("show");
+   notice.textContent = "";
+   const registering = mode === "register";
+   const password = document.querySelector("#password").value;
+   if (registering && password !== confirmInput.value) {
+     notice.textContent = "Your passwords do not match. Please check them and try again.";
+     notice.classList.add("show"); confirmInput.focus(); return;
+   }
+   const submit = document.querySelector('.auth-submit');
+   const original = submitLabel.textContent;
+   submit.disabled = true; submitLabel.textContent = registering ? "Creating account…" : "Signing in…";
+   try {
+     const payload = { email: document.querySelector('#email').value.trim(), password, role: roleInputs.find(x => x.checked).value };
+     if (registering) { payload.name = nameInput.value.trim(); payload.confirmPassword = confirmInput.value; }
+     const response = await fetch(registering ? '/api/auth/register' : '/api/auth/login', {
+       method: 'POST', headers: {'Content-Type':'application/json'}, credentials:'same-origin', body: JSON.stringify(payload)
+     });
+     const result = await response.json().catch(() => ({}));
+     if (!response.ok) throw new Error(result.error || 'Unable to complete your request. Please try again.');
+     notice.textContent = registering ? 'Account created. Taking you to your workspace…' : 'Signed in successfully. Opening your workspace…';
+     notice.classList.add('show');
+     window.location.assign(result.redirect || (payload.role === 'researcher' ? '/researcher-dashboard.html' : '/farmer-dashboard.html'));
+   } catch (error) {
+     notice.textContent = error.message === 'Failed to fetch' ? 'Cannot reach the authentication server. Start SoilSentinel with npm start, then open http://localhost:3000.' : error.message;
+     notice.classList.add('show');
+   } finally { submit.disabled = false; submitLabel.textContent = original; }
+ });
+ document.querySelectorAll('[data-demo]').forEach(button => {
+   button.addEventListener('click', () => {
+     const role = button.dataset.demo;
+     setMode('login');
+     const roleInput = roleInputs.find(x => x.value === role);
+     if (roleInput) roleInput.checked = true;
+     updateRoleStyle();
+     document.querySelector('#email').value = role === 'farmer' ? 'farmer.demo@soilsentinel.local' : 'researcher.demo@soilsentinel.local';
+     document.querySelector('#password').value = 'DemoSoil2026!';
+     document.querySelector('#password').type = 'password';
+     notice.textContent = 'Demo credentials filled in. Click Sign in to continue.';
+     notice.classList.add('show');
+     document.querySelector('.auth-submit').scrollIntoView({behavior:'smooth', block:'center'});
+   });
+ });
+ setMode(mode);
+ updateRoleStyle();
+})();
+</script>
+</body>
+</html>

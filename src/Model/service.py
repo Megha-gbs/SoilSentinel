@@ -94,6 +94,31 @@ class SoilSentinelService:
         self.audit_log_path = Path(audit_log_path) if audit_log_path else DEFAULT_AUDIT_LOG_PATH
         self.df_scored: Optional[pd.DataFrame] = None
         self.df_raw: Optional[pd.DataFrame] = None
+        self.ml_model: Optional[Any] = None
+        self.ml_preprocessor: Optional[Any] = None
+        self.ml_explainer: Optional[Any] = None
+        self.ml_metadata: Optional[Dict[str, Any]] = None
+
+        # Safely attempt to load trained ML surrogate model, preprocessor, and explainer
+        try:
+            from src.Model.model import (
+                load_trained_model,
+                load_model_metadata,
+                load_preprocessor,
+                load_explainer,
+            )
+            self.ml_model = load_trained_model()
+            self.ml_metadata = load_model_metadata()
+            try:
+                self.ml_preprocessor = load_preprocessor()
+            except Exception as e_prep:
+                logger.info(f"Preprocessor artifact not loaded directly: {e_prep}")
+            try:
+                self.ml_explainer = load_explainer()
+            except Exception as e_exp:
+                logger.info(f"SHAP explainer artifact not loaded at service startup: {e_exp}")
+        except Exception as e:
+            logger.info(f"ML surrogate model not initialized at service startup: {e}")
 
         if self.data_path.exists() and auto_score:
             self.reload_data()
@@ -305,7 +330,101 @@ class SoilSentinelService:
             except Exception as e:
                 logger.warning(f"Could not log audit entry: {e}")
 
-        # 9. Assemble Consolidated Payload
+        # 9. Compute ML Surrogate Prediction
+        ml_prediction = None
+        try:
+            from src.Model.model import predict_ml
+            ml_prediction = predict_ml(
+                record=raw_record,
+                model=self.ml_model,
+                metadata=self.ml_metadata
+            )
+        except Exception as e:
+            logger.warning(f"Could not compute ML surrogate prediction: {e}")
+            ml_prediction = {
+                "status": "UNAVAILABLE",
+                "error": str(e),
+                "model_version": None,
+                "model_type": None,
+                "predicted_category": None,
+                "class_probabilities": None,
+                "target_provenance": "SURROGATE_PROXY_LEARNING",
+                "top_drivers": [],
+                "disclaimer": "Proxy model approximating rule-based index."
+            }
+
+        # 10. Compute SHAP Local Explanation
+        ml_explanation = None
+        try:
+            from src.Model.model import explain_prediction
+            ml_explanation = explain_prediction(
+                record=raw_record,
+                model=self.ml_model,
+                explainer=self.ml_explainer,
+                preprocessor=self.ml_preprocessor,
+                metadata=self.ml_metadata,
+            )
+        except Exception as e:
+            logger.warning(f"Could not compute ML SHAP explanation: {e}")
+            ml_explanation = {
+                "status": "UNAVAILABLE",
+                "error": str(e),
+                "model_version": self.ml_metadata.get("model_version", "v1.0.0-rf-proxy") if self.ml_metadata else "v1.0.0-rf-proxy",
+                "model_type": self.ml_metadata.get("algorithm", "Random Forest Classifier") if self.ml_metadata else "Random Forest Classifier",
+                "predicted_class": None,
+                "explained_class": None,
+                "prediction_probability": None,
+                "base_value": None,
+                "sum_shap_values": None,
+                "reconstituted_probability": None,
+                "additivity_discrepancy": None,
+                "additivity_tolerance": 0.02,
+                "output_space": "probability",
+                "top_features": [],
+                "all_feature_impacts": {},
+                "original_features": {},
+                "methodology": "TreeSHAP (interventional perturbation with training partition background)",
+                "causation_warning": (
+                    "SHAP values quantify statistical feature attributions toward the surrogate model's "
+                    "predicted class probability. They do NOT represent physical causation or ground-truth "
+                    "soil degradation mechanisms."
+                ),
+                "disclaimer": "Surrogate model explanation approximating rule-based Seasonal Hydro-Thermal Stress & Baseline Vulnerability Index."
+            }
+
+        # 11. Independent Physical Degradation Assessment Specification
+        # Explicit status reporting per Phase 6 requirements:
+        independent_degradation_assessment = {
+            "status": "PENDING_INDEPENDENT_GROUND_TRUTH",
+            "validation_status": "NOT_VALIDATED_AGAINST_PHYSICAL_GROUND_TRUTH",
+            "model_execution": "BLOCKED_PENDING_INDEPENDENT_LABELS",
+            "target_definition": {
+                "primary_target": "PHYSICAL_SOIL_ORGANIC_CARBON_DEPLETION",
+                "metric": "delta_soc_percent_change",
+                "threshold": "decline > 10% over 5-year baseline",
+                "units": "g/kg",
+                "required_protocol": "Dry combustion elemental analysis (ISO 10694) or Walkley-Black wet oxidation",
+            },
+            "surrogate_comparison": {
+                "surrogate_model_role": "Rule-based screening index proxy (v1.0.0-rf-proxy)",
+                "surrogate_status": "OPERATIONAL_EMPIRICAL_SURROGATE",
+                "independent_model_status": "UNAVAILABLE",
+            },
+            "evidence": {
+                "meteorological_observations": "NASA POWER MERRA-2 (Monthly 2020-2024)",
+                "static_pedology_baseline": "ISRIC SoilGrids 250m (2020 snapshot)",
+                "satellite_canopy_vigor": "Sentinel-2 L2A BOA NDVI (10m)",
+                "field_soil_cores": "ZERO_OBSERVATIONS_IN_PUBLIC_DOMAIN",
+            },
+            "limitations": [
+                "Current risk score reflects seasonal hydro-thermal pressure, not confirmed physical degradation.",
+                "Sentinel-2 NDVI captures surface vegetative vigor, which is sensitive to crop phenology, irrigation, and harvest rather than direct soil structural loss.",
+                "ISRIC SoilGrids represents a spatial machine-learning estimate, not multi-temporal in-situ soil sampling.",
+                "Physical validation requires repeated georeferenced laboratory core samples.",
+            ],
+        }
+
+        # 12. Assemble Consolidated Payload
         payload = {
             "metadata": {
                 "assessment_id": assessment_id,
@@ -323,6 +442,9 @@ class SoilSentinelService:
             "crop_eligibility": crop_dict,
             "scenario_comparison": scenario_dict,
             "historical_series": historical_series,
+            "ml_prediction": ml_prediction,
+            "ml_explanation": ml_explanation,
+            "independent_degradation_assessment": independent_degradation_assessment,
             "audit_reference": {
                 "assessment_id": assessment_id,
                 "audit_logged": audit_logged,

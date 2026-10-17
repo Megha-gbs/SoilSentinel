@@ -71,6 +71,14 @@ from src.Model.service import (
     SoilSentinelService,
     get_dashboard_payload,
 )
+from src.Model.model import (
+    load_trained_model,
+    load_model_metadata,
+    load_preprocessor,
+    load_explainer,
+    predict_ml,
+    explain_prediction,
+)
 
 __all__ = [
     # Risk Scoring
@@ -129,4 +137,11 @@ __all__ = [
     # Unified Service & Dashboard Handoff
     "SoilSentinelService",
     "get_dashboard_payload",
+    # Machine Learning Model & Prediction
+    "load_trained_model",
+    "load_model_metadata",
+    "load_preprocessor",
+    "load_explainer",
+    "predict_ml",
+    "explain_prediction",
 ]

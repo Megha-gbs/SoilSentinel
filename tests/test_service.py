@@ -126,6 +126,18 @@ class TestSoilSentinelServiceIntegration(unittest.TestCase):
         self.assertEqual(len(hist), 60)
         self.assertEqual(hist[-1]["date"], "2024-12")
 
+        # Verify Independent Degradation Assessment Block
+        self.assertIn("independent_degradation_assessment", payload)
+        indep = payload["independent_degradation_assessment"]
+        self.assertEqual(indep["status"], "PENDING_INDEPENDENT_GROUND_TRUTH")
+        self.assertEqual(indep["validation_status"], "NOT_VALIDATED_AGAINST_PHYSICAL_GROUND_TRUTH")
+        self.assertEqual(indep["model_execution"], "BLOCKED_PENDING_INDEPENDENT_LABELS")
+        self.assertIn("target_definition", indep)
+        self.assertIn("surrogate_comparison", indep)
+        self.assertIn("evidence", indep)
+        self.assertIn("limitations", indep)
+        self.assertIsInstance(indep["limitations"], list)
+
     def test_custom_scenario_evaluation(self):
         """evaluate_custom_scenario() must simulate interactive slider values."""
         # Simulate custom acute heatwave + drought condition

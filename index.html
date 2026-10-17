@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17251d">
+  <meta name="description" content="SoilSentinel turns soil and climate evidence into clearer decisions for healthier soil.">
+  <title>SoilSentinel — Beneath Every Harvest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="SoilSentinel home"><span class="brand-mark">s</span> soil<span>sentinel</span><i>.</i></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#why-soil">Why soil</a><a href="#approach">Our approach</a><a href="#choose-path">Explore</a>
+    </nav>
+    <a class="nav-cta" href="auth.html">Sign in / Register <span>↗</span></a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/soil-hero-still.jpg" aria-label="Atmospheric close-up of soil and roots">
+        <!-- Replace this public sample with team-owned or properly licensed soil footage before production. -->
+        <source src="https://videos.pexels.com/video-files/5473809/5473809-hd_1920_1080_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="pulse"></span> THE FUTURE STARTS BELOW</p>
+        <h1>Every harvest begins<br>with a world <em>unseen.</em></h1>
+        <p class="hero-copy">Beneath our feet lies the foundation of our food, our ecosystems, and our future. It's time we started listening to it.</p>
+        <div class="hero-actions">
+          <a class="button button-lime" href="#why-soil">Explore the living soil <span>↓</span></a>
+          <a class="text-link" href="#approach">Discover our mission <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <span class="mono">15° NORTH · 75° EAST</span>
+        <span class="scroll-cue"><span class="scroll-line"></span> SCROLL TO GO BENEATH</span>
+        <span class="mono">SOIL / CLIMATE / LIFE</span>
+      </div>
+      <div class="hero-index">01 <span>/</span> 04</div>
+    </section>
+
+    <section class="intro section-pad" id="why-soil">
+      <div class="section-kicker reveal"><span>01</span><span class="rule"></span><span>THE GROUND BENEATH US</span></div>
+      <div class="intro-grid">
+        <div class="intro-heading reveal"><h2>We look at the harvest.<br><em>We should look below.</em></h2></div>
+        <div class="intro-text reveal"><p class="large-copy">Soil is not just the ground we stand on. It is a living, changing system—holding water, cycling nutrients, and supporting the food we depend on.</p><p>Yet many of the signals that tell us soil is under stress are difficult to see. SoilSentinel brings available soil and climate evidence into one clearer picture, helping people ask better questions and take informed next steps.</p><a class="inline-link" href="#approach">See how we approach soil health <span>↗</span></a></div>
+      </div>
+      <div class="soil-journey reveal" aria-label="Scroll-driven conceptual journey through soil layers">
+        <div class="journey-copy">
+          <p class="mono journey-kicker">BENEATH EVERY HARVEST</p>
+          <h3 class="journey-title">The world below<br><em>is always at work.</em></h3>
+          <p class="journey-description">Scroll to move from the surface into the living root zone, then discover how soil signals become scientific evidence.</p>
+          <div class="journey-stage-list" aria-live="polite">
+            <div class="journey-stage active" data-stage="0"><span>01</span><div><strong>The surface</strong><small>Where every harvest begins.</small></div></div>
+            <div class="journey-stage" data-stage="1"><span>02</span><div><strong>The living root zone</strong><small>Roots, structure and moisture.</small></div></div>
+            <div class="journey-stage" data-stage="2"><span>03</span><div><strong>The hidden signals</strong><small>Soil and climate indicators.</small></div></div>
+            <div class="journey-stage" data-stage="3"><span>04</span><div><strong>Evidence into action</strong><small>Understand. Restore. Track.</small></div></div>
+          </div>
+        </div>
+        <div class="journey-visual" data-progress="0">
+          <div class="journey-visual-frame">
+            <div class="journey-sky"><span class="journey-sun"></span><span class="journey-cloud cloud-a"></span><span class="journey-cloud cloud-b"></span><span class="journey-surface-label mono">THE SURFACE</span><div class="journey-plant"><span class="plant-stem"></span><i class="plant-leaf leaf-a"></i><i class="plant-leaf leaf-b"></i></div></div>
+            <div class="journey-soil soil-organic"><span class="layer-label mono">ORGANIC MATTER</span><i class="soil-grain g1"></i><i class="soil-grain g2"></i><i class="soil-grain g3"></i><i class="soil-grain g4"></i></div>
+            <div class="journey-soil soil-root-zone"><span class="layer-label mono">ROOT ZONE</span>
+              <svg class="root-svg" viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
+                <path class="root-path rp1" d="M302 0 C300 70 250 90 260 150 S235 225 190 310"/>
+                <path class="root-path rp2" d="M302 35 C360 90 390 125 380 190 S410 260 455 330"/>
+                <path class="root-path rp3" d="M280 90 C220 130 180 150 150 205 S120 270 90 300"/>
+                <path class="root-path rp4" d="M350 105 C410 135 460 150 485 205 S510 250 545 280"/>
+                <path class="root-path rp5" d="M260 155 C300 185 320 230 300 290"/>
+                <path class="root-path rp6" d="M395 185 C355 225 370 270 350 340"/>
+                <path class="root-path rp7" d="M190 210 C225 235 220 265 205 290"/>
+              </svg>
+              <span class="water-dot wd1"></span><span class="water-dot wd2"></span><span class="water-dot wd3"></span><span class="water-dot wd4"></span><span class="water-dot wd5"></span>
+              <div class="scientific-callout callout-moisture"><span class="callout-dot"></span><span class="mono">MOISTURE</span><i></i></div>
+              <div class="scientific-callout callout-root"><span class="callout-dot"></span><span class="mono">ROOT ZONE</span><i></i></div>
+            </div>
+            <div class="journey-soil soil-subsoil"><span class="layer-label mono">SUBSOIL</span><div class="deep-strata"></div><div class="deep-strata strata-two"></div><div class="scientific-callout callout-carbon"><span class="callout-dot"></span><span class="mono">SOIL PROFILE</span><i></i></div></div>
+            <div class="journey-science-overlay">
+              <div class="science-grid"></div>
+              <div class="science-heading"><span class="mono">SOILSENTINEL / INDICATORS</span><span class="science-status"><i></i> CONCEPTUAL VIEW</span></div>
+              <div class="science-indicators">
+                <div class="science-indicator"><span class="indicator-symbol">≈</span><span><b>Moisture</b><small>Water availability</small></span><i class="indicator-line line-one"></i></div>
+                <div class="science-indicator"><span class="indicator-symbol">↗</span><span><b>Thermal stress</b><small>Temperature context</small></span><i class="indicator-line line-two"></i></div>
+                <div class="science-indicator"><span class="indicator-symbol">◌</span><span><b>Organic carbon</b><small>Soil condition</small></span><i class="indicator-line line-three"></i></div>
+                <div class="science-indicator"><span class="indicator-symbol">⌁</span><span><b>pH deviation</b><small>Chemical context</small></span><i class="indicator-line line-four"></i></div>
+              </div>
+              <p class="science-footnote mono">ILLUSTRATIVE VISUALS · NO LIVE MEASUREMENTS</p>
+            </div>
+            <div class="journey-progress"><span class="journey-progress-fill"></span></div>
+          </div>
+          <div class="soil-caption"><span class="mono">FIG. 01 — A CONCEPTUAL SOIL JOURNEY</span><span>Illustrative layers · not a measured sample</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signals section-pad">
+      <div class="section-kicker reveal"><span>02</span><span class="rule"></span><span>WHEN THE BALANCE SHIFTS</span></div>
+      <div class="signals-head reveal"><h2>Small signals.<br><em>Far-reaching effects.</em></h2><p>Soil stress can be gradual and easy to miss. Understanding the available evidence is a first step toward responding responsibly.</p></div>
+      <div class="signal-grid">
+        <article class="signal-card reveal"><div class="signal-icon">≈</div><p class="mono">01 / WATER</p><h3>Moisture stress</h3><p>Water availability and rainfall patterns can shape conditions around the root zone.</p><div class="card-line"></div></article>
+        <article class="signal-card reveal"><div class="signal-icon">↗</div><p class="mono">02 / HEAT</p><h3>Thermal stress</h3><p>Temperature patterns provide context for understanding environmental pressure.</p><div class="card-line"></div></article>
+        <article class="signal-card reveal"><div class="signal-icon">◌</div><p class="mono">03 / CARBON</p><h3>Soil depletion</h3><p>Soil organic carbon is an important part of soil structure and long-term soil health.</p><div class="card-line"></div></article>
+        <article class="signal-card reveal"><div class="signal-icon">⌁</div><p class="mono">04 / CHEMISTRY</p><h3>Soil imbalance</h3><p>Properties such as pH need the right context—and measured tests when necessary.</p><div class="card-line"></div></article>
+      </div>
+      <p class="section-footnote mono">INDICATORS ARE EVIDENCE, NOT A SUBSTITUTE FOR LAB TESTING.</p>
+    </section>
+
+    <section class="approach section-pad" id="approach">
+      <div class="approach-bg" aria-hidden="true"></div>
+      <div class="section-kicker reveal"><span>03</span><span class="rule"></span><span>FROM EVIDENCE TO ACTION</span></div>
+      <div class="approach-top reveal"><h2>Understand the soil.<br><em>Support the next step.</em></h2><p>SoilSentinel is designed to make soil and climate evidence more understandable—without hiding uncertainty or overstating what the data can tell us.</p></div>
+      <div class="steps">
+        <article class="step reveal"><span class="step-number">01</span><div><h3>Assess</h3><p>Bring available soil and climate information together.</p></div><span class="step-symbol">⌕</span></article>
+        <article class="step reveal"><span class="step-number">02</span><div><h3>Understand</h3><p>See the indicators behind an assessment and the limits of the evidence.</p></div><span class="step-symbol">◉</span></article>
+        <article class="step reveal"><span class="step-number">03</span><div><h3>Restore</h3><p>Explore ranked actions with reasons, urgency, and practical limitations.</p></div><span class="step-symbol">↗</span></article>
+        <article class="step reveal"><span class="step-number">04</span><div><h3>Track</h3><p>Compare dated observations over time—never infer recovery from one reading.</p></div><span class="step-symbol">⌁</span></article>
+        <article class="step reveal"><span class="step-number">05</span><div><h3>Recommend responsibly</h3><p>Show crop guidance only when the available evidence meets eligibility conditions.</p></div><span class="step-symbol">✳</span></article>
+      </div>
+      <div class="approach-note mono">TRANSPARENT BY DESIGN <span>·</span> EVIDENCE BEFORE CERTAINTY</div>
+    </section>
+
+    <section class="pathways section-pad" id="choose-path">
+      <div class="section-kicker reveal"><span>04</span><span class="rule"></span><span>YOUR WAY INTO SOILSENTINEL</span></div>
+      <div class="pathways-heading reveal"><h2>One shared ground.<br><em>Two ways to explore.</em></h2><p>Choose the perspective that fits your work. You can switch paths whenever you need a different view.</p></div>
+      <div class="pathway-grid">
+        <article class="pathway farmer reveal"><div class="pathway-top"><span class="mono">PATH 01 / FARMER MODE</span><span class="pathway-icon">↗</span></div><div class="pathway-art farmer-art" role="img" aria-label="Farmer examining healthy soil in a field"><div class="field-line f1"></div><div class="field-line f2"></div><div class="field-line f3"></div><div class="mini-sprout"><i></i><b></b></div></div><div class="pathway-copy"><h3>For the people<br>who grow our food.</h3><p>Understand soil-risk signals, explore practical actions, and know when further testing or expert support may be needed.</p><a class="button button-dark" href="auth.html?role=farmer&mode=register">Get started as a farmer <span>→</span></a></div></article>
+        <article class="pathway researcher reveal"><div class="pathway-top"><span class="mono">PATH 02 / RESEARCHER MODE</span><span class="pathway-icon">↗</span></div><div class="pathway-art research-art" role="img" aria-label="Researcher examining soil samples in a laboratory"><div class="chart-grid"></div><svg viewBox="0 0 420 180" role="img" aria-label="Illustrative data trend lines"><path d="M12 145 C55 130 64 70 110 93 S170 145 215 88 S270 55 310 73 S360 40 408 22" fill="none" stroke="#b5d58b" stroke-width="3"/><path d="M12 160 C70 150 88 125 130 135 S205 70 250 103 S330 118 408 80" fill="none" stroke="#e3b27c" stroke-width="2" stroke-dasharray="5 5"/></svg><span class="chart-label mono">EVIDENCE / OVER TIME</span></div><div class="pathway-copy"><h3>For the people<br>who investigate.</h3><p>Inspect historical series, source dates, data quality, feature values, scenarios, and assessment evidence.</p><a class="button button-outline" href="auth.html?role=researcher&mode=register">Get started as a researcher <span>→</span></a></div></article>
+      </div>
+      <p class="access-note mono">DEMO ACCESS ONLY · SIGN-IN AND REGISTRATION WILL BE CONNECTED IN A LATER PHASE</p>
+    </section>
+
+    <section class="closing">
+      <div class="closing-text reveal"><p class="eyebrow"><span class="pulse"></span> THE WORK BEGINS BELOW</p><h2>Healthy futures<br>start with <em>healthier soil.</em></h2><a href="#top" class="button button-lime">Back to the surface ↑</a></div>
+      <div class="closing-soil" aria-hidden="true"><div class="closing-root cr1"></div><div class="closing-root cr2"></div><div class="closing-root cr3"></div><div class="closing-glow"></div></div>
+    </section>
+  </main>
+  <footer class="footer"><a class="brand" href="#top"><span class="brand-mark">s</span> soil<span>sentinel</span><i>.</i></a><p>Prevent <span>→</span> Restore <span>→</span> Track <span>→</span> Recommend responsibly</p><span class="mono">BUILT AROUND EVIDENCE</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>

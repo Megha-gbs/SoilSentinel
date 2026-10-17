@@ -121,9 +121,79 @@ python src/Model/predict.py --input data/feature_table.csv --output outputs/pred
 
 ---
 
+## Machine Learning Surrogate Engine
+
+SoilSentinel provides a genuinely trained machine learning surrogate pipeline ([`src/Model/train_model.py`](src/Model/train_model.py)) designed to approximate the multi-factor heuristic risk classification directly from raw environmental and hydrological covariates:
+
+* **Algorithm:** Random Forest Classifier (100 trees, balanced class weights, max depth 4).
+* **Feature Schema:** 14 dynamic physical and temporal indicators (zero target leakage; no sub-scores or composite score).
+* **Split Strategy:** Strict chronological split (Train: 2020–2022, Validation: 2023, Held-out Test: 2024) + 4-fold TimeSeries cross-validation.
+* **Test Performance (2024 Held-Out):** **91.67% Accuracy**, **0.9267 Macro-F1** (vs. Naive Majority Baseline 58.33% Accuracy, 0.2456 Macro-F1).
+* **Target Provenance:** Explicitly qualified as `SURROGATE_PROXY_LEARNING` emulating the rule-based index (not field degradation assays).
+* **Serialized Artifacts:**
+  * Model Pipeline: [`models/soil_risk_model.joblib`](models/soil_risk_model.joblib)
+  * Preprocessor: [`models/soil_risk_preprocessor.joblib`](models/soil_risk_preprocessor.joblib)
+  * SHAP Explainer: [`models/soil_risk_explainer.joblib`](models/soil_risk_explainer.joblib)
+  * Metadata Manifest: [`models/model_metadata.json`](models/model_metadata.json)
+  * Global SHAP Importance: [`outputs/shap_global_importance.csv`](outputs/shap_global_importance.csv)
+* **SHAP Explainability:**
+  * TreeSHAP explainer fitted strictly on the transformed 2020–2022 training partition background ($N=36$).
+  * Multiclass probability attribution with runtime additivity verification ($\le 0.02$ tolerance).
+  * Returns JSON-native signed impacts, top-5 drivers, original feature values, and direction.
+  * Disclaims physical causation (explains surrogate model decision surface, not soil degradation ground truth).
+* **Detailed Reports:**
+  * Dataset & Provenance Audit: [`docs/ML_DATASET_AUDIT.md`](docs/ML_DATASET_AUDIT.md)
+  * ML Evaluation & Benchmarking: [`docs/ML_MODEL_EVALUATION.md`](docs/ML_MODEL_EVALUATION.md)
+
+```powershell
+# Train and evaluate ML surrogate models and generate SHAP explainer
+python src/Model/train_model.py
+```
+
+---
+
+---
+
+## Full-Stack Web Application & API Gateway
+
+SoilSentinel includes a role-based Node.js Express gateway and responsive web interfaces:
+
+* **Gateway Server:** [`server.js`](server.js) — Express-based application server with session persistence in SQLite (`node:sqlite` / `better-sqlite3`), Helmet security headers, bcrypt authentication, and rate limiting.
+* **Landing Page:** [`index.html`](index.html) — Overview of SoilSentinel capabilities and entry point.
+* **Authentication Portal:** [`auth.html`](auth.html) — Role-based sign-in and registration for Farmers and Researchers.
+* **Farmer Dashboard:** [`farmer-dashboard.html`](farmer-dashboard.html) — Dynamic risk assessment, voice guidance advisory, crop suitability recommendations, recovery action simulator, and multilingual support.
+* **Researcher Dashboard:** [`researcher-dashboard.html`](researcher-dashboard.html) — Multi-factor historical dataset explorer, TreeSHAP explainability attributions, what-if meteorological scenario stress-testing, and compliance audit trail.
+* **Python Backend Bridge:** [`src/Model/bridge.py`](src/Model/bridge.py) — Spawns as a background HTTP microservice (`http://127.0.0.1:5001`) with graceful fallback to CLI execution.
+
+### Quick Start (Web Application)
+
+```powershell
+# 1. Install Node.js dependencies
+npm install
+
+# 2. Configure environment (optional, defaults provided)
+cp .env.example .env
+
+# 3. Train ML surrogate models (optional; automatically built if missing)
+python -m src.Model.train_model
+
+# 4. Start the gateway and Python bridge
+npm start
+# Visit http://localhost:3000 in your browser
+```
+
+### Pre-configured Development Demo Accounts
+
+For local hackathon evaluation, the application seeds two ready-to-use demo accounts on initial startup:
+* **Farmer Account:** `farmer.demo@soilsentinel.local` | Password: `DemoSoil2026!`
+* **Researcher Account:** `researcher.demo@soilsentinel.local` | Password: `DemoSoil2026!`
+
+---
+
 ## Validation & Integrity
 
 - **Missing Values:** Zero unexpected nulls or fabricated records. Exactly 1 boundary NaN in 1-month lags and 2 boundary NaNs in 3-month rolling windows reflecting unobserved historical start values.
 - **Physical Bounds:** Temperature (-50°C to 60°C), Humidity (0% to 100%), Precipitation (0 to 500 mm/day), Soil pH (3.0 to 11.0), Texture sum (clay + sand + silt ≈ 100%).
 - **Audit Trail:** Cumulative, append-only CSV audit logger (`logs/audit_log.csv`) recording timestamped ISO 8601 UTC entries without storing raw features or credentials.
 - **Data Dictionary:** Detailed feature catalog and operational limitations are documented in [`docs/data_dictionary.md`](docs/data_dictionary.md).
+
