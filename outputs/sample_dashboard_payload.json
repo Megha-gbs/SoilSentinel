@@ -1,0 +1,747 @@
+{
+  "metadata": {
+    "assessment_id": "ASM-2024-12-20261017081909",
+    "assessment_status": "COMPLETE",
+    "generated_at_utc": "2026-10-17T08:19:09.555161+00:00",
+    "engine_version": "v1.0.0-baseline",
+    "index_name": "Seasonal Hydro-Thermal Stress & Baseline Vulnerability Index",
+    "assumptions_label": "PROVISIONAL_ENGINEERING_HEURISTIC",
+    "evaluation_date": "2024-12",
+    "audit_logged": false
+  },
+  "risk_assessment": {
+    "score": 47.87,
+    "risk_category": "Medium",
+    "status": "COMPLETE",
+    "index_name": "Seasonal Hydro-Thermal Stress & Baseline Vulnerability Index",
+    "dynamic_environmental_stress": 55.47,
+    "baseline_soil_vulnerability": 30.12,
+    "indicators": {
+      "moisture_deficit": {
+        "name": "Root-zone Soil Moisture Deficit",
+        "sub_score": 60.0,
+        "weight": 0.3,
+        "weighted_score": 18.0,
+        "direction": "Lower moisture -> Higher risk",
+        "raw_value": 0.45,
+        "unit": "fraction (0-1)",
+        "scientific_rationale": "Direct measure of water availability for crops; desiccation degrades microbial habitats and structure.",
+        "notes": "Root-zone wetness fraction = 0.450. Deficit mapped from 0.75 (no stress) to 0.25 (acute stress)."
+      },
+      "precipitation_deficit": {
+        "name": "Meteorological Recharge Deficit (Moisture-Buffered)",
+        "sub_score": 83.33,
+        "raw_unbuffered_score": 100.0,
+        "moisture_buffering_factor": 0.8333,
+        "weight": 0.25,
+        "weighted_score": 20.83,
+        "direction": "Lower precipitation -> Higher recharge deficit; mitigated when root-zone moisture is adequate.",
+        "raw_value": 0.43,
+        "unit": "mm/day",
+        "scientific_rationale": "Atmospheric recharge deficit. Buffered by root-zone soil water to prevent false drought alerts during irrigation.",
+        "notes": "3-month rolling mean precip = 0.43 mm/day. Raw meteorological deficit = 100.0/100. Root-zone moisture (0.450) provides intermediate buffering (penalty multiplier: 0.83). Final buffered score = 83.33/100."
+      },
+      "thermal_stress": {
+        "name": "Topsoil Thermal Stress",
+        "sub_score": 0.0,
+        "weight": 0.15,
+        "weighted_score": 0.0,
+        "direction": "Higher temperature -> Higher stress",
+        "raw_value": 12.95,
+        "unit": "degrees Celsius",
+        "scientific_rationale": "High topsoil temperatures accelerate organic oxidation and elevate evaporative demand.",
+        "notes": "Topsoil temperature = 12.95 C. Stress mapped from 24.0 C (favorable) to 38.0 C (extreme thermal load)."
+      },
+      "soc_vulnerability": {
+        "name": "Static SOC Depletion Vulnerability",
+        "sub_score": 60.25,
+        "weight": 0.15,
+        "weighted_score": 9.04,
+        "direction": "Lower SOC -> Higher vulnerability",
+        "raw_value": 12.95,
+        "unit": "g/kg",
+        "scientific_rationale": "Depleted organic carbon reduces aggregate stability, cation retention, and water holding capacity.",
+        "notes": "Static topsoil SOC baseline = 12.95 g/kg. Vulnerability scaled from 25.0 g/kg (high resilience) to 5.0 g/kg (depleted)."
+      },
+      "ph_deviation": {
+        "name": "Static pH Neutrality Deviation",
+        "sub_score": 0.0,
+        "weight": 0.15,
+        "weighted_score": 0.0,
+        "direction": "Greater distance from [6.5, 7.5] -> Higher vulnerability",
+        "raw_value": 6.55,
+        "unit": "pH units",
+        "scientific_rationale": "Deviations from neutrality trigger nutrient precipitation and micronutrient imbalances.",
+        "notes": "Static topsoil pH baseline = 6.55. Deviation from [6.5, 7.5] neutral window = 0.00 pH units."
+      }
+    },
+    "explanation": "Record [2024-12] Index: 47.87/100 (Medium Risk). Dynamic Environmental Stress: 55.5/100; Static Baseline Soil Vulnerability: 30.1/100. Primary risk driver is 'Meteorological Recharge Deficit (Moisture-Buffered)' (sub-score: 83.3/100). ",
+    "assumptions_label": "PROVISIONAL_ENGINEERING_HEURISTIC",
+    "top_risk_drivers": [
+      "Meteorological Recharge Deficit (Moisture-Buffered)",
+      "Root-zone Soil Moisture Deficit",
+      "Static SOC Depletion Vulnerability"
+    ],
+    "data_quality": {
+      "status": "DEGRADED",
+      "evidence_tier": "TIER_2_PROVISIONAL",
+      "observation_completeness": 0.8,
+      "missing_features": [],
+      "data_sources": [
+        "NASA POWER (Meteorology)",
+        "SoilGrids 250m (Pedology)"
+      ]
+    }
+  },
+  "recommendations": {
+    "status": "COMPLETE",
+    "overall_risk_score": 47.87,
+    "overall_risk_category": "Medium",
+    "primary_stressor": "Meteorological Recharge Deficit (Moisture-Buffered)",
+    "recommendations": [
+      {
+        "indicator_key": "precipitation_deficit",
+        "indicator_name": "Meteorological Recharge Deficit (Moisture-Buffered)",
+        "sub_score": 83.33,
+        "weight": 0.25,
+        "weighted_score": 20.83,
+        "urgency": "CRITICAL",
+        "action_type": "ADAPTATION",
+        "title": "Meteorological Recharge Deficit Mitigation & Rainwater Retention",
+        "primary_intervention": "Implement localized water retention to compensate for deficient precipitation recharge.",
+        "actionable_steps": [
+          "Maintain in-field bunds and field boundaries to prevent surface runoff during sudden rain events.",
+          "Utilize farm pond or community rainwater catchment structures to supplement soil profiles.",
+          "Utilize moisture buffering from existing root-zone storage to stagger irrigation cycles."
+        ],
+        "expected_benefit": "Buffers against extended regional dry spells and protects groundwater tables.",
+        "observed_metric": "Precipitation = 0.43 mm/day, Moisture Buffering Factor = 0.83 (Sub-score: 83.3/100)",
+        "recommendation_id": "REC-PRECIP-CRI",
+        "reason": "Precipitation recharge deficit is 83.3/100 based on 3-month rolling rainfall trends.",
+        "cost_category": "Moderate Investment (Water Harvesting) / Low Cost (Furrow Diking)",
+        "limitations": "Rainwater retention structures require farm land allocation and earth-moving machinery."
+      },
+      {
+        "indicator_key": "moisture_deficit",
+        "indicator_name": "Root-Zone Soil Moisture Deficit",
+        "sub_score": 60.0,
+        "weight": 0.3,
+        "weighted_score": 18.0,
+        "urgency": "HIGH",
+        "action_type": "PREVENTION",
+        "title": "Deficit Irrigation Scheduling & Surface Cover Maintenance",
+        "primary_intervention": "Transition to high-efficiency moisture conservation irrigation.",
+        "actionable_steps": [
+          "Maintain continuous crop residue cover across at least 30% of soil surface.",
+          "Prioritize drip irrigation or alternate-furrow irrigation over broad flood inundation.",
+          "Monitor weekly root-zone moisture depletion curves."
+        ],
+        "expected_benefit": "Maintains root-zone hydraulic conductivity and dampens agricultural drought vulnerability.",
+        "observed_metric": "Root-zone wetness fraction = 0.450 (Sub-score: 60.0/100)",
+        "recommendation_id": "REC-MOISTURE-HIG",
+        "reason": "Root-zone moisture deficit is 60.0/100, constraining plant available water.",
+        "cost_category": "Low Cost (Mulch) / Moderate (Micro-irrigation)",
+        "limitations": "Requires localized crop residue mulch availability; pressurized micro-irrigation requires capital equipment."
+      },
+      {
+        "indicator_key": "soc_vulnerability",
+        "indicator_name": "Soil Organic Carbon (SOC) Vulnerability",
+        "sub_score": 60.25,
+        "weight": 0.15,
+        "weighted_score": 9.04,
+        "urgency": "HIGH",
+        "action_type": "RESTORATION",
+        "title": "Organic Matter Augmentation & Residue Retention",
+        "primary_intervention": "Increase organic inputs and adopt non-inversion conservation agriculture.",
+        "actionable_steps": [
+          "Apply 5-8 tonnes/ha compost or vermicompost annually.",
+          "Rotate cereal crops with nodulating grain legumes (e.g. chickpea, moong) to enhance biological soil inputs.",
+          "Adopt reduced tillage to minimize organic carbon oxidation."
+        ],
+        "expected_benefit": "Progressively elevates topsoil SOC toward regional target (> 15.0 g/kg) and strengthens soil buffering.",
+        "observed_metric": "Topsoil SOC = 12.95 g/kg (Sub-score: 60.2/100)",
+        "recommendation_id": "REC-SOC-HIG",
+        "reason": "Topsoil organic carbon vulnerability is 60.2/100, indicating low organic carbon buffering.",
+        "cost_category": "Moderate Investment (FYM / Green Manure)",
+        "limitations": "Soil organic carbon elevation requires multi-season residue retention; not an immediate single-season fix."
+      },
+      {
+        "indicator_key": "thermal_stress",
+        "indicator_name": "Topsoil Thermal Stress",
+        "sub_score": 0.0,
+        "weight": 0.15,
+        "weighted_score": 0.0,
+        "urgency": "MAINTENANCE",
+        "action_type": "MAINTENANCE",
+        "title": "Favorable Thermal Regime Maintenance",
+        "primary_intervention": "Topsoil temperatures are within optimal biological ranges.",
+        "actionable_steps": [
+          "Continue normal seasonal cultivation practices."
+        ],
+        "expected_benefit": "Sustains optimal conditions for biological nitrogen fixation and root respiration.",
+        "observed_metric": "Soil layer 1 temperature = 12.9 \u00b0C (Sub-score: 0.0/100)",
+        "recommendation_id": "REC-THERMAL-MAI",
+        "reason": "Topsoil thermal stress is 0.0/100, which accelerates evaporative loss and microbial heat stress.",
+        "cost_category": "Low Cost (Surface Stubble / Intercropping)",
+        "limitations": "Surface shading provides 2-5\u00b0C canopy cooling but does not counteract regional macroclimate heatwaves alone."
+      },
+      {
+        "indicator_key": "ph_deviation",
+        "indicator_name": "Soil pH Deviation from Optimal Neutral Band",
+        "sub_score": 0.0,
+        "weight": 0.15,
+        "weighted_score": 0.0,
+        "urgency": "MAINTENANCE",
+        "action_type": "MAINTENANCE",
+        "title": "Optimal Soil pH Neutral Band Preservation",
+        "primary_intervention": "Soil reaction is within ideal agronomic neutral range (6.5 - 7.5).",
+        "actionable_steps": [
+          "Continue standard balanced fertilizer management.",
+          "Conduct routine biennial soil pH testing to verify long-term stability."
+        ],
+        "expected_benefit": "Ensures maximum bioavailability of all essential macro- and micronutrients.",
+        "observed_metric": "Topsoil pH = 6.55 (Sub-score: 0.0/100)",
+        "recommendation_id": "REC-PH-MAI",
+        "reason": "Soil pH deviation score is 0.0/100 (observed pH: 6.55), indicating mild chemical reaction deviation.",
+        "cost_category": "Low Investment (Balanced Fertilizers)",
+        "limitations": "Chemical amendments require precise dosage titration based on laboratory soil testing to prevent overcorrection."
+      }
+    ],
+    "top_three_recommendations": [
+      {
+        "indicator_key": "precipitation_deficit",
+        "indicator_name": "Meteorological Recharge Deficit (Moisture-Buffered)",
+        "sub_score": 83.33,
+        "weight": 0.25,
+        "weighted_score": 20.83,
+        "urgency": "CRITICAL",
+        "action_type": "ADAPTATION",
+        "title": "Meteorological Recharge Deficit Mitigation & Rainwater Retention",
+        "primary_intervention": "Implement localized water retention to compensate for deficient precipitation recharge.",
+        "actionable_steps": [
+          "Maintain in-field bunds and field boundaries to prevent surface runoff during sudden rain events.",
+          "Utilize farm pond or community rainwater catchment structures to supplement soil profiles.",
+          "Utilize moisture buffering from existing root-zone storage to stagger irrigation cycles."
+        ],
+        "expected_benefit": "Buffers against extended regional dry spells and protects groundwater tables.",
+        "observed_metric": "Precipitation = 0.43 mm/day, Moisture Buffering Factor = 0.83 (Sub-score: 83.3/100)",
+        "recommendation_id": "REC-PRECIP-CRI",
+        "reason": "Precipitation recharge deficit is 83.3/100 based on 3-month rolling rainfall trends.",
+        "cost_category": "Moderate Investment (Water Harvesting) / Low Cost (Furrow Diking)",
+        "limitations": "Rainwater retention structures require farm land allocation and earth-moving machinery."
+      },
+      {
+        "indicator_key": "moisture_deficit",
+        "indicator_name": "Root-Zone Soil Moisture Deficit",
+        "sub_score": 60.0,
+        "weight": 0.3,
+        "weighted_score": 18.0,
+        "urgency": "HIGH",
+        "action_type": "PREVENTION",
+        "title": "Deficit Irrigation Scheduling & Surface Cover Maintenance",
+        "primary_intervention": "Transition to high-efficiency moisture conservation irrigation.",
+        "actionable_steps": [
+          "Maintain continuous crop residue cover across at least 30% of soil surface.",
+          "Prioritize drip irrigation or alternate-furrow irrigation over broad flood inundation.",
+          "Monitor weekly root-zone moisture depletion curves."
+        ],
+        "expected_benefit": "Maintains root-zone hydraulic conductivity and dampens agricultural drought vulnerability.",
+        "observed_metric": "Root-zone wetness fraction = 0.450 (Sub-score: 60.0/100)",
+        "recommendation_id": "REC-MOISTURE-HIG",
+        "reason": "Root-zone moisture deficit is 60.0/100, constraining plant available water.",
+        "cost_category": "Low Cost (Mulch) / Moderate (Micro-irrigation)",
+        "limitations": "Requires localized crop residue mulch availability; pressurized micro-irrigation requires capital equipment."
+      },
+      {
+        "indicator_key": "soc_vulnerability",
+        "indicator_name": "Soil Organic Carbon (SOC) Vulnerability",
+        "sub_score": 60.25,
+        "weight": 0.15,
+        "weighted_score": 9.04,
+        "urgency": "HIGH",
+        "action_type": "RESTORATION",
+        "title": "Organic Matter Augmentation & Residue Retention",
+        "primary_intervention": "Increase organic inputs and adopt non-inversion conservation agriculture.",
+        "actionable_steps": [
+          "Apply 5-8 tonnes/ha compost or vermicompost annually.",
+          "Rotate cereal crops with nodulating grain legumes (e.g. chickpea, moong) to enhance biological soil inputs.",
+          "Adopt reduced tillage to minimize organic carbon oxidation."
+        ],
+        "expected_benefit": "Progressively elevates topsoil SOC toward regional target (> 15.0 g/kg) and strengthens soil buffering.",
+        "observed_metric": "Topsoil SOC = 12.95 g/kg (Sub-score: 60.2/100)",
+        "recommendation_id": "REC-SOC-HIG",
+        "reason": "Topsoil organic carbon vulnerability is 60.2/100, indicating low organic carbon buffering.",
+        "cost_category": "Moderate Investment (FYM / Green Manure)",
+        "limitations": "Soil organic carbon elevation requires multi-season residue retention; not an immediate single-season fix."
+      }
+    ],
+    "critical_actions": [
+      "[CRITICAL] Meteorological Recharge Deficit (Moisture-Buffered): Implement localized water retention to compensate for deficient precipitation recharge.",
+      "[HIGH] Root-Zone Soil Moisture Deficit: Transition to high-efficiency moisture conservation irrigation.",
+      "[HIGH] Soil Organic Carbon (SOC) Vulnerability: Increase organic inputs and adopt non-inversion conservation agriculture."
+    ],
+    "disclaimer": "SoilSentinel recommendations are heuristic screening guidelines derived from regional reanalysis and digital mapping. They do NOT replace localized laboratory soil testing, on-farm moisture probe measurements, or certified agronomic consultation."
+  },
+  "recovery_tracking": {
+    "evaluation_date": "2024-12",
+    "current_score": 47.87,
+    "current_category": "Medium",
+    "mom_delta": 12.83,
+    "yoy_delta": 1.02,
+    "historical_mean": 37.86,
+    "historical_min": 9.04,
+    "historical_max": 70.72,
+    "historical_percentile": 66.7,
+    "consecutive_months_in_category": 2,
+    "recovery_status": "ESCALATING_STRESS",
+    "observation_count": 60,
+    "trajectory_slope_3m": 16.71,
+    "peak_stress_recovery_points": 22.85,
+    "key_trajectory_driver": "Intensifying environmental stress with positive 3-month score escalation (slope: +16.71 pts/month).",
+    "evidence_summary": "Evaluation for 2024-12: Score = 47.87 (Medium). Trajectory Status: ESCALATING_STRESS. MoM Delta: +12.83 pts, YoY Delta: +1.02 pts. Historical Percentile: 66.7% (Range: [9.04, 70.72], Mean: 37.86). Intensifying environmental stress with positive 3-month score escalation (slope: +16.71 pts/month)."
+  },
+  "crop_eligibility": {
+    "evaluation_date": "2024-12",
+    "is_eligible": true,
+    "risk_score": 47.87,
+    "risk_category": "Medium",
+    "withhold_reasons": [],
+    "withhold_explanations": [],
+    "season": "Rabi",
+    "recommended_crops": [
+      {
+        "crop_name": "Chickpea (Gram)",
+        "category": "Cool-season Pulse",
+        "water_requirement": "Low",
+        "growth_duration_days": "95-110 days",
+        "agronomic_rationale": "Deep rooting system utilizes residual sub-surface moisture with minimal supplementary irrigation.",
+        "suitable_soils": "Loam to clay-loam with good moisture retention."
+      },
+      {
+        "crop_name": "Mustard / Toria (Brassica)",
+        "category": "Oilseed",
+        "water_requirement": "Low to Moderate",
+        "growth_duration_days": "100-120 days",
+        "agronomic_rationale": "Thrives under cool conditions with low water footprint (2-3 light irrigations).",
+        "suitable_soils": "Sandy loam to light clay."
+      },
+      {
+        "crop_name": "Barley (Jau)",
+        "category": "Coarse Cereal",
+        "water_requirement": "Low",
+        "growth_duration_days": "110-125 days",
+        "agronomic_rationale": "Tolerant to mild moisture stress and slightly alkaline or saline soil conditions.",
+        "suitable_soils": "Sandy loam to loam."
+      }
+    ],
+    "restricted_crops": [
+      {
+        "crop_name": "Continuous Flood Wheat",
+        "reason": "Restricted if irrigation water is constrained; shift to limited-irrigation chickpea/mustard."
+      }
+    ],
+    "management_advisory": "Land condition is ELIGIBLE for Rabi season planting. Risk category: Medium (47.87 pts). Recommended strategy: Prioritize low-water restorative crops and maintain crop residue mulching.",
+    "disclaimer": "DISCLAIMER: This crop recommendation eligibility screening is a deterministic, rule-based agro-climatic filter driven by satellite/reanalysis estimates (SoilGrids & NASA POWER). It does NOT constitute a localized commercial yield forecast or individual certified agricultural advisory. Prior to planting, always conduct on-site soil testing and consult local Krishi Vigyan Kendra (KVK) extension agronomists."
+  },
+  "scenario_comparison": {
+    "status": "COMPLETE",
+    "baseline_date": "2024-12",
+    "baseline_score": 47.87,
+    "baseline_category": "Medium",
+    "static_soil_resilience": "MODERATE_RESILIENCE",
+    "comparisons": {
+      "dry_spell": {
+        "scenario_name": "dry_spell",
+        "scenario_description": "Extended 30-day acute dry spell with zero precipitation and elevated ambient air temperatures.",
+        "horizon_days": 30,
+        "scenario_atmospheric_score": 81.25,
+        "scenario_recharge_deficit": 100.0,
+        "scenario_thermal_load": 62.5,
+        "baseline_score": 47.87,
+        "baseline_category": "Medium",
+        "delta_score": 33.38,
+        "category_shift": "INCREASED_STRESS",
+        "recharge_deficit_delta": 0.0,
+        "thermal_load_delta": 62.5,
+        "resilience_assessment": "Moderate buffering: Existing soil organic matter provides temporary structural water retention, damping initial acute desiccation.",
+        "assumptions": [
+          "Assumes zero atmospheric precipitation over the entire 30-day projection horizon.",
+          "Assumes constant elevated 2m air temperature of 32.0 C (+3.0 C regional anomaly).",
+          "Atmospheric evaporative demand is sustained at high levels without precipitation replenishment.",
+          "Does not simulate subsurface irrigation, perched water tables, or capillary flux.",
+          "This is an exploratory HYPOTHETICAL SCENARIO for risk stress-testing and resilience analysis.",
+          "NO probability of occurrence, validation accuracy, or predictive confidence is assigned or claimed.",
+          "Operational numerical weather predictions do NOT offer deterministic skill at a 30-day horizon.",
+          "Atmospheric air temperature is NOT measured or simulated soil temperature."
+        ]
+      },
+      "normal_climatology": {
+        "scenario_name": "normal_climatology",
+        "scenario_description": "Historical regional transition-season climatological average conditions.",
+        "horizon_days": 30,
+        "scenario_atmospheric_score": 47.16,
+        "scenario_recharge_deficit": 81.82,
+        "scenario_thermal_load": 12.5,
+        "baseline_score": 47.87,
+        "baseline_category": "Medium",
+        "delta_score": -0.71,
+        "category_shift": "UNCHANGED",
+        "recharge_deficit_delta": -18.18,
+        "thermal_load_delta": 12.5,
+        "resilience_assessment": "Transition season baseline: Near long-term climatological equilibrium.",
+        "assumptions": [
+          "Assumes steady climatological baseline rainfall of 1.5 mm/day (approx. 45 mm cumulative).",
+          "Assumes seasonal average 2m air temperature of 24.0 C.",
+          "Represents typical Indo-Gangetic autumn/spring meteorological conditions.",
+          "This is an exploratory HYPOTHETICAL SCENARIO for risk stress-testing and resilience analysis.",
+          "NO probability of occurrence, validation accuracy, or predictive confidence is assigned or claimed.",
+          "Operational numerical weather predictions do NOT offer deterministic skill at a 30-day horizon.",
+          "Atmospheric air temperature is NOT measured or simulated soil temperature."
+        ]
+      },
+      "heavy_rainfall": {
+        "scenario_name": "heavy_rainfall",
+        "scenario_description": "Active monsoon / atmospheric recharge pulse with high cumulative precipitation.",
+        "horizon_days": 30,
+        "scenario_atmospheric_score": 0.0,
+        "scenario_recharge_deficit": 0.0,
+        "scenario_thermal_load": 0.0,
+        "baseline_score": 47.87,
+        "baseline_category": "Medium",
+        "delta_score": -47.87,
+        "category_shift": "DECREASED_STRESS",
+        "recharge_deficit_delta": -100.0,
+        "thermal_load_delta": 0.0,
+        "resilience_assessment": "Recharge pulse: Eliminates atmospheric recharge deficit but requires adequate surface drainage to prevent waterlogging and anaerobic root conditions.",
+        "assumptions": [
+          "Assumes persistent high atmospheric precipitation of 15.0 mm/day (450 mm cumulative).",
+          "Assumes moderate 2m air temperature of 22.0 C during cloudy/rainy conditions.",
+          "Evaluates potential waterlogging and excess recharge scenarios.",
+          "This is an exploratory HYPOTHETICAL SCENARIO for risk stress-testing and resilience analysis.",
+          "NO probability of occurrence, validation accuracy, or predictive confidence is assigned or claimed.",
+          "Operational numerical weather predictions do NOT offer deterministic skill at a 30-day horizon.",
+          "Atmospheric air temperature is NOT measured or simulated soil temperature."
+        ]
+      }
+    },
+    "most_adverse_scenario": "dry_spell",
+    "most_favorable_scenario": "heavy_rainfall",
+    "summary_narrative": "Baseline evaluation (2024-12) has overall risk score 47.87 (Medium). Under hypothetical 30-day stress simulation, 'dry_spell' induces peak atmospheric stress (81.2/100), whereas 'heavy_rainfall' provides lowest stress (0.0/100). Regional soil buffering status: MODERATE_RESILIENCE.",
+    "disclaimer": "SoilSentinel scenario comparisons evaluate exploratory, synthetic meteorological assumptions for risk stress-testing. No probability of occurrence or predictive forecast skill is claimed for 30-day projection horizons."
+  },
+  "historical_series": [
+    {
+      "date": "2020-01",
+      "score": 33.49,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2020-02",
+      "score": 41.08,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2020-03",
+      "score": 34.27,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2020-04",
+      "score": 41.27,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2020-05",
+      "score": 48.39,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2020-06",
+      "score": 48.08,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2020-07",
+      "score": 28.83,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2020-08",
+      "score": 16.02,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2020-09",
+      "score": 18.91,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2020-10",
+      "score": 35.38,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2020-11",
+      "score": 53.76,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2020-12",
+      "score": 56.01,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2021-01",
+      "score": 54.55,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2021-02",
+      "score": 54.08,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2021-03",
+      "score": 57.04,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2021-04",
+      "score": 60.2,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2021-05",
+      "score": 60.41,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2021-06",
+      "score": 51.83,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2021-07",
+      "score": 27.97,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2021-08",
+      "score": 13.81,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2021-09",
+      "score": 11.51,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2021-10",
+      "score": 14.97,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2021-11",
+      "score": 30.21,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2021-12",
+      "score": 45.58,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2022-01",
+      "score": 33.23,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2022-02",
+      "score": 29.95,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2022-03",
+      "score": 40.8,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2022-04",
+      "score": 64.14,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2022-05",
+      "score": 66.74,
+      "risk_category": "High"
+    },
+    {
+      "date": "2022-06",
+      "score": 61.88,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2022-07",
+      "score": 22.06,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2022-08",
+      "score": 12.84,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2022-09",
+      "score": 11.43,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2022-10",
+      "score": 9.04,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2022-11",
+      "score": 20.77,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2022-12",
+      "score": 40.56,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2023-01",
+      "score": 45.84,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2023-02",
+      "score": 48.89,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2023-03",
+      "score": 48.26,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2023-04",
+      "score": 45.32,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2023-05",
+      "score": 45.31,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2023-06",
+      "score": 43.34,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2023-07",
+      "score": 13.84,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2023-08",
+      "score": 12.64,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2023-09",
+      "score": 11.34,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2023-10",
+      "score": 18.01,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2023-11",
+      "score": 39.38,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2023-12",
+      "score": 46.85,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2024-01",
+      "score": 50.92,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2024-02",
+      "score": 49.67,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2024-03",
+      "score": 47.19,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2024-04",
+      "score": 56.28,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2024-05",
+      "score": 67.67,
+      "risk_category": "High"
+    },
+    {
+      "date": "2024-06",
+      "score": 70.72,
+      "risk_category": "High"
+    },
+    {
+      "date": "2024-07",
+      "score": 36.18,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2024-08",
+      "score": 13.31,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2024-09",
+      "score": 12.13,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2024-10",
+      "score": 14.44,
+      "risk_category": "Low"
+    },
+    {
+      "date": "2024-11",
+      "score": 35.04,
+      "risk_category": "Medium"
+    },
+    {
+      "date": "2024-12",
+      "score": 47.87,
+      "risk_category": "Medium"
+    }
+  ],
+  "audit_reference": {
+    "assessment_id": "ASM-2024-12-20261017081909",
+    "audit_logged": false,
+    "log_path": "logs/audit_log.csv",
+    "engine_version": "v1.0.0-baseline",
+    "source_id": "dashboard_service",
+    "recommendation_ids": [
+      "REC-PRECIP-CRI",
+      "REC-MOISTURE-HIG",
+      "REC-SOC-HIG"
+    ],
+    "pii_redacted": true
+  }
+}

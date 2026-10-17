@@ -1,5 +1,52 @@
+# Python
 __pycache__/
-.venv/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment & Credentials
 .env
-*.pyc
-.ipynb_checkpoints/
+*.env
+*.pem
+*.key
+
+# Model Binaries & Unverified Artifacts
+models/*.joblib
+models/*.pkl
+*.joblib
+*.pkl
+
+# Local temporary or duplicate workspace folders
+backend/
+sireesha/
+*.tmp
+*.log
+

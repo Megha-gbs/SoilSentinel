@@ -1,0 +1,11 @@
+# SoilSentinel - Core Runtime Dependencies for Prediction and Audit Logging
+# Specifically optimized for IBM LinuxONE (s390x) and lightweight container deployments.
+#
+# Scope: Inference, deterministic scoring, prediction CLI, and audit logging.
+# Excludes heavy geospatial C-compilation dependencies (rasterio, GDAL).
+#
+# For full feature generation from raw processed inputs, install optional PyYAML>=6.0.0.
+# For initial raw SoilGrids download only, refer to requirements.txt (requires system GDAL).
+
+pandas>=2.0.0
+numpy>=1.24.0
