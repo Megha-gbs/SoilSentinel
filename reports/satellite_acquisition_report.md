@@ -59,7 +59,7 @@ If the user or organization wishes to integrate Bhuvan AWiFS data into the pipel
 5. Select the target observation dates and add the required tiles to your cart.
 6. Complete the checkout verification and download the resulting zip archive containing the GeoTIFF raster.
 7. Save the uncompressed raster files into the workspace at:
-   `c:\Users\bless\OneDrive\Desktop\IBM\data\raw\satellite\bhuvan\`
+   `data/raw/satellite/bhuvan/`
 8. Once saved, notify the pipeline to trigger downstream extraction.
 
 ---

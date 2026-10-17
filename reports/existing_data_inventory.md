@@ -1,7 +1,7 @@
 # SoilSentinel — Existing Project & Data Asset Inventory
 
 **Audit Date:** October 2026  
-**Workspace:** `c:\Users\bless\OneDrive\Desktop\IBM`  
+**Workspace:** Repository Root (`.`)  
 **Git Baseline Commit:** `6905aa3` (Branch: `main`, Active Development Branch: `satellite-research`)  
 **Data Custodian:** Sireesha / Data Engineering Team  
 **Backend & Risk Engine Custodian:** Mohit  
@@ -40,7 +40,7 @@ Every file in the baseline `sireesha/` directory has been verified for SHA-256 i
 
 ## 3. Supplementary External Team Assets Audited
 
-The Datathon project archive (`C:\Users\bless\OneDrive\Desktop\bytexll\Datathon IBM`) was also inspected to understand the complete end-to-end system context:
+The Datathon project archive (`Datathon IBM`) was also inspected to understand the complete end-to-end system context:
 
 1. **Backend & Risk Scoring Module (`Datathon/src/Model/`):**
    - `risk_scoring.py`: Implements the *Seasonal Hydro-Thermal Stress & Baseline Vulnerability Index* ($0–100$ scale). Uses 5 weighted indicators: Moisture Deficit (0.30), Precipitation Deficit (0.25), Thermal Stress (0.15), SOC Depletion (0.15), and pH Deviation (0.15).
