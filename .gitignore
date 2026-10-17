@@ -49,4 +49,5 @@ backend/
 sireesha/
 *.tmp
 *.log
-
+concept_document.txt
+.pytest_cache/
