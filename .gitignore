@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 *.log
 concept_document.txt
+.pytest_cache/
