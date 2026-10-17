@@ -1,0 +1,48 @@
+# Soil Sentinel - Project Configuration
+
+study_region:
+  name: "Indo-Gangetic Agricultural Plains / Punjab"
+  latitude: 30.73
+  longitude: 76.77
+  auto_adjust_nodata: true
+  max_search_radius_km: 10.0
+  start_year: 2020
+  end_year: 2024
+
+climate:
+  api_base_url: "https://power.larc.nasa.gov/api/temporal/monthly/point"
+  community: "AG"
+  parameters:
+    - "T2M"          # Air Temperature at 2 Meters (C)
+    - "RH2M"         # Air Relative Humidity at 2 Meters (%)
+    - "PRECTOTCORR"  # Precipitation Corrected (mm/day)
+    - "GWETTOP"      # Surface Soil Wetness (0 to 1 fraction)
+    - "GWETROOT"     # Root Zone Soil Wetness (0 to 1 fraction)
+    - "TSOIL1"       # Soil Temperature Layer 1 (0-10cm) (C)
+  raw_output_dir: "data/raw/climate"
+  processed_output_path: "data/processed/climate_data.csv"
+
+soil:
+  source: "ISRIC SoilGrids v2.0"
+  vrt_base_url: "https://files.isric.org/soilgrids/latest/data"
+  properties:
+    ph: "phh2o"      # Soil pH in H2O solution (raw_dn / 10 = standard pH)
+    clay: "clay"     # Clay mass fraction (g/kg, raw_dn / 10 = %)
+    sand: "sand"     # Sand mass fraction (g/kg, raw_dn / 10 = %)
+    silt: "silt"     # Silt mass fraction (g/kg, raw_dn / 10 = %)
+    soc: "soc"       # Soil Organic Carbon (dg/kg, raw_dn / 10 = g/kg)
+  depths:
+    - "0-5cm"
+    - "5-15cm"
+    - "15-30cm"
+  value_type: "mean"
+  raw_output_dir: "data/raw/soil"
+  processed_output_path: "data/processed/soil_data.csv"
+
+pipeline:
+  retry_attempts: 3
+  retry_backoff_factor: 2.0
+  timeout_seconds: 30
+  combined_output_path: "data/processed/combined_features.csv"
+  feature_table_output_path: "data/feature_table.csv"
+

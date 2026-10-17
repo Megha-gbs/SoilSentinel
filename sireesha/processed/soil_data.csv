@@ -1,0 +1,4 @@
+region,nominal_latitude,nominal_longitude,sampled_latitude,sampled_longitude,depth_interval,soil_ph,clay_percent,sand_percent,silt_percent,soc_g_kg,data_source
+Indo-Gangetic Agricultural Plains / Punjab,30.73,76.77,30.7392,76.7764,0-5cm,6.6,21.5,43.9,34.6,23.9,ISRIC SoilGrids v2.0
+Indo-Gangetic Agricultural Plains / Punjab,30.73,76.77,30.7392,76.7764,5-15cm,6.6,23.7,42.6,33.7,14.6,ISRIC SoilGrids v2.0
+Indo-Gangetic Agricultural Plains / Punjab,30.73,76.77,30.7392,76.7764,15-30cm,6.5,28.6,39.3,32.1,8.2,ISRIC SoilGrids v2.0
