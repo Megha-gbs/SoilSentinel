@@ -1,0 +1,24 @@
+{
+  "task_d_governance": "STRICT_SCIENTIFIC_HONESTY_DECLARATION",
+  "investigated_targets": {
+    "sodicity_esp_percent": {
+      "status": "UNAVAILABLE_MEASURED_LAB_DATA",
+      "reason": "Laboratory measured Exchangeable Sodium Percentage (ESP >= 15%) or Exchangeable Sodium is not present in the current ISRIC WoSIS profile export snapshot. Per SoilSentinel Rule 5, zero synthetic or fabricated samples are created.",
+      "field_proxy_guidance": "Where pH > 8.5 with low EC, suspect sodic condition and order laboratory ESP test."
+    },
+    "soil_erosion_field_measurement": {
+      "status": "OPTICAL_MORPHOLOGY_SURFACE_SCREENING_ONLY",
+      "model_implemented": "models/v6_global_product/camera_soil_model.joblib",
+      "optical_classes": [
+        "SURFACE_WATER_EROSION_RILL",
+        "SURFACE_CRUSTING_AND_COMPACTION",
+        "SALINE_EFFLORESCENCE_CRUST"
+      ],
+      "reason": "Direct in-situ tons/ha/year measurement requires runoff plots or caesium-137 radionuclide tracking."
+    },
+    "soil_organic_matter_decline": {
+      "status": "OPERATIONAL_VIA_TASK_A_SOC_REGRESSION",
+      "diagnostic_threshold": "Topsoil SOC < 5.0 g C/kg indicates severe organic matter depletion."
+    }
+  }
+}

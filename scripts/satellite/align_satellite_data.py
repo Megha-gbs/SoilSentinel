@@ -30,7 +30,11 @@ logging.basicConfig(
 logger = logging.getLogger("align_satellite")
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-FEATURE_TABLE_PATH = PROJECT_ROOT / "sireesha" / "feature_table.csv"
+FEATURE_TABLE_PATH = (
+    PROJECT_ROOT / "data" / "feature_table.csv"
+    if (PROJECT_ROOT / "data" / "feature_table.csv").exists()
+    else PROJECT_ROOT / "sireesha" / "feature_table.csv"
+)
 SATELLITE_CSV_PATH = PROJECT_ROOT / "data" / "processed" / "satellite" / "satellite_ndvi_monthly_2020_2024.csv"
 OUTPUT_ALIGNED_PATH = PROJECT_ROOT / "data" / "processed" / "satellite" / "aligned_feature_table_with_satellite.csv"
 

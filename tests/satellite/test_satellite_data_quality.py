@@ -31,7 +31,11 @@ SUBSETS_DIR = PROJECT_ROOT / "data" / "raw" / "satellite" / "spectral_subsets"
 PROCESSED_CSV = PROJECT_ROOT / "data" / "processed" / "satellite" / "satellite_ndvi_monthly_2020_2024.csv"
 ALIGNED_CSV = PROJECT_ROOT / "data" / "processed" / "satellite" / "aligned_feature_table_with_satellite.csv"
 THUMBNAIL_IMG = PROJECT_ROOT / "data" / "raw" / "satellite" / "sentinel2_sample_thumbnail.jpg"
-BASELINE_FEATURE_TABLE = PROJECT_ROOT / "sireesha" / "feature_table.csv"
+BASELINE_FEATURE_TABLE = (
+    PROJECT_ROOT / "data" / "feature_table.csv"
+    if (PROJECT_ROOT / "data" / "feature_table.csv").exists()
+    else PROJECT_ROOT / "sireesha" / "feature_table.csv"
+)
 
 
 def test_spectral_acquisition_manifest_and_geotiffs():

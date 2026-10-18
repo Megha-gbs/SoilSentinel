@@ -1,0 +1,92 @@
+{
+  "model_version": "3.0.0-global-rf-surrogate",
+  "description": "Global Environmental Degradation Risk Surrogate Model",
+  "features": [
+    "ndvi",
+    "ndwi",
+    "msi",
+    "temperature",
+    "precipitation",
+    "humidity",
+    "organic_matter",
+    "ph",
+    "clay_content"
+  ],
+  "target": "risk_class",
+  "target_nature": "Heuristic Surrogate approximating domain-expert multi-factor risk index across global biomes",
+  "regions_included": [
+    "africa_rift_valley",
+    "asia_indo_gangetic",
+    "europe_andalusia",
+    "north_america_iowa",
+    "oceania_wheatbelt",
+    "south_america_cerrado"
+  ],
+  "sample_size": 360,
+  "evaluation_strategy": "Leave-One-Region-Out Cross-Validation (6 Continental Regions)",
+  "results": {
+    "Majority Baseline": {
+      "acc_per_region": {
+        "africa_rift_valley": 0.0,
+        "asia_indo_gangetic": 0.0,
+        "europe_andalusia": 0.35,
+        "north_america_iowa": 0.2333,
+        "oceania_wheatbelt": 0.0,
+        "south_america_cerrado": 0.0
+      },
+      "bal_acc_per_region": {
+        "africa_rift_valley": 0.0,
+        "asia_indo_gangetic": 0.0,
+        "europe_andalusia": 0.5,
+        "north_america_iowa": 0.5,
+        "oceania_wheatbelt": 0.0,
+        "south_america_cerrado": 0.0
+      },
+      "overall_accuracy": 0.0972,
+      "overall_balanced_accuracy": 0.0966,
+      "overall_macro_f1": 0.0969
+    },
+    "Balanced Random Forest": {
+      "acc_per_region": {
+        "africa_rift_valley": 1.0,
+        "asia_indo_gangetic": 0.1,
+        "europe_andalusia": 0.65,
+        "north_america_iowa": 1.0,
+        "oceania_wheatbelt": 1.0,
+        "south_america_cerrado": 1.0
+      },
+      "bal_acc_per_region": {
+        "africa_rift_valley": 1.0,
+        "asia_indo_gangetic": 0.1,
+        "europe_andalusia": 0.5,
+        "north_america_iowa": 1.0,
+        "oceania_wheatbelt": 1.0,
+        "south_america_cerrado": 1.0
+      },
+      "overall_accuracy": 0.7917,
+      "overall_balanced_accuracy": 0.7878,
+      "overall_macro_f1": 0.7881
+    },
+    "Logistic Regression": {
+      "acc_per_region": {
+        "africa_rift_valley": 1.0,
+        "asia_indo_gangetic": 0.1833,
+        "europe_andalusia": 0.65,
+        "north_america_iowa": 0.7667,
+        "oceania_wheatbelt": 1.0,
+        "south_america_cerrado": 1.0
+      },
+      "bal_acc_per_region": {
+        "africa_rift_valley": 1.0,
+        "asia_indo_gangetic": 0.1833,
+        "europe_andalusia": 0.5,
+        "north_america_iowa": 0.5,
+        "oceania_wheatbelt": 1.0,
+        "south_america_cerrado": 1.0
+      },
+      "overall_accuracy": 0.7667,
+      "overall_balanced_accuracy": 0.7618,
+      "overall_macro_f1": 0.7609
+    }
+  }
+}

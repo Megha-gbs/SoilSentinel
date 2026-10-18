@@ -1,0 +1,155 @@
+{
+  "task_name": "Task D: Preserved Environmental-Stress Surrogate",
+  "target": "risk_category",
+  "classes": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "proxy_label_disclaimer": "CRITICAL: This model approximates an engineering rule-based hydrothermal risk index. It DOES NOT constitute physical field degradation ground truth.",
+  "sample_count": 60,
+  "chronological_split": {
+    "train_period": "2020-01 to 2022-12 (36 months)",
+    "val_period": "2023-01 to 2023-12 (12 months)",
+    "test_period": "2024-01 to 2024-12 (12 months)"
+  },
+  "feature_schema": [
+    "air_temperature_c",
+    "air_humidity_percent",
+    "precipitation_mm_day",
+    "soil_temperature_layer1_c",
+    "soil_moisture_surface_fraction",
+    "soil_moisture_rootzone_fraction",
+    "precipitation_lag1_mm_day",
+    "air_temperature_lag1_c",
+    "precipitation_rolling_3m_mean_mm_day",
+    "temp_soil_air_diff_c",
+    "soil_moisture_depth_gradient",
+    "monthly_aridity_index",
+    "month_sin",
+    "month_cos",
+    "satellite_ndvi",
+    "satellite_valid_pixel_fraction",
+    "satellite_scl_vegetation_fraction"
+  ],
+  "blessi_satellite_features": [
+    "satellite_ndvi",
+    "satellite_valid_pixel_fraction",
+    "satellite_scl_vegetation_fraction"
+  ],
+  "model_comparison": {
+    "Baseline_Climate_Only": {
+      "test_accuracy": 0.9166666666666666,
+      "test_balanced_accuracy": 0.9523809523809524,
+      "test_macro_f1": 0.9267399267399267,
+      "test_weighted_f1": 0.9194139194139194,
+      "test_confusion_matrix": [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          1,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1-score": 0.8571428571428571,
+          "support": 3.0
+        },
+        "Medium": {
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "f1-score": 0.9230769230769231,
+          "support": 7.0
+        },
+        "High": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 2.0
+        },
+        "accuracy": 0.9166666666666666,
+        "macro avg": {
+          "precision": 0.9166666666666666,
+          "recall": 0.9523809523809524,
+          "f1-score": 0.9267399267399267,
+          "support": 12.0
+        },
+        "weighted avg": {
+          "precision": 0.9375,
+          "recall": 0.9166666666666666,
+          "f1-score": 0.9194139194139194,
+          "support": 12.0
+        }
+      }
+    },
+    "Satellite_Integrated": {
+      "test_accuracy": 0.75,
+      "test_balanced_accuracy": 0.6190476190476191,
+      "test_macro_f1": 0.5523809523809523,
+      "test_weighted_f1": 0.6809523809523809,
+      "test_confusion_matrix": [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          1,
+          6,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1-score": 0.8571428571428571,
+          "support": 3.0
+        },
+        "Medium": {
+          "precision": 0.75,
+          "recall": 0.8571428571428571,
+          "f1-score": 0.8,
+          "support": 7.0
+        },
+        "High": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 2.0
+        },
+        "accuracy": 0.75,
+        "macro avg": {
+          "precision": 0.5,
+          "recall": 0.6190476190476191,
+          "f1-score": 0.5523809523809523,
+          "support": 12.0
+        },
+        "weighted avg": {
+          "precision": 0.625,
+          "recall": 0.75,
+          "f1-score": 0.6809523809523809,
+          "support": 12.0
+        }
+      }
+    }
+  },
+  "shap_causality_disclaimer": "SHAP reflects model feature attribution only and does not establish physical agronomic causality."
+}

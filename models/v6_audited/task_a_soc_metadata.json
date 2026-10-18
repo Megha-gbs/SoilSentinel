@@ -1,0 +1,284 @@
+{
+  "task_name": "Task A: Audited Soil Organic Carbon Regression",
+  "target": "organic_carbon_g_kg",
+  "target_units": "g C / kg",
+  "sample_count": 360,
+  "profile_count": 88,
+  "continent_count": 6,
+  "split_strategy": "GroupKFold(n_splits=5, groups=profile_id) with Leave-One-Continent-Out (LOCO) CV",
+  "zero_leakage_enforced": true,
+  "feature_schema": [
+    "ph_h2o",
+    "clay_fraction",
+    "sand_fraction",
+    "silt_fraction",
+    "upper_depth",
+    "lower_depth",
+    "latitude",
+    "longitude"
+  ],
+  "best_algorithm": "Gradient_Boosting",
+  "model_hyperparameters": {
+    "alpha": 0.9,
+    "ccp_alpha": 0.0,
+    "criterion": "deprecated",
+    "init": null,
+    "learning_rate": 0.05,
+    "loss": "squared_error",
+    "max_depth": 3,
+    "max_features": null,
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "n_estimators": 100,
+    "n_iter_no_change": null,
+    "random_state": 42,
+    "subsample": 0.8,
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "cross_validation_results": {
+    "Mean_Baseline": {
+      "grouped_5fold_mae_mean": 7.024527391975309,
+      "grouped_5fold_mae_std": 1.1781484112067415,
+      "grouped_5fold_rmse_mean": 12.547741317276182,
+      "grouped_5fold_rmse_std": 3.240193538017396,
+      "grouped_5fold_r2_mean": -0.014853575786171724,
+      "grouped_5fold_r2_std": 0.015201609530766427,
+      "fold_maes": [
+        7.038541666666666,
+        5.662037037037037,
+        7.419039351851852,
+        6.006028163580248,
+        8.99699074074074
+      ],
+      "fold_rmses": [
+        14.21615681481227,
+        8.920694569052833,
+        15.551166683065144,
+        8.351869669266584,
+        15.698818850184082
+      ],
+      "fold_r2s": [
+        -0.010169645110260195,
+        -0.017538860383189636,
+        -2.36925796044396e-05,
+        -0.0037131790049669267,
+        -0.042822501852837425
+      ]
+    },
+    "Ridge_Regressor": {
+      "grouped_5fold_mae_mean": 6.249346322991264,
+      "grouped_5fold_mae_std": 1.9025842923797174,
+      "grouped_5fold_rmse_mean": 10.84843255999746,
+      "grouped_5fold_rmse_std": 3.31148315556975,
+      "grouped_5fold_r2_mean": 0.2565876085951125,
+      "grouped_5fold_r2_std": 0.10588890486049152,
+      "fold_maes": [
+        5.7034615467656,
+        3.8741120421283575,
+        7.201988303847568,
+        5.075526807366363,
+        9.391642914848433
+      ],
+      "fold_rmses": [
+        12.164788082758193,
+        6.89048903918405,
+        13.384870696592387,
+        6.96448313513015,
+        14.837531846322527
+      ],
+      "fold_r2s": [
+        0.2603283070684147,
+        0.3929090532404147,
+        0.2591800026967742,
+        0.30205694260161875,
+        0.06846373736834022
+      ]
+    },
+    "Random_Forest": {
+      "grouped_5fold_mae_mean": 4.620366356717266,
+      "grouped_5fold_mae_std": 1.2458384133529612,
+      "grouped_5fold_rmse_mean": 9.123331614888116,
+      "grouped_5fold_rmse_std": 2.608709223830926,
+      "grouped_5fold_r2_mean": 0.39195856202476004,
+      "grouped_5fold_r2_std": 0.28961502956779134,
+      "fold_maes": [
+        4.011894374909601,
+        3.533525703149546,
+        4.5198667378860025,
+        4.003918660820158,
+        7.032626306821023
+      ],
+      "fold_rmses": [
+        7.436559280801405,
+        9.000206161785641,
+        8.893319135702821,
+        6.333238480648173,
+        13.95333501550254
+      ],
+      "fold_r2s": [
+        0.7235771172202885,
+        -0.035758674896391396,
+        0.672951553013444,
+        0.42284309850429447,
+        0.17617971628216456
+      ]
+    },
+    "Gradient_Boosting": {
+      "grouped_5fold_mae_mean": 4.303835510959272,
+      "grouped_5fold_mae_std": 1.213634822553958,
+      "grouped_5fold_rmse_mean": 7.940532109415924,
+      "grouped_5fold_rmse_std": 2.992217051115643,
+      "grouped_5fold_r2_mean": 0.4545128582258851,
+      "grouped_5fold_r2_std": 0.3481218473347252,
+      "fold_maes": [
+        3.562915568833639,
+        3.3196624449778636,
+        3.561281392480118,
+        4.476772501948271,
+        6.5985456465564685
+      ],
+      "fold_rmses": [
+        5.236565265057806,
+        8.41131310422214,
+        5.1455098417162395,
+        7.558073113977229,
+        13.351199222106205
+      ],
+      "fold_r2s": [
+        0.862936144311648,
+        0.0953485926743648,
+        0.8905183930692371,
+        0.17801406369885986,
+        0.24574709737531575
+      ]
+    }
+  },
+  "leave_one_continent_out_results": {
+    "Mean_Baseline": {
+      "per_continent_mae": {
+        "Africa": 5.214266666666665,
+        "Asia": 9.075133333333333,
+        "Europe": 5.222666666666666,
+        "North_America": 7.182622222222221,
+        "Oceania_Australia": 6.125133333333333,
+        "South_America": 10.07
+      },
+      "per_continent_rmse": {
+        "Africa": 8.119908620175476,
+        "Asia": 16.36959157842505,
+        "Europe": 6.042351004920739,
+        "North_America": 7.4572429445025685,
+        "Oceania_Australia": 8.667566132811833,
+        "South_America": 23.079883015301444
+      },
+      "per_continent_r2": {
+        "Africa": -0.041064306391339844,
+        "Asia": -0.06887522977075533,
+        "Europe": -0.24369130124952876,
+        "North_America": -3.415504651441309,
+        "Oceania_Australia": -0.009194787904116986,
+        "South_America": -0.0689916065902787
+      },
+      "loco_mae_mean": 7.148303703703704,
+      "loco_rmse_mean": 11.622757216022853,
+      "loco_r2_mean": -0.6412203138912215
+    },
+    "Ridge_Regressor": {
+      "per_continent_mae": {
+        "Africa": 6.357460100535311,
+        "Asia": 10.28421869849006,
+        "Europe": 4.7074264289694545,
+        "North_America": 4.158237215865685,
+        "Oceania_Australia": 14.081729833528955,
+        "South_America": 11.951971022000718
+      },
+      "per_continent_rmse": {
+        "Africa": 9.426408191845029,
+        "Asia": 15.102401155297127,
+        "Europe": 5.478214743246846,
+        "North_America": 4.887111839114807,
+        "Oceania_Australia": 14.910082775563982,
+        "South_America": 20.208205241485384
+      },
+      "per_continent_r2": {
+        "Africa": -0.40303258406910225,
+        "Asia": 0.09020545412430603,
+        "Europe": -0.022301036563091126,
+        "North_America": -0.8963928896073226,
+        "Oceania_Australia": -1.9863505110115645,
+        "South_America": 0.1804743006999665
+      },
+      "loco_mae_mean": 8.590173883231698,
+      "loco_rmse_mean": 11.66873732442553,
+      "loco_r2_mean": -0.5062328777378013
+    },
+    "Random_Forest": {
+      "per_continent_mae": {
+        "Africa": 3.103362279949534,
+        "Asia": 8.778048251024321,
+        "Europe": 22.251041424983345,
+        "North_America": 4.864074547297357,
+        "Oceania_Australia": 22.139782321211463,
+        "South_America": 16.57001105054854
+      },
+      "per_continent_rmse": {
+        "Africa": 6.824551070343714,
+        "Asia": 15.008481079036104,
+        "Europe": 27.633130810272025,
+        "North_America": 5.207363634919462,
+        "Oceania_Australia": 23.383654595428197,
+        "South_America": 22.712310466177918
+      },
+      "per_continent_r2": {
+        "Africa": 0.2646002985919651,
+        "Asia": 0.10148608119165203,
+        "Europe": -25.01122957576274,
+        "North_America": -1.1530770641147434,
+        "Oceania_Australia": -6.345230783224294,
+        "South_America": -0.035213009667668604
+      },
+      "loco_mae_mean": 12.951053312502426,
+      "loco_rmse_mean": 16.79491527602957,
+      "loco_r2_mean": -5.363110675497638
+    },
+    "Gradient_Boosting": {
+      "per_continent_mae": {
+        "Africa": 3.0985143038306644,
+        "Asia": 8.362462757101758,
+        "Europe": 15.033636317140418,
+        "North_America": 2.8191885415064606,
+        "Oceania_Australia": 28.373450886522384,
+        "South_America": 15.966958130943103
+      },
+      "per_continent_rmse": {
+        "Africa": 6.6650349193031975,
+        "Asia": 14.460352178480077,
+        "Europe": 21.347657018683254,
+        "North_America": 3.557299572057951,
+        "Oceania_Australia": 29.211158552297366,
+        "South_America": 21.417187322451724
+      },
+      "per_continent_r2": {
+        "Africa": 0.29857679208445986,
+        "Asia": 0.16591739211996037,
+        "Europe": -14.523910477956694,
+        "North_America": -0.004765334478523675,
+        "Oceania_Australia": -10.462470604655513,
+        "South_America": 0.07948269083035209
+      },
+      "loco_mae_mean": 12.275701822840796,
+      "loco_rmse_mean": 16.109781593878928,
+      "loco_r2_mean": -4.074528257009326
+    }
+  },
+  "negative_r2_root_cause_analysis": "Negative R2 under Leave-One-Continent-Out (LOCO) arises from severe cross-continental covariate shift, extreme coordinate extrapolation by decision trees outside training bounding boxes, and low target variance in small-sample continents (e.g. Europe with only 3 profiles, std=5.46 g/kg). Basic soil texture fractions alone cannot account for global differences in climate, vegetation, and soil age without localized pedogenetic calibration.",
+  "shap_expected_value": 7.957221277247106,
+  "shap_additivity_max_diff": 2.1094237467877974e-15,
+  "shap_causality_disclaimer": "SHAP reflects model feature attribution only and does not establish physical agronomic causality."
+}

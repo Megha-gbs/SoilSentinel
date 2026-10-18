@@ -1,7 +1,7 @@
 {
   "model_version": "v1.0.0-rf-proxy",
   "engine_version": "v1.0.0-baseline",
-  "trained_at_utc": "2026-10-17T17:45:28.813058+00:00",
+  "trained_at_utc": "2026-10-17T12:00:19.008458+00:00",
   "algorithm": "Random Forest Classifier",
   "target_column": "risk_category",
   "classes": [

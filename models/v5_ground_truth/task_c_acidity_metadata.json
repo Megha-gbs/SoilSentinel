@@ -1,0 +1,441 @@
+{
+  "task_name": "Task C: Independent Acidity Classification",
+  "target": "acidity_label",
+  "classes": [
+    "Non_Acidic",
+    "Acidic"
+  ],
+  "diagnostic_threshold": "Acidic if pH < 5.5 (USDA-NRCS, FAO Soil Survey Manual)",
+  "sample_count": 360,
+  "continent_count": 6,
+  "class_distribution": {
+    "Non_Acidic": 212,
+    "Acidic": 148
+  },
+  "feature_schema": [
+    "clay_fraction",
+    "sand_fraction",
+    "silt_fraction",
+    "upper_depth",
+    "lower_depth",
+    "latitude",
+    "longitude",
+    "organic_carbon_g_kg"
+  ],
+  "best_algorithm": "Random_Forest",
+  "model_hyperparameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 5,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 4,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "cross_validation_results": {
+    "Majority_Baseline": {
+      "5fold_acc_mean": 0.5888888888888889,
+      "5fold_bal_acc_mean": 0.5,
+      "5fold_acidic_f1_mean": 0.0,
+      "5fold_weighted_f1_mean": 0.43654207983727433
+    },
+    "Logistic_Regression": {
+      "5fold_acc_mean": 1.0,
+      "5fold_bal_acc_mean": 1.0,
+      "5fold_acidic_f1_mean": 1.0,
+      "5fold_weighted_f1_mean": 1.0
+    },
+    "Random_Forest": {
+      "5fold_acc_mean": 1.0,
+      "5fold_bal_acc_mean": 1.0,
+      "5fold_acidic_f1_mean": 1.0,
+      "5fold_weighted_f1_mean": 1.0
+    },
+    "Gradient_Boosting": {
+      "5fold_acc_mean": 1.0,
+      "5fold_bal_acc_mean": 1.0,
+      "5fold_acidic_f1_mean": 1.0,
+      "5fold_weighted_f1_mean": 1.0
+    }
+  },
+  "leave_one_continent_out_results": {
+    "Majority_Baseline": {
+      "per_continent_accuracy": {
+        "Africa": 1.0,
+        "Asia": 0.5333333333333333,
+        "Europe": 1.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 1.0,
+        "South_America": 0.0
+      },
+      "per_continent_acidic_f1": {
+        "Africa": 0.0,
+        "Asia": 0.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 0.0
+      },
+      "per_continent_confusion_matrix": {
+        "Africa": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "Asia": [
+          [
+            32,
+            0
+          ],
+          [
+            28,
+            0
+          ]
+        ],
+        "Europe": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "North_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ],
+        "Oceania_Australia": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "South_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ]
+      },
+      "loco_acc_mean": 0.5888888888888889,
+      "loco_acidic_f1_mean": 0.0
+    },
+    "Logistic_Regression": {
+      "per_continent_accuracy": {
+        "Africa": 0.0,
+        "Asia": 0.5333333333333333,
+        "Europe": 0.0,
+        "North_America": 1.0,
+        "Oceania_Australia": 1.0,
+        "South_America": 1.0
+      },
+      "per_continent_acidic_f1": {
+        "Africa": 0.0,
+        "Asia": 0.0,
+        "Europe": 0.0,
+        "North_America": 1.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 1.0
+      },
+      "per_continent_confusion_matrix": {
+        "Africa": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "Asia": [
+          [
+            32,
+            0
+          ],
+          [
+            28,
+            0
+          ]
+        ],
+        "Europe": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "North_America": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            60
+          ]
+        ],
+        "Oceania_Australia": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "South_America": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            60
+          ]
+        ]
+      },
+      "loco_acc_mean": 0.5888888888888889,
+      "loco_acidic_f1_mean": 0.3333333333333333
+    },
+    "Random_Forest": {
+      "per_continent_accuracy": {
+        "Africa": 0.0,
+        "Asia": 0.7,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 1.0
+      },
+      "per_continent_acidic_f1": {
+        "Africa": 0.0,
+        "Asia": 0.5263157894736842,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 1.0
+      },
+      "per_continent_confusion_matrix": {
+        "Africa": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "Asia": [
+          [
+            32,
+            0
+          ],
+          [
+            18,
+            10
+          ]
+        ],
+        "Europe": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "North_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ],
+        "Oceania_Australia": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "South_America": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            60
+          ]
+        ]
+      },
+      "loco_acc_mean": 0.2833333333333333,
+      "loco_acidic_f1_mean": 0.25438596491228066
+    },
+    "Gradient_Boosting": {
+      "per_continent_accuracy": {
+        "Africa": 1.0,
+        "Asia": 0.5333333333333333,
+        "Europe": 1.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 1.0
+      },
+      "per_continent_acidic_f1": {
+        "Africa": 0.0,
+        "Asia": 0.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 1.0
+      },
+      "per_continent_confusion_matrix": {
+        "Africa": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "Asia": [
+          [
+            32,
+            0
+          ],
+          [
+            28,
+            0
+          ]
+        ],
+        "Europe": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "North_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ],
+        "Oceania_Australia": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "South_America": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            60
+          ]
+        ]
+      },
+      "loco_acc_mean": 0.5888888888888889,
+      "loco_acidic_f1_mean": 0.16666666666666666
+    }
+  },
+  "confusion_matrix": [
+    [
+      212,
+      0
+    ],
+    [
+      0,
+      148
+    ]
+  ],
+  "classification_report": {
+    "Non_Acidic": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 212.0
+    },
+    "Acidic": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 148.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 360.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 360.0
+    }
+  },
+  "shap_causality_disclaimer": "SHAP reflects model feature attribution only and does not establish physical agronomic causality."
+}

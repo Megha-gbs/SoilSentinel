@@ -1,0 +1,40 @@
+{
+  "manifest_version": "3.0.0-global",
+  "project": "SoilSentinel Global ML Pipeline",
+  "sub_manifests": [
+    "data/manifests/fao_hwsd_dataset_manifest.json",
+    "data/manifests/fao_gsoc_dataset_manifest.json",
+    "data/manifests/global_wosis_dataset_manifest.json",
+    "data/manifests/global_climate_manifest.json",
+    "data/manifests/soilgrids_dataset_manifest.json",
+    "data/manifests/wosis_soil_dataset_manifest.json",
+    "data/manifests/nasa_power_climate_manifest.json",
+    "data/manifests/india_soil_health_manifest.json"
+  ],
+  "processed_datasets": [
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\processed\\global_multicontinental_wosis_profiles.csv",
+      "filename": "global_multicontinental_wosis_profiles.csv",
+      "size_bytes": 62369,
+      "sha256": "d3c62e7b80d795ea4336a281a3796f73959cf3dec686dc89d57d6e71fd02e657"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\processed\\global_agroclimatic_multiregion_features.csv",
+      "filename": "global_agroclimatic_multiregion_features.csv",
+      "size_bytes": 75411,
+      "sha256": "5600da28f1578b8fb63937aaa477cfbfa6c6a3387bd612bfb60846398fd47012"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\processed\\punjab_multidistrict_features.csv",
+      "filename": "punjab_multidistrict_features.csv",
+      "size_bytes": 92112,
+      "sha256": "2dd6cdba5a75fb62e104cfdb20f9e45abb67d9b4a56ed6b78bc0167d04518075"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\processed\\wosis_measured_soil_properties.csv",
+      "filename": "wosis_measured_soil_properties.csv",
+      "size_bytes": 9363,
+      "sha256": "388ccd25c027704100008dc49f4e1de3bc5bd43c46a798209c2a5e211c512e26"
+    }
+  ]
+}

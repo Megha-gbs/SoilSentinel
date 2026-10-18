@@ -1,0 +1,239 @@
+{
+  "dataset_title": "ISRIC WoSIS (World Soil Information Service) Multi-Continental Analytical Profiles",
+  "publisher": "ISRIC - World Soil Information",
+  "official_endpoint": "https://maps.isric.org/mapserv?map=/map/wosis_latest.map",
+  "license": "Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)",
+  "geographic_coverage": "6 Continents: North America, South America, Europe, Africa, Asia, Oceania/Australia",
+  "record_count": 360,
+  "properties_acquired": [
+    "orgc (Soil Organic Carbon g C/kg)",
+    "phaq (pH in H2O)",
+    "clay (%)",
+    "sand (%)",
+    "silt (%)"
+  ],
+  "files": [
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_clay_africa.geojson",
+      "filename": "wosis_clay_africa.geojson",
+      "size_bytes": 41628,
+      "sha256": "0f5d43af5e7c219e1f29fc3881a2cdeb2d0651172917d489d14969a0e658deb6"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_clay_asia.geojson",
+      "filename": "wosis_clay_asia.geojson",
+      "size_bytes": 40700,
+      "sha256": "a78006978f948ba12621aee9c8eba2bfebe9feabd75e67c99c55e3fe064dd1d2"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_clay_europe.geojson",
+      "filename": "wosis_clay_europe.geojson",
+      "size_bytes": 41065,
+      "sha256": "d0d7f513617d319748f017f998045ca13de7bfae1fda6277498ba88549d7819a"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_clay_north_america.geojson",
+      "filename": "wosis_clay_north_america.geojson",
+      "size_bytes": 41025,
+      "sha256": "e5642cc2b5798854034362ec69711813adf826f2e2ffd4fd857301a45b37941a"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_clay_oceania_australia.geojson",
+      "filename": "wosis_clay_oceania_australia.geojson",
+      "size_bytes": 44568,
+      "sha256": "f112fee1ef2a2e33c8c183ceb3abb55b6818c7919b9cb20b03b22ee3ae76f727"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_clay_south_america.geojson",
+      "filename": "wosis_clay_south_america.geojson",
+      "size_bytes": 41777,
+      "sha256": "8ecf5e8c5c6ae0c7d830c4f84864bbd088711362bbf7669a7bf86d60638ac5b6"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_orgc_africa.geojson",
+      "filename": "wosis_orgc_africa.geojson",
+      "size_bytes": 51413,
+      "sha256": "4f3c8e15fd05e1cb0e0afc884e9763a9658fcc29eff13141dd3d749b4a216080"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_orgc_asia.geojson",
+      "filename": "wosis_orgc_asia.geojson",
+      "size_bytes": 43650,
+      "sha256": "f34e95898d674dfe9f00a4a206800a6961a83af1362f7eed50b3098697c32c1f"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_orgc_europe.geojson",
+      "filename": "wosis_orgc_europe.geojson",
+      "size_bytes": 55543,
+      "sha256": "0eeba2b3157970510a3f8990297f9410fe8093c6606e894feeb72d7362866fc5"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_orgc_north_america.geojson",
+      "filename": "wosis_orgc_north_america.geojson",
+      "size_bytes": 39116,
+      "sha256": "ffbd468f9ab0397653b6071f2af5f2eefd3657cbb88bcea17e5e3ca388d87887"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_orgc_oceania_australia.geojson",
+      "filename": "wosis_orgc_oceania_australia.geojson",
+      "size_bytes": 55233,
+      "sha256": "b0fdeaf7791e3d15d3e401c35d35dde2e48cdb070eff2a027a32aeee3b8f7c4e"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_orgc_south_america.geojson",
+      "filename": "wosis_orgc_south_america.geojson",
+      "size_bytes": 45503,
+      "sha256": "13131ada6b118580c1ce0eebb8bae9b899b349cbc7dbe3b153602bd18102f01d"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_phaq_africa.geojson",
+      "filename": "wosis_phaq_africa.geojson",
+      "size_bytes": 44610,
+      "sha256": "c8f462037573eb9ed709698b0e0b23528f44430b67e4878148b8bf93e41c293e"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_phaq_asia.geojson",
+      "filename": "wosis_phaq_asia.geojson",
+      "size_bytes": 40182,
+      "sha256": "7514b49a91c21b96330948fa65a5a09ab907670fae888ab51f4b607ee567b1f8"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_phaq_europe.geojson",
+      "filename": "wosis_phaq_europe.geojson",
+      "size_bytes": 43039,
+      "sha256": "f498b5ef33f8509eca44219d0d66133de587bcae7ad053ab7b85866c0cf2235a"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_phaq_north_america.geojson",
+      "filename": "wosis_phaq_north_america.geojson",
+      "size_bytes": 43504,
+      "sha256": "09ae599a0cece91dd913fb8b25a94c089421395ed63878c4ce8bf8110a5ac70a"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_phaq_oceania_australia.geojson",
+      "filename": "wosis_phaq_oceania_australia.geojson",
+      "size_bytes": 50183,
+      "sha256": "376ce023e5bcad759e888268e75a3750bc1ede3123b26bda09ff7c9c92cceba8"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_phaq_south_america.geojson",
+      "filename": "wosis_phaq_south_america.geojson",
+      "size_bytes": 42810,
+      "sha256": "a95d2c0c0d7024108e96a80b99933b08e431aa53872778320acd6504ccc529f5"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_profiles_africa.geojson",
+      "filename": "wosis_profiles_africa.geojson",
+      "size_bytes": 32155,
+      "sha256": "d1abd846c1bcd67ab6e42764c42340ebba9a00fd3707f9b0b4b833b1b4c5910f"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_profiles_asia.geojson",
+      "filename": "wosis_profiles_asia.geojson",
+      "size_bytes": 35319,
+      "sha256": "bcfcda70d6eeb14ffdb7edf5dbb28ba59fecffbb6ba3f3ea9a704219a6753bf2"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_profiles_europe.geojson",
+      "filename": "wosis_profiles_europe.geojson",
+      "size_bytes": 31574,
+      "sha256": "f871b78e8a711097aa71da069a57b97bcdf8cb488426ccdede72c124a5fea355"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_profiles_north_america.geojson",
+      "filename": "wosis_profiles_north_america.geojson",
+      "size_bytes": 35307,
+      "sha256": "4a57839487fb74a31173bac4dd9b8b0916b599946a59a73a65cddfa1e6d1084c"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_profiles_oceania_australia.geojson",
+      "filename": "wosis_profiles_oceania_australia.geojson",
+      "size_bytes": 33832,
+      "sha256": "fcad558706ced640a2703001b34083fd7c88451c47888fe936dd1922c04fcf2f"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_profiles_south_america.geojson",
+      "filename": "wosis_profiles_south_america.geojson",
+      "size_bytes": 30849,
+      "sha256": "20d845e43f4c9a654a373649a5d8072f93cfa48939f0f1f1ac42448549371a45"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_sand_africa.geojson",
+      "filename": "wosis_sand_africa.geojson",
+      "size_bytes": 46996,
+      "sha256": "d6fe5e5639d4e355584f56d92cdf94ec68e54bb75b5ba5e0bdfa90e659625def"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_sand_asia.geojson",
+      "filename": "wosis_sand_asia.geojson",
+      "size_bytes": 40464,
+      "sha256": "62349d566ec4e92ae4ae768abb7c6a3986e9d19276a3358d6b45925d759bfbb2"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_sand_europe.geojson",
+      "filename": "wosis_sand_europe.geojson",
+      "size_bytes": 42350,
+      "sha256": "1f9fc996fd838e95b4938b4aa88631e100a5c9d4839f3b5a0751d9beb2f520ca"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_sand_north_america.geojson",
+      "filename": "wosis_sand_north_america.geojson",
+      "size_bytes": 57410,
+      "sha256": "0c3ffd34bda1c7b491edfb637af67d521bb5e4cbb2b3be5f2e30076910d5b86a"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_sand_oceania_australia.geojson",
+      "filename": "wosis_sand_oceania_australia.geojson",
+      "size_bytes": 41397,
+      "sha256": "14c335d4b74640c1d19c9a2fdbc986b5eaa998bf39464d1ceda27f3b3e8b7dfc"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_sand_south_america.geojson",
+      "filename": "wosis_sand_south_america.geojson",
+      "size_bytes": 41689,
+      "sha256": "4dcf4ba05fe5cda1198d99363d05d82c4660f7b25e0bf1555754b6c9f46876a6"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_silt_africa.geojson",
+      "filename": "wosis_silt_africa.geojson",
+      "size_bytes": 42184,
+      "sha256": "aa8085cead34daa377d3b258a347597167facfe3c0ff5e202a08d3e8073c8dec"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_silt_asia.geojson",
+      "filename": "wosis_silt_asia.geojson",
+      "size_bytes": 42240,
+      "sha256": "1cd6cbf53f0740ea6827a9b6a953f4c4155be2c428ca915e97e69a22031ad47b"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_silt_europe.geojson",
+      "filename": "wosis_silt_europe.geojson",
+      "size_bytes": 41559,
+      "sha256": "1d87eff2d3face37d808e3a87589c32a9798cdc097dce98f3b5fddaf593c0266"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_silt_north_america.geojson",
+      "filename": "wosis_silt_north_america.geojson",
+      "size_bytes": 49461,
+      "sha256": "a4b21208f7ffff0b652ae3187d3d8c6676dfb97c7379d3aec0e6b865cc3cca39"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_silt_oceania_australia.geojson",
+      "filename": "wosis_silt_oceania_australia.geojson",
+      "size_bytes": 44758,
+      "sha256": "664d38e3f36ce6f381101fc698d6153b1c8b2dc0a3b8f36f87a2264728605d52"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\wosis_silt_south_america.geojson",
+      "filename": "wosis_silt_south_america.geojson",
+      "size_bytes": 41777,
+      "sha256": "98a1c5dd2ea0d95e3c5d0011d3982fa1e37e952c844e260d216f255ae195a2a5"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_wosis\\global_wosis_measured_orgc_summary.csv",
+      "filename": "global_wosis_measured_orgc_summary.csv",
+      "size_bytes": 63335,
+      "sha256": "45bf570e4bbd4ba8911b6dc03bfa37f47e89b76a943a0eda9ca5be5663762b32"
+    }
+  ]
+}

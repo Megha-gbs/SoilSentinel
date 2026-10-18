@@ -1,0 +1,24 @@
+{
+  "model_name": "SoilSentinel V6 Soil Surface Model",
+  "version": "v6.0.0-global-product",
+  "classes": [
+    "SALINE_EFFLORESCENCE_CRUST",
+    "SURFACE_CRUSTING_AND_COMPACTION",
+    "SURFACE_WATER_EROSION_RILL"
+  ],
+  "feature_names": [
+    "green_leaf_index",
+    "vari_index",
+    "yellow_index",
+    "mean_hue",
+    "mean_saturation",
+    "mean_lab_l",
+    "mean_lab_a",
+    "mean_lab_b",
+    "edge_energy",
+    "high_albedo_fraction"
+  ],
+  "training_accuracy": 1.0,
+  "sample_count": 36,
+  "source_license": "Public Domain & CC BY (USDA NRCS & CSIRO Australia)"
+}

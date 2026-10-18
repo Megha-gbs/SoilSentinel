@@ -1,0 +1,56 @@
+{
+  "manifest_name": "SoilSentinel Master ML Dataset Provenance & Integrity Manifest",
+  "version": "v2.0.0-multidistrict",
+  "generated_at_utc": "2026-10-18T03:59:40.554221+00:00",
+  "project": "SoilSentinel (Datathon)",
+  "scope": "Comprehensive Data Inventory, Provenance, Epistemic Boundaries & Target Integrity",
+  "sub_manifests": [
+    "data/manifests/wosis_soil_dataset_manifest.json",
+    "data/manifests/nasa_power_climate_manifest.json",
+    "data/manifests/india_soil_health_manifest.json",
+    "data/manifests/soilgrids_dataset_manifest.json"
+  ],
+  "datasets": {
+    "baseline_feature_table": {
+      "file_path": "data/feature_table.csv",
+      "size_bytes": 24705,
+      "sha256": "d3119908e43680d8482b2df6d5dccc1389ab0f1ad91b59e8c8a058f2a867215a",
+      "status": "VERIFIED_PRESENT",
+      "samples_count": 60,
+      "coverage": "2020-01 to 2024-12 (Single parcel: SAS Nagar / Chandigarh)",
+      "target_provenance": "SURROGATE_PROXY_LEARNING (Rule-Based Heuristic)"
+    },
+    "multidistrict_feature_table": {
+      "file_path": "data/processed/punjab_multidistrict_features.csv",
+      "size_bytes": 92112,
+      "sha256": "2dd6cdba5a75fb62e104cfdb20f9e45abb67d9b4a56ed6b78bc0167d04518075",
+      "status": "VERIFIED_PRESENT",
+      "samples_count": 420,
+      "districts_count": 7,
+      "coverage": "2020-01 to 2024-12 across 7 Punjab agricultural districts",
+      "target_provenance": "SURROGATE_PROXY_LEARNING (Rule-Based Heuristic across Diverse Climates)"
+    },
+    "wosis_measured_soil_properties": {
+      "file_path": "data/processed/wosis_measured_soil_properties.csv",
+      "size_bytes": 9363,
+      "sha256": "388ccd25c027704100008dc49f4e1de3bc5bd43c46a798209c2a5e211c512e26",
+      "status": "VERIFIED_PRESENT",
+      "samples_count": 61,
+      "coverage": "Northwest India / Punjab basin historical in-situ soil profiles",
+      "target_provenance": "GROUND_TRUTH_PHYSICAL_MEASUREMENTS (Laboratory Assayed SOC, pH, Texture)"
+    },
+    "india_soil_health_benchmarks": {
+      "file_path": "data/raw/india_soil/punjab_soil_health_card_district_benchmarks.csv",
+      "size_bytes": 3194,
+      "sha256": "6dd593928a15e065ec85dc82bf848dd65b3833cfe90c3393aa43e05f7272be35",
+      "status": "VERIFIED_PRESENT",
+      "samples_count": 10,
+      "coverage": "Punjab districts official Soil Health Card benchmark averages",
+      "target_provenance": "GOVERNMENT_OFFICIAL_SURVEY_BENCHMARK"
+    }
+  },
+  "epistemic_boundaries": {
+    "is_independent_degradation_ground_truth_present": false,
+    "boundary_explanation": "While WoSIS provides real measured physical soil properties (SOC, pH, texture), these are single-time profile observations, NOT multi-temporal repeat cores of the exact same plot. True physical soil degradation requires multi-year rate of change (e.g. delta-SOC over 5 years). Consequently, the primary ML risk model is explicitly classified as a HEURISTIC SURROGATE MODEL. Physical ground-truth modeling is evaluated separately as a MEASURED SOIL PROPERTY PREDICTION task."
+  }
+}

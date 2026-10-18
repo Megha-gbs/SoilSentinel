@@ -1,0 +1,97 @@
+{
+  "artifact": "global_domain_applicability_detector.joblib",
+  "empirical_bounds": {
+    "ndvi": {
+      "min": 0.1814,
+      "max": 0.5045,
+      "p01": 0.186472,
+      "p99": 0.5015,
+      "mean": 0.33807777777777775,
+      "std": 0.0939081742301943
+    },
+    "ndwi": {
+      "min": -0.1439,
+      "max": 0.0887,
+      "p01": -0.141046,
+      "p99": 0.087141,
+      "mean": -0.03523055555555556,
+      "std": 0.06700616950534954
+    },
+    "msi": {
+      "min": 1.1706,
+      "max": 1.4779,
+      "p01": 1.173426,
+      "p99": 1.47502,
+      "mean": 1.3387961111111113,
+      "std": 0.08747166122160847
+    },
+    "temperature": {
+      "min": -9.28,
+      "max": 37.75,
+      "p01": -5.5717,
+      "p99": 34.059900000000006,
+      "mean": 18.74405555555555,
+      "std": 8.537651180794825
+    },
+    "precipitation": {
+      "min": 0.0,
+      "max": 20.93,
+      "p01": 0.0,
+      "p99": 13.524900000000022,
+      "mean": 2.5993333333333335,
+      "std": 2.9849319080712253
+    },
+    "humidity": {
+      "min": 20.98,
+      "max": 92.83,
+      "p01": 27.3216,
+      "p99": 91.2756,
+      "mean": 65.70027777777777,
+      "std": 17.436082235150344
+    },
+    "organic_matter": {
+      "min": 0.89648,
+      "max": 4.223800000000001,
+      "p01": 0.89648,
+      "p99": 4.223800000000001,
+      "mean": 2.5342800000000003,
+      "std": 1.163410496331768
+    },
+    "ph": {
+      "min": 5.4,
+      "max": 8.1,
+      "p01": 5.4,
+      "p99": 8.1,
+      "mean": 6.816666666666666,
+      "std": 0.9419058496083683
+    },
+    "clay_content": {
+      "min": 14.0,
+      "max": 35.0,
+      "p01": 14.0,
+      "p99": 35.0,
+      "mean": 23.5,
+      "std": 6.785614802295025
+    }
+  },
+  "verification_examples": {
+    "in_domain": {
+      "is_in_domain": true,
+      "anomaly_score": 0.1328,
+      "uncertainty": 0.213,
+      "status": "In-Domain (Reliable Evidence)"
+    },
+    "arctic": {
+      "is_in_domain": false,
+      "anomaly_score": -0.0665,
+      "uncertainty": 0.5754,
+      "status": "Out-of-Domain (High Uncertainty - Lacks Evidence)"
+    },
+    "sahara": {
+      "is_in_domain": false,
+      "anomaly_score": -0.0892,
+      "uncertainty": 0.6167,
+      "status": "Out-of-Domain (High Uncertainty - Lacks Evidence)"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "soil_context": {
+    "status": "FALLBACK_REGIONAL_AVERAGE",
+    "source": "Regional Agroecological Benchmark",
+    "spatial_resolution": "Coarse District Envelope",
+    "data_type": "MAPPED_REGIONAL_CONTEXT_NOT_FIELD_LAB_TEST",
+    "properties": {
+      "soc_g_kg": 7.5,
+      "ph_h2o": 7.2,
+      "clay_percent": 22.0,
+      "sand_fraction": 50.0,
+      "silt_fraction": 28.0,
+      "bulk_density_g_cm3": 1.45
+    },
+    "disclaimer": "Using regional agroecological benchmark. Field soil testing is recommended."
+  },
+  "weather_context": {
+    "status": "SUCCESS",
+    "source": "Open-Meteo Weather API",
+    "license": "CC BY 4.0",
+    "temporal_range": "Recent 14 days + 7 day projection",
+    "temperature_c_mean": 26.5,
+    "precipitation_total_mm": 22.5,
+    "annual_precipitation_mm_est": 394.0,
+    "evapotranspiration_mm_day": 3.27,
+    "solar_radiation_mj_m2": 21.5
+  }
+}

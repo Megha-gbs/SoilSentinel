@@ -1,0 +1,35 @@
+{
+  "task_name": "Task C: Audited Soil Acidity Classification",
+  "diagnostic_threshold": "Acidic if pH < 5.5 (USDA-NRCS / FAO Soil Survey Manual)",
+  "sample_count": 360,
+  "acidic_count": 148,
+  "non_acidic_count": 212,
+  "independent_profiles": 88,
+  "best_algorithm": "Balanced Random Forest",
+  "cross_validation_results": {
+    "Majority_Baseline": {
+      "grouped_bal_acc_mean": 0.5,
+      "grouped_bal_acc_std": 0.0,
+      "grouped_macro_f1_mean": 0.0
+    },
+    "Balanced_Logistic": {
+      "grouped_bal_acc_mean": 0.8241960216715238,
+      "grouped_bal_acc_std": 0.04979480240231205,
+      "grouped_macro_f1_mean": 0.7988736884269447
+    },
+    "Random_Forest": {
+      "grouped_bal_acc_mean": 1.0,
+      "grouped_bal_acc_std": 0.0,
+      "grouped_macro_f1_mean": 1.0
+    }
+  },
+  "feature_columns": [
+    "clay_fraction",
+    "sand_fraction",
+    "silt_fraction",
+    "upper_depth",
+    "lower_depth",
+    "organic_carbon_g_kg"
+  ],
+  "shortcut_investigation_note": "Audited model excludes spatial coordinates to prevent geographic coordinate memorization. Predicts from pedological texture and organic carbon."
+}

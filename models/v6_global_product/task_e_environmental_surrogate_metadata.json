@@ -1,0 +1,33 @@
+{
+  "task_name": "Task E: Preserved Environmental-Stress Surrogate",
+  "proxy_classification": "ENGINEERING_RULE_BASED_HYDROTHERMAL_PROXY",
+  "proxy_disclaimer": "Approximates rule-based index, NOT in-situ physical degradation ground truth.",
+  "chronological_partitions": {
+    "training_period": "2020-2022 (36 months)",
+    "validation_period": "2023 (12 months)",
+    "holdout_test_period": "2024 (12 months)"
+  },
+  "holdout_test_metrics": {
+    "balanced_accuracy": 0.7857142857142857,
+    "macro_f1": 0.7936507936507936
+  },
+  "features_integrated": [
+    "air_temperature_c",
+    "air_humidity_percent",
+    "precipitation_mm_day",
+    "soil_temperature_layer1_c",
+    "soil_moisture_surface_fraction",
+    "soil_moisture_rootzone_fraction",
+    "precipitation_lag1_mm_day",
+    "air_temperature_lag1_c",
+    "precipitation_rolling_3m_mean_mm_day",
+    "temp_soil_air_diff_c",
+    "soil_moisture_depth_gradient",
+    "monthly_aridity_index",
+    "month_sin",
+    "month_cos",
+    "satellite_ndvi_imputed",
+    "satellite_valid_pixel_fraction",
+    "satellite_scl_vegetation_fraction"
+  ]
+}

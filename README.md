@@ -5,8 +5,8 @@
 > **System & Model Health Status:** [http://148.100.109.202:3100/api/health](http://148.100.109.202:3100/api/health)  
 > **Target Architecture:** IBM LinuxONE / Linux on IBM Z (s390x), Node.js v22.23.3 (node:sqlite zero-compilation built-in engine), Python ML Bridge (port 5101), OpenCV 4.6.0.  
 > **Demo Credentials:**  
-> - 🌾 **Farmer Workspace:** farmer.demo@soilsentinel.local | DemoSoil2026!  
-> - 🔬 **Researcher Workspace:** researcher.demo@soilsentinel.local | DemoSoil2026!
+> - 🌾 **Farmer Workspace:** `farmer.demo@soilsentinel.local` | `DemoSoil2026!`  
+> - 🔬 **Researcher Workspace:** `researcher.demo@soilsentinel.local` | `DemoSoil2026!`
 
 Soil Sentinel is an automated data collection and preprocessing pipeline for agricultural risk monitoring and soil health intelligence. It automatically queries authoritative environmental data sources without requiring manual browser downloads.
 
@@ -160,6 +160,18 @@ python src/Model/train_model.py
 
 ---
 
+## Validation & Integrity
+
+- **Missing Values:** Zero unexpected nulls or fabricated records. Exactly 1 boundary NaN in 1-month lags and 2 boundary NaNs in 3-month rolling windows reflecting unobserved historical start values.
+- **Physical Bounds:** Temperature (-50°C to 60°C), Humidity (0% to 100%), Precipitation (0 to 500 mm/day), Soil pH (3.0 to 11.0), Texture sum (clay + sand + silt ≈ 100%).
+- **Audit Trail:** Cumulative, append-only CSV audit logger (`logs/audit_log.csv`) recording timestamped ISO 8601 UTC entries without storing raw features or credentials.
+- **Data Dictionary:** Detailed feature catalog and operational limitations are documented in [`docs/data_dictionary.md`](docs/data_dictionary.md).
+
+
+
+---
+
+
 ---
 
 ## Full-Stack Web Application & API Gateway
@@ -172,7 +184,7 @@ The production instance of SoilSentinel is actively running on an **IBM LinuxONE
 * **Live System Health Check:** [http://148.100.109.202:3100/api/health](http://148.100.109.202:3100/api/health)
 * **Verified Runtime Stack:**
   - **Target Architecture:** s390x (IBM Z Enterprise Architecture)
-  - **Node.js Engine:** v22.23.3 (running native zero-compilation node:sqlite DatabaseSync)
+  - **Node.js Engine:** v22.23.3 (running native zero-compilation `node:sqlite` DatabaseSync)
   - **Python ML Bridge:** Active on port 5101 with multi-task heuristic & surrogate inference
   - **Vision Engine:** OpenCV 4.6.0 enabled for morphological soil analysis
   - **Persistence:** Relational user management and 144+ persisted assessments in SQLite
@@ -184,37 +196,42 @@ SoilSentinel includes a role-based Node.js Express gateway and responsive web in
 * **Authentication Portal:** [`auth.html`](auth.html) — Role-based sign-in and registration for Farmers and Researchers.
 * **Farmer Dashboard:** [`farmer-dashboard.html`](farmer-dashboard.html) — Dynamic risk assessment, voice guidance advisory, crop suitability recommendations, recovery action simulator, and multilingual support.
 * **Researcher Dashboard:** [`researcher-dashboard.html`](researcher-dashboard.html) — Multi-factor historical dataset explorer, TreeSHAP explainability attributions, what-if meteorological scenario stress-testing, and compliance audit trail.
-* **Python Backend Bridge:** [`src/Model/bridge.py`](src/Model/bridge.py) — Spawns as a background HTTP microservice (`http://127.0.0.1:5001`) with graceful fallback to CLI execution.
-
-### Quick Start (Web Application)
-
-```powershell
-# 1. Install Node.js dependencies
-npm install
-
-# 2. Configure environment (optional, defaults provided)
-cp .env.example .env
-
-# 3. Train ML surrogate models (optional; automatically built if missing)
-python -m src.Model.train_model
-
-# 4. Start the gateway and Python bridge
-npm start
-# Visit http://localhost:3000 in your browser
-```
+* **Python Backend Bridge:** [`src/Model/bridge.py`](src/Model/bridge.py) — Spawns as a background HTTP microservice (`http://127.0.0.1:5001` / `http://127.0.0.1:5101`) with graceful fallback to CLI execution.
 
 ### Pre-configured Development Demo Accounts
 
-For local hackathon evaluation, the application seeds two ready-to-use demo accounts on initial startup:
-* **Farmer Account:** `farmer.demo@soilsentinel.local` | Password: `DemoSoil2026!`
-* **Researcher Account:** `researcher.demo@soilsentinel.local` | Password: `DemoSoil2026!`
+For local demonstration and offline auditing, development demo credentials are pre-seeded in the database:
 
----
+| Role | Email | Password | Primary Capabilities |
+| :--- | :--- | :--- | :--- |
+| **Farmer** | `farmer.demo@soilsentinel.local` | `DemoSoil2026!` | Field risk assessment, crop viability scoring, voice advisory, recovery simulator |
+| **Researcher** | `researcher.demo@soilsentinel.local` | `DemoSoil2026!` | Historical dataset exploration, TreeSHAP explainability, what-if meteorological simulation, audit trail |
 
-## Validation & Integrity
 
-- **Missing Values:** Zero unexpected nulls or fabricated records. Exactly 1 boundary NaN in 1-month lags and 2 boundary NaNs in 3-month rolling windows reflecting unobserved historical start values.
-- **Physical Bounds:** Temperature (-50°C to 60°C), Humidity (0% to 100%), Precipitation (0 to 500 mm/day), Soil pH (3.0 to 11.0), Texture sum (clay + sand + silt ≈ 100%).
-- **Audit Trail:** Cumulative, append-only CSV audit logger (`logs/audit_log.csv`) recording timestamped ISO 8601 UTC entries without storing raw features or credentials.
-- **Data Dictionary:** Detailed feature catalog and operational limitations are documented in [`docs/data_dictionary.md`](docs/data_dictionary.md).
+## Website experience and evidence visualizations
 
+The canonical web application remains the Express-served HTML/CSS/JavaScript experience. The dashboard pages use the existing authenticated assessment API and Python bridge; they do not calculate or replace the backend risk score in the browser.
+
+### Dashboard visuals added
+- Farmer workspace: rule-based screening-index timeline, component sub-score bars, climate trend chart, configured study-area map, and a contextual assessment helper grounded in the currently loaded payload.
+- Researcher workspace: screening-index history, component sub-score comparison, monthly climate trend, depth-specific soil property comparison, and the configured study-area map.
+- A read-only authenticated endpoint, `GET /api/assessment/observations`, returns an allow-listed subset of `data/feature_table.csv` through the Python bridge.
+- Charts display empty/error states when source data are unavailable. The map uses the configured sampled Punjab-area reference point; it is not a farm boundary or parcel-level risk map.
+
+### Start the website
+1. Install Node dependencies from the project root: `npm ci`.
+2. Create `.env` from `.env.example` and set a unique `SESSION_SECRET` of at least 32 characters.
+3. Install Python dependencies from `requirements-core.txt` (or the documented requirements for the full pipeline).
+4. Start the application with `npm start`, then open `http://localhost:3000`.
+5. Development demo accounts are available only when `NODE_ENV` is not `production` and `ENABLE_DEMO_ACCOUNTS` is not `false`; see the existing credentials/configuration in the README. Do not ship a development database or demo credentials into production.
+
+### Data interpretation guardrails
+- The climate time series contains 60 monthly rows from 2020-01 through 2024-12 for the configured regional study point.
+- Precipitation is displayed as the `precipitation_mm_day` field (mm/day), not monthly accumulated precipitation.
+- SoilGrids depth values are modeled regional baselines, not monthly field-lab observations.
+- The risk history is a sequence of outputs from the deterministic screening index, not independent measurements of soil degradation.
+- The assessment helper is a local, rule-based explanation interface, not a generative AI chatbot. It only answers supported questions from the loaded assessment payload.
+- Leaflet/OpenStreetMap map tiles require network access. If the map library cannot load, the page provides a coordinate-based fallback link rather than inventing a spatial layer.
+
+### Website verification notes
+Run JavaScript syntax checks with `node --check server.js` and `node --check dashboard-visuals.js`; Python bridge syntax can be checked with `python -m py_compile src/Model/bridge.py`. These checks verify syntax only; they do not replace browser-level testing, authentication testing, or an actual LinuxONE deployment smoke test.

@@ -290,9 +290,6 @@ class TestModelArtifactSafetyGuard(unittest.TestCase):
         """The genuine trained model artifact must exist, exceed 0 bytes, and load successfully."""
         from src.Model.model import load_trained_model
         joblib_path = PROJECT_ROOT / "models" / "soil_risk_model.joblib"
-        if not joblib_path.exists():
-            from src.Model.train_model import train_surrogate_pipeline
-            train_surrogate_pipeline()
         self.assertTrue(joblib_path.exists(), "models/soil_risk_model.joblib must exist")
         self.assertGreater(joblib_path.stat().st_size, 0, "Trained joblib must be non-zero bytes")
 

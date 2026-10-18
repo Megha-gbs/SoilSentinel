@@ -1,0 +1,1408 @@
+{
+  "version": "v6_audited",
+  "pipeline_status": "COMPLETED_AUDITED_LEAKAGE_FREE",
+  "task_a_soc_grouped_cv": {
+    "Mean_Baseline": {
+      "grouped_5fold_mae_mean": 7.024527391975309,
+      "grouped_5fold_mae_std": 1.1781484112067415,
+      "grouped_5fold_rmse_mean": 12.547741317276182,
+      "grouped_5fold_rmse_std": 3.240193538017396,
+      "grouped_5fold_r2_mean": -0.014853575786171724,
+      "grouped_5fold_r2_std": 0.015201609530766427,
+      "fold_maes": [
+        7.038541666666666,
+        5.662037037037037,
+        7.419039351851852,
+        6.006028163580248,
+        8.99699074074074
+      ],
+      "fold_rmses": [
+        14.21615681481227,
+        8.920694569052833,
+        15.551166683065144,
+        8.351869669266584,
+        15.698818850184082
+      ],
+      "fold_r2s": [
+        -0.010169645110260195,
+        -0.017538860383189636,
+        -2.36925796044396e-05,
+        -0.0037131790049669267,
+        -0.042822501852837425
+      ]
+    },
+    "Ridge_Regressor": {
+      "grouped_5fold_mae_mean": 6.249346322991264,
+      "grouped_5fold_mae_std": 1.9025842923797174,
+      "grouped_5fold_rmse_mean": 10.84843255999746,
+      "grouped_5fold_rmse_std": 3.31148315556975,
+      "grouped_5fold_r2_mean": 0.2565876085951125,
+      "grouped_5fold_r2_std": 0.10588890486049152,
+      "fold_maes": [
+        5.7034615467656,
+        3.8741120421283575,
+        7.201988303847568,
+        5.075526807366363,
+        9.391642914848433
+      ],
+      "fold_rmses": [
+        12.164788082758193,
+        6.89048903918405,
+        13.384870696592387,
+        6.96448313513015,
+        14.837531846322527
+      ],
+      "fold_r2s": [
+        0.2603283070684147,
+        0.3929090532404147,
+        0.2591800026967742,
+        0.30205694260161875,
+        0.06846373736834022
+      ]
+    },
+    "Random_Forest": {
+      "grouped_5fold_mae_mean": 4.620366356717266,
+      "grouped_5fold_mae_std": 1.2458384133529612,
+      "grouped_5fold_rmse_mean": 9.123331614888116,
+      "grouped_5fold_rmse_std": 2.608709223830926,
+      "grouped_5fold_r2_mean": 0.39195856202476004,
+      "grouped_5fold_r2_std": 0.28961502956779134,
+      "fold_maes": [
+        4.011894374909601,
+        3.533525703149546,
+        4.5198667378860025,
+        4.003918660820158,
+        7.032626306821023
+      ],
+      "fold_rmses": [
+        7.436559280801405,
+        9.000206161785641,
+        8.893319135702821,
+        6.333238480648173,
+        13.95333501550254
+      ],
+      "fold_r2s": [
+        0.7235771172202885,
+        -0.035758674896391396,
+        0.672951553013444,
+        0.42284309850429447,
+        0.17617971628216456
+      ]
+    },
+    "Gradient_Boosting": {
+      "grouped_5fold_mae_mean": 4.303835510959272,
+      "grouped_5fold_mae_std": 1.213634822553958,
+      "grouped_5fold_rmse_mean": 7.940532109415924,
+      "grouped_5fold_rmse_std": 2.992217051115643,
+      "grouped_5fold_r2_mean": 0.4545128582258851,
+      "grouped_5fold_r2_std": 0.3481218473347252,
+      "fold_maes": [
+        3.562915568833639,
+        3.3196624449778636,
+        3.561281392480118,
+        4.476772501948271,
+        6.5985456465564685
+      ],
+      "fold_rmses": [
+        5.236565265057806,
+        8.41131310422214,
+        5.1455098417162395,
+        7.558073113977229,
+        13.351199222106205
+      ],
+      "fold_r2s": [
+        0.862936144311648,
+        0.0953485926743648,
+        0.8905183930692371,
+        0.17801406369885986,
+        0.24574709737531575
+      ]
+    }
+  },
+  "task_a_soc_loco": {
+    "Mean_Baseline": {
+      "per_continent_mae": {
+        "Africa": 5.214266666666665,
+        "Asia": 9.075133333333333,
+        "Europe": 5.222666666666666,
+        "North_America": 7.182622222222221,
+        "Oceania_Australia": 6.125133333333333,
+        "South_America": 10.07
+      },
+      "per_continent_rmse": {
+        "Africa": 8.119908620175476,
+        "Asia": 16.36959157842505,
+        "Europe": 6.042351004920739,
+        "North_America": 7.4572429445025685,
+        "Oceania_Australia": 8.667566132811833,
+        "South_America": 23.079883015301444
+      },
+      "per_continent_r2": {
+        "Africa": -0.041064306391339844,
+        "Asia": -0.06887522977075533,
+        "Europe": -0.24369130124952876,
+        "North_America": -3.415504651441309,
+        "Oceania_Australia": -0.009194787904116986,
+        "South_America": -0.0689916065902787
+      },
+      "loco_mae_mean": 7.148303703703704,
+      "loco_rmse_mean": 11.622757216022853,
+      "loco_r2_mean": -0.6412203138912215
+    },
+    "Ridge_Regressor": {
+      "per_continent_mae": {
+        "Africa": 6.357460100535311,
+        "Asia": 10.28421869849006,
+        "Europe": 4.7074264289694545,
+        "North_America": 4.158237215865685,
+        "Oceania_Australia": 14.081729833528955,
+        "South_America": 11.951971022000718
+      },
+      "per_continent_rmse": {
+        "Africa": 9.426408191845029,
+        "Asia": 15.102401155297127,
+        "Europe": 5.478214743246846,
+        "North_America": 4.887111839114807,
+        "Oceania_Australia": 14.910082775563982,
+        "South_America": 20.208205241485384
+      },
+      "per_continent_r2": {
+        "Africa": -0.40303258406910225,
+        "Asia": 0.09020545412430603,
+        "Europe": -0.022301036563091126,
+        "North_America": -0.8963928896073226,
+        "Oceania_Australia": -1.9863505110115645,
+        "South_America": 0.1804743006999665
+      },
+      "loco_mae_mean": 8.590173883231698,
+      "loco_rmse_mean": 11.66873732442553,
+      "loco_r2_mean": -0.5062328777378013
+    },
+    "Random_Forest": {
+      "per_continent_mae": {
+        "Africa": 3.103362279949534,
+        "Asia": 8.778048251024321,
+        "Europe": 22.251041424983345,
+        "North_America": 4.864074547297357,
+        "Oceania_Australia": 22.139782321211463,
+        "South_America": 16.57001105054854
+      },
+      "per_continent_rmse": {
+        "Africa": 6.824551070343714,
+        "Asia": 15.008481079036104,
+        "Europe": 27.633130810272025,
+        "North_America": 5.207363634919462,
+        "Oceania_Australia": 23.383654595428197,
+        "South_America": 22.712310466177918
+      },
+      "per_continent_r2": {
+        "Africa": 0.2646002985919651,
+        "Asia": 0.10148608119165203,
+        "Europe": -25.01122957576274,
+        "North_America": -1.1530770641147434,
+        "Oceania_Australia": -6.345230783224294,
+        "South_America": -0.035213009667668604
+      },
+      "loco_mae_mean": 12.951053312502426,
+      "loco_rmse_mean": 16.79491527602957,
+      "loco_r2_mean": -5.363110675497638
+    },
+    "Gradient_Boosting": {
+      "per_continent_mae": {
+        "Africa": 3.0985143038306644,
+        "Asia": 8.362462757101758,
+        "Europe": 15.033636317140418,
+        "North_America": 2.8191885415064606,
+        "Oceania_Australia": 28.373450886522384,
+        "South_America": 15.966958130943103
+      },
+      "per_continent_rmse": {
+        "Africa": 6.6650349193031975,
+        "Asia": 14.460352178480077,
+        "Europe": 21.347657018683254,
+        "North_America": 3.557299572057951,
+        "Oceania_Australia": 29.211158552297366,
+        "South_America": 21.417187322451724
+      },
+      "per_continent_r2": {
+        "Africa": 0.29857679208445986,
+        "Asia": 0.16591739211996037,
+        "Europe": -14.523910477956694,
+        "North_America": -0.004765334478523675,
+        "Oceania_Australia": -10.462470604655513,
+        "South_America": 0.07948269083035209
+      },
+      "loco_mae_mean": 12.275701822840796,
+      "loco_rmse_mean": 16.109781593878928,
+      "loco_r2_mean": -4.074528257009326
+    }
+  },
+  "task_b_salinity_grouped_cv": {
+    "Majority_Baseline": {
+      "grouped_acc_mean": 0.8844713786970555,
+      "grouped_acc_std": 0.03535106184772991,
+      "grouped_bal_acc_mean": 0.5,
+      "grouped_bal_acc_std": 0.0,
+      "grouped_macro_f1_mean": 0.4691593739977352,
+      "grouped_macro_f1_std": 0.010014134888955514,
+      "grouped_saline_f1_mean": 0.0,
+      "grouped_saline_f1_std": 0.0,
+      "grouped_saline_recall_mean": 0.0,
+      "grouped_saline_false_negative_rate": 1.0,
+      "confusion_matrices": [
+        [
+          [
+            44,
+            0
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            53,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            40,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        [
+          [
+            39,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        [
+          [
+            41,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      ]
+    },
+    "Logistic_Regression": {
+      "grouped_acc_mean": 0.5275146564784928,
+      "grouped_acc_std": 0.13948753587560958,
+      "grouped_bal_acc_mean": 0.5093383192969019,
+      "grouped_bal_acc_std": 0.2098037157709684,
+      "grouped_macro_f1_mean": 0.4084912375607611,
+      "grouped_macro_f1_std": 0.1092245106607553,
+      "grouped_saline_f1_mean": 0.15571428571428572,
+      "grouped_saline_f1_std": 0.12923637574741303,
+      "grouped_saline_recall_mean": 0.47000000000000003,
+      "grouped_saline_false_negative_rate": 0.53,
+      "confusion_matrices": [
+        [
+          [
+            19,
+            25
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            40,
+            13
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            24,
+            16
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            24,
+            15
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        [
+          [
+            14,
+            27
+          ],
+          [
+            0,
+            4
+          ]
+        ]
+      ]
+    },
+    "Random_Forest": {
+      "grouped_acc_mean": 0.8152693791215627,
+      "grouped_acc_std": 0.0862468893382057,
+      "grouped_bal_acc_mean": 0.6044750766184268,
+      "grouped_bal_acc_std": 0.14398825372836133,
+      "grouped_macro_f1_mean": 0.5763915640907451,
+      "grouped_macro_f1_std": 0.13432381481601988,
+      "grouped_saline_f1_mean": 0.2595182595182595,
+      "grouped_saline_f1_std": 0.22493441108493822,
+      "grouped_saline_recall_mean": 0.32,
+      "grouped_saline_false_negative_rate": 0.6799999999999999,
+      "confusion_matrices": [
+        [
+          [
+            34,
+            10
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            50,
+            3
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        [
+          [
+            37,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            38,
+            1
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        [
+          [
+            34,
+            7
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ]
+    },
+    "Gradient_Boosting": {
+      "grouped_acc_mean": 0.8224005152639629,
+      "grouped_acc_std": 0.060847907770627443,
+      "grouped_bal_acc_mean": 0.5112354097811991,
+      "grouped_bal_acc_std": 0.10880200876730169,
+      "grouped_macro_f1_mean": 0.4949262771411833,
+      "grouped_macro_f1_std": 0.10256150673767159,
+      "grouped_saline_f1_mean": 0.08888888888888888,
+      "grouped_saline_f1_std": 0.17777777777777776,
+      "grouped_saline_recall_mean": 0.1,
+      "grouped_saline_false_negative_rate": 0.9,
+      "confusion_matrices": [
+        [
+          [
+            37,
+            7
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            50,
+            3
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        [
+          [
+            38,
+            2
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        [
+          [
+            39,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        [
+          [
+            36,
+            5
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      ]
+    }
+  },
+  "task_b_salinity_loro": {
+    "Majority_Baseline": {
+      "per_region_accuracy": {
+        "australia": 0.78,
+        "india": 0.93,
+        "mediterranean": 1.0,
+        "north_america": 0.7777777777777778
+      },
+      "per_region_balanced_accuracy": {
+        "australia": 0.5,
+        "india": 0.5,
+        "mediterranean": 1.0,
+        "north_america": 0.5
+      },
+      "per_region_saline_f1": {
+        "australia": 0.0,
+        "india": 0.0,
+        "mediterranean": 0.0,
+        "north_america": 0.0
+      },
+      "per_region_confusion_matrix": {
+        "australia": [
+          [
+            39,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ],
+        "india": [
+          [
+            93,
+            0
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "mediterranean": [
+          [
+            50,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "north_america": [
+          [
+            35,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "loro_acc_mean": 0.8719444444444444,
+      "loro_bal_acc_mean": 0.625,
+      "loro_saline_f1_mean": 0.0
+    },
+    "Logistic_Regression": {
+      "per_region_accuracy": {
+        "australia": 0.32,
+        "india": 0.07,
+        "mediterranean": 0.06,
+        "north_america": 0.7777777777777778
+      },
+      "per_region_balanced_accuracy": {
+        "australia": 0.4988344988344989,
+        "india": 0.5,
+        "mediterranean": 0.06,
+        "north_america": 0.5
+      },
+      "per_region_saline_f1": {
+        "australia": 0.34615384615384615,
+        "india": 0.1308411214953271,
+        "mediterranean": 0.0,
+        "north_america": 0.0
+      },
+      "per_region_confusion_matrix": {
+        "australia": [
+          [
+            7,
+            32
+          ],
+          [
+            2,
+            9
+          ]
+        ],
+        "india": [
+          [
+            0,
+            93
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "mediterranean": [
+          [
+            3,
+            47
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "north_america": [
+          [
+            35,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "loro_acc_mean": 0.30694444444444446,
+      "loro_bal_acc_mean": 0.3897086247086247,
+      "loro_saline_f1_mean": 0.11924874191229332
+    },
+    "Random_Forest": {
+      "per_region_accuracy": {
+        "australia": 0.78,
+        "india": 0.76,
+        "mediterranean": 1.0,
+        "north_america": 0.7777777777777778
+      },
+      "per_region_balanced_accuracy": {
+        "australia": 0.5,
+        "india": 0.40860215053763443,
+        "mediterranean": 1.0,
+        "north_america": 0.5
+      },
+      "per_region_saline_f1": {
+        "australia": 0.0,
+        "india": 0.0,
+        "mediterranean": 0.0,
+        "north_america": 0.0
+      },
+      "per_region_confusion_matrix": {
+        "australia": [
+          [
+            39,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ],
+        "india": [
+          [
+            76,
+            17
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "mediterranean": [
+          [
+            50,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "north_america": [
+          [
+            35,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "loro_acc_mean": 0.8294444444444444,
+      "loro_bal_acc_mean": 0.6021505376344086,
+      "loro_saline_f1_mean": 0.0
+    },
+    "Gradient_Boosting": {
+      "per_region_accuracy": {
+        "australia": 0.22,
+        "india": 0.92,
+        "mediterranean": 1.0,
+        "north_america": 0.7777777777777778
+      },
+      "per_region_balanced_accuracy": {
+        "australia": 0.5,
+        "india": 0.4946236559139785,
+        "mediterranean": 1.0,
+        "north_america": 0.5
+      },
+      "per_region_saline_f1": {
+        "australia": 0.36065573770491804,
+        "india": 0.0,
+        "mediterranean": 0.0,
+        "north_america": 0.0
+      },
+      "per_region_confusion_matrix": {
+        "australia": [
+          [
+            0,
+            39
+          ],
+          [
+            0,
+            11
+          ]
+        ],
+        "india": [
+          [
+            92,
+            1
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "mediterranean": [
+          [
+            50,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "north_america": [
+          [
+            35,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "loro_acc_mean": 0.7294444444444445,
+      "loro_bal_acc_mean": 0.6236559139784946,
+      "loro_saline_f1_mean": 0.09016393442622951
+    }
+  },
+  "task_c_acidity_grouped_cv": {
+    "Majority_Baseline": {
+      "grouped_acc_mean": 0.5888567324801166,
+      "grouped_acc_std": 0.00774959544238997,
+      "grouped_bal_acc_mean": 0.5,
+      "grouped_bal_acc_std": 0.0,
+      "grouped_macro_f1_mean": 0.3706016446663886,
+      "grouped_macro_f1_std": 0.003072989082994587,
+      "grouped_acidic_f1_mean": 0.0,
+      "grouped_acidic_f1_std": 0.0
+    },
+    "Logistic_Regression": {
+      "grouped_acc_mean": 0.8139542735867259,
+      "grouped_acc_std": 0.03661469168274194,
+      "grouped_bal_acc_mean": 0.8098930208342064,
+      "grouped_bal_acc_std": 0.03280538437778198,
+      "grouped_macro_f1_mean": 0.80554257199799,
+      "grouped_macro_f1_std": 0.03596649405327815,
+      "grouped_acidic_f1_mean": 0.7738342435908914,
+      "grouped_acidic_f1_std": 0.0431363716777823
+    },
+    "Random_Forest": {
+      "grouped_acc_mean": 1.0,
+      "grouped_acc_std": 0.0,
+      "grouped_bal_acc_mean": 1.0,
+      "grouped_bal_acc_std": 0.0,
+      "grouped_macro_f1_mean": 1.0,
+      "grouped_macro_f1_std": 0.0,
+      "grouped_acidic_f1_mean": 1.0,
+      "grouped_acidic_f1_std": 0.0
+    },
+    "Gradient_Boosting": {
+      "grouped_acc_mean": 1.0,
+      "grouped_acc_std": 0.0,
+      "grouped_bal_acc_mean": 1.0,
+      "grouped_bal_acc_std": 0.0,
+      "grouped_macro_f1_mean": 1.0,
+      "grouped_macro_f1_std": 0.0,
+      "grouped_acidic_f1_mean": 1.0,
+      "grouped_acidic_f1_std": 0.0
+    }
+  },
+  "task_c_acidity_loco": {
+    "Majority_Baseline": {
+      "per_continent_accuracy": {
+        "Africa": 1.0,
+        "Asia": 0.5333333333333333,
+        "Europe": 1.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 1.0,
+        "South_America": 0.0
+      },
+      "per_continent_balanced_accuracy": {
+        "Africa": 1.0,
+        "Asia": 0.5,
+        "Europe": 1.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 1.0,
+        "South_America": 0.0
+      },
+      "per_continent_acidic_f1": {
+        "Africa": 0.0,
+        "Asia": 0.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 0.0
+      },
+      "per_continent_confusion_matrix": {
+        "Africa": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "Asia": [
+          [
+            32,
+            0
+          ],
+          [
+            28,
+            0
+          ]
+        ],
+        "Europe": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "North_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ],
+        "Oceania_Australia": [
+          [
+            60,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "South_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ]
+      },
+      "loco_acc_mean": 0.5888888888888889,
+      "loco_bal_acc_mean": 0.5833333333333334,
+      "loco_acidic_f1_mean": 0.0
+    },
+    "Logistic_Regression": {
+      "per_continent_accuracy": {
+        "Africa": 0.65,
+        "Asia": 1.0,
+        "Europe": 0.7,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.08333333333333333,
+        "South_America": 0.35
+      },
+      "per_continent_balanced_accuracy": {
+        "Africa": 0.65,
+        "Asia": 1.0,
+        "Europe": 0.7,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.08333333333333333,
+        "South_America": 0.35
+      },
+      "per_continent_acidic_f1": {
+        "Africa": 0.0,
+        "Asia": 1.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 0.5185185185185185
+      },
+      "per_continent_confusion_matrix": {
+        "Africa": [
+          [
+            39,
+            21
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "Asia": [
+          [
+            32,
+            0
+          ],
+          [
+            0,
+            28
+          ]
+        ],
+        "Europe": [
+          [
+            42,
+            18
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "North_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ],
+        "Oceania_Australia": [
+          [
+            5,
+            55
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "South_America": [
+          [
+            0,
+            0
+          ],
+          [
+            39,
+            21
+          ]
+        ]
+      },
+      "loco_acc_mean": 0.46388888888888885,
+      "loco_bal_acc_mean": 0.46388888888888885,
+      "loco_acidic_f1_mean": 0.25308641975308643
+    },
+    "Random_Forest": {
+      "per_continent_accuracy": {
+        "Africa": 0.9666666666666667,
+        "Asia": 1.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.08333333333333333,
+        "South_America": 0.35
+      },
+      "per_continent_balanced_accuracy": {
+        "Africa": 0.9666666666666667,
+        "Asia": 1.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.08333333333333333,
+        "South_America": 0.35
+      },
+      "per_continent_acidic_f1": {
+        "Africa": 0.0,
+        "Asia": 1.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 0.5185185185185185
+      },
+      "per_continent_confusion_matrix": {
+        "Africa": [
+          [
+            58,
+            2
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "Asia": [
+          [
+            32,
+            0
+          ],
+          [
+            0,
+            28
+          ]
+        ],
+        "Europe": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "North_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ],
+        "Oceania_Australia": [
+          [
+            5,
+            55
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "South_America": [
+          [
+            0,
+            0
+          ],
+          [
+            39,
+            21
+          ]
+        ]
+      },
+      "loco_acc_mean": 0.4000000000000001,
+      "loco_bal_acc_mean": 0.4000000000000001,
+      "loco_acidic_f1_mean": 0.25308641975308643
+    },
+    "Gradient_Boosting": {
+      "per_continent_accuracy": {
+        "Africa": 0.0,
+        "Asia": 1.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 1.0
+      },
+      "per_continent_balanced_accuracy": {
+        "Africa": 0.0,
+        "Asia": 1.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 1.0
+      },
+      "per_continent_acidic_f1": {
+        "Africa": 0.0,
+        "Asia": 1.0,
+        "Europe": 0.0,
+        "North_America": 0.0,
+        "Oceania_Australia": 0.0,
+        "South_America": 1.0
+      },
+      "per_continent_confusion_matrix": {
+        "Africa": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "Asia": [
+          [
+            32,
+            0
+          ],
+          [
+            0,
+            28
+          ]
+        ],
+        "Europe": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "North_America": [
+          [
+            0,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ],
+        "Oceania_Australia": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "South_America": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            60
+          ]
+        ]
+      },
+      "loco_acc_mean": 0.3333333333333333,
+      "loco_bal_acc_mean": 0.3333333333333333,
+      "loco_acidic_f1_mean": 0.3333333333333333
+    }
+  },
+  "task_d_surrogate_experiments": {
+    "Baseline_Climate_Only": {
+      "validation_2023": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "holdout_test_2024": {
+        "accuracy": 0.9166666666666666,
+        "balanced_accuracy": 0.9523809523809524,
+        "macro_f1": 0.9267399267399267,
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            2
+          ]
+        ],
+        "classification_report": {
+          "Low": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1-score": 0.8571428571428571,
+            "support": 3.0
+          },
+          "Medium": {
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "f1-score": 0.9230769230769231,
+            "support": 7.0
+          },
+          "High": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 2.0
+          },
+          "accuracy": 0.9166666666666666,
+          "macro avg": {
+            "precision": 0.9166666666666666,
+            "recall": 0.9523809523809524,
+            "f1-score": 0.9267399267399267,
+            "support": 12.0
+          },
+          "weighted avg": {
+            "precision": 0.9375,
+            "recall": 0.9166666666666666,
+            "f1-score": 0.9194139194139194,
+            "support": 12.0
+          }
+        }
+      }
+    },
+    "Satellite_Only": {
+      "validation_2023": {
+        "accuracy": 0.5833333333333334,
+        "balanced_accuracy": 0.5625,
+        "macro_f1": 0.38888888888888884,
+        "confusion_matrix": [
+          [
+            2,
+            2,
+            0
+          ],
+          [
+            2,
+            5,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "holdout_test_2024": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.41269841269841273,
+        "macro_f1": 0.35714285714285715,
+        "confusion_matrix": [
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            3,
+            4,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ]
+        ],
+        "classification_report": {
+          "Low": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1-score": 0.5,
+            "support": 3.0
+          },
+          "Medium": {
+            "precision": 0.5714285714285714,
+            "recall": 0.5714285714285714,
+            "f1-score": 0.5714285714285714,
+            "support": 7.0
+          },
+          "High": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2.0
+          },
+          "accuracy": 0.5,
+          "macro avg": {
+            "precision": 0.3238095238095238,
+            "recall": 0.41269841269841273,
+            "f1-score": 0.35714285714285715,
+            "support": 12.0
+          },
+          "weighted avg": {
+            "precision": 0.43333333333333335,
+            "recall": 0.5,
+            "f1-score": 0.4583333333333333,
+            "support": 12.0
+          }
+        }
+      }
+    },
+    "Satellite_Integrated": {
+      "validation_2023": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "holdout_test_2024": {
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6190476190476191,
+        "macro_f1": 0.5523809523809523,
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ]
+        ],
+        "classification_report": {
+          "Low": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1-score": 0.8571428571428571,
+            "support": 3.0
+          },
+          "Medium": {
+            "precision": 0.75,
+            "recall": 0.8571428571428571,
+            "f1-score": 0.8,
+            "support": 7.0
+          },
+          "High": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2.0
+          },
+          "accuracy": 0.75,
+          "macro avg": {
+            "precision": 0.5,
+            "recall": 0.6190476190476191,
+            "f1-score": 0.5523809523809523,
+            "support": 12.0
+          },
+          "weighted avg": {
+            "precision": 0.625,
+            "recall": 0.75,
+            "f1-score": 0.6809523809523809,
+            "support": 12.0
+          }
+        }
+      }
+    }
+  },
+  "artifacts_directory": "models\\v6_audited"
+}

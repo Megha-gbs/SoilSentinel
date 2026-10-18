@@ -1,0 +1,344 @@
+{
+  "task_name": "Task B: Independent Salinity Classification",
+  "target": "salinity_label",
+  "classes": [
+    "Non_Saline",
+    "Saline"
+  ],
+  "diagnostic_threshold": "Saline if EC >= 2.0 dS/m (USSL Handbook 60, FAO, ICAR-CSSRI)",
+  "sample_count": 245,
+  "region_count": 4,
+  "class_distribution": {
+    "Non_Saline": 217,
+    "Saline": 28
+  },
+  "feature_schema": [
+    "clay_fraction",
+    "sand_fraction",
+    "silt_fraction",
+    "upper_depth",
+    "lower_depth",
+    "latitude",
+    "longitude"
+  ],
+  "best_algorithm": "Random_Forest",
+  "model_hyperparameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 5,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 4,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "cross_validation_results": {
+    "Majority_Baseline": {
+      "5fold_acc_mean": 0.8857142857142858,
+      "5fold_bal_acc_mean": 0.5,
+      "5fold_saline_f1_mean": 0.0,
+      "5fold_weighted_f1_mean": 0.8320643825552662
+    },
+    "Logistic_Regression": {
+      "5fold_acc_mean": 0.636734693877551,
+      "5fold_bal_acc_mean": 0.6877660324171952,
+      "5fold_saline_f1_mean": 0.3189543689693615,
+      "5fold_weighted_f1_mean": 0.701445371721133
+    },
+    "Random_Forest": {
+      "5fold_acc_mean": 0.8816326530612244,
+      "5fold_bal_acc_mean": 0.8369344608879492,
+      "5fold_saline_f1_mean": 0.5934952766531714,
+      "5fold_weighted_f1_mean": 0.8921007903304833
+    },
+    "Gradient_Boosting": {
+      "5fold_acc_mean": 0.9510204081632654,
+      "5fold_bal_acc_mean": 0.8330232558139535,
+      "5fold_saline_f1_mean": 0.7181318681318681,
+      "5fold_weighted_f1_mean": 0.9434190379448483
+    }
+  },
+  "leave_one_region_out_results": {
+    "Majority_Baseline": {
+      "per_region_accuracy": {
+        "australia": 0.78,
+        "india": 0.93,
+        "mediterranean": 1.0,
+        "north_america": 0.7777777777777778
+      },
+      "per_region_saline_f1": {
+        "australia": 0.0,
+        "india": 0.0,
+        "mediterranean": 0.0,
+        "north_america": 0.0
+      },
+      "per_region_confusion_matrix": {
+        "australia": [
+          [
+            39,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ],
+        "india": [
+          [
+            93,
+            0
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "mediterranean": [
+          [
+            50,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "north_america": [
+          [
+            35,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "loro_acc_mean": 0.8719444444444444,
+      "loro_saline_f1_mean": 0.0
+    },
+    "Logistic_Regression": {
+      "per_region_accuracy": {
+        "australia": 0.32,
+        "india": 0.07,
+        "mediterranean": 0.06,
+        "north_america": 0.7777777777777778
+      },
+      "per_region_saline_f1": {
+        "australia": 0.34615384615384615,
+        "india": 0.1308411214953271,
+        "mediterranean": 0.0,
+        "north_america": 0.0
+      },
+      "per_region_confusion_matrix": {
+        "australia": [
+          [
+            7,
+            32
+          ],
+          [
+            2,
+            9
+          ]
+        ],
+        "india": [
+          [
+            0,
+            93
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "mediterranean": [
+          [
+            3,
+            47
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "north_america": [
+          [
+            35,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "loro_acc_mean": 0.30694444444444446,
+      "loro_saline_f1_mean": 0.11924874191229332
+    },
+    "Random_Forest": {
+      "per_region_accuracy": {
+        "australia": 0.78,
+        "india": 0.76,
+        "mediterranean": 1.0,
+        "north_america": 0.7777777777777778
+      },
+      "per_region_saline_f1": {
+        "australia": 0.0,
+        "india": 0.0,
+        "mediterranean": 0.0,
+        "north_america": 0.0
+      },
+      "per_region_confusion_matrix": {
+        "australia": [
+          [
+            39,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ],
+        "india": [
+          [
+            76,
+            17
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "mediterranean": [
+          [
+            50,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "north_america": [
+          [
+            35,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "loro_acc_mean": 0.8294444444444444,
+      "loro_saline_f1_mean": 0.0
+    },
+    "Gradient_Boosting": {
+      "per_region_accuracy": {
+        "australia": 0.22,
+        "india": 0.92,
+        "mediterranean": 1.0,
+        "north_america": 0.7777777777777778
+      },
+      "per_region_saline_f1": {
+        "australia": 0.36065573770491804,
+        "india": 0.0,
+        "mediterranean": 0.0,
+        "north_america": 0.0
+      },
+      "per_region_confusion_matrix": {
+        "australia": [
+          [
+            0,
+            39
+          ],
+          [
+            0,
+            11
+          ]
+        ],
+        "india": [
+          [
+            92,
+            1
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "mediterranean": [
+          [
+            50,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "north_america": [
+          [
+            35,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "loro_acc_mean": 0.7294444444444445,
+      "loro_saline_f1_mean": 0.09016393442622951
+    }
+  },
+  "confusion_matrix": [
+    [
+      195,
+      22
+    ],
+    [
+      0,
+      28
+    ]
+  ],
+  "classification_report": {
+    "Non_Saline": {
+      "precision": 1.0,
+      "recall": 0.8986175115207373,
+      "f1-score": 0.9466019417475728,
+      "support": 217.0
+    },
+    "Saline": {
+      "precision": 0.56,
+      "recall": 1.0,
+      "f1-score": 0.717948717948718,
+      "support": 28.0
+    },
+    "accuracy": 0.9102040816326531,
+    "macro avg": {
+      "precision": 0.78,
+      "recall": 0.9493087557603687,
+      "f1-score": 0.8322753298481453,
+      "support": 245.0
+    },
+    "weighted avg": {
+      "precision": 0.9497142857142857,
+      "recall": 0.9102040816326531,
+      "f1-score": 0.9204701447419893,
+      "support": 245.0
+    }
+  },
+  "shap_causality_disclaimer": "SHAP reflects model feature attribution only and does not establish physical agronomic causality."
+}

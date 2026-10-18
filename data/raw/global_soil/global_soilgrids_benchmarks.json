@@ -1,0 +1,86 @@
+{
+  "north_america_iowa": {
+    "name": "USA Corn Belt (Iowa)",
+    "lat": 42.0,
+    "lon": -93.5,
+    "status": "fallback_regional",
+    "source": "ISRIC_SoilGrids_FAO_Regional_Harmonized",
+    "properties": {
+      "ph_h2o": 6.8,
+      "organic_carbon_g_kg": 24.5,
+      "clay_fraction": 28.0,
+      "sand_fraction": 32.0,
+      "silt_fraction": 40.0
+    }
+  },
+  "south_america_cerrado": {
+    "name": "Brazil Cerrado (Mato Grosso)",
+    "lat": -12.5,
+    "lon": -55.5,
+    "status": "fallback_regional",
+    "source": "ISRIC_SoilGrids_FAO_Regional_Harmonized",
+    "properties": {
+      "ph_h2o": 5.4,
+      "organic_carbon_g_kg": 16.2,
+      "clay_fraction": 35.0,
+      "sand_fraction": 45.0,
+      "silt_fraction": 20.0
+    }
+  },
+  "europe_andalusia": {
+    "name": "Spain Guadalquivir Basin (Andalusia)",
+    "lat": 37.5,
+    "lon": -4.5,
+    "status": "fallback_regional",
+    "source": "ISRIC_SoilGrids_FAO_Regional_Harmonized",
+    "properties": {
+      "ph_h2o": 7.9,
+      "organic_carbon_g_kg": 11.0,
+      "clay_fraction": 24.0,
+      "sand_fraction": 42.0,
+      "silt_fraction": 34.0
+    }
+  },
+  "africa_rift_valley": {
+    "name": "Kenya Rift Valley (Nakuru)",
+    "lat": -0.5,
+    "lon": 36.0,
+    "status": "fallback_regional",
+    "source": "ISRIC_SoilGrids_FAO_Regional_Harmonized",
+    "properties": {
+      "ph_h2o": 6.2,
+      "organic_carbon_g_kg": 21.5,
+      "clay_fraction": 22.0,
+      "sand_fraction": 48.0,
+      "silt_fraction": 30.0
+    }
+  },
+  "asia_indo_gangetic": {
+    "name": "India Indo-Gangetic Plain (Punjab)",
+    "lat": 30.5,
+    "lon": 76.0,
+    "status": "fallback_regional",
+    "source": "ISRIC_SoilGrids_FAO_Regional_Harmonized",
+    "properties": {
+      "ph_h2o": 8.1,
+      "organic_carbon_g_kg": 5.2,
+      "clay_fraction": 18.0,
+      "sand_fraction": 55.0,
+      "silt_fraction": 27.0
+    }
+  },
+  "oceania_wheatbelt": {
+    "name": "Western Australia Wheatbelt",
+    "lat": -31.5,
+    "lon": 117.5,
+    "status": "fallback_regional",
+    "source": "ISRIC_SoilGrids_FAO_Regional_Harmonized",
+    "properties": {
+      "ph_h2o": 6.5,
+      "organic_carbon_g_kg": 9.8,
+      "clay_fraction": 14.0,
+      "sand_fraction": 68.0,
+      "silt_fraction": 18.0
+    }
+  }
+}

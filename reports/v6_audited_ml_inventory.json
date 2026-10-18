@@ -1,0 +1,1044 @@
+{
+  "inventory_version": "v6.0.0-audited",
+  "generated_timestamp": "2026-10-18T11:42:00Z",
+  "project_root": "C:\\Users\\mohitkumar\\Downloads\\Datathon8_Merged_SoilSentinel_Website_Improvements (5)\\Datathon",
+  "datasets": {
+    "processed/climate_data.csv": {
+      "path": "data\\processed\\climate_data.csv",
+      "size_bytes": 8620,
+      "sha256": "1717a03b81ce8f70b8250f16d7e9ae4dd628f3147f039c098377306f0daa89f7",
+      "rows": 60,
+      "columns_count": 15,
+      "columns": [
+        "region",
+        "latitude",
+        "longitude",
+        "year",
+        "month",
+        "date",
+        "air_temperature_c",
+        "temperature_c",
+        "air_humidity_percent",
+        "humidity_percent",
+        "precipitation_mm_day",
+        "soil_temperature_layer1_c",
+        "soil_moisture_surface_fraction",
+        "soil_moisture_rootzone_fraction",
+        "data_source"
+      ]
+    },
+    "processed/combined_features.csv": {
+      "path": "data\\processed\\combined_features.csv",
+      "size_bytes": 17260,
+      "sha256": "c86e71ac076eb712f72c78d0c151187c4a61fb836a3b45438520d474a498bc16",
+      "rows": 60,
+      "columns_count": 38,
+      "columns": [
+        "region",
+        "nominal_latitude",
+        "nominal_longitude",
+        "sampled_latitude",
+        "sampled_longitude",
+        "year",
+        "month",
+        "date",
+        "air_temperature_c",
+        "temperature_c",
+        "air_humidity_percent",
+        "humidity_percent",
+        "precipitation_mm_day",
+        "soil_temperature_layer1_c",
+        "soil_moisture_surface_fraction",
+        "soil_moisture_rootzone_fraction",
+        "topsoil_ph_mean",
+        "topsoil_clay_percent",
+        "topsoil_sand_percent",
+        "topsoil_silt_percent",
+        "topsoil_soc_g_kg",
+        "ph_0_5cm",
+        "ph_5_15cm",
+        "ph_15_30cm",
+        "clay_0_5cm_percent",
+        "clay_5_15cm_percent",
+        "clay_15_30cm_percent",
+        "sand_0_5cm_percent",
+        "sand_5_15cm_percent",
+        "sand_15_30cm_percent",
+        "silt_0_5cm_percent",
+        "silt_5_15cm_percent",
+        "silt_15_30cm_percent",
+        "soc_0_5cm_g_kg",
+        "soc_5_15cm_g_kg",
+        "soc_15_30cm_g_kg",
+        "climate_source",
+        "soil_source"
+      ]
+    },
+    "processed/global_agroclimatic_multiregion_features.csv": {
+      "path": "data\\processed\\global_agroclimatic_multiregion_features.csv",
+      "size_bytes": 75411,
+      "sha256": "5600da28f1578b8fb63937aaa477cfbfa6c6a3387bd612bfb60846398fd47012",
+      "rows": 360,
+      "columns_count": 24,
+      "columns": [
+        "date",
+        "region_id",
+        "region_name",
+        "continent",
+        "climate_zone",
+        "latitude",
+        "longitude",
+        "temperature",
+        "temp_max",
+        "temp_min",
+        "precipitation",
+        "humidity",
+        "solar_radiation",
+        "topsoil_moisture",
+        "rootzone_moisture",
+        "ph",
+        "organic_carbon_g_kg",
+        "clay_content",
+        "organic_matter",
+        "ndvi",
+        "ndwi",
+        "msi",
+        "risk_class",
+        "risk_label"
+      ]
+    },
+    "processed/global_measured_soil_properties.csv": {
+      "path": "data\\processed\\global_measured_soil_properties.csv",
+      "size_bytes": 68588,
+      "sha256": "f1a42bd0fd905a909646aaacc7f846081f37da3ee7e24bb18a2a22c232bc60a4",
+      "rows": 360,
+      "columns_count": 14,
+      "columns": [
+        "profile_id",
+        "continent",
+        "country_name",
+        "latitude",
+        "longitude",
+        "upper_depth",
+        "lower_depth",
+        "ph_h2o",
+        "clay_fraction",
+        "sand_fraction",
+        "silt_fraction",
+        "organic_carbon_g_kg",
+        "dataset_id",
+        "licence"
+      ]
+    },
+    "processed/global_multicontinental_wosis_profiles.csv": {
+      "path": "data\\processed\\global_multicontinental_wosis_profiles.csv",
+      "size_bytes": 68652,
+      "sha256": "8e5b56a718f490a362257200561e907a818d9e8a25f520d65580a6c3e31ce01b",
+      "rows": 360,
+      "columns_count": 14,
+      "columns": [
+        "profile_id",
+        "continent",
+        "country_name",
+        "latitude",
+        "longitude",
+        "upper_depth",
+        "lower_depth",
+        "organic_carbon_g_kg",
+        "ph_h2o",
+        "clay_fraction",
+        "sand_fraction",
+        "silt_fraction",
+        "dataset_id",
+        "licence"
+      ]
+    },
+    "processed/punjab_multidistrict_features.csv": {
+      "path": "data\\processed\\punjab_multidistrict_features.csv",
+      "size_bytes": 92112,
+      "sha256": "2dd6cdba5a75fb62e104cfdb20f9e45abb67d9b4a56ed6b78bc0167d04518075",
+      "rows": 420,
+      "columns_count": 29,
+      "columns": [
+        "date",
+        "year",
+        "month",
+        "air_temperature_c",
+        "air_humidity_percent",
+        "precipitation_mm_day",
+        "soil_temperature_layer1_c",
+        "soil_moisture_surface_fraction",
+        "soil_moisture_rootzone_fraction",
+        "district_id",
+        "district_name",
+        "agro_climatic_zone",
+        "latitude",
+        "longitude",
+        "topsoil_ph_mean",
+        "topsoil_clay_percent",
+        "topsoil_sand_percent",
+        "topsoil_silt_percent",
+        "topsoil_soc_g_kg",
+        "month_sin",
+        "month_cos",
+        "precipitation_lag1_mm_day",
+        "air_temperature_lag1_c",
+        "precipitation_rolling_3m_mean_mm_day",
+        "temp_soil_air_diff_c",
+        "soil_moisture_depth_gradient",
+        "monthly_aridity_index",
+        "score",
+        "risk_category"
+      ]
+    },
+    "processed/satellite_integrated_risk_dataset.csv": {
+      "path": "data\\processed\\satellite_integrated_risk_dataset.csv",
+      "size_bytes": 37434,
+      "sha256": "a5f0408bba509e934afcf32e171e33ba64f5e9af492acbe18e86fc06af87de4c",
+      "rows": 60,
+      "columns_count": 67,
+      "columns": [
+        "region",
+        "nominal_latitude",
+        "nominal_longitude",
+        "sampled_latitude",
+        "sampled_longitude",
+        "year",
+        "month",
+        "date",
+        "air_temperature_c",
+        "temperature_c",
+        "air_humidity_percent",
+        "humidity_percent",
+        "precipitation_mm_day",
+        "soil_temperature_layer1_c",
+        "soil_moisture_surface_fraction",
+        "soil_moisture_rootzone_fraction",
+        "topsoil_ph_mean",
+        "topsoil_clay_percent",
+        "topsoil_sand_percent",
+        "topsoil_silt_percent",
+        "topsoil_soc_g_kg",
+        "ph_0_5cm",
+        "ph_5_15cm",
+        "ph_15_30cm",
+        "clay_0_5cm_percent",
+        "clay_5_15cm_percent",
+        "clay_15_30cm_percent",
+        "sand_0_5cm_percent",
+        "sand_5_15cm_percent",
+        "sand_15_30cm_percent",
+        "silt_0_5cm_percent",
+        "silt_5_15cm_percent",
+        "silt_15_30cm_percent",
+        "soc_0_5cm_g_kg",
+        "soc_5_15cm_g_kg",
+        "soc_15_30cm_g_kg",
+        "climate_source",
+        "soil_source",
+        "quarter",
+        "season",
+        "month_sin",
+        "month_cos",
+        "precipitation_lag1_mm_day",
+        "precipitation_rolling_3m_mean_mm_day",
+        "precipitation_rolling_3m_sum_mm_day",
+        "air_temperature_lag1_c",
+        "temp_soil_air_diff_c",
+        "soil_moisture_depth_gradient",
+        "monthly_aridity_index",
+        "clay_to_sand_ratio",
+        "soc_to_clay_ratio",
+        "soil_measurement_type",
+        "climate_measurement_type",
+        "satellite_ndvi",
+        "satellite_ndvi_median",
+        "satellite_ndvi_std",
+        "satellite_valid_pixel_fraction",
+        "satellite_cloud_shadow_pixel_fraction",
+        "satellite_scl_vegetation_fraction",
+        "satellite_scl_bare_soil_fraction",
+        "satellite_quality_flag",
+        "satellite_scene_id",
+        "satellite_observation_date",
+        "satellite_platform",
+        "satellite_processing_method",
+        "satellite_data_source",
+        "satellite_ndvi_imputed"
+      ]
+    },
+    "processed/soil_data.csv": {
+      "path": "data\\processed\\soil_data.csv",
+      "size_bytes": 532,
+      "sha256": "5520ec2d1fe46496eebebae39885226897087597d91455a17db419a87cf1cdb0",
+      "rows": 3,
+      "columns_count": 12,
+      "columns": [
+        "region",
+        "nominal_latitude",
+        "nominal_longitude",
+        "sampled_latitude",
+        "sampled_longitude",
+        "depth_interval",
+        "soil_ph",
+        "clay_percent",
+        "sand_percent",
+        "silt_percent",
+        "soc_g_kg",
+        "data_source"
+      ]
+    },
+    "processed/soil_degradation_salinity_alkalinity_ground_truth.csv": {
+      "path": "data\\processed\\soil_degradation_salinity_alkalinity_ground_truth.csv",
+      "size_bytes": 54852,
+      "sha256": "165177b2beeeff16d593b0950a634911b6dcfdd34aaddd540170cb6065face72",
+      "rows": 245,
+      "columns_count": 18,
+      "columns": [
+        "profile_id",
+        "region",
+        "country_name",
+        "continent",
+        "latitude",
+        "longitude",
+        "upper_depth",
+        "lower_depth",
+        "electrical_conductivity_ds_m",
+        "dataset_id",
+        "licence",
+        "ph_h2o",
+        "clay_fraction",
+        "sand_fraction",
+        "silt_fraction",
+        "organic_carbon_g_kg",
+        "degradation_class",
+        "degradation_label"
+      ]
+    },
+    "processed/wosis_measured_soil_properties.csv": {
+      "path": "data\\processed\\wosis_measured_soil_properties.csv",
+      "size_bytes": 9363,
+      "sha256": "388ccd25c027704100008dc49f4e1de3bc5bd43c46a798209c2a5e211c512e26",
+      "rows": 61,
+      "columns_count": 18,
+      "columns": [
+        "profile_id",
+        "profile_code",
+        "dataset_code",
+        "country_name",
+        "sampling_year",
+        "latitude",
+        "longitude",
+        "positional_uncertainty",
+        "soil_group",
+        "soc_measured_g_kg",
+        "soc_measured_pct",
+        "ph_measured_h2o",
+        "clay_measured_pct",
+        "sand_measured_pct",
+        "silt_measured_pct",
+        "soc_rating",
+        "ph_rating",
+        "texture_class"
+      ]
+    }
+  },
+  "soil_profiles_and_targets": {
+    "task_a_and_c_soc_ph": {
+      "dataset": "global_measured_soil_properties.csv",
+      "total_horizons": 360,
+      "unique_profiles": 88,
+      "unique_locations_lat_lon": 84,
+      "continents": {
+        "North_America": 60,
+        "South_America": 60,
+        "Europe": 60,
+        "Africa": 60,
+        "Asia": 60,
+        "Oceania_Australia": 60
+      },
+      "profiles_per_continent": {
+        "Africa": 19,
+        "Asia": 13,
+        "Europe": 3,
+        "North_America": 18,
+        "Oceania_Australia": 17,
+        "South_America": 18
+      },
+      "countries_count": 10,
+      "countries": [
+        "Australia",
+        "Belgium",
+        "Benin",
+        "Brazil",
+        "China",
+        "French Guiana",
+        "Indonesia",
+        "Malaysia",
+        "Suriname",
+        "United States of America"
+      ],
+      "depth_intervals_count": 227,
+      "depth_summary": {
+        "min_upper_depth": 0.0,
+        "max_lower_depth": 300.0,
+        "most_common_intervals": [
+          {
+            "upper": 0,
+            "lower": 10,
+            "count": 14
+          },
+          {
+            "upper": 0,
+            "lower": 20,
+            "count": 11
+          },
+          {
+            "upper": 0,
+            "lower": 15,
+            "count": 10
+          },
+          {
+            "upper": 0,
+            "lower": 5,
+            "count": 6
+          },
+          {
+            "upper": 20,
+            "lower": 50,
+            "count": 6
+          }
+        ]
+      },
+      "horizons_per_profile": {
+        "min": 1,
+        "mean": 4.090909090909091,
+        "max": 29
+      },
+      "target_soc": {
+        "name": "organic_carbon_g_kg",
+        "units": "g C / kg",
+        "mean": 7.977222222222223,
+        "std": 12.938964627547714,
+        "min": 0.0,
+        "p25": 2.0,
+        "median": 4.0,
+        "p75": 9.6,
+        "max": 116.0
+      },
+      "target_ph": {
+        "name": "ph_h2o",
+        "units": "pH unit (-log[H+])",
+        "mean": 5.587777777777777,
+        "std": 0.6513457725219642,
+        "min": 4.7,
+        "max": 6.4,
+        "acidic_count_threshold_5_5": 148,
+        "non_acidic_count": 212
+      }
+    },
+    "task_b_salinity": {
+      "dataset": "soil_degradation_salinity_alkalinity_ground_truth.csv",
+      "total_horizons": 245,
+      "unique_profiles": 44,
+      "unique_locations_lat_lon": 43,
+      "regions": {
+        "india": 100,
+        "australia": 50,
+        "mediterranean": 50,
+        "north_america": 45
+      },
+      "profiles_per_region": {
+        "australia": 10,
+        "india": 20,
+        "mediterranean": 8,
+        "north_america": 6
+      },
+      "continents": {
+        "Asia": 100,
+        "Oceania": 50,
+        "Europe": 50,
+        "Northern America": 45
+      },
+      "depth_intervals_count": 216,
+      "horizons_per_profile": {
+        "min": 2,
+        "mean": 5.568181818181818,
+        "max": 11
+      },
+      "target_ec": {
+        "name": "electrical_conductivity_ds_m",
+        "units": "dS / m",
+        "diagnostic_threshold": "Saline if EC >= 2.0 dS/m (USSL Handbook 60, FAO)",
+        "mean": 1.000612244897959,
+        "std": 2.408890983660515,
+        "min": 0.0,
+        "median": 0.3,
+        "max": 21.9,
+        "saline_horizons_count": 28,
+        "non_saline_horizons_count": 217,
+        "saline_profiles_count": 8,
+        "saline_profiles_list": [
+          734732,
+          734753,
+          734856,
+          735024,
+          1115650,
+          1115857,
+          1115979,
+          1122210
+        ]
+      }
+    }
+  },
+  "satellite_raster_inventory": {
+    "directory": "data\\raw\\satellite\\spectral_subsets",
+    "total_files": 180,
+    "b04_red_count": 60,
+    "b08_nir_count": 60,
+    "scl_mask_count": 60,
+    "preserved_status": "UNTOUCHED_READONLY",
+    "dates_covered_count": 60,
+    "sample_files": [
+      {
+        "filename": "S2A_43RFQ_20200214_1_L2A_B04.tif",
+        "size_bytes": 19271,
+        "sha256": "cf8c05bbb05c9e74e2e97f759fff2e8b114e5b19817abb21077a451a805aba15"
+      },
+      {
+        "filename": "S2A_43RFQ_20200214_1_L2A_B08.tif",
+        "size_bytes": 19886,
+        "sha256": "8f9d3004dbaa258d0e48f024fa02d21d17ac46e5a4b4383a829708efead4d489"
+      },
+      {
+        "filename": "S2A_43RFQ_20200214_1_L2A_SCL.tif",
+        "size_bytes": 1228,
+        "sha256": "5e5870ef5d3d151d4ccc1de689b7d47095a0134e3b25b5345768b9510ebf3727"
+      },
+      {
+        "filename": "S2A_43RFQ_20200404_1_L2A_B04.tif",
+        "size_bytes": 19509,
+        "sha256": "7cceb4d4b05dea2a8d65def454c81f7e8170dcee9d07bcb1cefdd8da2de05151"
+      },
+      {
+        "filename": "S2A_43RFQ_20200404_1_L2A_B08.tif",
+        "size_bytes": 20170,
+        "sha256": "11d3ba7097c50ea53029572c5d46a3fe59e7f37f44b936a4ff27116790f35667"
+      },
+      {
+        "filename": "S2A_43RFQ_20200404_1_L2A_SCL.tif",
+        "size_bytes": 1272,
+        "sha256": "12288939ba50019e5c0155098675452eeb69bff90bf3f993c6ee2bee4a6bac04"
+      }
+    ]
+  },
+  "model_artifacts": {
+    "models\\bridge.py": {
+      "size_bytes": 9652,
+      "sha256": "bf71203ddda415076cd051ceac20eb1b9f8fcc341a6e5cb4732cc940a4a044d6"
+    },
+    "models\\model_metadata.json": {
+      "size_bytes": 12955,
+      "sha256": "8a1b199335052cbe82c155b6b10acee9ca12cbfdc456e22a3553702e242d459e"
+    },
+    "models\\soil_risk_explainer.joblib": {
+      "size_bytes": 189518,
+      "sha256": "776d82f7181eab4b94facd67b7ff132777c449f6f39bbc596380aa5c927d32ca"
+    },
+    "models\\soil_risk_model.joblib": {
+      "size_bytes": 109274,
+      "sha256": "e65644d93cfabf82475939f6e41241286a02cf3c7f506a5042e07cf474b0bd3e"
+    },
+    "models\\soil_risk_preprocessor.joblib": {
+      "size_bytes": 2017,
+      "sha256": "49d5fe6748882c28fdc84e2ce2e3541a43d7dfeb6f915a53b3ed6146209793a5"
+    },
+    "models\\v2_spatial_surrogate\\MODEL_CARD.md": {
+      "size_bytes": 2928,
+      "sha256": "a85b2c18b48e24b026a6bc1435f68bb6ffda950c7770a1d7905245c05dc614a4"
+    },
+    "models\\v2_spatial_surrogate\\model_metadata_v2.json": {
+      "size_bytes": 35416,
+      "sha256": "ca2d7278980547617efaf31be4036f2083548df11134d51dfaf094bfbca4f636"
+    },
+    "models\\v2_spatial_surrogate\\shap_global_importance_v2.csv": {
+      "size_bytes": 625,
+      "sha256": "eb818a129732fd998c62a49fc712db690d9ad6a6fa8cffc05d030a5094d2d8d3"
+    },
+    "models\\v2_spatial_surrogate\\soil_risk_explainer_v2.joblib": {
+      "size_bytes": 805422,
+      "sha256": "dccad802da16cdc372287f0666b69aa9c3daea49220de4fd5fdb80a5430f0df5"
+    },
+    "models\\v2_spatial_surrogate\\soil_risk_model_v2.joblib": {
+      "size_bytes": 502234,
+      "sha256": "21d361aa78efb7d38cec1b3bc97cf5bd5338f1c6f7b90c294fafe02046da334a"
+    },
+    "models\\v2_spatial_surrogate\\soil_risk_preprocessor_v2.joblib": {
+      "size_bytes": 2017,
+      "sha256": "08041b5cd0515c0d55e9db1a034d55abff9f168c28c0ec48ef040955f0b26321"
+    },
+    "models\\v2_wosis_soc_model\\MODEL_CARD.md": {
+      "size_bytes": 2885,
+      "sha256": "7d1ba9737ae4b37053a46fde291626bebc0dffd76219aff52ae86b8a11b699bf"
+    },
+    "models\\v2_wosis_soc_model\\wosis_soc_metadata.json": {
+      "size_bytes": 2201,
+      "sha256": "ff0a629e6e9ef0b0a087e828d21dda8812c2f101eff9f5877fdc5ed8f20fce70"
+    },
+    "models\\v2_wosis_soc_model\\wosis_soc_preprocessor.joblib": {
+      "size_bytes": 1505,
+      "sha256": "92423d367f4a2f6aa381360c14f331e80fa0581f765546c7d21e430432644abb"
+    },
+    "models\\v2_wosis_soc_model\\wosis_soc_regressor.joblib": {
+      "size_bytes": 187450,
+      "sha256": "05d6b6413196c0938b69805ec2cc4d5a2bc0b5426f3750b9e635fda5da0be38b"
+    },
+    "models\\v3_global\\MODEL_CARD.md": {
+      "size_bytes": 4711,
+      "sha256": "00ed318f8c40407d8cc67ac8443abeb103f040f956b16e75063cdb63ba8436b7"
+    },
+    "models\\v3_global\\global_applicability_metadata.json": {
+      "size_bytes": 2333,
+      "sha256": "6bae3628b62e51205bdf7fac8f76123a33fa5c4d382e11e05885991cd2a0083a"
+    },
+    "models\\v3_global\\global_domain_applicability_detector.joblib": {
+      "size_bytes": 1696800,
+      "sha256": "88fbb5b32fcbbf3d98f409bf5c3ec0455d0789ac1ac369edf509a5d3626797b2"
+    },
+    "models\\v3_global\\global_risk_metadata.json": {
+      "size_bytes": 2764,
+      "sha256": "350abf18f9342eff5a3eec80eb92c4d2f36b0b5ad7f4f52b5a7b49879ef5847e"
+    },
+    "models\\v3_global\\global_risk_preprocessor.joblib": {
+      "size_bytes": 1593,
+      "sha256": "7353edca4188d9be4e868f7c1b7167235a54b3a1bece38f48cfd57e2969b11f3"
+    },
+    "models\\v3_global\\global_risk_surrogate.joblib": {
+      "size_bytes": 115737,
+      "sha256": "72a70b0612d741703a3682e02fc16b1b21f8f8ed3b393e7f3af2cd1d3cb78439"
+    },
+    "models\\v3_global\\global_soc_metadata.json": {
+      "size_bytes": 3806,
+      "sha256": "c6f2b720b8066785cef92f0021080f20bba5f8cb2feac0da84d0a70709147aac"
+    },
+    "models\\v3_global\\global_soc_preprocessor.joblib": {
+      "size_bytes": 1409,
+      "sha256": "401730bb970e0b0eccf7cc3e0ddffa4e4d2e0d0d75b07ee42255f98f9c980e28"
+    },
+    "models\\v3_global\\global_soc_regressor.joblib": {
+      "size_bytes": 108841,
+      "sha256": "318f8e10eabfe91ded66fbc77d31542be63883cbd261a30e3781a513818d0417"
+    },
+    "models\\v4_independent_validation\\MODEL_CARD.md": {
+      "size_bytes": 5917,
+      "sha256": "6cd042c72b6a9f21280047681fc788b7d4e0db4965b1fc493aa5246a1738abc5"
+    },
+    "models\\v4_independent_validation\\task_a_soc_metadata.json": {
+      "size_bytes": 6724,
+      "sha256": "e5f453d45ee97fbcea54c7f9864dd58c510f9394011b7a9b53dac42f9dbbc688"
+    },
+    "models\\v4_independent_validation\\task_a_soc_preprocessor.joblib": {
+      "size_bytes": 1616,
+      "sha256": "0066642ccbeaf5799c423ce2ab9860ec16d158dfdd4761ea561ed75c088ac121"
+    },
+    "models\\v4_independent_validation\\task_a_soc_regressor.joblib": {
+      "size_bytes": 139801,
+      "sha256": "e291fcfb206e2942bd1de668ef8e9a518bd7d2feb134241d0d6d0a5b0f64dc0c"
+    },
+    "models\\v4_independent_validation\\task_a_soc_shap_importance.csv": {
+      "size_bytes": 276,
+      "sha256": "587c2194d9f7131ccc00fab1c066da454e77d8424e8b76901cbe2eef3b96a1f3"
+    },
+    "models\\v4_independent_validation\\task_b_degradation_classifier.joblib": {
+      "size_bytes": 326257,
+      "sha256": "35b9c17e3dda7eb772578802e317b2feb56b685f04a8b98b35b01b21db4c5c8e"
+    },
+    "models\\v4_independent_validation\\task_b_degradation_metadata.json": {
+      "size_bytes": 9736,
+      "sha256": "a6bad01a41a6293a81095b745c5b916c5ed2cca17787de5bf62607923cb53e02"
+    },
+    "models\\v4_independent_validation\\task_b_degradation_preprocessor.joblib": {
+      "size_bytes": 1624,
+      "sha256": "ba18ba052dca22496e59174df6ea9a844a77d9b43b2e9a556649572057601a8d"
+    },
+    "models\\v4_independent_validation\\task_b_degradation_shap_importance.csv": {
+      "size_bytes": 259,
+      "sha256": "7da2ca612466a280c8afbe6b4f81316155df8784fb9f40922ea47a7aa294b266"
+    },
+    "models\\v4_independent_validation\\task_c_satellite_metadata.json": {
+      "size_bytes": 4141,
+      "sha256": "2d4f2d0676be08849e0d1e720b3e4f5a63b59de2ce09976fef454a5d52eeb517"
+    },
+    "models\\v4_independent_validation\\task_c_satellite_preprocessor.joblib": {
+      "size_bytes": 2691,
+      "sha256": "b71ebf2a6518542866a6a9a1905995bd7cbb2bd7fa5489446253449d51a4d81e"
+    },
+    "models\\v4_independent_validation\\task_c_satellite_shap_importance.csv": {
+      "size_bytes": 805,
+      "sha256": "70e77caeaa3437f8357cee59fad0da6c658ace0a4fc8472cd53673db3835ba60"
+    },
+    "models\\v4_independent_validation\\task_c_satellite_surrogate.joblib": {
+      "size_bytes": 128129,
+      "sha256": "8cdabf9579328890ac8f7e2037e26573d6c363a56027b1b453a1fa11adf2648c"
+    },
+    "models\\v4_independent_validation\\v4_domain_applicability_detector.joblib": {
+      "size_bytes": 1859193,
+      "sha256": "664962e92cbfa1ee9702e8d93773b0a5f00eff9294f45f47c09932cbcf85dbd7"
+    },
+    "models\\v4_independent_validation\\v4_domain_applicability_metadata.json": {
+      "size_bytes": 1470,
+      "sha256": "4edf2d8fb483553c40937d750ba0cd3132d000655ff4ce9fd22f04c8d6592ab3"
+    },
+    "models\\v4_independent_validation\\v4_model_suite_summary.json": {
+      "size_bytes": 15453,
+      "sha256": "62078d3b8d6f777badc4dda67e4eb09f0b437b119a337f13576f928dff5d97eb"
+    },
+    "models\\v5_ground_truth\\MODEL_CARD.md": {
+      "size_bytes": 7755,
+      "sha256": "8d823f49f81a954e94844e5e0ec07993a60b095b040f3bd9c87cb6907989217f"
+    },
+    "models\\v5_ground_truth\\task_a_soc_metadata.json": {
+      "size_bytes": 6815,
+      "sha256": "0a427278d4413beb505f37cb6d79a3ac6aca71d765121a297ceeaa7837a6bcd1"
+    },
+    "models\\v5_ground_truth\\task_a_soc_preprocessor.joblib": {
+      "size_bytes": 1616,
+      "sha256": "0066642ccbeaf5799c423ce2ab9860ec16d158dfdd4761ea561ed75c088ac121"
+    },
+    "models\\v5_ground_truth\\task_a_soc_regressor.joblib": {
+      "size_bytes": 139801,
+      "sha256": "e291fcfb206e2942bd1de668ef8e9a518bd7d2feb134241d0d6d0a5b0f64dc0c"
+    },
+    "models\\v5_ground_truth\\task_a_soc_shap_importance.csv": {
+      "size_bytes": 276,
+      "sha256": "587c2194d9f7131ccc00fab1c066da454e77d8424e8b76901cbe2eef3b96a1f3"
+    },
+    "models\\v5_ground_truth\\task_b_salinity_classifier.joblib": {
+      "size_bytes": 191001,
+      "sha256": "555679dfdc72f8c7b24f163bafaf135b9eda1ae3dbc52f2c1f2ce829c7b6068b"
+    },
+    "models\\v5_ground_truth\\task_b_salinity_metadata.json": {
+      "size_bytes": 7496,
+      "sha256": "a3dc6918a5a52af8f442fe61c5b5349411d556086145f0e71ee5c2b8b03eba85"
+    },
+    "models\\v5_ground_truth\\task_b_salinity_preprocessor.joblib": {
+      "size_bytes": 1708,
+      "sha256": "cabb0a658d7652c7831c5e93ed68d03089b4ddf236bb6bd2506ba762051e39ae"
+    },
+    "models\\v5_ground_truth\\task_b_salinity_shap_importance.csv": {
+      "size_bytes": 259,
+      "sha256": "722c407c584deba36e697374bbaa0631b30c7687893a954d121508b10126351a"
+    },
+    "models\\v5_ground_truth\\task_c_acidity_classifier.joblib": {
+      "size_bytes": 121689,
+      "sha256": "40f65ab2c2fa8be1f3cd1777fbfceb6375b97abf4201f8793ba5251a72947b51"
+    },
+    "models\\v5_ground_truth\\task_c_acidity_metadata.json": {
+      "size_bytes": 8862,
+      "sha256": "cb2beefadbbd8c64305e8fc1b443add4b981cd882dcb97331ef5b7d8ee0ed750"
+    },
+    "models\\v5_ground_truth\\task_c_acidity_preprocessor.joblib": {
+      "size_bytes": 1802,
+      "sha256": "5faa26c341a2b68ffa529622dd0a83338473d84bae331134e92c39d47a4a56bd"
+    },
+    "models\\v5_ground_truth\\task_c_acidity_shap_importance.csv": {
+      "size_bytes": 297,
+      "sha256": "0667eac6223ea21f07a7ecc753e1c89e63cb41b9cf0942db8df83265d33f23b1"
+    },
+    "models\\v5_ground_truth\\task_d_surrogate_metadata.json": {
+      "size_bytes": 4137,
+      "sha256": "e82faba4b9618961c0236d9dac9091f6928499a246ae0dfc7ef7812d26b8e8e3"
+    },
+    "models\\v5_ground_truth\\task_d_surrogate_model.joblib": {
+      "size_bytes": 128129,
+      "sha256": "8cdabf9579328890ac8f7e2037e26573d6c363a56027b1b453a1fa11adf2648c"
+    },
+    "models\\v5_ground_truth\\task_d_surrogate_preprocessor.joblib": {
+      "size_bytes": 2691,
+      "sha256": "b71ebf2a6518542866a6a9a1905995bd7cbb2bd7fa5489446253449d51a4d81e"
+    },
+    "models\\v5_ground_truth\\task_d_surrogate_shap_importance.csv": {
+      "size_bytes": 805,
+      "sha256": "70e77caeaa3437f8357cee59fad0da6c658ace0a4fc8472cd53673db3835ba60"
+    },
+    "models\\v5_ground_truth\\v5_domain_applicability_detector.joblib": {
+      "size_bytes": 1859193,
+      "sha256": "664962e92cbfa1ee9702e8d93773b0a5f00eff9294f45f47c09932cbcf85dbd7"
+    },
+    "models\\v5_ground_truth\\v5_domain_applicability_metadata.json": {
+      "size_bytes": 1487,
+      "sha256": "5593fff979838389578a154fd8f686d5ac2e69bbea86e272ad809606783178f6"
+    },
+    "models\\v5_ground_truth\\v5_model_suite_summary.json": {
+      "size_bytes": 20682,
+      "sha256": "e65f75c852096d0d4aaf2150695c7f72d2af993509c58cb1fe0485d02515769f"
+    },
+    "models\\v6_audited\\MODEL_CARD.md": {
+      "size_bytes": 6079,
+      "sha256": "b56cdeee65acac1e6dc7679da27e2bf20294e1cfcc4c03545c749eca9db9331e"
+    },
+    "models\\v6_audited\\task_a_soc_metadata.json": {
+      "size_bytes": 9658,
+      "sha256": "ee02cd11ebe78b6c0c6b4c07b8847e5425241cfc130d6fab83d52a38b2bc3e77"
+    },
+    "models\\v6_audited\\task_a_soc_preprocessor.joblib": {
+      "size_bytes": 1616,
+      "sha256": "0066642ccbeaf5799c423ce2ab9860ec16d158dfdd4761ea561ed75c088ac121"
+    },
+    "models\\v6_audited\\task_a_soc_regressor.joblib": {
+      "size_bytes": 139801,
+      "sha256": "e291fcfb206e2942bd1de668ef8e9a518bd7d2feb134241d0d6d0a5b0f64dc0c"
+    },
+    "models\\v6_audited\\task_a_soc_shap_importance.csv": {
+      "size_bytes": 276,
+      "sha256": "587c2194d9f7131ccc00fab1c066da454e77d8424e8b76901cbe2eef3b96a1f3"
+    },
+    "models\\v6_audited\\task_b_salinity_classifier.joblib": {
+      "size_bytes": 191001,
+      "sha256": "555679dfdc72f8c7b24f163bafaf135b9eda1ae3dbc52f2c1f2ce829c7b6068b"
+    },
+    "models\\v6_audited\\task_b_salinity_metadata.json": {
+      "size_bytes": 12190,
+      "sha256": "bdf6f6ecd989320de4e5fe7c5d9b4236be541040a052446ea672f55314a124ce"
+    },
+    "models\\v6_audited\\task_b_salinity_preprocessor.joblib": {
+      "size_bytes": 1708,
+      "sha256": "cabb0a658d7652c7831c5e93ed68d03089b4ddf236bb6bd2506ba762051e39ae"
+    },
+    "models\\v6_audited\\task_b_salinity_shap_importance.csv": {
+      "size_bytes": 259,
+      "sha256": "722c407c584deba36e697374bbaa0631b30c7687893a954d121508b10126351a"
+    },
+    "models\\v6_audited\\task_c_acidity_classifier.joblib": {
+      "size_bytes": 130649,
+      "sha256": "e38ecd66bff734861c9e5029de576f2e6ada2ab12e16e0d6f96f55fabc449940"
+    },
+    "models\\v6_audited\\task_c_acidity_metadata.json": {
+      "size_bytes": 10423,
+      "sha256": "d015c0b3fa1499b24ed2023f31a5af9f8a6f0bd58f69c94bc0c1547d697d309d"
+    },
+    "models\\v6_audited\\task_c_acidity_preprocessor.joblib": {
+      "size_bytes": 1683,
+      "sha256": "86366798d72dd3852ccc6326797fd54b7da514679c57ad9d52a6f3a9c0be3dcd"
+    },
+    "models\\v6_audited\\task_c_acidity_shap_importance.csv": {
+      "size_bytes": 236,
+      "sha256": "ad302d26a194ad605a2551093d667a6f46495ce3d03420f581a415c4878c216f"
+    },
+    "models\\v6_audited\\task_d_surrogate_metadata.json": {
+      "size_bytes": 6996,
+      "sha256": "c2c4954fbff731e19a36851594f25c0f3fb5b488e36f565595bc15c76ca206b5"
+    },
+    "models\\v6_audited\\task_d_surrogate_model.joblib": {
+      "size_bytes": 128129,
+      "sha256": "663cb992252a33654a51f241cf5a1cb3eeb2034cc9a458f6dcaf9d7ce17e7d44"
+    },
+    "models\\v6_audited\\task_d_surrogate_preprocessor.joblib": {
+      "size_bytes": 2699,
+      "sha256": "a512c008191e69824931ad5d08662bc8b74d9e980d2f6aac5a82ff41cb3c6960"
+    },
+    "models\\v6_audited\\task_d_surrogate_shap_importance.csv": {
+      "size_bytes": 810,
+      "sha256": "c71311e4d96dd97e36e51d2812e52afc761598455c1e2fd90b20e06bea9cb5f0"
+    },
+    "models\\v6_audited\\v6_domain_applicability_detector.joblib": {
+      "size_bytes": 1859193,
+      "sha256": "664962e92cbfa1ee9702e8d93773b0a5f00eff9294f45f47c09932cbcf85dbd7"
+    },
+    "models\\v6_audited\\v6_domain_applicability_metadata.json": {
+      "size_bytes": 1487,
+      "sha256": "5593fff979838389578a154fd8f686d5ac2e69bbea86e272ad809606783178f6"
+    },
+    "models\\v6_audited\\v6_model_suite_summary.json": {
+      "size_bytes": 32723,
+      "sha256": "329eb37824e6348d4ca509fdf65fa7b700785e50614257c071d9bc038d2fa630"
+    }
+  },
+  "duplicate_files_across_codebase": {
+    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": [
+      "app.py",
+      "scripts\\__init__.py",
+      "scripts\\satellite\\__init__.py",
+      "tests\\satellite\\__init__.py"
+    ],
+    "27f84497f3c4707db030cdac2802b32935a4a4073187e9897a475d4325d0216a": [
+      "backend\\features.py",
+      "src\\features.py"
+    ],
+    "d3119908e43680d8482b2df6d5dccc1389ab0f1ad91b59e8c8a058f2a867215a": [
+      "backend\\feature_table.csv",
+      "data\\feature_table.csv"
+    ],
+    "bf0d8db62cc4adbe6f8ed379a109eafb4d0c2a3fd18f9ac086f9129a3f9b535c": [
+      "backend\\config\\settings.yaml",
+      "config\\settings.yaml"
+    ],
+    "34e76a26a45671850fe1e2390c00272ec3040b50f17e8cf8d53c2b1b4fd21ecb": [
+      "backend\\Model\\audit_log.py",
+      "src\\Model\\audit_log.py"
+    ],
+    "b96ee21ae908d1139e3f81a90b5c6725a4230b33b4f933d06c01dd94df6f5683": [
+      "backend\\Model\\crop_eligibility.py",
+      "src\\Model\\crop_eligibility.py"
+    ],
+    "6264b60c4f1821e67dcf94f8271e597edd925056422b46a684d0cf02721750bc": [
+      "backend\\Model\\outlook.py",
+      "src\\Model\\outlook.py"
+    ],
+    "88b6e86a8b971bb228bbc1219042a4dda027323920d0eb311bb34f7a1898b9f4": [
+      "backend\\Model\\predict.py",
+      "src\\Model\\predict.py"
+    ],
+    "c3de394f943f1173bc07ec9385a66de1fc98724bec53323bfd011bc5e005bc8c": [
+      "backend\\Model\\recommendations.py",
+      "src\\Model\\recommendations.py"
+    ],
+    "176cd64771ec462df65575a2d657a49677a17de8329698f17c8fbda4ef22d4f3": [
+      "backend\\Model\\recovery.py",
+      "src\\Model\\recovery.py"
+    ],
+    "40a0ba39ee8478e3bfeb2a9f1565a07b6e4a086b92cc51a4b7d4d5424ccaec59": [
+      "backend\\Model\\risk_scoring.py",
+      "src\\Model\\risk_scoring.py"
+    ],
+    "57910448780068b69b1abf2605becce674f6844a8a5e78e448ace7f9e455e457": [
+      "backend\\Model\\scenarios.py",
+      "src\\Model\\scenarios.py"
+    ],
+    "fff0a94f73428430d75ae978b101cfccd4a3a2cbb38424848847fc983e6ce3ff": [
+      "backend\\Preprocessing\\clean_data.py",
+      "src\\Preprocessing\\clean_data.py"
+    ],
+    "ea137a766938b3e303638d6c5325647f6e1780d042716c1cfd96bc9987d4ea6a": [
+      "backend\\Preprocessing\\merge_data.py",
+      "src\\Preprocessing\\merge_data.py"
+    ],
+    "7257264c5495cbf112a4ebc245e0a71ee6f001bb5e5de83c9c74b03d76bb11de": [
+      "backend\\Preprocessing\\validate_data.py",
+      "src\\Preprocessing\\validate_data.py"
+    ],
+    "081a10a8f1500b4f0addaa2360e642bd1000cacc774fdb6e13f10d16e7020242": [
+      "backend\\Preprocessing\\__init__.py",
+      "src\\Preprocessing\\__init__.py"
+    ],
+    "8a59a17fd12b8d66e8dee87eeeca6d0ae230b66fd89e10cb8d246783677e23ce": [
+      "data\\manifests\\lucas_topsoil_manifest.json",
+      "data\\raw\\lucas_esdac\\lucas_2018_specifications.json"
+    ],
+    "b7c6b582bb3b42c536d9c09269faef5c85f26cd28a635799f6ca214b2745bdca": [
+      "data\\raw\\satellite\\spectral_subsets\\S2A_43RFQ_20240722_0_L2A_SCL.tif",
+      "data\\raw\\satellite\\spectral_subsets\\S2B_43RFQ_20230104_0_L2A_SCL.tif"
+    ],
+    "0066642ccbeaf5799c423ce2ab9860ec16d158dfdd4761ea561ed75c088ac121": [
+      "models\\v4_independent_validation\\task_a_soc_preprocessor.joblib",
+      "models\\v5_ground_truth\\task_a_soc_preprocessor.joblib",
+      "models\\v6_audited\\task_a_soc_preprocessor.joblib"
+    ],
+    "e291fcfb206e2942bd1de668ef8e9a518bd7d2feb134241d0d6d0a5b0f64dc0c": [
+      "models\\v4_independent_validation\\task_a_soc_regressor.joblib",
+      "models\\v5_ground_truth\\task_a_soc_regressor.joblib",
+      "models\\v6_audited\\task_a_soc_regressor.joblib"
+    ],
+    "587c2194d9f7131ccc00fab1c066da454e77d8424e8b76901cbe2eef3b96a1f3": [
+      "models\\v4_independent_validation\\task_a_soc_shap_importance.csv",
+      "models\\v5_ground_truth\\task_a_soc_shap_importance.csv",
+      "models\\v6_audited\\task_a_soc_shap_importance.csv"
+    ],
+    "b71ebf2a6518542866a6a9a1905995bd7cbb2bd7fa5489446253449d51a4d81e": [
+      "models\\v4_independent_validation\\task_c_satellite_preprocessor.joblib",
+      "models\\v5_ground_truth\\task_d_surrogate_preprocessor.joblib"
+    ],
+    "70e77caeaa3437f8357cee59fad0da6c658ace0a4fc8472cd53673db3835ba60": [
+      "models\\v4_independent_validation\\task_c_satellite_shap_importance.csv",
+      "models\\v5_ground_truth\\task_d_surrogate_shap_importance.csv"
+    ],
+    "8cdabf9579328890ac8f7e2037e26573d6c363a56027b1b453a1fa11adf2648c": [
+      "models\\v4_independent_validation\\task_c_satellite_surrogate.joblib",
+      "models\\v5_ground_truth\\task_d_surrogate_model.joblib"
+    ],
+    "664962e92cbfa1ee9702e8d93773b0a5f00eff9294f45f47c09932cbcf85dbd7": [
+      "models\\v4_independent_validation\\v4_domain_applicability_detector.joblib",
+      "models\\v5_ground_truth\\v5_domain_applicability_detector.joblib",
+      "models\\v6_audited\\v6_domain_applicability_detector.joblib"
+    ],
+    "555679dfdc72f8c7b24f163bafaf135b9eda1ae3dbc52f2c1f2ce829c7b6068b": [
+      "models\\v5_ground_truth\\task_b_salinity_classifier.joblib",
+      "models\\v6_audited\\task_b_salinity_classifier.joblib"
+    ],
+    "cabb0a658d7652c7831c5e93ed68d03089b4ddf236bb6bd2506ba762051e39ae": [
+      "models\\v5_ground_truth\\task_b_salinity_preprocessor.joblib",
+      "models\\v6_audited\\task_b_salinity_preprocessor.joblib"
+    ],
+    "722c407c584deba36e697374bbaa0631b30c7687893a954d121508b10126351a": [
+      "models\\v5_ground_truth\\task_b_salinity_shap_importance.csv",
+      "models\\v6_audited\\task_b_salinity_shap_importance.csv"
+    ],
+    "5593fff979838389578a154fd8f686d5ac2e69bbea86e272ad809606783178f6": [
+      "models\\v5_ground_truth\\v5_domain_applicability_metadata.json",
+      "models\\v6_audited\\v6_domain_applicability_metadata.json"
+    ]
+  },
+  "application_routes_and_tests": {
+    "inference_routes": [
+      {
+        "route": "src/Model/service.py:SoilSentinelService.get_dashboard_payload",
+        "type": "Python API"
+      },
+      {
+        "route": "src/Model/bridge.py:handle_get_assessment",
+        "type": "CLI / HTTP Bridge"
+      },
+      {
+        "route": "src/Model/bridge.py:handle_get_dates",
+        "type": "CLI / HTTP Bridge"
+      },
+      {
+        "route": "src/Model/bridge.py:handle_get_observations",
+        "type": "CLI / HTTP Bridge"
+      },
+      {
+        "route": "server.js: /api/assessment",
+        "type": "Node.js Express / Bridge endpoint"
+      },
+      {
+        "route": "server.js: /api/assessment/dates",
+        "type": "Node.js Express / Bridge endpoint"
+      },
+      {
+        "route": "server.js: /api/assessment/observations",
+        "type": "Node.js Express / Bridge endpoint"
+      }
+    ],
+    "test_files": [
+      "tests\\test_audit_log.py",
+      "tests\\test_crop_eligibility.py",
+      "tests\\test_dashboard_observations.py",
+      "tests\\test_features.py",
+      "tests\\test_global_ml_pipeline.py",
+      "tests\\test_improved_ml_pipeline.py",
+      "tests\\test_independent_validation_and_shap.py",
+      "tests\\test_ml_model.py",
+      "tests\\test_outlook.py",
+      "tests\\test_pipeline_orchestration.py",
+      "tests\\test_predict.py",
+      "tests\\test_preprocessing.py",
+      "tests\\test_recommendations.py",
+      "tests\\test_recovery.py",
+      "tests\\test_risk_scoring.py",
+      "tests\\test_scenarios.py",
+      "tests\\test_service.py",
+      "tests\\test_v5_ground_truth_pipeline.py",
+      "tests\\satellite\\test_satellite_data_quality.py",
+      "tests\\satellite\\test_synthetic_edge_cases.py"
+    ],
+    "test_count": 20
+  },
+  "v4_vs_v5_hash_analysis": {
+    "task_a_soc_regressor_identical": true,
+    "task_d_surrogate_model_identical": true,
+    "task_a_soc_hash": "e291fcfb206ee8f8702c8e19b0d359670087796dcfc6239bc7ee4f1ee70b135c",
+    "task_d_surrogate_hash": "8cdabf9579326fbe00e57fe9cf666ec4856001fc935f8e6c4342898ce06716a5",
+    "root_cause": "IDENTICAL_DETERMINISTIC_TRAINING_CODE_AND_FIXED_SEEDS",
+    "analysis_summary": "Byte-for-byte identity between v4 and v5 was caused by deterministic retraining (random_state=42) on identical processed datasets without profile grouping, rather than file corruption."
+  }
+}

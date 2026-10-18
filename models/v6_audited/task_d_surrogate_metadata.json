@@ -1,0 +1,258 @@
+{
+  "task_name": "Task D: Audited Environmental-Stress Surrogate",
+  "target": "risk_category",
+  "classes": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "explicit_proxy_status": "PROVED_PROXY_SURROGATE_NOT_FIELD_GROUND_TRUTH",
+  "proxy_label_disclaimer": "CRITICAL SCIENTIFIC INTEGRITY STATEMENT: This model approximates an engineering rule-based Seasonal Hydro-Thermal Stress & Baseline Vulnerability Index. It DOES NOT predict confirmed in-situ physical soil degradation or chemical depletion. Label accuracy reflects alignment with the rule heuristic, not physical field ground truth.",
+  "sample_count": 60,
+  "chronological_protocol": {
+    "train_period": "2020-01 to 2022-12 (36 months)",
+    "validation_period": "2023-01 to 2023-12 (12 months) - Model Tuning & Selection",
+    "holdout_test_period": "2024-01 to 2024-12 (12 months) - Single Untouched Holdout Evaluation"
+  },
+  "feature_experiments": {
+    "Baseline_Climate_Only": {
+      "validation_2023": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "holdout_test_2024": {
+        "accuracy": 0.9166666666666666,
+        "balanced_accuracy": 0.9523809523809524,
+        "macro_f1": 0.9267399267399267,
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            2
+          ]
+        ],
+        "classification_report": {
+          "Low": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1-score": 0.8571428571428571,
+            "support": 3.0
+          },
+          "Medium": {
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "f1-score": 0.9230769230769231,
+            "support": 7.0
+          },
+          "High": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 2.0
+          },
+          "accuracy": 0.9166666666666666,
+          "macro avg": {
+            "precision": 0.9166666666666666,
+            "recall": 0.9523809523809524,
+            "f1-score": 0.9267399267399267,
+            "support": 12.0
+          },
+          "weighted avg": {
+            "precision": 0.9375,
+            "recall": 0.9166666666666666,
+            "f1-score": 0.9194139194139194,
+            "support": 12.0
+          }
+        }
+      }
+    },
+    "Satellite_Only": {
+      "validation_2023": {
+        "accuracy": 0.5833333333333334,
+        "balanced_accuracy": 0.5625,
+        "macro_f1": 0.38888888888888884,
+        "confusion_matrix": [
+          [
+            2,
+            2,
+            0
+          ],
+          [
+            2,
+            5,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "holdout_test_2024": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.41269841269841273,
+        "macro_f1": 0.35714285714285715,
+        "confusion_matrix": [
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            3,
+            4,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ]
+        ],
+        "classification_report": {
+          "Low": {
+            "precision": 0.4,
+            "recall": 0.6666666666666666,
+            "f1-score": 0.5,
+            "support": 3.0
+          },
+          "Medium": {
+            "precision": 0.5714285714285714,
+            "recall": 0.5714285714285714,
+            "f1-score": 0.5714285714285714,
+            "support": 7.0
+          },
+          "High": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2.0
+          },
+          "accuracy": 0.5,
+          "macro avg": {
+            "precision": 0.3238095238095238,
+            "recall": 0.41269841269841273,
+            "f1-score": 0.35714285714285715,
+            "support": 12.0
+          },
+          "weighted avg": {
+            "precision": 0.43333333333333335,
+            "recall": 0.5,
+            "f1-score": 0.4583333333333333,
+            "support": 12.0
+          }
+        }
+      }
+    },
+    "Satellite_Integrated": {
+      "validation_2023": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "macro_f1": 1.0,
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "holdout_test_2024": {
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.6190476190476191,
+        "macro_f1": 0.5523809523809523,
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            6,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ]
+        ],
+        "classification_report": {
+          "Low": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1-score": 0.8571428571428571,
+            "support": 3.0
+          },
+          "Medium": {
+            "precision": 0.75,
+            "recall": 0.8571428571428571,
+            "f1-score": 0.8,
+            "support": 7.0
+          },
+          "High": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 2.0
+          },
+          "accuracy": 0.75,
+          "macro avg": {
+            "precision": 0.5,
+            "recall": 0.6190476190476191,
+            "f1-score": 0.5523809523809523,
+            "support": 12.0
+          },
+          "weighted avg": {
+            "precision": 0.625,
+            "recall": 0.75,
+            "f1-score": 0.6809523809523809,
+            "support": 12.0
+          }
+        }
+      }
+    }
+  },
+  "satellite_impact_analysis": "Satellite canopy features (NDVI, SCL vegetation fraction) capture surface vegetative vigor, which is strongly influenced by agricultural crop cycles, irrigation, and harvest rather than instantaneous atmospheric hydrothermal pressure. In purely meteorological stress approximation, satellite features provide useful canopy context but do not replace direct atmospheric moisture deficit variables.",
+  "shap_causality_disclaimer": "SHAP reflects model feature attribution only and does not establish physical agronomic causality."
+}

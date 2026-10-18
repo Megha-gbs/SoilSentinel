@@ -16,9 +16,12 @@
   <header class="nav">
     <a class="brand" href="#top" aria-label="SoilSentinel home"><span class="brand-mark">s</span> soil<span>sentinel</span><i>.</i></a>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#why-soil">Why soil</a><a href="#approach">Our approach</a><a href="#choose-path">Explore</a>
+      <a href="#why-soil">Why soil</a><a href="#approach">Our approach</a><a href="#choose-path">Explore</a><a href="#try-free">Try for free</a>
     </nav>
-    <a class="nav-cta" href="auth.html">Sign in / Register <span>↗</span></a>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a class="button button-lime" href="farmer-dashboard.html?mode=guest" id="nav-try-free-btn" style="padding: 9px 15px; font-size: 11px; min-height: 38px; border-radius: 2px;">Try for Free <span>↗</span></a>
+      <a class="nav-cta" href="auth.html">Sign in / Register <span>↗</span></a>
+    </div>
     <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
   </header>
 
@@ -34,8 +37,9 @@
         <h1>Every harvest begins<br>with a world <em>unseen.</em></h1>
         <p class="hero-copy">Beneath our feet lies the foundation of our food, our ecosystems, and our future. It's time we started listening to it.</p>
         <div class="hero-actions">
-          <a class="button button-lime" href="#why-soil">Explore the living soil <span>↓</span></a>
-          <a class="text-link" href="#approach">Discover our mission <span>↗</span></a>
+          <a class="button button-lime" href="farmer-dashboard.html?mode=guest" id="hero-try-free-btn">Try for Free (No Signup) <span>↗</span></a>
+          <a class="button button-outline" href="auth.html">Sign In / Register</a>
+          <a class="text-link" href="#why-soil">Explore science <span>↓</span></a>
         </div>
       </div>
       <div class="hero-bottom">
@@ -134,7 +138,36 @@
         <article class="pathway farmer reveal"><div class="pathway-top"><span class="mono">PATH 01 / FARMER MODE</span><span class="pathway-icon">↗</span></div><div class="pathway-art farmer-art" role="img" aria-label="Farmer examining healthy soil in a field"><div class="field-line f1"></div><div class="field-line f2"></div><div class="field-line f3"></div><div class="mini-sprout"><i></i><b></b></div></div><div class="pathway-copy"><h3>For the people<br>who grow our food.</h3><p>Understand soil-risk signals, explore practical actions, and know when further testing or expert support may be needed.</p><a class="button button-dark" href="auth.html?role=farmer&mode=register">Get started as a farmer <span>→</span></a></div></article>
         <article class="pathway researcher reveal"><div class="pathway-top"><span class="mono">PATH 02 / RESEARCHER MODE</span><span class="pathway-icon">↗</span></div><div class="pathway-art research-art" role="img" aria-label="Researcher examining soil samples in a laboratory"><div class="chart-grid"></div><svg viewBox="0 0 420 180" role="img" aria-label="Illustrative data trend lines"><path d="M12 145 C55 130 64 70 110 93 S170 145 215 88 S270 55 310 73 S360 40 408 22" fill="none" stroke="#b5d58b" stroke-width="3"/><path d="M12 160 C70 150 88 125 130 135 S205 70 250 103 S330 118 408 80" fill="none" stroke="#e3b27c" stroke-width="2" stroke-dasharray="5 5"/></svg><span class="chart-label mono">EVIDENCE / OVER TIME</span></div><div class="pathway-copy"><h3>For the people<br>who investigate.</h3><p>Inspect historical series, source dates, data quality, feature values, scenarios, and assessment evidence.</p><a class="button button-outline" href="auth.html?role=researcher&mode=register">Get started as a researcher <span>→</span></a></div></article>
       </div>
-      <p class="access-note mono">DEMO ACCESS ONLY · SIGN-IN AND REGISTRATION WILL BE CONNECTED IN A LATER PHASE</p>
+      <p class="access-note mono">AUTHENTICATION ACTIVE · REGISTERED ACCOUNTS PERSIST ASSESSMENTS, AUDIT RECORDS & EXPORTS</p>
+    </section>
+
+    <section class="guest-cta section-pad" id="try-free" style="background: linear-gradient(135deg, #1d3324 0%, #15241b 100%); color: #f2f0e7; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;">
+      <div class="section-kicker reveal" style="color: #a4bd8b;"><span>05</span><span class="rule" style="background: #a4bd8b;"></span><span>INSTANT ACCESS · NO SIGNUP</span></div>
+      <div class="guest-cta-grid">
+        <div class="reveal">
+          <p class="eyebrow" style="color: #d4e6a5; margin-bottom: 12px;"><span class="pulse"></span> TRY SOILSENTINEL FREE</p>
+          <h2 style="font-family: var(--serif); font-size: clamp(34px, 4vw, 52px); font-weight: 500; line-height: 1.15; margin: 0 0 18px; color: #f4f0e5;">Explore SoilSentinel for Free</h2>
+          <p style="font-size: 15px; line-height: 1.8; color: #c4d0c1; max-width: 520px; margin-bottom: 28px;">Assess a location, explore available soil and climate evidence, and discover actionable insights before creating an account. Experience real ML-screened indicators and recommendations with zero friction.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+            <a class="button button-lime" href="farmer-dashboard.html?mode=guest" id="landing-try-free-btn" style="text-decoration: none;">Try for Free <span>↗</span></a>
+            <a class="button button-outline" href="auth.html?mode=register" id="landing-create-account-btn" style="text-decoration: none;">Create an Account <span>→</span></a>
+          </div>
+          <p style="font-size: 11px; color: #8da183; font-family: var(--mono); margin-top: 20px;">NO CREDIT CARD · NO REGISTRATION · REAL ML SCREENING</p>
+        </div>
+        <div class="reveal" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 28px 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 14px; margin-bottom: 16px;">
+            <span class="mono" style="font-size: 10px; color: #a4bd8b;">INSTANT GUEST CAPABILITIES</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 10px; color: #d4e6a5; font-family: var(--mono);"><i style="width: 6px; height: 6px; background: #d4e6a5; border-radius: 50%; display: inline-block;"></i> LIVE ACCESS</span>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; font-size: 13px; color: #dce4d6;">
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: #d4e6a5; font-weight: bold;">✓</span> <span><b>Global Location Selection:</b> GPS, manual coordinates, or interactive map</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: #d4e6a5; font-weight: bold;">✓</span> <span><b>SoilGrids & Climate Data:</b> Organic carbon, pH, sand/silt/clay depth profiles</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: #d4e6a5; font-weight: bold;">✓</span> <span><b>Soil Risk Intelligence:</b> Traceable screening index & key driver breakdown</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: #d4e6a5; font-weight: bold;">✓</span> <span><b>Actionable Interventions:</b> Up to 3 ranked recommendations & What-If simulator</span></li>
+            <li style="display: flex; gap: 10px; align-items: flex-start;"><span style="color: #d4e6a5; font-weight: bold;">✓</span> <span><b>Camera AI Diagnostic:</b> Crop-leaf & surface-soil scan with blur detection</span></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section class="closing">

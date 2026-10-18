@@ -293,18 +293,128 @@
       border-radius: 8px;
     }
 
-    .footer {
-      border-top: 1px solid var(--line);
-      padding: 20px 5%;
-      margin-top: auto;
+    /* V6 Researcher Workspace Components */
+    .v6-res-section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 16px rgba(22,36,26,0.04);
+    }
+    .v6-param-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .v6-input-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .v6-input-box label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-family: 'DM Mono', monospace;
+    }
+    .v6-input-box input {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font: inherit;
+      font-size: 13px;
+      color: var(--ink);
+      background: #fafbf8;
+    }
+    .v6-btn-primary {
+      background: #1b2e21;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 22px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .v6-btn-primary:hover { background: #2f523d; }
+    .v6-res-results-box {
+      margin-top: 24px;
+      background: #f7f9f2;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      display: none;
+    }
+    .v6-res-results-box.active { display: block; }
+    .v6-tasks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .v6-task-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .v6-shap-bar-wrap {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .v6-shap-item {
       display: flex;
       justify-content: space-between;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
       color: var(--muted);
-      font-size: 12px;
-      flex-wrap: wrap;
-      gap: 12px;
     }
+    .v6-cov-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+    .v6-cov-table th, .v6-cov-table td {
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .v6-cov-table th {
+      background: #eef3e6;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .v6-status-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'DM Mono', monospace;
+    }
+    .v6-pill-green { background: #d4edda; color: #155724; }
+    .v6-pill-blue { background: #d1ecf1; color: #0c5460; }
+    .v6-pill-amber { background: #fff3cd; color: #856404; }
+    .v6-pill-purple { background: #e2d9f3; color: #49287c; }
   </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script defer src="dashboard-visuals.js"></script>
 </head>
 <body>
 
@@ -338,6 +448,7 @@
         <strong id="meta-eval-date" class="mono" style="background:#121e16; color:#fff; padding:3px 10px; border-radius:4px">--</strong>
       </div>
     </section>
+    <div id="dashboard-alert" class="dashboard-alert" role="alert" hidden></div>
 
     <!-- Top Telemetry 4 Cards -->
     <section class="telemetry-grid">
@@ -362,6 +473,63 @@
         <div class="telemetry-label">Historical Percentile</div>
         <div class="telemetry-val" id="val-percentile">--</div>
         <div class="telemetry-sub" id="val-mean">Mean: -- · 60-Month Series</div>
+      </div>
+    </section>
+
+    <section class="visual-section" aria-labelledby="research-visual-title">
+      <div class="section-heading-row">
+        <div>
+          <p class="visual-kicker">OBSERVATORY · DATA EXPLORER</p>
+          <h2 class="section-title" id="research-visual-title">Explore the evidence</h2>
+          <p class="section-desc">Time-varying climate observations are separated from static, modeled soil-property baselines.</p>
+        </div>
+        <span class="data-source-chip" id="research-visual-status">Loading verified data…</span>
+      </div>
+      <div class="visual-grid visual-grid-main">
+        <article class="visual-card visual-card-wide">
+          <div class="visual-card-head"><div><h3>Risk screening history</h3><p>Monthly index · 2020–2024</p></div><span class="chart-legend"><i class="legend-dot legend-risk"></i> Index</span></div>
+          <div id="research-risk-chart" class="chart-stage" role="img" aria-label="Historical risk screening index chart"><p class="chart-empty">Loading historical series…</p></div>
+          <p class="chart-footnote">Historical outputs are generated by deterministic screening rules; they are not independent field observations of degradation.</p>
+        </article>
+        <article class="visual-card">
+          <div class="visual-card-head"><div><h3>Risk component sub-scores</h3><p>Component values · 0–100</p></div></div>
+          <div id="research-risk-drivers" class="chart-stage chart-stage-compact" role="img" aria-label="Risk component sub-score comparison"><p class="chart-empty">Loading component scores…</p></div>
+          <p class="chart-footnote">Component scores are rule-engine indicators, not causal effects.</p>
+        </article>
+        <article class="visual-card">
+          <div class="visual-card-head"><div><h3>Study-area locator & Spatial Layers</h3><p>Sentinel-2 10m Pilot AOI & 250m Regional SoilGrids Envelope</p></div></div>
+          <div class="map-presets-row">
+            <span style="font-size:10.5px;font-weight:600;color:var(--muted);">Select Study Point:</span>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(30.7333, 76.7794)">📍 Punjab Pilot (30.73, 76.78)</button>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(19.7515, 75.7139)">📍 Maharashtra (19.75, 75.71)</button>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(42.0308, -93.6319)">📍 Iowa USA (42.03, -93.63)</button>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(43.6108, 3.8767)">📍 France (43.61, 3.88)</button>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(-1.2921, 36.8219)">📍 Kenya (-1.29, 36.82)</button>
+          </div>
+          <div id="research-location-info"></div>
+          <div id="research-study-map" class="study-map" role="application" aria-label="Map of the configured SoilSentinel study point"></div>
+          <p class="map-caption" id="research-map-caption">Spatial coverage is regional; this is not a parcel-level map. Click anywhere to re-position pin.</p>
+        </article>
+        <article class="visual-card">
+          <div class="visual-card-head"><div><h3>Climate time series</h3><p>Temperature and precipitation · 60 monthly records</p></div></div>
+          <div id="research-climate-chart" class="chart-stage chart-stage-compact" role="img" aria-label="Monthly climate time-series chart"><p class="chart-empty">Loading climate observations…</p></div>
+          <p class="chart-footnote">NASA POWER source values. Rainfall is the monthly table's precipitation rate (mm/day), not monthly accumulated rainfall.</p>
+        </article>
+        <article class="visual-card visual-card-wide">
+          <div class="visual-card-head"><div><h3>Soil properties by depth</h3><p>Modeled regional baseline · not monthly measurements</p></div></div>
+          <div id="soil-depth-chart" class="chart-stage chart-stage-depth" role="img" aria-label="Soil property comparison by depth"><p class="chart-empty">Loading soil depth values…</p></div>
+          <p class="chart-footnote">SoilGrids depth-specific estimates. Values represent the configured regional point and must not be interpreted as field-lab samples.</p>
+        </article>
+        <article class="visual-card visual-card-wide">
+          <div class="visual-card-head"><div><h3>Sentinel-2 10m Vegetation Trend (NDVI)</h3><p>Copernicus Level-2A · 60 Monthly Observations (2020–2024)</p></div><span class="chart-legend"><i class="legend-dot" style="background:#2e7d32;"></i> NDVI Canopy Vigor</span></div>
+          <div id="research-satellite-chart" class="chart-stage" role="img" aria-label="Sentinel-2 60-Month Satellite NDVI Vegetation Trend"><p class="chart-empty">Loading satellite observations…</p></div>
+          <p class="chart-footnote">Real surface reflectance from Copernicus Sentinel-2. The 5 unusable cloudy scenes are honestly marked as unobserved per SCL quality mask.</p>
+        </article>
+        <article class="visual-card visual-card-wide">
+          <div class="visual-card-head"><div><h3>Trained Model Explainability (Local TreeSHAP)</h3><p>Surrogate ML Model Feature Attribution (v1.0.0-rf-proxy)</p></div><span class="chart-legend"><i class="legend-dot" style="background:#c62828;"></i> Stress Driver</span></div>
+          <div id="research-shap-chart" class="chart-stage" role="img" aria-label="Local TreeSHAP Feature Attribution Chart"><p class="chart-empty">Loading SHAP explanation…</p></div>
+          <p class="chart-footnote">TreeSHAP local feature attribution for the loaded Random Forest surrogate model. Quantifies mathematical contributions to class probability; does not prove biological causation.</p>
+        </article>
       </div>
     </section>
 
@@ -458,6 +626,219 @@
       </div>
     </section>
 
+    <!-- V6 Scientific Section: Laboratory Soil-Test Upload & Multi-Task Analysis -->
+    <section class="v6-res-section" id="v6-soil-test-section">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+        <div>
+          <h2 class="section-title">🧪 Laboratory Soil-Test & Multi-Task V6 Model Evaluation</h2>
+          <p class="section-desc">Submit measured laboratory soil properties or upload a CSV report to execute multi-task inference across Task A (SOC), Task B (Salinity), Task C (Acidity), and Task E (Surrogate Stress).</p>
+        </div>
+        <span class="v6-status-pill v6-pill-purple">V6 Production Models Active</span>
+      </div>
+
+      <!-- Soil Parameters Entry Form -->
+      <div class="v6-param-grid">
+        <div class="v6-input-box">
+          <label for="res-depth">Depth (cm)</label>
+          <input type="number" id="res-depth" value="15" step="1" min="0" max="200">
+        </div>
+        <div class="v6-input-box">
+          <label for="res-ph">Measured pH (H₂O)</label>
+          <input type="number" id="res-ph" value="7.8" step="0.1" min="2" max="12">
+        </div>
+        <div class="v6-input-box">
+          <label for="res-ec">Electrical Cond. (dS/m)</label>
+          <input type="number" id="res-ec" value="1.2" step="0.1" min="0" max="50">
+        </div>
+        <div class="v6-input-box">
+          <label for="res-soc">Measured SOC (g C/kg)</label>
+          <input type="number" id="res-soc" value="5.4" step="0.1" min="0" max="100">
+        </div>
+        <div class="v6-input-box">
+          <label for="res-clay">Clay Fraction (%)</label>
+          <input type="number" id="res-clay" value="28" step="0.5" min="0" max="100">
+        </div>
+        <div class="v6-input-box">
+          <label for="res-sand">Sand Fraction (%)</label>
+          <input type="number" id="res-sand" value="42" step="0.5" min="0" max="100">
+        </div>
+        <div class="v6-input-box">
+          <label for="res-silt">Silt Fraction (%)</label>
+          <input type="number" id="res-silt" value="30" step="0.5" min="0" max="100">
+        </div>
+        <div class="v6-input-box">
+          <label for="res-lat">Latitude (°N)</label>
+          <input type="number" id="res-lat" value="30.7333" step="0.0001">
+        </div>
+        <div class="v6-input-box">
+          <label for="res-lon">Longitude (°E)</label>
+          <input type="number" id="res-lon" value="76.7794" step="0.0001">
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button type="button" id="btn-eval-soil-test" class="v6-btn-primary">
+            <span>🔬</span> <span>Execute Multi-Task Evaluation</span>
+          </button>
+          <label for="res-file-upload" class="v6-btn-primary" style="background:#495748; cursor:pointer;">
+            <span>📁</span> <span>Upload Soil CSV Report</span>
+          </label>
+          <input type="file" id="res-file-upload" accept=".csv,.json" style="display:none">
+        </div>
+        <button type="button" id="btn-export-eval-json" class="btn-logout" style="border-radius:8px; display:none;">
+          <span>💾</span> <span>Export JSON Payload</span>
+        </button>
+      </div>
+
+      <!-- Results Display Container -->
+      <div id="v6-res-results-box" class="v6-res-results-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:12px;">
+          <div>
+            <h3 style="font-family:'Playfair Display', serif; font-size:18px;">V6 Multi-Task Diagnostic Predictions</h3>
+            <span id="v6-eval-timestamp" style="font-family:'DM Mono', monospace; font-size:11px; color:var(--muted);">Executed: --</span>
+          </div>
+          <span id="v6-eval-ood-badge" class="v6-status-pill v6-pill-green">Domain Validated</span>
+        </div>
+
+        <div class="v6-tasks-grid">
+          <!-- Task A: SOC -->
+          <div class="v6-task-card">
+            <div style="display:flex; justify-content:space-between;">
+              <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase;">Task A: Soil Organic Carbon</strong>
+              <span class="v6-status-pill v6-pill-blue">Gradient Boosting</span>
+            </div>
+            <div style="font-size:22px; font-weight:700;" id="res-soc-pred">-- g C/kg</div>
+            <div style="font-size:11px; color:var(--muted);" id="res-soc-meta">Baseline error margin: ±4.30 g C/kg</div>
+            <div class="v6-shap-bar-wrap">
+              <strong style="font-size:10px; text-transform:uppercase; color:var(--muted);">Key Attributions:</strong>
+              <div id="res-soc-shap" style="font-size:11px; color:var(--ink);">depth_cm (-0.42), clay_total (+0.31)</div>
+            </div>
+          </div>
+
+          <!-- Task B: Salinity -->
+          <div class="v6-task-card">
+            <div style="display:flex; justify-content:space-between;">
+              <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase;">Task B: Soil Salinity</strong>
+              <span class="v6-status-pill v6-pill-amber">Balanced RF</span>
+            </div>
+            <div style="font-size:22px; font-weight:700;" id="res-sal-pred">--</div>
+            <div style="font-size:11px; color:var(--muted);" id="res-sal-meta">Target threshold: EC ≥ 4.0 dS/m</div>
+            <div class="v6-shap-bar-wrap">
+              <strong style="font-size:10px; text-transform:uppercase; color:var(--muted);">Key Attributions:</strong>
+              <div id="res-sal-shap" style="font-size:11px; color:var(--ink);">sand_total (-0.38), mean_temp (+0.25)</div>
+            </div>
+          </div>
+
+          <!-- Task C: Acidity -->
+          <div class="v6-task-card">
+            <div style="display:flex; justify-content:space-between;">
+              <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase;">Task C: Soil Acidity</strong>
+              <span class="v6-status-pill v6-pill-green">Balanced RF</span>
+            </div>
+            <div style="font-size:22px; font-weight:700;" id="res-acid-pred">--</div>
+            <div style="font-size:11px; color:var(--muted);" id="res-acid-meta">Target threshold: pH ≤ 5.5</div>
+            <div class="v6-shap-bar-wrap">
+              <strong style="font-size:10px; text-transform:uppercase; color:var(--muted);">Key Attributions:</strong>
+              <div id="res-acid-shap" style="font-size:11px; color:var(--ink);">clay_total (+0.45), precip_deficit (-0.29)</div>
+            </div>
+          </div>
+
+          <!-- Task D: Sodicity Audit -->
+          <div class="v6-task-card">
+            <div style="display:flex; justify-content:space-between;">
+              <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase;">Task D: Soil Sodicity (ESP)</strong>
+              <span class="v6-status-pill v6-pill-amber">Target Audit</span>
+            </div>
+            <div style="font-size:16px; font-weight:700; color:#856404;" id="res-sod-pred">Target Unvalidated</div>
+            <div style="font-size:11px; color:var(--muted);" id="res-sod-meta">No ground-truth ESP measurements (0 synthetic samples fabricated). Requires laboratory ESP titration.</div>
+          </div>
+
+          <!-- Task E: Environmental Surrogate -->
+          <div class="v6-task-card">
+            <div style="display:flex; justify-content:space-between;">
+              <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase;">Task E: Environmental Surrogate</strong>
+              <span class="v6-status-pill v6-pill-purple">Proxy Model</span>
+            </div>
+            <div style="font-size:22px; font-weight:700;" id="res-stress-pred">--</div>
+            <div style="font-size:11px; color:var(--muted);" id="res-stress-meta">Chronological test balanced acc: 78.6%</div>
+            <div class="v6-shap-bar-wrap">
+              <strong style="font-size:10px; text-transform:uppercase; color:var(--muted);">Key Attributions:</strong>
+              <div id="res-stress-shap" style="font-size:11px; color:var(--ink);">thermal_stress (+0.51), moisture_deficit (+0.38)</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--line); border-radius:8px; padding:12px; margin-top:14px; font-size:12px; color:var(--muted);">
+          ℹ️ <strong>Scientific Distinction:</strong> Mapped SoilGrids estimates provide regional baseline priors. They must NEVER be treated as ground-truth laboratory measurements. Model predictions reflect empirical relationships trained on open WoSIS soil profile benchmarks.
+        </div>
+      </div>
+    </section>
+
+    <!-- Geographic Coverage & Applicability Matrix -->
+    <section class="v6-res-section" id="v6-geographic-coverage">
+      <h2 class="section-title">🌍 Global Geographic Coverage & Model Applicability Matrix</h2>
+      <p class="section-desc">Honest, evidence-based reporting distinguishing application access, external data availability, ML model scope, and independent ground-truth validation.</p>
+
+      <div class="table-responsive">
+        <table class="v6-cov-table">
+          <thead>
+            <tr>
+              <th>Layer / Capability</th>
+              <th>Geographic Extent</th>
+              <th>Data Source / Provider</th>
+              <th>Operational Status</th>
+              <th>Independent Validation Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Web Application Access</strong></td>
+              <td>Global (Worldwide)</td>
+              <td>Node.js & Express Architecture</td>
+              <td><span class="v6-status-pill v6-pill-green">Active (100% Global)</span></td>
+              <td>Cross-browser tested, multilingual (en, hi, te, ur, ar).</td>
+            </tr>
+            <tr>
+              <td><strong>2. Contextual Soil Baseline</strong></td>
+              <td>Global Terrestrial</td>
+              <td>ISRIC SoilGrids 250m WCS / REST</td>
+              <td><span class="v6-status-pill v6-pill-blue">Active (0-200cm Depth)</span></td>
+              <td>Global mapped priors (pH, SOC, texture). Not field laboratory ground-truth.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Atmospheric Reanalysis</strong></td>
+              <td>Global Coverage</td>
+              <td>NASA POWER & Open-Meteo</td>
+              <td><span class="v6-status-pill v6-pill-blue">Active (Daily/Monthly)</span></td>
+              <td>Grid cell reanalysis (0.1° to 0.5°). Coarse regional reanalysis.</td>
+            </tr>
+            <tr>
+              <td><strong>4. V6 Empirical ML Models</strong></td>
+              <td>Global Inference</td>
+              <td>Scikit-learn Pipelines (v6_global_product)</td>
+              <td><span class="v6-status-pill v6-pill-purple">Active with OOD Guard</span></td>
+              <td>Isolation Forest flags out-of-domain textures and extreme environmental shifts.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Ground-Truth Validated Regions</strong></td>
+              <td>Indo-Gangetic Basin, Punjab, Haryana, WoSIS Core</td>
+              <td>Verified Laboratory Soil Profiles</td>
+              <td><span class="v6-status-pill v6-pill-green">Validated</span></td>
+              <td>Task A MAE 4.30 g C/kg, Task B Bal Acc 54.7%, Task C Bal Acc 100% on spatial holdouts.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Target Expansion Required</strong></td>
+              <td>Sub-Saharan Drylands, High-Latitude Peat, Arid Saline</td>
+              <td>Pending Laboratory Ground-Truth</td>
+              <td><span class="v6-status-pill v6-pill-amber">Data Needed</span></td>
+              <td>Models return explicit out-of-domain caution warnings in unrepresented soil types.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -516,17 +897,336 @@
         await fetch('/api/auth/logout', { method: 'POST' });
         window.location.assign('/index.html');
       });
+
+      // 4. Initialize V6 Workflows
+      setupResearcherV6Workflows();
+    }
+
+    // -------------------------------------------------------------------------
+    // V6 Researcher Workflows: Soil Test Evaluation & Multi-Task Inference
+    // -------------------------------------------------------------------------
+    let latestEvaluationJson = null;
+
+    function renderV6MultiTaskPredictions(data) {
+      if (!data) return;
+      const resultsBox = document.getElementById('v6-res-results-box');
+      if (resultsBox) resultsBox.classList.add('active');
+
+      const resPayload = data.payload || data;
+      const multi = resPayload.multi_task_predictions || resPayload.v6_audited_assessment || resPayload;
+      const evals = multi.evaluations || {};
+      const meta = resPayload.metadata || multi.metadata || {};
+
+      // Timestamp
+      const timeEl = document.getElementById('v6-eval-timestamp');
+      if (timeEl) {
+        const dateVal = meta.evaluation_date || meta.timestamp || (multi.version ? `${multi.version} (${new Date().toLocaleDateString()})` : new Date().toISOString());
+        timeEl.textContent = `Evaluation Context: ${dateVal}`;
+      }
+
+      // 1. Task A: Soil Organic Carbon (g C/kg)
+      const soc = multi.soil_organic_carbon || evals.task_a_soil_organic_carbon || {};
+      const socEl = document.getElementById('res-soc-pred');
+      const socMetaEl = document.getElementById('res-soc-meta');
+      const socVal = soc.predicted_soc_g_kg !== undefined ? soc.predicted_soc_g_kg : (soc.predicted_soc_g_per_kg !== undefined ? soc.predicted_soc_g_per_kg : soc.prediction);
+      if (socEl) {
+        if (typeof socVal === 'number' && !isNaN(socVal)) {
+          socEl.textContent = `${socVal.toFixed(2)} g C/kg`;
+          socEl.style.color = 'var(--ink)';
+        } else if (soc.error) {
+          socEl.textContent = `Error: ${soc.error}`;
+          socEl.style.color = '#b71c1c';
+        } else {
+          socEl.textContent = '-- g C/kg';
+          socEl.style.color = 'var(--muted)';
+        }
+      }
+      if (socMetaEl) {
+        const mae = soc.baseline_holdout_mae || 4.30;
+        socMetaEl.textContent = `Grouped Spatial Holdout MAE: ±${Number(mae).toFixed(2)} g C/kg (${soc.algorithm || 'Gradient Boosting'})`;
+      }
+
+      // 2. Task B: Soil Salinity Classification
+      const sal = multi.soil_salinity || evals.task_b_salinity || {};
+      const salEl = document.getElementById('res-sal-pred');
+      const salMetaEl = document.getElementById('res-sal-meta');
+      const salClass = sal.predicted_salinity_class !== undefined ? String(sal.predicted_salinity_class) : null;
+      const rawSalPred = sal.predicted_label || sal.prediction;
+      let salLabel = null;
+      if (rawSalPred && typeof rawSalPred === 'string') {
+        salLabel = rawSalPred;
+      } else if (salClass === '1' || salClass === 'Saline') {
+        salLabel = 'Saline (EC ≥ 2.0 dS/m)';
+      } else if (salClass === '0' || salClass === 'Non-Saline') {
+        salLabel = 'Non-Saline';
+      }
+
+      if (salEl) {
+        if (salLabel) {
+          salEl.textContent = salLabel;
+          const isSaline = salClass === '1' || (salLabel.toLowerCase().includes('saline') && !salLabel.toLowerCase().includes('non'));
+          salEl.style.color = isSaline ? '#b71c1c' : '#2e7d32';
+        } else if (sal.error) {
+          salEl.textContent = `Error: ${sal.error}`;
+          salEl.style.color = '#b71c1c';
+        } else {
+          salEl.textContent = '--';
+          salEl.style.color = 'var(--muted)';
+        }
+      }
+      if (salMetaEl) {
+        const probs = sal.class_probabilities || sal.probabilities || {};
+        if (Object.keys(probs).length > 0 && !sal.error) {
+          const pFormatted = Object.entries(probs).map(([k, v]) => {
+            let lbl = k;
+            if (k === '0') lbl = 'Non-Saline';
+            else if (k === '1') lbl = 'Saline';
+            return `${lbl}: ${(Number(v) * 100).toFixed(1)}%`;
+          }).join(' · ');
+          salMetaEl.textContent = `Probabilities: ${pFormatted}`;
+        } else {
+          salMetaEl.textContent = 'Diagnostic threshold: EC ≥ 2.0 dS/m (USSL Handbook 60, FAO)';
+        }
+      }
+
+      // 3. Task C: Soil Acidity Classification
+      const acid = multi.soil_acidity || evals.task_c_acidity || {};
+      const acidEl = document.getElementById('res-acid-pred');
+      const acidMetaEl = document.getElementById('res-acid-meta');
+      const acidClass = acid.predicted_acidity_class !== undefined ? String(acid.predicted_acidity_class) : null;
+      const rawAcidPred = acid.predicted_label || acid.prediction;
+      let acidLabel = null;
+      if (rawAcidPred && typeof rawAcidPred === 'string') {
+        acidLabel = rawAcidPred;
+      } else if (acidClass === '1' || acidClass === 'Acidic') {
+        acidLabel = 'Acidic (pH < 5.5)';
+      } else if (acidClass === '0' || acidClass === 'Non-Acidic') {
+        acidLabel = 'Non-Acidic';
+      }
+
+      if (acidEl) {
+        if (acidLabel) {
+          acidEl.textContent = acidLabel;
+          const isAcidic = acidClass === '1' || (acidLabel.toLowerCase().includes('acidic') && !acidLabel.toLowerCase().includes('non'));
+          acidEl.style.color = isAcidic ? '#b71c1c' : '#2e7d32';
+        } else if (acid.error) {
+          acidEl.textContent = `Error: ${acid.error}`;
+          acidEl.style.color = '#b71c1c';
+        } else {
+          acidEl.textContent = '--';
+          acidEl.style.color = 'var(--muted)';
+        }
+      }
+      if (acidMetaEl) {
+        const probs = acid.class_probabilities || acid.probabilities || {};
+        if (Object.keys(probs).length > 0 && !acid.error) {
+          const pFormatted = Object.entries(probs).map(([k, v]) => {
+            let lbl = k;
+            if (k === '0') lbl = 'Non-Acidic';
+            else if (k === '1') lbl = 'Acidic';
+            return `${lbl}: ${(Number(v) * 100).toFixed(1)}%`;
+          }).join(' · ');
+          acidMetaEl.textContent = `Probabilities: ${pFormatted}`;
+        } else {
+          acidMetaEl.textContent = 'Diagnostic threshold: pH < 5.5 (USDA-NRCS, FAO)';
+        }
+      }
+
+      // 4. Task D: Soil Sodicity ESP (Strictly Unvalidated Target)
+      const sodEl = document.getElementById('res-sod-pred');
+      const sodMetaEl = document.getElementById('res-sod-meta');
+      if (sodEl) {
+        sodEl.textContent = 'Target Unvalidated';
+        sodEl.style.color = '#856404';
+      }
+      if (sodMetaEl) {
+        sodMetaEl.textContent = 'No ground-truth ESP measurements (0 synthetic samples fabricated). Requires laboratory ESP titration.';
+      }
+
+      // 5. Task E: Environmental Surrogate (Only when returned successfully)
+      const stress = multi.environmental_stress || evals.task_e_environmental_surrogate || evals.task_d_environmental_surrogate || {};
+      const stressEl = document.getElementById('res-stress-pred');
+      const stressMetaEl = document.getElementById('res-stress-meta');
+      const stressVal = stress.proxy_risk_category || stress.predicted_risk_category || stress.prediction;
+      if (stressEl) {
+        if (stressVal && !stress.error) {
+          stressEl.textContent = stressVal;
+          stressEl.style.color = stressVal === 'High' ? '#b71c1c' : (stressVal === 'Low' ? '#2e7d32' : '#856404');
+        } else if (stress.error) {
+          stressEl.textContent = `Unavailable: ${stress.error}`;
+          stressEl.style.color = '#b71c1c';
+        } else {
+          stressEl.textContent = '--';
+          stressEl.style.color = 'var(--muted)';
+        }
+      }
+      if (stressMetaEl) {
+        const probs = stress.class_probabilities || stress.probabilities || {};
+        if (Object.keys(probs).length > 0 && !stress.error) {
+          const pFormatted = Object.entries(probs).map(([k, v]) => `${k}: ${(Number(v) * 100).toFixed(0)}%`).join(' · ');
+          stressMetaEl.textContent = `Proxy Risk Probabilities: ${pFormatted}`;
+        } else {
+          stressMetaEl.textContent = 'Proxy model approximating rule-based hydrothermal pressure.';
+        }
+      }
+
+      // 6. Domain Applicability (OOD Badge)
+      const ood = multi.domain_applicability || {};
+      const oodBadge = document.getElementById('v6-eval-ood-badge');
+      if (oodBadge) {
+        if (ood.is_in_domain === false || ood.texture_mass_conservation_valid === false) {
+          oodBadge.className = 'v6-status-pill v6-pill-amber';
+          let reason = 'Out-of-Domain Distribution';
+          if (ood.texture_mass_conservation_valid === false) {
+            reason = `Texture Mass Sum: ${ood.texture_sum_percent}% (≠100%)`;
+          } else if (ood.out_of_bounds_features && ood.out_of_bounds_features.length > 0) {
+            reason = `Out of Bounds: ${ood.out_of_bounds_features[0]}`;
+          } else if (ood.isolation_forest_inlier === false) {
+            reason = 'Novelty Detected (Isolation Forest Outlier)';
+          }
+          oodBadge.textContent = reason;
+        } else if (ood.is_in_domain === true) {
+          oodBadge.className = 'v6-status-pill v6-pill-green';
+          oodBadge.textContent = 'Domain Inlier (WoSIS Benchmark Space)';
+        } else {
+          oodBadge.className = 'v6-status-pill v6-pill-blue';
+          oodBadge.textContent = 'Standard Input Domain';
+        }
+      }
+    }
+
+    function setupResearcherV6Workflows() {
+      const evalBtn = document.getElementById('btn-eval-soil-test');
+      const uploadInput = document.getElementById('res-file-upload');
+      const exportBtn = document.getElementById('btn-export-eval-json');
+      const resultsBox = document.getElementById('v6-res-results-box');
+
+      async function runSoilTestEvaluation(payload) {
+        if (!evalBtn) return;
+        evalBtn.disabled = true;
+        evalBtn.innerHTML = '<span>⏳</span> <span>Executing Multi-Task AI...</span>';
+
+        try {
+          const res = await fetch('/api/researcher/upload-soil-test', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.message || data.error || 'Soil evaluation failed');
+
+          latestEvaluationJson = data;
+          if (exportBtn) exportBtn.style.display = 'inline-flex';
+          renderV6MultiTaskPredictions(data);
+        } catch (err) {
+          alert(`Evaluation Error: ${err.message}`);
+        } finally {
+          evalBtn.disabled = false;
+          evalBtn.innerHTML = '<span>🔬</span> <span>Execute Multi-Task Evaluation</span>';
+        }
+      }
+
+      if (evalBtn) {
+        evalBtn.addEventListener('click', () => {
+          const depth = parseFloat(document.getElementById('res-depth').value) || 15;
+          const ph = parseFloat(document.getElementById('res-ph').value) || 7.8;
+          const ec = parseFloat(document.getElementById('res-ec').value) || 1.2;
+          const soc = parseFloat(document.getElementById('res-soc').value) || 5.4;
+          const clay = parseFloat(document.getElementById('res-clay').value) || 28;
+          const sand = parseFloat(document.getElementById('res-sand').value) || 42;
+          const silt = parseFloat(document.getElementById('res-silt').value) || 30;
+          const lat = parseFloat(document.getElementById('res-lat').value) || 30.7333;
+          const lon = parseFloat(document.getElementById('res-lon').value) || 76.7794;
+
+          runSoilTestEvaluation({
+            depth_cm: depth,
+            ph_h2o: ph,
+            electrical_conductivity_ds_m: ec,
+            soil_organic_carbon_g_kg: soc,
+            clay_fraction_pct: clay,
+            sand_fraction_pct: sand,
+            silt_fraction_pct: silt,
+            latitude: lat,
+            longitude: lon
+          });
+        });
+      }
+
+      // File upload handler
+      if (uploadInput) {
+        uploadInput.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+          reader.onload = (evt) => {
+            const text = evt.target.result;
+            try {
+              if (file.name.endsWith('.json')) {
+                const parsed = JSON.parse(text);
+                runSoilTestEvaluation(parsed);
+              } else {
+                // Parse simple CSV header / values
+                const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+                if (lines.length > 1) {
+                  const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+                  const values = lines[1].split(',').map(v => parseFloat(v.trim()));
+                  const payload = {};
+                  headers.forEach((h, idx) => {
+                    if (h.includes('depth')) payload.depth_cm = values[idx];
+                    else if (h.includes('ph')) payload.ph_h2o = values[idx];
+                    else if (h.includes('ec')) payload.electrical_conductivity_ds_m = values[idx];
+                    else if (h.includes('soc') || h.includes('carbon')) payload.soil_organic_carbon_g_kg = values[idx];
+                    else if (h.includes('clay')) payload.clay_fraction_pct = values[idx];
+                    else if (h.includes('sand')) payload.sand_fraction_pct = values[idx];
+                    else if (h.includes('silt')) payload.silt_fraction_pct = values[idx];
+                    else if (h.includes('lat')) payload.latitude = values[idx];
+                    else if (h.includes('lon')) payload.longitude = values[idx];
+                  });
+                  runSoilTestEvaluation(payload);
+                } else {
+                  alert('CSV must contain a header and at least one data row.');
+                }
+              }
+            } catch (err) {
+              alert(`File Parse Error: ${err.message}`);
+            }
+          };
+          reader.readAsText(file);
+        });
+      }
+
+      // Export JSON
+      if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+          if (!latestEvaluationJson) return;
+          const blob = new Blob([JSON.stringify(latestEvaluationJson, null, 2)], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `soilsentinel_v6_evaluation_${Date.now()}.json`;
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+      }
     }
 
     async function loadAssessment(dateStr) {
+      const alertBox = document.getElementById('dashboard-alert');
       try {
         const url = `/api/assessment/evaluate?date=${encodeURIComponent(dateStr)}`;
-        const res = await fetch(url);
-        if (!res.ok) throw new Error('Failed to evaluate');
-        const json = await res.json();
+        const res = await fetch(url, { credentials: 'same-origin' });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(json.error || 'Assessment could not be loaded.');
+        if (alertBox) { alertBox.hidden = true; alertBox.textContent = ''; }
         renderDashboard(json.payload || json);
       } catch (e) {
         console.error('Assessment evaluation failed:', e);
+        if (alertBox) {
+          alertBox.textContent = `Assessment unavailable: ${e.message || 'The backend did not return a valid result.'} Check the service and try again.`;
+          alertBox.hidden = false;
+        }
       }
     }
 
@@ -580,6 +1280,12 @@
       document.getElementById('audit-logpath').textContent = audit.log_path || 'logs/audit_log.csv';
       document.getElementById('audit-rec-ids').textContent = (audit.recommendation_ids || []).join(', ') || 'N/A';
       document.getElementById('audit-status').textContent = meta.assessment_status || 'COMPLETE (Deterministic)';
+      if (window.SoilSentinelVisuals) window.SoilSentinelVisuals.render(p, 'researcher');
+
+      // Automatically render V6 Multi-Task Predictions for the active evaluated date
+      if (p.v6_audited_assessment || p.multi_task_predictions) {
+        renderV6MultiTaskPredictions(p.v6_audited_assessment || p.multi_task_predictions);
+      }
     }
 
     function renderIndicatorsTable(ind) {

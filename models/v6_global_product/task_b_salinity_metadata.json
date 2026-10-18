@@ -1,0 +1,49 @@
+{
+  "task_name": "Task B: Audited Soil Salinity Classification",
+  "diagnostic_threshold": "Saline if EC >= 2.0 dS/m (USSL Handbook 60, FAO)",
+  "sample_count": 245,
+  "saline_count": 28,
+  "non_saline_count": 217,
+  "independent_profiles": 44,
+  "best_algorithm": "Balanced Random Forest",
+  "cross_validation_results": {
+    "Majority_Baseline": {
+      "grouped_acc_mean": 0.8844713786970555,
+      "grouped_bal_acc_mean": 0.5,
+      "grouped_bal_acc_std": 0.0,
+      "grouped_saline_f1_mean": 0.0,
+      "grouped_saline_recall_mean": 0.0
+    },
+    "Balanced_Logistic": {
+      "grouped_acc_mean": 0.5408029042150642,
+      "grouped_bal_acc_mean": 0.5525189360417156,
+      "grouped_bal_acc_std": 0.19106748378115107,
+      "grouped_saline_f1_mean": 0.15407772304324027,
+      "grouped_saline_recall_mean": 0.55
+    },
+    "Random_Forest": {
+      "grouped_acc_mean": 0.7945223927570282,
+      "grouped_bal_acc_mean": 0.5466926557872255,
+      "grouped_bal_acc_std": 0.0967588990864537,
+      "grouped_saline_f1_mean": 0.15695187165775404,
+      "grouped_saline_recall_mean": 0.22000000000000003
+    },
+    "Gradient_Boosting": {
+      "grouped_acc_mean": 0.832073717878342,
+      "grouped_bal_acc_mean": 0.5171445006902899,
+      "grouped_bal_acc_std": 0.10679270468090743,
+      "grouped_saline_f1_mean": 0.08888888888888888,
+      "grouped_saline_recall_mean": 0.1
+    }
+  },
+  "feature_columns": [
+    "clay_fraction",
+    "sand_fraction",
+    "silt_fraction",
+    "upper_depth",
+    "lower_depth",
+    "latitude",
+    "longitude"
+  ],
+  "validation_protocol": "StratifiedGroupKFold(n_splits=5, groups=profile_id)"
+}

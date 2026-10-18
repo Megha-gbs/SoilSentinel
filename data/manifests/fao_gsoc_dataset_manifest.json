@@ -1,0 +1,17 @@
+{
+  "dataset_title": "FAO Global Soil Organic Carbon Map (GSOCmap v1.5 / v1.6) & GloSIS",
+  "publisher": "FAO Global Soil Partnership (GSP) & Intergovernmental Technical Panel on Soils (ITPS)",
+  "official_url": "https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/global-soil-organic-carbon-map-gsocmap/en/",
+  "glosis_portal_url": "https://data.apps.fao.org/glosis/",
+  "technical_report_url": "https://www.fao.org/3/ca7504en/ca7504en.pdf",
+  "license": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO (CC BY-NC-SA 3.0 IGO)",
+  "spatial_resolution": "1 km topsoil (0-30 cm) Soil Organic Carbon stock (t C / ha)",
+  "files": [
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\fao_gsoc\\FAO_GSOCmap_Technical_Report.pdf",
+      "filename": "FAO_GSOCmap_Technical_Report.pdf",
+      "size_bytes": 133431,
+      "sha256": "4b54ef1654016a8faf989756c280b2c8e535813e8edef3c3803531660cf07fa6"
+    }
+  ]
+}

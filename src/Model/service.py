@@ -424,7 +424,22 @@ class SoilSentinelService:
             ],
         }
 
-        # 12. Assemble Consolidated Payload
+        # 12. Evaluate Audited V6 Multi-Task Models
+        v6_assessment = None
+        try:
+            from src.Model.v6_inference import get_v6_engine
+            v6_engine = get_v6_engine()
+            if v6_engine.is_available:
+                v6_assessment = v6_engine.predict_multitask(raw_record)
+        except Exception as e_v6:
+            logger.warning(f"Could not compute V6 audited assessment: {e_v6}")
+            v6_assessment = {
+                "version": "v6.0.0-audited",
+                "status": "UNAVAILABLE",
+                "error": str(e_v6)
+            }
+
+        # 13. Assemble Consolidated Payload
         payload = {
             "metadata": {
                 "assessment_id": assessment_id,
@@ -445,6 +460,8 @@ class SoilSentinelService:
             "ml_prediction": ml_prediction,
             "ml_explanation": ml_explanation,
             "independent_degradation_assessment": independent_degradation_assessment,
+            "v6_audited_assessment": v6_assessment,
+            "multi_task_predictions": v6_assessment,
             "audit_reference": {
                 "assessment_id": assessment_id,
                 "audit_logged": audit_logged,
@@ -456,6 +473,29 @@ class SoilSentinelService:
             },
         }
         return payload
+
+    def get_v6_audited_assessment(self, date: Optional[str] = None, input_features: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Execute audited V6 multi-task model inference (SOC, Salinity, Acidity, Surrogate)
+        along with domain applicability uncertainty checks for target date or custom inputs.
+        """
+        eval_date = date or self.get_latest_date()
+        raw_rec = input_features if input_features is not None else self.get_raw_record(eval_date)
+        try:
+            from src.Model.v6_inference import get_v6_engine
+            engine = get_v6_engine()
+            res = engine.predict_multitask(raw_rec)
+            res["evaluation_date"] = eval_date
+            return res
+        except Exception as e:
+            logger.error(f"Failed to generate V6 audited assessment for {eval_date}: {e}")
+            return {
+                "version": "v6.0.0-audited",
+                "status": "UNAVAILABLE",
+                "evaluation_date": eval_date,
+                "error": str(e)
+            }
+
 
     def evaluate_custom_scenario(
         self,

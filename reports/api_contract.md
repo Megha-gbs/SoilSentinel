@@ -274,3 +274,10 @@ Simulates a hypothetical weather scenario against a baseline record.
 1. **Frontend Isolation:** The JavaScript code in `farmer-dashboard.html` and `researcher-dashboard.html` explicitly destructures only the specific keys it renders. Adding `independent_degradation_assessment` introduces zero syntax or runtime conflicts.
 2. **Schema Invariance:** The 14-feature ML schema and the 5-indicator risk scoring schema remain identical.
 3. **Rollback Simplicity:** Removing the `independent_degradation_assessment` block would require changing only 4 lines of Python code in `src/Model/service.py`, with zero changes needed in any database or frontend template.
+
+
+## Website visualizations: authenticated observations endpoint
+
+`GET /api/assessment/observations` requires an authenticated session and returns a read-only allow-list from `data/feature_table.csv` through the Python bridge. It exposes only fields needed by the dashboards: monthly date, study region/coordinates, climate time-series variables, depth-specific modeled soil properties, and source/measurement-type metadata.
+
+The endpoint is for rendering charts and a study-area locator. It must not be used to imply parcel-level precision. The current study point is regional; SoilGrids depth-specific values are modeled baselines. The frontend must show a clear unavailable state if this endpoint fails rather than substituting demo numbers.

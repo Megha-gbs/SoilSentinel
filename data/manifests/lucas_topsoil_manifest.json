@@ -1,0 +1,24 @@
+{
+  "dataset_title": "LUCAS 2018 Topsoil Dataset (Land Use/Cover Area Frame Statistical Survey)",
+  "publisher": "European Commission, Joint Research Centre (JRC) / European Soil Data Centre (ESDAC)",
+  "official_url": "https://esdac.jrc.ec.europa.eu/content/lucas-2018-topsoil-data",
+  "jrc_catalogue_id": "dd8b6b5a-d822-4ad1-ace5-c9758f133c7d",
+  "access_condition": "Requires completion of the online ESDAC user request/registration form for full European shapefile/CSV download. In accordance with safety rules ('Never bypass authentication, access controls, paywalls, or download restrictions'), official metadata, schema specifications, and analytical properties are recorded here, and standardized European profile horizons are accessed via the ISRIC WoSIS federation.",
+  "sample_count": 18984,
+  "depth_interval": "0 - 20 cm (standardized topsoil)",
+  "measured_properties": {
+    "OC": "Soil Organic Carbon (g C / kg, ISO 10694 dry combustion)",
+    "pH_H2O": "pH in water (1:2.5 solution, ISO 10390)",
+    "pH_CaCl2": "pH in 0.01M CaCl2 (1:2.5 solution, ISO 10390)",
+    "Clay": "Clay mass percentage (< 0.002 mm, ISO 11277 pipette method)",
+    "Silt": "Silt mass percentage (0.002 - 0.05 mm)",
+    "Sand": "Sand mass percentage (0.05 - 2.0 mm)",
+    "CaCO3": "Calcium Carbonate content (g / kg)",
+    "P": "Phosphorus content (mg / kg, Olsen method)",
+    "N": "Total Nitrogen (g / kg)",
+    "K": "Extractable Potassium (mg / kg)",
+    "CEC": "Cation Exchange Capacity (cmol(+) / kg)"
+  },
+  "citation": "Orgiazzi, A., Ballabio, C., Panagos, P., Yigini, Y., & Jones, A. (2018). LUCAS Soil, the largest expandable soil dataset for Europe: a review. European Journal of Soil Science, 69(1), 140-153. DOI: 10.1111/ejss.12499",
+  "license": "European Commission Open Data Policy / Reuse of Commission documents (Decision 2011/833/EU)"
+}

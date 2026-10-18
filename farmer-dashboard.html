@@ -582,6 +582,185 @@
     }
     .disclaimer-card strong { color: var(--ink); }
 
+    /* V6 Global Product Workflows */
+    .v6-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+      margin-bottom: 8px;
+    }
+    .v6-panel {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .v6-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+    }
+    .v6-panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .v6-panel-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+    .v6-toggle-pills {
+      display: inline-flex;
+      background: #eef3e6;
+      padding: 4px;
+      border-radius: 99px;
+      gap: 4px;
+    }
+    .v6-toggle-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      border-radius: 99px;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .v6-toggle-btn.active {
+      background: #1b2e21;
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(27,46,33,0.15);
+    }
+    .v6-camera-zone {
+      border: 2px dashed #b5c7a3;
+      border-radius: 12px;
+      background: #fbfdf9;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .v6-camera-zone:hover {
+      border-color: #274026;
+      background: #f4f8ee;
+    }
+    .v6-camera-zone.dragover {
+      border-color: #274026;
+      background: #eaf3df;
+      transform: scale(1.005);
+    }
+    .v6-preview-img {
+      max-height: 180px;
+      max-width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      display: none;
+      margin: 10px auto;
+      border: 1px solid var(--line);
+    }
+    .v6-btn-action {
+      background: #243b2b;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+      width: 100%;
+    }
+    .v6-btn-action:hover { background: #16271c; }
+    .v6-btn-action:disabled { opacity: 0.6; cursor: not-allowed; }
+    .v6-btn-voice {
+      background: #eef3e6;
+      color: #243b2b;
+      border: 1px solid #c2d4b2;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .v6-btn-voice:hover { background: #e0ebd0; }
+    .v6-preset-btn {
+      background: #f0f4ea;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 5px 12px;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .v6-preset-btn:hover {
+      background: #1b2e21;
+      color: #ffffff;
+      border-color: #1b2e21;
+    }
+    .v6-result-box {
+      background: #f9fbf7;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      display: none;
+    }
+    .v6-result-box.active { display: block; animation: fadeIn 0.3s ease; }
+    .v6-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .v6-badge-green { background: #d4edda; color: #155724; }
+    .v6-badge-amber { background: #fff3cd; color: #856404; }
+    .v6-badge-red { background: #f8d7da; color: #721c24; }
+    .v6-badge-blue { background: #d1ecf1; color: #0c5460; }
+    .v6-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .v6-input-field {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font: inherit;
+      font-size: 13px;
+      color: var(--ink);
+      background: #ffffff;
+      outline: none;
+    }
+    .v6-input-field:focus { border-color: #243b2b; }
+
     /* Footer */
     .dash-footer {
       border-top: 1px solid var(--line);
@@ -615,7 +794,56 @@
       [dir="rtl"] .score-circle-wrap { padding: 0 0 20px 0; border-left: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
       .slider-row { grid-template-columns: 1fr; }
     }
+
+    /* Non-blocking Guest Mode Banner */
+    .guest-banner {
+      background: #edf5e8;
+      border-bottom: 1px solid #c2d8b2;
+      color: #1f3622;
+      padding: 10px 24px;
+      font-size: 13px;
+    }
+    .guest-banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .guest-banner-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .guest-btn {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .guest-btn-primary {
+      background: #233e28;
+      color: #fff;
+    }
+    .guest-btn-primary:hover {
+      background: #172a1b;
+    }
+    .guest-btn-secondary {
+      background: transparent;
+      color: #233e28;
+      border: 1px solid #a3c292;
+    }
+    .guest-btn-secondary:hover {
+      background: #e0eed6;
+    }
   </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script defer src="dashboard-visuals.js"></script>
 </head>
 <body>
 
@@ -662,6 +890,17 @@
     </div>
   </header>
 
+  <!-- Non-blocking Guest Mode Notification Banner -->
+  <aside id="guest-mode-banner" class="guest-banner" style="display:none;" aria-label="Guest mode notice">
+    <div class="guest-banner-content">
+      <span>🌱 <strong>You're exploring SoilSentinel as a guest.</strong> Try GPS assessments, visual camera AI, and what-if scenarios. Create a free account to save your assessment history and export formal reports.</span>
+      <div class="guest-banner-actions">
+        <a href="auth.html?role=farmer&mode=register" class="guest-btn guest-btn-primary">Create Free Account ↗</a>
+        <a href="auth.html?role=farmer&mode=login" class="guest-btn guest-btn-secondary">Sign In</a>
+      </div>
+    </div>
+  </aside>
+
   <!-- Main Content -->
   <main class="dashboard-container">
 
@@ -674,8 +913,17 @@
       <div class="dash-meta">
         <div><span data-t="eval_month">Evaluation Month:</span> <strong id="meta-date" class="date-badge">--</strong></div>
         <div style="font-size:11px" id="meta-status">Status: Verified</div>
+        <div style="display:flex; gap:8px; margin-top:8px;">
+          <a href="/api/assessment/export?format=text" download="SoilSentinel_Audit_Report.txt" class="btn-logout" style="background:#1b2e21; color:#fff; border-color:#1b2e21; text-decoration:none; display:inline-flex; align-items:center; gap:4px; font-size:11px; padding:6px 12px;" title="Download traceable audit report">
+            <span>📄</span> <span>Download Report (TXT)</span>
+          </a>
+          <a href="/api/assessment/export?format=json" download="SoilSentinel_Audit_Report.json" class="btn-logout" style="background:#ffffff; color:#1b2e21; border-color:var(--line); text-decoration:none; display:inline-flex; align-items:center; gap:4px; font-size:11px; padding:6px 12px;" title="Export audit payload JSON">
+            <span>💾</span> <span>Audit JSON</span>
+          </a>
+        </div>
       </div>
     </section>
+    <div id="dashboard-alert" class="dashboard-alert" role="alert" hidden></div>
 
     <!-- Risk Hero Card -->
     <section class="risk-hero">
@@ -692,6 +940,249 @@
         </div>
         <h2 id="hero-headline">Processing soil and weather signals...</h2>
         <p id="hero-explanation">Connecting to the SoilSentinel physics-based hydro-thermal risk engine.</p>
+      </div>
+    </section>
+
+    <!-- V6 Interactive Farmer Workflows: Camera Scan & GPS Assessment -->
+    <section class="v6-tools-grid" aria-label="SoilSentinel V6 Field Tools">
+      <!-- Panel 1: Camera Diagnostic Scan -->
+      <article class="v6-panel" id="panel-camera-ai">
+        <div class="v6-panel-header">
+          <div>
+            <h2 class="v6-panel-title" data-t="camera_title">📸 One-Click Camera Diagnostic Scan</h2>
+            <p class="v6-panel-desc" data-t="camera_desc">Capture or upload a field photograph for instant visible crop-stress or soil-surface morphology screening.</p>
+          </div>
+          <div class="v6-toggle-pills" role="tablist">
+            <button type="button" class="v6-toggle-btn active" id="btn-mode-crop" role="tab" aria-selected="true">Crop Leaf</button>
+            <button type="button" class="v6-toggle-btn" id="btn-mode-soil" role="tab" aria-selected="false">Soil Surface</button>
+          </div>
+        </div>
+
+        <input type="file" id="v6-camera-input" accept="image/*" capture="environment" style="display:none">
+        
+        <div class="v6-camera-zone" id="v6-drop-zone" tabindex="0" role="button" aria-label="Tap to capture or upload a farm photograph">
+          <div id="v6-zone-prompt">
+            <span style="font-size:36px; display:block; margin-bottom:8px;">📷</span>
+            <strong style="font-size:14px; color:var(--ink);">Tap to Open Camera or Drag & Drop Image</strong>
+            <p style="font-size:12px; color:var(--muted); margin-top:4px;">Supports mobile rear cameras, JPEG, PNG, and WebP files up to 15MB.</p>
+          </div>
+          <img id="v6-preview-img" class="v6-preview-img" alt="Captured farm photograph preview">
+        </div>
+
+        <!-- Inline Validation / Error Notification Banner -->
+        <div id="v6-cam-error" class="v6-cam-error-box" style="display:none; background:#fff3cd; border:1px solid #ffeeba; color:#856404; border-radius:8px; padding:12px 14px; margin-top:12px; font-size:13px; line-height:1.4;" role="alert">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span id="v6-cam-error-icon" style="font-size:18px;">⚠️</span>
+            <div id="v6-cam-error-msg">Please capture or upload an image.</div>
+          </div>
+        </div>
+
+        <button type="button" id="v6-scan-btn" class="v6-btn-action" style="margin-top:12px;">
+          <span>⚡</span> <span id="v6-scan-btn-text">Analyze Crop Leaf</span>
+        </button>
+
+        <!-- Camera Diagnostic Result -->
+        <div id="v6-camera-result" class="v6-result-box" aria-live="polite">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span id="v6-cam-badge" class="v6-badge v6-badge-green">Diagnosis</span>
+            <span id="v6-cam-conf" style="font-family:'DM Mono', monospace; font-size:12px; color:var(--muted);">--% confidence</span>
+          </div>
+          <h3 id="v6-cam-diagnosis" style="font-family:'Playfair Display', serif; font-size:18px; margin-bottom:8px; color:var(--ink);">--</h3>
+          <p id="v6-cam-explanation" style="font-size:13px; color:#3b5030; line-height:1.5; margin-bottom:10px;">--</p>
+          
+          <div style="background:#ffffff; border:1px solid var(--line); border-radius:8px; padding:12px; margin-bottom:10px;">
+            <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase; letter-spacing:0.5px;">Possible Contributing Factors:</strong>
+            <ul id="v6-cam-causes" style="font-size:12px; padding-left:18px; margin-top:4px; color:var(--ink);"></ul>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--line); border-radius:8px; padding:12px; margin-bottom:10px;">
+            <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase; letter-spacing:0.5px;">Recommended Next Steps:</strong>
+            <ul id="v6-cam-steps" style="font-size:12px; padding-left:18px; margin-top:4px; color:var(--ink);"></ul>
+          </div>
+
+          <!-- Calibrated Class Probabilities Breakdown -->
+          <div id="v6-cam-probabilities-container" style="background:#ffffff; border:1px solid var(--line); border-radius:8px; padding:12px; margin-bottom:10px; display:none;">
+            <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase; letter-spacing:0.5px;">Calibrated Probabilities:</strong>
+            <div id="v6-cam-probabilities" style="display:flex; flex-direction:column; gap:6px; margin-top:8px;"></div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <button type="button" id="v6-voice-btn" class="v6-btn-voice">
+              <span>🔊</span> <span>Read Aloud</span>
+            </button>
+            <span id="v6-quality-note" style="font-size:11px; color:var(--muted); font-family:'DM Mono', monospace;">Quality: OK</span>
+          </div>
+
+          <p style="font-size:11px; color:#856404; background:#fff3cd; border-radius:6px; padding:8px 10px; margin-top:10px; line-height:1.4;">
+            ⚠️ <strong>Scientific Limitation:</strong> Optical camera AI detects surface symptoms and physical patterns. It cannot measure subsurface laboratory electrical conductivity, pH, or carbon.
+          </p>
+        </div>
+      </article>
+
+      <!-- Panel 2: Global GPS Field Assessment -->
+      <article class="v6-panel" id="panel-gps-ai">
+        <div class="v6-panel-header">
+          <div>
+            <h2 class="v6-panel-title" data-t="gps_title">📍 Global GPS Field Assessment</h2>
+            <p class="v6-panel-desc" data-t="gps_desc">Retrieve global SoilGrids 250m soil context, satellite weather, and multi-task ML predictions for any coordinates.</p>
+          </div>
+          <button type="button" id="v6-gps-detect-btn" class="v6-btn-voice" style="margin-top:0;" title="Get location from device GPS">
+            <span>📡</span> <span>Use Device GPS</span>
+          </button>
+        </div>
+
+        <!-- Global Location Quick Presets -->
+        <div style="margin-top:-4px;">
+          <span style="font-size:11px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px;">Global Test Locations:</span>
+          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:4px;">
+            <button type="button" class="v6-preset-btn" data-lat="30.7333" data-lon="76.7794" data-crop="wheat" data-name="Punjab, India">🌾 Punjab, India</button>
+            <button type="button" class="v6-preset-btn" data-lat="19.7515" data-lon="75.7139" data-crop="cotton" data-name="Maharashtra, India">🚜 Maharashtra, India</button>
+            <button type="button" class="v6-preset-btn" data-lat="42.0308" data-lon="-93.6319" data-crop="maize" data-name="Iowa, USA">🌽 Iowa, USA</button>
+            <button type="button" class="v6-preset-btn" data-lat="43.6108" data-lon="3.8767" data-crop="wheat" data-name="Montpellier, France">🍇 Montpellier, France</button>
+            <button type="button" class="v6-preset-btn" data-lat="-1.2921" data-lon="36.8219" data-crop="maize" data-name="Nairobi, Kenya">🌍 Nairobi, Kenya</button>
+          </div>
+        </div>
+
+        <div class="v6-grid-2">
+          <div>
+            <label for="v6-lat-input" style="font-size:12px; font-weight:600; color:var(--muted); display:block; margin-bottom:4px;">Latitude (°N)</label>
+            <input type="number" id="v6-lat-input" class="v6-input-field" step="0.0001" value="30.7333" placeholder="e.g. 30.7333">
+          </div>
+          <div>
+            <label for="v6-lon-input" style="font-size:12px; font-weight:600; color:var(--muted); display:block; margin-bottom:4px;">Longitude (°E)</label>
+            <input type="number" id="v6-lon-input" class="v6-input-field" step="0.0001" value="76.7794" placeholder="e.g. 76.7794">
+          </div>
+        </div>
+
+        <div>
+          <label for="v6-crop-type" style="font-size:12px; font-weight:600; color:var(--muted); display:block; margin-bottom:4px;">Current or Planned Crop</label>
+          <select id="v6-crop-type" class="v6-input-field">
+            <option value="wheat">🌾 Wheat (Rabi)</option>
+            <option value="rice">🍚 Rice / Paddy (Kharif)</option>
+            <option value="cotton">🌱 Cotton</option>
+            <option value="maize">🌽 Maize / Corn</option>
+            <option value="pulses">🌿 Pulses / Legumes</option>
+            <option value="other">🌾 Other Field Crop</option>
+          </select>
+        </div>
+
+        <!-- Selected Location Review & Confirmation -->
+        <div id="v6-location-confirmation" style="background:#eef3e6; border:1px solid #c8d9be; border-radius:8px; padding:10px 14px; font-size:12px; color:var(--ink); display:flex; justify-content:space-between; align-items:center;">
+          <span>📍 Target: <strong id="v6-confirm-coords">30.7333°N, 76.7794°E</strong> (<span id="v6-confirm-label">Punjab (Demo Preset)</span>)</span>
+          <span id="v6-confirm-acc" style="color:var(--muted); font-size:11px;">Preset/Manual</span>
+        </div>
+
+        <button type="button" id="v6-gps-assess-btn" class="v6-btn-action">
+          <span>🌍</span> <span id="v6-gps-btn-text">Assess Field Health at Location</span>
+        </button>
+
+        <!-- Inline GPS Error Notice -->
+        <div id="v6-gps-error" style="display:none; margin-top:8px; background:#f8d7da; color:#721c24; border-radius:6px; padding:8px 12px; font-size:12px;" role="alert"></div>
+
+        <!-- GPS Field Result Box -->
+        <div id="v6-gps-result" class="v6-result-box" aria-live="polite">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span id="v6-gps-status-badge" class="v6-badge v6-badge-green">Assessment Ready</span>
+            <span id="v6-gps-coords-display" style="font-family:'DM Mono', monospace; font-size:11px; color:var(--muted);">30.7333°N, 76.7794°E</span>
+          </div>
+
+          <!-- Tier 1: Contextual Soil Reference -->
+          <div style="background:#ffffff; border:1px solid var(--line); border-radius:8px; padding:12px; margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase;">1. SoilGrids 250m Context</strong>
+              <span class="v6-badge v6-badge-blue" style="font-size:10px;">Mapped Estimate</span>
+            </div>
+            <div id="v6-soilgrids-stats" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; margin-top:8px; font-size:12px;">
+              <div>pH: <strong id="v6-sg-ph">--</strong></div>
+              <div>SOC: <strong id="v6-sg-soc">-- g/kg</strong></div>
+              <div>Clay: <strong id="v6-sg-clay">--%</strong></div>
+            </div>
+            <p style="font-size:10px; color:var(--muted); margin-top:6px;">Reference data from ISRIC SoilGrids 250m. Use as regional context, not field measurement.</p>
+          </div>
+
+          <!-- Tier 2: Weather & Climate Observations -->
+          <div style="background:#ffffff; border:1px solid var(--line); border-radius:8px; padding:12px; margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase;">2. Atmospheric Conditions</strong>
+              <span class="v6-badge v6-badge-green" style="font-size:10px;">Open-Meteo / NASA</span>
+            </div>
+            <div id="v6-weather-stats" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; margin-top:8px; font-size:12px;">
+              <div>Mean Temp: <strong id="v6-wx-temp">-- °C</strong></div>
+              <div>Recent Rain: <strong id="v6-wx-rain">-- mm</strong></div>
+            </div>
+          </div>
+
+          <!-- Tier 3: V6 Task-Specific Predictions -->
+          <div style="background:#ffffff; border:1px solid var(--line); border-radius:8px; padding:12px; margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="font-size:12px; color:var(--leaf); text-transform:uppercase;">3. V6 Model Predictions</strong>
+              <span class="v6-badge v6-badge-amber" id="v6-ood-badge" style="font-size:10px;">Within Domain</span>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; margin-top:8px; font-size:12px;">
+              <div>Predicted SOC: <strong id="v6-pred-soc">-- g C/kg</strong></div>
+              <div>Salinity Risk: <strong id="v6-pred-salinity">--</strong></div>
+              <div>Acidity Risk: <strong id="v6-pred-acidity">--</strong></div>
+              <div>Atmospheric Stress: <strong id="v6-pred-stress">--</strong></div>
+            </div>
+          </div>
+
+          <div id="v6-domain-warning" style="display:none; font-size:11px; color:#721c24; background:#f8d7da; border-radius:6px; padding:8px 10px; margin-top:10px;">
+            ⚠️ <strong>Domain Notice:</strong> This location exhibits soil or climate traits outside the validated training domain. Predictions carry elevated uncertainty.
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Evidence visuals: chart values come from the authenticated backend -->
+    <section class="visual-section" aria-labelledby="field-evidence-title">
+      <div class="section-heading-row">
+        <div>
+          <p class="visual-kicker">YOUR FIELD · EVIDENCE</p>
+          <h2 class="section-title" id="field-evidence-title">See what is changing</h2>
+          <p class="section-desc" id="field-evidence-desc">Historical screening index, local climate signals, and global pedological context.</p>
+        </div>
+        <span class="data-source-chip" id="farmer-visual-status">Loading verified data…</span>
+      </div>
+      <div class="visual-grid visual-grid-main">
+        <article class="visual-card visual-card-wide">
+          <div class="visual-card-head"><div><h3>Risk screening timeline</h3><p>Monthly index · 0–100</p></div><span class="chart-legend"><i class="legend-dot legend-risk"></i> Screening index</span></div>
+          <div id="risk-trend-chart" class="chart-stage" role="img" aria-label="Monthly soil risk screening index chart"><p class="chart-empty">Loading historical series…</p></div>
+          <p class="chart-footnote">This is a rule-based screening index, not a laboratory soil test or a validated probability of degradation.</p>
+        </article>
+        <article class="visual-card">
+          <div class="visual-card-head"><div><h3>What contributes to the score?</h3><p>Component sub-scores · 0–100</p></div></div>
+          <div id="farmer-risk-drivers" class="chart-stage chart-stage-compact" role="img" aria-label="Risk component sub-score comparison"><p class="chart-empty">Loading component scores…</p></div>
+          <p class="chart-footnote">Component scores are rule-engine indicators, not causal effects.</p>
+        </article>
+        <article class="visual-card">
+          <div class="visual-card-head"><div><h3>Study-area locator & Spatial Layers</h3><p>Sentinel-2 10m Pilot AOI & 250m Regional SoilGrids Envelope</p></div></div>
+          <div class="map-presets-row">
+            <span style="font-size:10.5px;font-weight:600;color:var(--muted);">Select Location:</span>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(30.7333, 76.7794)">📍 Punjab Pilot (30.73, 76.78)</button>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(19.7515, 75.7139)">📍 Maharashtra (19.75, 75.71)</button>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(42.0308, -93.6319)">📍 Iowa USA (42.03, -93.63)</button>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(43.6108, 3.8767)">📍 France (43.61, 3.88)</button>
+            <button type="button" class="preset-btn" onclick="SoilSentinelVisuals.triggerLocationAssessment(-1.2921, 36.8219)">📍 Kenya (-1.29, 36.82)</button>
+          </div>
+          <div id="farmer-location-info"></div>
+          <div id="farmer-study-map" class="study-map" role="application" aria-label="Map of the configured SoilSentinel study point"></div>
+          <p class="map-caption" id="farmer-map-caption">Interactive map centered on selected location. Click anywhere on the map to set a new pin.</p>
+        </article>
+        <article class="visual-card">
+          <div class="visual-card-head"><div><h3>Climate signals</h3><p>Monthly temperature and precipitation</p></div></div>
+          <div id="farmer-climate-chart" class="chart-stage chart-stage-compact" role="img" aria-label="Climate time-series chart"><p class="chart-empty">Loading climate observations…</p></div>
+          <p class="chart-footnote">NASA POWER regional climate/reanalysis data; precipitation is shown in mm/day as stored in the source table.</p>
+        </article>
+        <article class="visual-card visual-card-wide">
+          <div class="visual-card-head"><div><h3>Sentinel-2 10m Vegetation Trend (NDVI)</h3><p>Copernicus Level-2A · 60 Monthly Observations (2020–2024)</p></div><span class="chart-legend"><i class="legend-dot" style="background:#2e7d32;"></i> NDVI Canopy Vigor</span></div>
+          <div id="farmer-satellite-chart" class="chart-stage" role="img" aria-label="Sentinel-2 60-Month Satellite NDVI Vegetation Trend"><p class="chart-empty">Loading satellite observations…</p></div>
+          <p class="chart-footnote">Real surface reflectance from Copernicus Sentinel-2. The 5 unusable cloudy scenes are honestly marked as unobserved per SCL quality mask.</p>
+        </article>
+        <article class="visual-card visual-card-wide">
+          <div class="visual-card-head"><div><h3>Trained Model Explainability (Local TreeSHAP)</h3><p>Surrogate ML Model Feature Attribution (v1.0.0-rf-proxy)</p></div><span class="chart-legend"><i class="legend-dot" style="background:#c62828;"></i> Stress Driver</span></div>
+          <div id="farmer-shap-chart" class="chart-stage" role="img" aria-label="Local TreeSHAP Feature Attribution Chart"><p class="chart-empty">Loading SHAP explanation…</p></div>
+          <p class="chart-footnote">TreeSHAP local feature attribution for the loaded Random Forest surrogate model. Quantifies mathematical contributions to class probability; does not prove biological causation.</p>
+        </article>
       </div>
     </section>
 
@@ -713,7 +1204,27 @@
       </div>
     </section>
 
-    <!-- Crop Recommendation Eligibility Section -->
+    <!-- Contextual helper: deterministic responses from the current assessment, not a free-form generative AI claim -->
+<section class="assistant-panel" aria-labelledby="assessment-helper-title">
+  <div class="assistant-intro">
+    <span class="assistant-icon" aria-hidden="true">✳</span>
+    <div><p class="visual-kicker">ASK ABOUT THIS RESULT</p><h2 class="section-title" id="assessment-helper-title">Assessment helper</h2>
+      <p class="section-desc">Choose a question to get an explanation grounded in the currently loaded assessment.</p></div>
+  </div>
+  <div class="assistant-prompts" role="group" aria-label="Suggested questions">
+    <button type="button" class="prompt-chip" data-assist="risk">Why is my risk at this level?</button>
+    <button type="button" class="prompt-chip" data-assist="actions">Why are these actions recommended?</button>
+    <button type="button" class="prompt-chip" data-assist="data">Where does this data come from?</button>
+  </div>
+  <form id="assessment-helper-form" class="assistant-form">
+    <label class="sr-only" for="assessment-helper-input">Ask about this assessment</label>
+    <input id="assessment-helper-input" type="text" maxlength="180" placeholder="Ask about risk, recommendations, or data…" autocomplete="off"/>
+    <button type="submit" class="assistant-send">Explain <span aria-hidden="true">↗</span></button>
+  </form>
+  <div id="assessment-helper-answer" class="assistant-answer" aria-live="polite">Select a question to see an explanation based on this assessment.</div>
+  <p class="chart-footnote">This helper uses the current assessment payload and source metadata. It is not a medical, laboratory, or certified agronomic diagnosis.</p>
+</section>
+<!-- Crop Recommendation Eligibility Section -->
     <section class="crop-section">
       <div class="crop-header">
         <div>
@@ -772,6 +1283,41 @@
       </div>
     </section>
 
+    <!-- Persisted Field Assessment History (SQLite Audit Trail) -->
+    <section class="v6-panel" style="margin-top:20px;" aria-labelledby="history-title">
+      <div class="v6-panel-header">
+        <div>
+          <h2 class="v6-panel-title" id="history-title">📜 Verified Assessment History & Traceable Audit Trail</h2>
+          <p class="v6-panel-desc">All baseline and GPS field evaluations are cryptographically referenced and permanently persisted in the local SQLite database.</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/api/assessment/export?format=text" download="SoilSentinel_Assessment_Report.txt" class="btn-logout" style="background:#1b2e21; color:#fff; border-color:#1b2e21; text-decoration:none; display:inline-flex; align-items:center; gap:6px; font-size:12px; padding:8px 14px;">
+            <span>📄</span> <span>Export Text Audit</span>
+          </a>
+          <a href="/api/assessment/export?format=json" download="SoilSentinel_Assessment_Report.json" class="btn-logout" style="background:#ffffff; color:#1b2e21; border-color:var(--line); text-decoration:none; display:inline-flex; align-items:center; gap:6px; font-size:12px; padding:8px 14px;">
+            <span>💾</span> <span>Export JSON</span>
+          </a>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:13px; text-align:left;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--line); color:var(--muted); font-size:11px; text-transform:uppercase; font-family:'DM Mono', monospace;">
+              <th style="padding:10px 12px;">ID & Date</th>
+              <th style="padding:10px 12px;">Type</th>
+              <th style="padding:10px 12px;">Coordinates / Target</th>
+              <th style="padding:10px 12px;">Crop</th>
+              <th style="padding:10px 12px;">Risk / Index</th>
+              <th style="padding:10px 12px;">Status</th>
+            </tr>
+          </thead>
+          <tbody id="v6-history-tbody">
+            <tr><td colspan="6" style="padding:16px 12px; text-align:center; color:var(--muted);">Loading persisted assessments from SQLite database...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- Standard Agronomic & Non-ML Notice -->
     <div class="disclaimer-card">
       <strong data-t="notice_title">Agronomic Notice & Methodology:</strong>
@@ -816,6 +1362,10 @@
         sim_btn: "Simulate 30-Day Scenario ↗",
         notice_title: "Agronomic Notice & Methodology:",
         notice_body: "The SoilSentinel risk index is an empirical engineering heuristic based on regional reanalysis (NASA POWER) and digital soil mapping (SoilGrids 250m). It is a deterministic rule-based screening tool, NOT a machine-learned prediction model or localized certified agricultural prescription.",
+        camera_title: "📸 One-Click Camera Diagnostic Scan",
+        camera_desc: "Capture or upload a field photograph for instant visible crop-stress or soil-surface morphology screening.",
+        gps_title: "📍 Global GPS Field Assessment",
+        gps_desc: "Retrieve global SoilGrids 250m soil context, satellite weather, and multi-task ML predictions for any coordinates.",
         logout: "Log out ↗"
       },
       hi: {
@@ -838,6 +1388,10 @@
         sim_btn: "30-दिवसीय परिदृश्य चलाएं ↗",
         notice_title: "कृषि संबंधी सूचना और कार्यप्रणाली:",
         notice_body: "सॉइलसेंटिनल जोखिम सूचकांक नासा पावर और सॉइल-ग्रिड्स 250 मीटर पर आधारित एक इंजीनियरिंग अनुमान है। यह एक पारदर्शी नियम-आधारित जांच उपकरण है, कोई प्रमाणित नुस्खा नहीं।",
+        camera_title: "📸 एक-क्लिक कैमरा डायग्नोस्टिक स्कैन",
+        camera_desc: "दृश्यमान फसल तनाव या मिट्टी की सतह की संरचना की जांच के लिए खेत का फोटो खींचें या अपलोड करें।",
+        gps_title: "📍 ग्लोबल जीपीएस खेत आकलन",
+        gps_desc: "किसी भी निर्देशांक के लिए वैश्विक सॉइल-ग्रिड्स 250 मीटर संदर्भ, मौसम और बहु-कार्य एमएल भविष्यवाणियां प्राप्त करें।",
         logout: "लॉग आउट ↗"
       },
       te: {
@@ -860,6 +1414,10 @@
         sim_btn: "30-రోజుల సిమ్యులేషన్ చేయండి ↗",
         notice_title: "వ్యవసాయ గమనిక మరియు పద్ధతి:",
         notice_body: "సాయిల్ సెంటినెల్ రిస్క్ ఇండెక్స్ నాసా పవర్ మరియు సాయిల్‌గ్రిడ్స్ ఆధారంగా నిర్మించబడిన పారదర్శక సాంకేతిక పద్ధతి.",
+        camera_title: "📸 వన్-క్లిక్ కెమెరా డయాగ్నస్టిక్ స్కాన్",
+        camera_desc: "తక్షణ పంట ఒత్తిడి లేదా నేల ఉపరితల లక్షణాల స్క్రీనింగ్ కోసం ఫోటో తీయండి లేదా అప్‌లోడ్ చేయండి.",
+        gps_title: "📍 గ్లోబల్ GPS క్షేత్ర అంచనా",
+        gps_desc: "ఏదైనా అక్షాంశ-రేఖాంశాల కోసం సాయిల్‌గ్రిడ్స్ 250మీ నేల సమాచారం, వాతావరణం మరియు V6 ML అంచనాలను పొందండి.",
         logout: "లాగ్ అవుట్ ↗"
       },
       ur: {
@@ -913,17 +1471,38 @@
 
     // Initialize UI
     async function init() {
-      // 1. Authenticate & load workspace
+      // 1. Authenticate & load workspace or activate Guest Mode
+      const urlParams = new URLSearchParams(window.location.search);
+      const isGuestExplicit = urlParams.get('mode') === 'guest' || urlParams.get('guest') === 'true';
+
+      let isGuest = isGuestExplicit;
       try {
-        const res = await fetch('/api/farmer/workspace');
-        if (!res.ok) throw new Error('Unauthenticated');
-        const data = await res.json();
-        if (data.user) {
-          document.getElementById('user-display').textContent = `🧑🏽‍🌾 ${data.user.name || 'Farmer'}`;
+        const res = await fetch('/api/farmer/workspace', { credentials: 'same-origin' });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.user) {
+            document.getElementById('user-display').textContent = `🧑🏽‍🌾 ${data.user.name || 'Farmer'}`;
+            isGuest = false;
+          } else {
+            isGuest = true;
+          }
+        } else {
+          isGuest = true;
         }
       } catch (err) {
-        window.location.replace('/auth.html?mode=login&role=farmer');
-        return;
+        isGuest = true;
+      }
+
+      if (isGuest) {
+        window.isGuestSession = true;
+        document.getElementById('user-display').textContent = '🌱 Guest Visitor';
+        const guestBanner = document.getElementById('guest-mode-banner');
+        if (guestBanner) guestBanner.style.display = 'block';
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+          logoutBtn.textContent = 'Sign In / Register ↗';
+          logoutBtn.onclick = () => window.location.href = 'auth.html?mode=register&role=farmer';
+        }
       }
 
       // 2. Fetch available dates
@@ -992,19 +1571,541 @@
       });
 
       simBtn.addEventListener('click', runSimulation);
+
+      // 6. Initialize V6 Workflows
+      setupV6Workflows();
+
+      // 7. Load Persisted Assessment History
+      await loadAssessmentHistory();
+    }
+
+    // -------------------------------------------------------------------------
+    // V6 Workflows: One-Click Camera AI & Global GPS Assessment
+    // -------------------------------------------------------------------------
+    let currentCameraMode = 'crop';
+    let uploadedCameraBase64 = null;
+    let cameraSpeechText = '';
+
+    function showCameraError(message, isWarning = false) {
+      const errBox = document.getElementById('v6-cam-error');
+      const errMsg = document.getElementById('v6-cam-error-msg');
+      const errIcon = document.getElementById('v6-cam-error-icon');
+      if (errBox && errMsg) {
+        errMsg.textContent = message;
+        if (errIcon) errIcon.textContent = isWarning ? 'ℹ️' : '⚠️';
+        errBox.style.background = isWarning ? '#e8f4fd' : '#fff3cd';
+        errBox.style.borderColor = isWarning ? '#b8daff' : '#ffeeba';
+        errBox.style.color = isWarning ? '#004085' : '#856404';
+        errBox.style.display = 'block';
+      }
+    }
+
+    function clearCameraError() {
+      const errBox = document.getElementById('v6-cam-error');
+      if (errBox) errBox.style.display = 'none';
+    }
+
+    function formatDiagnosisTitle(diag) {
+      if (!diag || typeof diag !== 'string') return 'Undetermined';
+      const mapping = {
+        'HEALTHY_VIGOROUS_FOLIAGE': 'Healthy Vigorous Foliage',
+        'NUTRIENT_CHLOROSIS': 'Nutrient Chlorosis (Yellowing)',
+        'LEAF_SPOT_NECROSIS': 'Leaf Spot Necrosis / Blight',
+        'SALINE_EFFLORESCENCE_CRUST': 'Saline Efflorescence Crust',
+        'SURFACE_WATER_EROSION_RILL': 'Surface Water Erosion & Rills',
+        'SURFACE_CRUSTING_AND_COMPACTION': 'Surface Crusting & Compaction',
+        'TYPICAL_TOPSOIL_STRUCTURE': 'Typical Healthy Topsoil Structure',
+        'UNSUITABLE_IMAGE': 'Unsuitable Image Quality',
+        'NON_CROP_IMAGE': 'Non-Agricultural Subject Detected'
+      };
+      return mapping[diag] || diag.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
+
+    function setupV6Workflows() {
+      // 1. Toggle Crop vs Soil mode
+      const btnCrop = document.getElementById('btn-mode-crop');
+      const btnSoil = document.getElementById('btn-mode-soil');
+      const scanBtnText = document.getElementById('v6-scan-btn-text');
+
+      if (btnCrop && btnSoil) {
+        btnCrop.addEventListener('click', () => {
+          currentCameraMode = 'crop';
+          btnCrop.classList.add('active');
+          btnSoil.classList.remove('active');
+          btnCrop.setAttribute('aria-selected', 'true');
+          btnSoil.setAttribute('aria-selected', 'false');
+          if (scanBtnText) scanBtnText.textContent = 'Analyze Crop Leaf';
+          clearCameraError();
+        });
+
+        btnSoil.addEventListener('click', () => {
+          currentCameraMode = 'soil';
+          btnSoil.classList.add('active');
+          btnCrop.classList.remove('active');
+          btnSoil.setAttribute('aria-selected', 'true');
+          btnCrop.setAttribute('aria-selected', 'false');
+          if (scanBtnText) scanBtnText.textContent = 'Analyze Soil Surface';
+          clearCameraError();
+        });
+      }
+
+      // 2. Camera Dropzone & File Input
+      const dropZone = document.getElementById('v6-drop-zone');
+      const fileInput = document.getElementById('v6-camera-input');
+      const previewImg = document.getElementById('v6-preview-img');
+      const zonePrompt = document.getElementById('v6-zone-prompt');
+      const scanBtn = document.getElementById('v6-scan-btn');
+
+      function handleSelectedFile(file) {
+        if (!file) return;
+        clearCameraError();
+
+        if (file.type && !file.type.startsWith('image/')) {
+          showCameraError('Selected file is not an image. Please provide a valid JPEG, PNG, or WebP photograph.');
+          return;
+        }
+        if (file.size > 15 * 1024 * 1024) {
+          showCameraError('Photograph exceeds the 15MB size limit. Please capture or upload a smaller image.');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          uploadedCameraBase64 = evt.target.result;
+          if (previewImg) {
+            previewImg.src = uploadedCameraBase64;
+            previewImg.style.display = 'block';
+          }
+          if (zonePrompt) zonePrompt.style.display = 'none';
+          if (scanBtn) scanBtn.disabled = false;
+          clearCameraError();
+        };
+        reader.onerror = () => {
+          showCameraError('Failed to read selected image file. Please try selecting the file again.');
+        };
+        reader.readAsDataURL(file);
+      }
+
+      if (dropZone && fileInput) {
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+        });
+
+        // Drag & Drop Support
+        dropZone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => {
+          dropZone.classList.remove('dragover');
+        });
+        dropZone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropZone.classList.remove('dragover');
+          const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+          if (file) handleSelectedFile(file);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (file) handleSelectedFile(file);
+          fileInput.value = '';
+        });
+      }
+
+      // 3. Scan & Analyze Photograph
+      if (scanBtn) {
+        scanBtn.addEventListener('click', async () => {
+          clearCameraError();
+
+          // Resolve active image from state variable or preview image element
+          const imageToAnalyze = uploadedCameraBase64 || (previewImg && previewImg.src && previewImg.src.startsWith('data:image/') ? previewImg.src : null);
+          if (!imageToAnalyze) {
+            showCameraError('Please capture or upload an image before requesting AI analysis.');
+            return;
+          }
+
+          scanBtn.disabled = true;
+          scanBtn.innerHTML = '<span>⏳</span> <span>Processing AI...</span>';
+          const resBox = document.getElementById('v6-camera-result');
+          if (resBox) resBox.classList.remove('active');
+
+          try {
+            const res = await fetch('/api/camera/analyze', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                image: imageToAnalyze,
+                image_data: imageToAnalyze,
+                image_base64: imageToAnalyze,
+                modality: currentCameraMode,
+                target_mode: currentCameraMode
+              })
+            });
+
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || data.success === false) {
+              throw new Error(data.error || data.message || `Camera analysis failed (HTTP ${res.status}).`);
+            }
+
+            if (resBox) resBox.classList.add('active');
+            const payload = data.payload || data;
+
+            // Extract diagnosis string safely
+            let rawDiag = payload.diagnosis;
+            if (typeof rawDiag === 'object' && rawDiag !== null) {
+              rawDiag = rawDiag.diagnosis || rawDiag.diagnosis_category || 'Undetermined';
+            }
+            const diagStr = String(rawDiag || 'Undetermined');
+            const diagTitle = formatDiagnosisTitle(diagStr);
+
+            const confVal = payload.confidence !== undefined ? payload.confidence : (payload.raw_diagnosis && payload.raw_diagnosis.confidence);
+            const confText = (typeof confVal === 'number' && confVal > 0) ? `${(confVal * 100).toFixed(1)}% confidence` : '--';
+
+            document.getElementById('v6-cam-diagnosis').textContent = diagTitle;
+            document.getElementById('v6-cam-conf').textContent = confText;
+            document.getElementById('v6-cam-explanation').textContent = payload.explanation || (payload.raw_diagnosis && payload.raw_diagnosis.explanation) || '';
+
+            const badge = document.getElementById('v6-cam-badge');
+            if (badge) {
+              const lowerDiag = diagStr.toLowerCase();
+              if (lowerDiag.includes('healthy') || lowerDiag.includes('typical') || lowerDiag.includes('normal')) {
+                badge.className = 'v6-badge v6-badge-green';
+                badge.textContent = 'Normal / Stable';
+              } else if (lowerDiag.includes('unsuitable') || lowerDiag.includes('non_crop') || lowerDiag.includes('error')) {
+                badge.className = 'v6-badge v6-badge-amber';
+                badge.textContent = 'Attention Needed';
+              } else {
+                badge.className = 'v6-badge v6-badge-amber';
+                badge.textContent = 'Stress Detected';
+              }
+            }
+
+            // Contributing factors / causes
+            const causesList = document.getElementById('v6-cam-causes');
+            if (causesList) {
+              causesList.innerHTML = '';
+              const causes = payload.possible_causes || (payload.raw_diagnosis && payload.raw_diagnosis.possible_causes) || [];
+              if (causes.length === 0) {
+                causesList.innerHTML = '<li>No significant stress factors identified.</li>';
+              } else {
+                causes.forEach(c => {
+                  const li = document.createElement('li');
+                  li.textContent = c;
+                  causesList.appendChild(li);
+                });
+              }
+            }
+
+            // Recommended next steps
+            const stepsList = document.getElementById('v6-cam-steps');
+            if (stepsList) {
+              stepsList.innerHTML = '';
+              const steps = payload.recommended_next_steps || (payload.raw_diagnosis && payload.raw_diagnosis.recommended_next_steps) || [];
+              if (steps.length === 0) {
+                stepsList.innerHTML = '<li>Maintain standard agronomic schedule and monitor weekly.</li>';
+              } else {
+                steps.forEach(s => {
+                  const li = document.createElement('li');
+                  li.textContent = s;
+                  stepsList.appendChild(li);
+                });
+              }
+            }
+
+            // Calibrated class probabilities
+            const probContainer = document.getElementById('v6-cam-probabilities-container');
+            const probList = document.getElementById('v6-cam-probabilities');
+            const probs = payload.probabilities || (payload.raw_diagnosis && payload.raw_diagnosis.probabilities) || {};
+            if (probContainer && probList) {
+              probList.innerHTML = '';
+              const entries = Object.entries(probs);
+              if (entries.length > 0) {
+                probContainer.style.display = 'block';
+                entries.sort((a, b) => b[1] - a[1]);
+                entries.forEach(([label, pVal]) => {
+                  const pct = Math.round(pVal * 100);
+                  const cleanLabel = label.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                  const row = document.createElement('div');
+                  row.style.fontSize = '12px';
+                  row.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
+                      <span style="color:var(--ink);">${cleanLabel}</span>
+                      <span style="font-family:'DM Mono', monospace; font-weight:600; color:var(--leaf);">${pct}%</span>
+                    </div>
+                    <div style="height:6px; background:var(--line); border-radius:3px; overflow:hidden;">
+                      <div style="height:100%; width:${pct}%; background:${pct > 60 ? 'var(--leaf)' : '#d97706'}; border-radius:3px; transition:width 0.4s ease;"></div>
+                    </div>
+                  `;
+                  probList.appendChild(row);
+                });
+              } else {
+                probContainer.style.display = 'none';
+              }
+            }
+
+            // Quality note & blur check
+            const q = payload.quality || (payload.raw_diagnosis && payload.raw_diagnosis.quality_report) || {};
+            const blurVal = q.laplacian_variance !== undefined ? q.laplacian_variance.toFixed(1) : (q.sharpness_score !== undefined ? q.sharpness_score.toFixed(1) : 'N/A');
+            const qEl = document.getElementById('v6-quality-note');
+            if (qEl) {
+              const qStatus = q.status || (q.quality_passed ? 'OK' : 'POOR');
+              qEl.textContent = `Blur Sharpness: ${blurVal} · Quality: ${qStatus}`;
+              qEl.style.color = qStatus === 'OK' ? 'var(--muted)' : '#b45309';
+            }
+
+            // Voice read aloud synthesis
+            const firstStep = (payload.recommended_next_steps && payload.recommended_next_steps[0]) || 'Scout and observe field.';
+            cameraSpeechText = `Diagnosis: ${diagTitle}. ${payload.explanation || ''}. Recommended action: ${firstStep}`;
+
+          } catch (err) {
+            showCameraError(err.message || 'Camera analysis failed. Please check image clarity and try again.');
+            if (resBox) resBox.classList.remove('active');
+          } finally {
+            scanBtn.disabled = false;
+            scanBtn.innerHTML = `<span>⚡</span> <span id="v6-scan-btn-text">${currentCameraMode === 'crop' ? 'Analyze Crop Leaf' : 'Analyze Soil Surface'}</span>`;
+          }
+        });
+      }
+
+      // 4. Voice Read-Aloud (HTML5 Web Speech API)
+      const voiceBtn = document.getElementById('v6-voice-btn');
+      if (voiceBtn) {
+        voiceBtn.addEventListener('click', () => {
+          if (!('speechSynthesis' in window)) {
+            alert('Voice read-aloud is not supported on this browser.');
+            return;
+          }
+          if (!cameraSpeechText) {
+            alert('Please perform an image analysis first to generate diagnostic speech.');
+            return;
+          }
+
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(cameraSpeechText);
+          const currentLang = document.getElementById('lang-select').value || 'en';
+          
+          if (currentLang === 'te') utterance.lang = 'te-IN';
+          else if (currentLang === 'hi') utterance.lang = 'hi-IN';
+          else utterance.lang = 'en-US';
+
+          utterance.rate = 0.95;
+          window.speechSynthesis.speak(utterance);
+        });
+      }
+
+      // 5. Global Location Presets
+      document.querySelectorAll('.v6-preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lat = btn.dataset.lat;
+          const lon = btn.dataset.lon;
+          const crop = btn.dataset.crop;
+          const name = btn.dataset.name;
+          document.getElementById('v6-lat-input').value = lat;
+          document.getElementById('v6-lon-input').value = lon;
+          if (crop) document.getElementById('v6-crop-type').value = crop;
+          updateConfirmBox(lat, lon, name, 'Preset Location');
+        });
+      });
+
+      function updateConfirmBox(lat, lon, label, source) {
+        const cCoords = document.getElementById('v6-confirm-coords');
+        const cLabel = document.getElementById('v6-confirm-label');
+        const cAcc = document.getElementById('v6-confirm-acc');
+        const parsedLat = parseFloat(lat);
+        const parsedLon = parseFloat(lon);
+        if (!isNaN(parsedLat) && !isNaN(parsedLon)) {
+          if (cCoords) cCoords.textContent = `${parsedLat.toFixed(4)}°N, ${parsedLon.toFixed(4)}°E`;
+          if (cLabel) cLabel.textContent = label || 'Custom Coordinates';
+          if (cAcc) cAcc.textContent = source || 'Manual Entry';
+          if (window.SoilSentinelVisuals && window.SoilSentinelVisuals.updateMapLocation) {
+            window.SoilSentinelVisuals.updateMapLocation(parsedLat, parsedLon, label, source);
+          }
+        }
+      }
+
+      const latInput = document.getElementById('v6-lat-input');
+      const lonInput = document.getElementById('v6-lon-input');
+      if (latInput && lonInput) {
+        const onCoordChange = () => {
+          const latVal = parseFloat(latInput.value);
+          const lonVal = parseFloat(lonInput.value);
+          if (!isNaN(latVal) && !isNaN(lonVal)) {
+            updateConfirmBox(latVal, lonVal, 'Custom Coordinates', 'Manual Input');
+          }
+        };
+        latInput.addEventListener('input', onCoordChange);
+        lonInput.addEventListener('input', onCoordChange);
+      }
+
+      // 6. GPS Auto-Detect
+      const detectGpsBtn = document.getElementById('v6-gps-detect-btn');
+      if (detectGpsBtn) {
+        detectGpsBtn.addEventListener('click', () => {
+          const gpsErr = document.getElementById('v6-gps-error');
+          if (gpsErr) { gpsErr.style.display = 'none'; gpsErr.textContent = ''; }
+
+          if (!navigator.geolocation) {
+            if (gpsErr) {
+              gpsErr.textContent = 'Geolocation is not supported by your browser or current insecure HTTP origin.';
+              gpsErr.style.display = 'block';
+            }
+            return;
+          }
+          detectGpsBtn.innerHTML = '<span>📡</span> <span>Acquiring GPS Fix...</span>';
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              const lat = pos.coords.latitude.toFixed(4);
+              const lon = pos.coords.longitude.toFixed(4);
+              const acc = Math.round(pos.coords.accuracy || 0);
+              document.getElementById('v6-lat-input').value = lat;
+              document.getElementById('v6-lon-input').value = lon;
+              updateConfirmBox(lat, lon, 'Device Location', `GPS Fix (±${acc}m accuracy)`);
+              detectGpsBtn.innerHTML = `<span>✅</span> <span>GPS Fixed (±${acc}m)</span>`;
+              setTimeout(() => {
+                detectGpsBtn.innerHTML = '<span>📡</span> <span>Use Device GPS</span>';
+              }, 4000);
+            },
+            (err) => {
+              console.warn('Geolocation error:', err);
+              let msg = err.message || 'Unknown error';
+              if (err.code === 1) msg = 'Location permission denied by user.';
+              else if (err.code === 2) msg = 'Position unavailable.';
+              else if (err.code === 3) msg = 'GPS acquisition timed out.';
+              if (gpsErr) {
+                gpsErr.textContent = `GPS Notice: ${msg} Please select a preset or type coordinates manually.`;
+                gpsErr.style.display = 'block';
+              }
+              detectGpsBtn.innerHTML = '<span>📡</span> <span>Use Device GPS</span>';
+            },
+            { timeout: 12000, enableHighAccuracy: true }
+          );
+        });
+      }
+
+      // 7. GPS Field Assessment
+      const gpsAssessBtn = document.getElementById('v6-gps-assess-btn');
+      if (gpsAssessBtn) {
+        gpsAssessBtn.addEventListener('click', async () => {
+          const lat = parseFloat(document.getElementById('v6-lat-input').value);
+          const lon = parseFloat(document.getElementById('v6-lon-input').value);
+          const crop = document.getElementById('v6-crop-type').value;
+          const gpsErr = document.getElementById('v6-gps-error');
+          if (gpsErr) { gpsErr.style.display = 'none'; gpsErr.textContent = ''; }
+
+          if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+            if (gpsErr) {
+              gpsErr.textContent = 'Please enter valid numerical latitude (-90 to 90) and longitude (-180 to 180) coordinates.';
+              gpsErr.style.display = 'block';
+            }
+            return;
+          }
+
+          gpsAssessBtn.disabled = true;
+          gpsAssessBtn.innerHTML = '<span>🌍</span> <span>Querying Global Soil & Climate...</span>';
+          const resBox = document.getElementById('v6-gps-result');
+          if (resBox) resBox.classList.remove('active');
+
+          try {
+            const res = await fetch('/api/gps/assess', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ latitude: lat, longitude: lon, crop_type: crop })
+            });
+
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.message || data.error || 'GPS Assessment failed');
+
+            if (resBox) resBox.classList.add('active');
+            const payload = data.payload || data;
+
+            document.getElementById('v6-gps-coords-display').textContent = `${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E`;
+
+            // SoilGrids contextual
+            const sg = payload.contextual_soilgrids || {};
+            document.getElementById('v6-sg-ph').textContent = sg.ph_mean ? sg.ph_mean.toFixed(1) : '--';
+            document.getElementById('v6-sg-soc').textContent = sg.soc_mean ? `${sg.soc_mean.toFixed(1)} g/kg` : '--';
+            document.getElementById('v6-sg-clay').textContent = sg.clay_mean ? `${sg.clay_mean.toFixed(1)}%` : '--';
+
+            // Weather
+            const wx = payload.recent_weather || {};
+            document.getElementById('v6-wx-temp').textContent = wx.mean_temperature_c ? `${wx.mean_temperature_c.toFixed(1)} °C` : '--';
+            document.getElementById('v6-wx-rain').textContent = wx.total_precipitation_mm ? `${wx.total_precipitation_mm.toFixed(1)} mm` : '--';
+
+            // V6 predictions
+            const preds = payload.v6_predictions || {};
+            const socVal = preds.soil_organic_carbon && preds.soil_organic_carbon.predicted_soc_g_per_kg;
+            document.getElementById('v6-pred-soc').textContent = socVal ? `${socVal.toFixed(1)} g C/kg` : '--';
+            
+            const salVal = preds.soil_salinity && preds.soil_salinity.prediction;
+            document.getElementById('v6-pred-salinity').textContent = salVal || '--';
+
+            const acidVal = preds.soil_acidity && preds.soil_acidity.prediction;
+            document.getElementById('v6-pred-acidity').textContent = acidVal || '--';
+
+            const stressVal = preds.environmental_stress && preds.environmental_stress.proxy_risk_category;
+            document.getElementById('v6-pred-stress').textContent = stressVal || '--';
+
+            // OOD check
+            const ood = preds.domain_applicability || {};
+            const oodBadge = document.getElementById('v6-ood-badge');
+            const domainWarning = document.getElementById('v6-domain-warning');
+            if (oodBadge) {
+              if (ood.is_in_domain === false) {
+                oodBadge.className = 'v6-badge v6-badge-red';
+                oodBadge.textContent = 'Out of Domain';
+                if (domainWarning) domainWarning.style.display = 'block';
+              } else {
+                oodBadge.className = 'v6-badge v6-badge-green';
+                oodBadge.textContent = 'Within Domain';
+                if (domainWarning) domainWarning.style.display = 'none';
+              }
+            }
+
+            // Sync map and field headings with assessed location
+            if (window.SoilSentinelVisuals && window.SoilSentinelVisuals.updateMapLocation) {
+              window.SoilSentinelVisuals.updateMapLocation(lat, lon, `Assessed Field (${crop})`, 'Global Pedology & Climate Queried');
+            }
+            const evidenceTitle = document.getElementById('field-evidence-title');
+            if (evidenceTitle) evidenceTitle.textContent = `Field Evidence: ${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E`;
+            const evidenceDesc = document.getElementById('field-evidence-desc');
+            if (evidenceDesc) evidenceDesc.textContent = `Evaluated at ${lat.toFixed(4)}°N, ${lon.toFixed(4)}°E using ISRIC SoilGrids 250m contextual pedology, NASA/Open-Meteo weather, and V6 machine learning.`;
+
+            // Immediately refresh the audit history table
+            await loadAssessmentHistory();
+
+          } catch (err) {
+            if (gpsErr) {
+              gpsErr.textContent = `Field Assessment Warning: ${err.message}`;
+              gpsErr.style.display = 'block';
+            }
+          } finally {
+            gpsAssessBtn.disabled = false;
+            gpsAssessBtn.innerHTML = '<span>🌍</span> <span id="v6-gps-btn-text">Assess Field Health at Location</span>';
+          }
+        });
+      }
     }
 
     // Load Real Assessment from Backend
     async function loadAssessment(dateStr) {
+      const alertBox = document.getElementById('dashboard-alert');
       try {
         const url = `/api/assessment/evaluate?date=${encodeURIComponent(dateStr)}`;
-        const res = await fetch(url);
-        if (!res.ok) throw new Error('Evaluation failed');
-        const json = await res.json();
+        const res = await fetch(url, { credentials: 'same-origin' });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(json.error || 'Assessment could not be loaded.');
         currentAssessment = json.payload || json;
+        if (alertBox) { alertBox.hidden = true; alertBox.textContent = ''; }
         renderDashboard(currentAssessment);
+        await loadAssessmentHistory();
       } catch (err) {
         console.error('Failed to evaluate assessment:', err);
+        if (alertBox) {
+          alertBox.textContent = `Assessment unavailable: ${err.message || 'The backend did not return a valid result.'} Check the service and try again.`;
+          alertBox.hidden = false;
+        }
       }
     }
 
@@ -1058,6 +2159,7 @@
 
       // Crop Advisory
       renderCropSection(crop);
+      if (window.SoilSentinelVisuals) window.SoilSentinelVisuals.render(p, 'farmer');
 
       // Footer
       if (audit.assessment_id) {
@@ -1255,6 +2357,49 @@
           el.textContent = dict[k];
         }
       });
+    }
+
+    // Load Persisted Assessment History from SQLite
+    async function loadAssessmentHistory() {
+      const tbody = document.getElementById('v6-history-tbody');
+      if (!tbody) return;
+      try {
+        const res = await fetch('/api/assessment/history', { credentials: 'same-origin' });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.is_guest) {
+          tbody.innerHTML = '<tr><td colspan="6" style="padding:16px 12px; text-align:center; color:var(--muted);"><span style="display:inline-block; margin-bottom:4px; font-weight:600; color:var(--leaf);">🌱 Guest Exploration Mode</span><br>Assessments run during guest exploration are active for this browser session. <a href="auth.html?role=farmer&mode=register" style="color:var(--leaf); font-weight:600; text-decoration:underline;">Create a free account</a> to permanently persist history and export official audit reports.</td></tr>';
+          return;
+        }
+        const list = data.history || [];
+        if (list.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" style="padding:16px 12px; text-align:center; color:var(--muted);">No assessments recorded yet. Run a field assessment above to generate your first audit record.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = list.map(item => {
+          const cat = item.risk_category || 'Evaluating';
+          const badgeClass = cat === 'Low' ? 'v6-badge-green' : (cat === 'High' ? 'v6-badge-red' : 'v6-badge-amber');
+          const coords = (item.latitude && item.longitude) ? `${Number(item.latitude).toFixed(2)}°N, ${Number(item.longitude).toFixed(2)}°E` : 'Reference Location';
+          const dateStr = item.date_str || (item.created_at ? item.created_at.substring(0, 10) : '--');
+          const scoreStr = item.risk_index !== null && item.risk_index !== undefined ? `${Number(item.risk_index).toFixed(1)} / 100` : '--';
+          const shortId = (item.assessment_id || '').substring(0, 16);
+          return `
+            <tr style="border-bottom:1px solid var(--line);">
+              <td style="padding:10px 12px;">
+                <strong style="font-family:'DM Mono', monospace; font-size:12px;">${shortId}...</strong>
+                <div style="font-size:11px; color:var(--muted);">${dateStr}</div>
+              </td>
+              <td style="padding:10px 12px;"><span class="v6-badge v6-badge-blue" style="font-size:10px;">${item.assessment_type || 'Field'}</span></td>
+              <td style="padding:10px 12px; font-family:'DM Mono', monospace; font-size:12px;">${coords}</td>
+              <td style="padding:10px 12px; text-transform:capitalize;">${item.crop_type || 'Wheat'}</td>
+              <td style="padding:10px 12px;"><strong>${scoreStr}</strong></td>
+              <td style="padding:10px 12px;"><span class="v6-badge ${badgeClass}" style="font-size:10px;">${cat}</span></td>
+            </tr>
+          `;
+        }).join('');
+      } catch (err) {
+        console.warn('Failed to load history:', err);
+      }
     }
 
     // Start on DOM ready

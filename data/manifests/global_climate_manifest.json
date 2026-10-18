@@ -1,0 +1,56 @@
+{
+  "dataset_title": "NASA POWER Agro-Climatology Global Monthly Multi-Region Dataset (2020-2024)",
+  "publisher": "NASA Langley Research Center",
+  "official_endpoint": "https://power.larc.nasa.gov/api/temporal/monthly/point",
+  "license": "Public Domain (NASA Open Data Policy)",
+  "geographic_coverage": "6 Global Agricultural Benchmark Regions across major Koppen-Geiger climate zones",
+  "record_count": 360,
+  "variables": [
+    "T2M",
+    "T2M_MAX",
+    "T2M_MIN",
+    "PRECTOTCORR",
+    "RH2M",
+    "ALLSKY_SFC_SW_DWN",
+    "GWETTOP",
+    "GWETROOT"
+  ],
+  "files": [
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_climate\\nasa_power_africa_rift_valley.csv",
+      "filename": "nasa_power_africa_rift_valley.csv",
+      "size_bytes": 8887,
+      "sha256": "0e0351f59e7339e536ec66f01fce44daafe4342502bde0fd87ac465d8d774cc6"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_climate\\nasa_power_asia_indo_gangetic.csv",
+      "filename": "nasa_power_asia_indo_gangetic.csv",
+      "size_bytes": 9358,
+      "sha256": "349eb4d7770b1575a1f0a2374dc6b3df4639077cdd186f457069f459d19a1172"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_climate\\nasa_power_europe_andalusia.csv",
+      "filename": "nasa_power_europe_andalusia.csv",
+      "size_bytes": 9616,
+      "sha256": "6edc6bec4563d63d3f5d8304b3056cb85168c704d8330e0b15d42447cff063fc"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_climate\\nasa_power_north_america_iowa.csv",
+      "filename": "nasa_power_north_america_iowa.csv",
+      "size_bytes": 8846,
+      "sha256": "2060a2e787cc2bb0fca29a4c4962e09e462eb687077efabe5987477004f7e580"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_climate\\nasa_power_oceania_wheatbelt.csv",
+      "filename": "nasa_power_oceania_wheatbelt.csv",
+      "size_bytes": 9866,
+      "sha256": "f451c58cccfc391e9245dd29db8dd90d8fae074a7a2f72e41e101bbeab20bd80"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\global_climate\\nasa_power_south_america_cerrado.csv",
+      "filename": "nasa_power_south_america_cerrado.csv",
+      "size_bytes": 9727,
+      "sha256": "108ba34a7738ae264a629032b9be4f6b933c1ff2d88f4ff3465b4114e9dad9e1"
+    }
+  ]
+}

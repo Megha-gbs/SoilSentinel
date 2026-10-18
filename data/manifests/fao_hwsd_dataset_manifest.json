@@ -1,0 +1,29 @@
+{
+  "dataset_title": "FAO / IIASA Harmonized World Soil Database version 2.0 (HWSD v2.0)",
+  "publisher": "Food and Agriculture Organization of the United Nations (FAO) and International Institute for Applied Systems Analysis (IIASA)",
+  "official_url": "https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/harmonized-world-soil-database-v20/en/",
+  "source_archive_url": "https://s3.eu-west-1.amazonaws.com/data.gaezdev.aws.fao.org/HWSD/HWSD2_DB.zip",
+  "technical_report_url": "https://www.fao.org/3/cc3823en/cc3823en.pdf",
+  "license": "Open Access for non-commercial research and educational use (FAO / IIASA terms)",
+  "spatial_resolution": "30 arc-seconds (~1 km) with over 30,000 harmonized global soil profiles",
+  "files": [
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\fao_hwsd\\HWSD2_DB.zip",
+      "filename": "HWSD2_DB.zip",
+      "size_bytes": 9304008,
+      "sha256": "6c69e09137a8150f53c8a893fe3e4426d6b5cceb635c00378b54b7d64a9736c0"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\fao_hwsd\\HWSD2.mdb",
+      "filename": "HWSD2.mdb",
+      "size_bytes": 91594752,
+      "sha256": "f52c40194c3b314ea46306c3ec6f0e227ab66eb424422e0f095ece4c75212dff"
+    },
+    {
+      "filepath": "C:\\Users\\mohitkumar\\Documents\\Datathon\\data\\raw\\fao_hwsd\\HWSD2_Technical_Report.pdf",
+      "filename": "HWSD2_Technical_Report.pdf",
+      "size_bytes": 3008356,
+      "sha256": "62c11398ccde39c1c94903d3a1add053625202d78e14997ad49aade7b9047585"
+    }
+  ]
+}

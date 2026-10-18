@@ -1,0 +1,79 @@
+{
+  "manifest_name": "ISRIC WoSIS Measured Soil Observations Manifest",
+  "created_at_utc": "2026-10-18T03:59:40.554221+00:00",
+  "custodian": "ISRIC - World Soil Information, Wageningen, Netherlands",
+  "official_documentation": "https://docs.isric.org/globaldata/wosis/",
+  "wfs_service_endpoint": "https://maps.isric.org/mapserv?map=/map/wosis_latest.map",
+  "license": "Open Database License (ODbL) / Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "study_bounding_box": {
+    "name": "Northwest India / Punjab Alluvial Basin",
+    "bbox_coordinates": "28.0, 72.0, 33.5, 78.5 (min_lat, min_lon, max_lat, max_lon)"
+  },
+  "target_declaration": "Field-measured in-situ laboratory soil properties (SOC concentration, pH in H2O, clay/sand/silt texture mass fractions). These represent static historical physical soil measurements, NOT dynamic multi-temporal degradation rate labels.",
+  "files": {
+    "profiles_punjab_bbox": {
+      "file_path": "data/raw/wosis/wosis_profiles_punjab_bbox.geojson",
+      "size_bytes": 80423,
+      "sha256": "ff2288c53b4b4bb2c0c11df32c22ea53035eeb28ce8ab6a7318d1bdcae97348c",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 67,
+      "description": "Standardized soil profile sites in Northwest India / Punjab agricultural basin"
+    },
+    "profiles_india_national": {
+      "file_path": "data/raw/wosis/wosis_profiles_india.geojson",
+      "size_bytes": 1126361,
+      "sha256": "7f5f2191dcc7f912e18ad323db13e633af54c07be6fe82a716505f709276be3d",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 942,
+      "description": "National benchmark soil profile sites across India"
+    },
+    "orgc_measured": {
+      "file_path": "data/raw/wosis/wosis_orgc_punjab_bbox.geojson",
+      "size_bytes": 429902,
+      "sha256": "c1fec3018a864db1571eaf1c87e1bd51cde9374e2096ae1f6cd49c15c51c109b",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 424,
+      "description": "Measured soil organic carbon observations across depth horizons (g/kg)"
+    },
+    "phaq_measured": {
+      "file_path": "data/raw/wosis/wosis_phaq_punjab_bbox.geojson",
+      "size_bytes": 380259,
+      "sha256": "4078ace84d23ced64a136b45de1d6df1e38f71a44cf2c6a168aa0c2354119d24",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 386,
+      "description": "Measured soil pH (in H2O) observations across depth horizons"
+    },
+    "clay_measured": {
+      "file_path": "data/raw/wosis/wosis_clay_punjab_bbox.geojson",
+      "size_bytes": 363133,
+      "sha256": "786ee6369e126b98c6fecd49d7611325286828eaceef2e7635020e214685b582",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 386,
+      "description": "Measured clay mass fraction observations across depth horizons (%)"
+    },
+    "sand_measured": {
+      "file_path": "data/raw/wosis/wosis_sand_punjab_bbox.geojson",
+      "size_bytes": 398588,
+      "sha256": "336822399d4df292aa44669ce114beaceff1882c30e559a12108831363a9a4be",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 433,
+      "description": "Measured sand mass fraction observations across depth horizons (%)"
+    },
+    "silt_measured": {
+      "file_path": "data/raw/wosis/wosis_silt_punjab_bbox.geojson",
+      "size_bytes": 400856,
+      "sha256": "3b824c7def2da6143b2a548e9e948192f76f0636913190d6862151fb710d7df6",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 433,
+      "description": "Measured silt mass fraction observations across depth horizons (%)"
+    },
+    "processed_soil_table": {
+      "file_path": "data/processed/wosis_measured_soil_properties.csv",
+      "size_bytes": 9363,
+      "sha256": "388ccd25c027704100008dc49f4e1de3bc5bd43c46a798209c2a5e211c512e26",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 61,
+      "description": "Standardized topsoil plow layer (0-30cm) measured physical and chemical soil properties"
+    }
+  }
+}

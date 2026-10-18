@@ -1,0 +1,37 @@
+{
+  "manifest_name": "ISRIC SoilGrids v2.0 Global 250m Baseline Manifest",
+  "created_at_utc": "2026-10-18T03:59:40.554221+00:00",
+  "custodian": "ISRIC - World Soil Information, Wageningen, Netherlands",
+  "official_documentation": "https://www.isric.org/explore/soilgrids",
+  "repository_url": "https://files.isric.org/soilgrids/latest/data/",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "properties_extracted": [
+    "phh2o",
+    "clay",
+    "sand",
+    "silt",
+    "soc"
+  ],
+  "depth_intervals": [
+    "0-5cm",
+    "5-15cm",
+    "15-30cm"
+  ],
+  "target_declaration": "Modeled 250m static digital soil mapping baseline features. STRICTLY PROHIBITED AS GROUND TRUTH DEGRADATION LABELS (would cause circularity / leakage).",
+  "files": {
+    "baseline_single_pixel": {
+      "file_path": "data/raw/soil/soilgrids_raw_metadata.json",
+      "size_bytes": 7710,
+      "sha256": "1ad9867748ad62dcb47f72ff198d35cddcd4ec0796275aa74ae03aafa7514941",
+      "status": "VERIFIED_PRESENT",
+      "description": "Nominal parcel baseline coordinates (30.73N, 76.77E) raster extraction"
+    },
+    "punjab_multidistrict": {
+      "file_path": "data/raw/soil/soilgrids_punjab_districts_metadata.json",
+      "size_bytes": 44204,
+      "sha256": "f56ab7ba408c966ccc0c7ee6c9427c0af61170c3e126a3d9f4be8d4e42e2eeb9",
+      "status": "VERIFIED_PRESENT",
+      "description": "Multi-district raster extractions across 7 representative Punjab agricultural districts"
+    }
+  }
+}

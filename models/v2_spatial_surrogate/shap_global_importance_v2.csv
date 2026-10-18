@@ -1,0 +1,15 @@
+feature,mean_abs_shap_overall,rf_feature_importance,rank
+soil_moisture_rootzone_fraction,0.0647,0.1466,1
+soil_moisture_surface_fraction,0.0637,0.1401,2
+precipitation_rolling_3m_mean_mm_day,0.0518,0.1005,3
+air_humidity_percent,0.0419,0.1393,4
+air_temperature_c,0.032,0.0971,5
+soil_moisture_depth_gradient,0.0217,0.0945,6
+soil_temperature_layer1_c,0.0193,0.0636,7
+temp_soil_air_diff_c,0.0148,0.0531,8
+monthly_aridity_index,0.013,0.0301,9
+air_temperature_lag1_c,0.0121,0.0279,10
+month_cos,0.0116,0.032,11
+precipitation_mm_day,0.0101,0.0252,12
+precipitation_lag1_mm_day,0.0093,0.0357,13
+month_sin,0.0071,0.0145,14

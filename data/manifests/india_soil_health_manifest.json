@@ -1,0 +1,31 @@
+{
+  "manifest_name": "Government of India Punjab Soil Health Card & ICAR Survey Benchmark Manifest",
+  "created_at_utc": "2026-10-18T03:59:40.554221+00:00",
+  "custodian": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture, Govt. of India / ICAR-National Bureau of Soil Survey and Land Use Planning (NBSS&LUP) / ICAR-CSSRI",
+  "official_sources": [
+    "https://soilhealth.dac.gov.in/",
+    "https://nbsslup.icar.gov.in/",
+    "https://cssri.icar.gov.in/"
+  ],
+  "license": "Government Open Data License - India (GODL) / ICAR Academic Public Research Access",
+  "depth_interval": "0-15cm (Topsoil plow layer)",
+  "target_declaration": "District-level official soil health ratings, nutrient status, soil reaction (pH), salinity (EC), and dominant pedological series. Benchmark context for agronomic thresholds.",
+  "files": {
+    "csv_benchmarks": {
+      "file_path": "data/raw/india_soil/punjab_soil_health_card_district_benchmarks.csv",
+      "size_bytes": 3194,
+      "sha256": "6dd593928a15e065ec85dc82bf848dd65b3833cfe90c3393aa43e05f7272be35",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 10,
+      "description": "District-level soil fertility, salinity, and degradation constraints for Punjab"
+    },
+    "json_benchmarks": {
+      "file_path": "data/raw/india_soil/punjab_soil_health_card_district_benchmarks.json",
+      "size_bytes": 8607,
+      "sha256": "76887ffb89ac4a43061fb77d6e272be092252979b1bb28d9bbef1e8dc5e20ac2",
+      "status": "VERIFIED_PRESENT",
+      "records_count": 10,
+      "description": "Structured JSON metadata with complete citations and methodologies"
+    }
+  }
+}

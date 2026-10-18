@@ -79,9 +79,6 @@ class TestSoilSentinelMLModel(unittest.TestCase):
 
     def test_model_artifact_exists_and_valid(self):
         """The trained model artifact must exist, exceed 10 KB, and implement predict."""
-        if not DEFAULT_MODEL_PATH.exists():
-            from src.Model.train_model import train_surrogate_pipeline
-            train_surrogate_pipeline()
         self.assertTrue(DEFAULT_MODEL_PATH.exists(), f"Model artifact not found at {DEFAULT_MODEL_PATH}")
         file_size = DEFAULT_MODEL_PATH.stat().st_size
         self.assertGreater(file_size, 10000, f"Model artifact is unexpectedly small ({file_size} bytes)")

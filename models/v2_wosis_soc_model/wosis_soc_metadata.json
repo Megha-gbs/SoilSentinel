@@ -1,0 +1,81 @@
+{
+  "model_version": "v1.0.0-wosis-soc-rf",
+  "task_type": "PHYSICAL_MEASURED_SOIL_PROPERTY_REGRESSION",
+  "target": "soc_measured_g_kg",
+  "target_description": "Topsoil Soil Organic Carbon (g C / kg dry soil) measured by laboratory dry combustion / Walkley-Black",
+  "features": [
+    "latitude",
+    "longitude",
+    "sand_measured_pct",
+    "silt_measured_pct",
+    "clay_measured_pct",
+    "ph_measured_h2o"
+  ],
+  "samples_total": 60,
+  "train_samples": 48,
+  "test_samples": 12,
+  "held_out_test_metrics": {
+    "test_sample_count": 12,
+    "mae_g_kg": 1.1954,
+    "rmse_g_kg": 2.0062,
+    "r2_score": 0.2695
+  },
+  "baseline_comparison": {
+    "Mean Baseline Regressor": {
+      "test_sample_count": 12,
+      "mae_g_kg": 2.0641,
+      "rmse_g_kg": 2.4809,
+      "r2_score": -0.1171
+    },
+    "Ridge Regression": {
+      "test_sample_count": 12,
+      "mae_g_kg": 2.2913,
+      "rmse_g_kg": 2.8859,
+      "r2_score": -0.5116
+    },
+    "Random Forest Regressor": {
+      "test_sample_count": 12,
+      "mae_g_kg": 1.1954,
+      "rmse_g_kg": 2.0062,
+      "r2_score": 0.2695
+    },
+    "Gradient Boosting Regressor": {
+      "test_sample_count": 12,
+      "mae_g_kg": 0.6103,
+      "rmse_g_kg": 1.0932,
+      "r2_score": 0.7831
+    }
+  },
+  "cross_validation_5fold": {
+    "mean_mae_g_kg": 1.6686,
+    "mean_rmse_g_kg": 3.0306,
+    "mean_r2": -0.1149
+  },
+  "feature_importances": [
+    {
+      "feature": "longitude",
+      "importance": 0.73
+    },
+    {
+      "feature": "sand_measured_pct",
+      "importance": 0.1045
+    },
+    {
+      "feature": "latitude",
+      "importance": 0.071
+    },
+    {
+      "feature": "silt_measured_pct",
+      "importance": 0.068
+    },
+    {
+      "feature": "ph_measured_h2o",
+      "importance": 0.0155
+    },
+    {
+      "feature": "clay_measured_pct",
+      "importance": 0.0109
+    }
+  ],
+  "epistemic_disclaimer": "Predicts measured in-situ soil organic carbon concentration from pedo-spatial features. Does NOT predict multi-temporal degradation rate (Delta-SOC over time), as repeated temporal sampling of the exact same parcels was unavailable in public archives."
+}

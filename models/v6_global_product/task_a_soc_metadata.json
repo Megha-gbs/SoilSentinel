@@ -1,0 +1,173 @@
+{
+  "task_name": "Task A: Measured Soil Organic Carbon Regression",
+  "target_column": "organic_carbon_g_kg",
+  "target_units": "g C / kg",
+  "sample_count": 360,
+  "independent_profiles": 88,
+  "continents_count": 6,
+  "best_algorithm": "Gradient Boosting",
+  "cross_validation_results": {
+    "Mean_Baseline": {
+      "grouped_5fold_mae_mean": 7.024527391975309,
+      "grouped_5fold_mae_std": 1.1781484112067415,
+      "grouped_5fold_rmse_mean": 12.547741317276182,
+      "grouped_5fold_rmse_std": 3.240193538017396,
+      "grouped_5fold_r2_mean": -0.014853575786171724,
+      "grouped_5fold_r2_std": 0.015201609530766427
+    },
+    "Ridge_Regressor": {
+      "grouped_5fold_mae_mean": 6.249346322991264,
+      "grouped_5fold_mae_std": 1.9025842923797174,
+      "grouped_5fold_rmse_mean": 10.84843255999746,
+      "grouped_5fold_rmse_std": 3.31148315556975,
+      "grouped_5fold_r2_mean": 0.2565876085951125,
+      "grouped_5fold_r2_std": 0.10588890486049152
+    },
+    "Random_Forest": {
+      "grouped_5fold_mae_mean": 4.620366356717267,
+      "grouped_5fold_mae_std": 1.2458384133529612,
+      "grouped_5fold_rmse_mean": 9.123331614888116,
+      "grouped_5fold_rmse_std": 2.608709223830926,
+      "grouped_5fold_r2_mean": 0.3919585620247601,
+      "grouped_5fold_r2_std": 0.2896150295677913
+    },
+    "Gradient_Boosting": {
+      "grouped_5fold_mae_mean": 4.303835510959272,
+      "grouped_5fold_mae_std": 1.213634822553958,
+      "grouped_5fold_rmse_mean": 7.940532109415924,
+      "grouped_5fold_rmse_std": 2.992217051115643,
+      "grouped_5fold_r2_mean": 0.4545128582258851,
+      "grouped_5fold_r2_std": 0.3481218473347252
+    }
+  },
+  "leave_one_continent_out_results": {
+    "Mean_Baseline": {
+      "per_continent_mae": {
+        "Africa": 5.214266666666665,
+        "Asia": 9.075133333333333,
+        "Europe": 5.222666666666666,
+        "North_America": 7.182622222222221,
+        "Oceania_Australia": 6.125133333333333,
+        "South_America": 10.07
+      },
+      "per_continent_rmse": {
+        "Africa": 8.119908620175476,
+        "Asia": 16.36959157842505,
+        "Europe": 6.042351004920739,
+        "North_America": 7.4572429445025685,
+        "Oceania_Australia": 8.667566132811833,
+        "South_America": 23.079883015301444
+      },
+      "per_continent_r2": {
+        "Africa": -0.041064306391339844,
+        "Asia": -0.06887522977075533,
+        "Europe": -0.24369130124952876,
+        "North_America": -3.415504651441309,
+        "Oceania_Australia": -0.009194787904116986,
+        "South_America": -0.0689916065902787
+      },
+      "loco_mae_mean": 7.148303703703704,
+      "loco_rmse_mean": 11.622757216022853,
+      "loco_r2_mean": -0.6412203138912215
+    },
+    "Ridge_Regressor": {
+      "per_continent_mae": {
+        "Africa": 6.357460100535311,
+        "Asia": 10.28421869849006,
+        "Europe": 4.7074264289694545,
+        "North_America": 4.158237215865685,
+        "Oceania_Australia": 14.081729833528955,
+        "South_America": 11.951971022000718
+      },
+      "per_continent_rmse": {
+        "Africa": 9.426408191845029,
+        "Asia": 15.102401155297127,
+        "Europe": 5.478214743246846,
+        "North_America": 4.887111839114807,
+        "Oceania_Australia": 14.910082775563982,
+        "South_America": 20.208205241485384
+      },
+      "per_continent_r2": {
+        "Africa": -0.40303258406910225,
+        "Asia": 0.09020545412430603,
+        "Europe": -0.022301036563091126,
+        "North_America": -0.8963928896073226,
+        "Oceania_Australia": -1.9863505110115645,
+        "South_America": 0.1804743006999665
+      },
+      "loco_mae_mean": 8.590173883231698,
+      "loco_rmse_mean": 11.66873732442553,
+      "loco_r2_mean": -0.5062328777378013
+    },
+    "Random_Forest": {
+      "per_continent_mae": {
+        "Africa": 3.1033622799495344,
+        "Asia": 8.778048251024321,
+        "Europe": 22.251041424983338,
+        "North_America": 4.864074547297357,
+        "Oceania_Australia": 22.13978232121146,
+        "South_America": 16.570011050548537
+      },
+      "per_continent_rmse": {
+        "Africa": 6.824551070343714,
+        "Asia": 15.008481079036104,
+        "Europe": 27.63313081027202,
+        "North_America": 5.207363634919462,
+        "Oceania_Australia": 23.38365459542819,
+        "South_America": 22.712310466177918
+      },
+      "per_continent_r2": {
+        "Africa": 0.2646002985919651,
+        "Asia": 0.10148608119165203,
+        "Europe": -25.01122957576273,
+        "North_America": -1.1530770641147439,
+        "Oceania_Australia": -6.345230783224291,
+        "South_America": -0.03521300966766838
+      },
+      "loco_mae_mean": 12.951053312502424,
+      "loco_rmse_mean": 16.794915276029567,
+      "loco_r2_mean": -5.363110675497636
+    },
+    "Gradient_Boosting": {
+      "per_continent_mae": {
+        "Africa": 3.0985143038306644,
+        "Asia": 8.362462757101758,
+        "Europe": 15.033636317140418,
+        "North_America": 2.8191885415064606,
+        "Oceania_Australia": 28.373450886522384,
+        "South_America": 15.966958130943103
+      },
+      "per_continent_rmse": {
+        "Africa": 6.6650349193031975,
+        "Asia": 14.460352178480077,
+        "Europe": 21.347657018683254,
+        "North_America": 3.557299572057951,
+        "Oceania_Australia": 29.211158552297366,
+        "South_America": 21.417187322451724
+      },
+      "per_continent_r2": {
+        "Africa": 0.29857679208445986,
+        "Asia": 0.16591739211996037,
+        "Europe": -14.523910477956694,
+        "North_America": -0.004765334478523675,
+        "Oceania_Australia": -10.462470604655513,
+        "South_America": 0.07948269083035209
+      },
+      "loco_mae_mean": 12.275701822840796,
+      "loco_rmse_mean": 16.109781593878928,
+      "loco_r2_mean": -4.074528257009326
+    }
+  },
+  "feature_columns": [
+    "ph_h2o",
+    "clay_fraction",
+    "sand_fraction",
+    "silt_fraction",
+    "upper_depth",
+    "lower_depth",
+    "latitude",
+    "longitude"
+  ],
+  "validation_protocol": "GroupKFold(n_splits=5, groups=profile_id)",
+  "governance_note": "Zero profile data leakage. Strictly held out physical soil profiles."
+}

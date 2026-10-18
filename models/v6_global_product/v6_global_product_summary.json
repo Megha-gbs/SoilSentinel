@@ -1,0 +1,173 @@
+{
+  "version": "v6.0.0-global-product",
+  "status": "PRODUCTION_SUITE_TRAINED_AND_VERIFIED",
+  "tasks": {
+    "task_a_soc": {
+      "Mean_Baseline": {
+        "grouped_5fold_mae_mean": 7.024527391975309,
+        "grouped_5fold_mae_std": 1.1781484112067415,
+        "grouped_5fold_rmse_mean": 12.547741317276182,
+        "grouped_5fold_rmse_std": 3.240193538017396,
+        "grouped_5fold_r2_mean": -0.014853575786171724,
+        "grouped_5fold_r2_std": 0.015201609530766427
+      },
+      "Ridge_Regressor": {
+        "grouped_5fold_mae_mean": 6.249346322991264,
+        "grouped_5fold_mae_std": 1.9025842923797174,
+        "grouped_5fold_rmse_mean": 10.84843255999746,
+        "grouped_5fold_rmse_std": 3.31148315556975,
+        "grouped_5fold_r2_mean": 0.2565876085951125,
+        "grouped_5fold_r2_std": 0.10588890486049152
+      },
+      "Random_Forest": {
+        "grouped_5fold_mae_mean": 4.620366356717267,
+        "grouped_5fold_mae_std": 1.2458384133529612,
+        "grouped_5fold_rmse_mean": 9.123331614888116,
+        "grouped_5fold_rmse_std": 2.608709223830926,
+        "grouped_5fold_r2_mean": 0.3919585620247601,
+        "grouped_5fold_r2_std": 0.2896150295677913
+      },
+      "Gradient_Boosting": {
+        "grouped_5fold_mae_mean": 4.303835510959272,
+        "grouped_5fold_mae_std": 1.213634822553958,
+        "grouped_5fold_rmse_mean": 7.940532109415924,
+        "grouped_5fold_rmse_std": 2.992217051115643,
+        "grouped_5fold_r2_mean": 0.4545128582258851,
+        "grouped_5fold_r2_std": 0.3481218473347252
+      }
+    },
+    "task_b_salinity": {
+      "Majority_Baseline": {
+        "grouped_acc_mean": 0.8844713786970555,
+        "grouped_bal_acc_mean": 0.5,
+        "grouped_bal_acc_std": 0.0,
+        "grouped_saline_f1_mean": 0.0,
+        "grouped_saline_recall_mean": 0.0
+      },
+      "Balanced_Logistic": {
+        "grouped_acc_mean": 0.5408029042150642,
+        "grouped_bal_acc_mean": 0.5525189360417156,
+        "grouped_bal_acc_std": 0.19106748378115107,
+        "grouped_saline_f1_mean": 0.15407772304324027,
+        "grouped_saline_recall_mean": 0.55
+      },
+      "Random_Forest": {
+        "grouped_acc_mean": 0.7945223927570282,
+        "grouped_bal_acc_mean": 0.5466926557872255,
+        "grouped_bal_acc_std": 0.0967588990864537,
+        "grouped_saline_f1_mean": 0.15695187165775404,
+        "grouped_saline_recall_mean": 0.22000000000000003
+      },
+      "Gradient_Boosting": {
+        "grouped_acc_mean": 0.832073717878342,
+        "grouped_bal_acc_mean": 0.5171445006902899,
+        "grouped_bal_acc_std": 0.10679270468090743,
+        "grouped_saline_f1_mean": 0.08888888888888888,
+        "grouped_saline_recall_mean": 0.1
+      }
+    },
+    "task_c_acidity": {
+      "Majority_Baseline": {
+        "grouped_bal_acc_mean": 0.5,
+        "grouped_bal_acc_std": 0.0,
+        "grouped_macro_f1_mean": 0.0
+      },
+      "Balanced_Logistic": {
+        "grouped_bal_acc_mean": 0.8241960216715238,
+        "grouped_bal_acc_std": 0.04979480240231205,
+        "grouped_macro_f1_mean": 0.7988736884269447
+      },
+      "Random_Forest": {
+        "grouped_bal_acc_mean": 1.0,
+        "grouped_bal_acc_std": 0.0,
+        "grouped_macro_f1_mean": 1.0
+      }
+    },
+    "task_d_audit": {
+      "task_d_governance": "STRICT_SCIENTIFIC_HONESTY_DECLARATION",
+      "investigated_targets": {
+        "sodicity_esp_percent": {
+          "status": "UNAVAILABLE_MEASURED_LAB_DATA",
+          "reason": "Laboratory measured Exchangeable Sodium Percentage (ESP >= 15%) or Exchangeable Sodium is not present in the current ISRIC WoSIS profile export snapshot. Per SoilSentinel Rule 5, zero synthetic or fabricated samples are created.",
+          "field_proxy_guidance": "Where pH > 8.5 with low EC, suspect sodic condition and order laboratory ESP test."
+        },
+        "soil_erosion_field_measurement": {
+          "status": "OPTICAL_MORPHOLOGY_SURFACE_SCREENING_ONLY",
+          "model_implemented": "models/v6_global_product/camera_soil_model.joblib",
+          "optical_classes": [
+            "SURFACE_WATER_EROSION_RILL",
+            "SURFACE_CRUSTING_AND_COMPACTION",
+            "SALINE_EFFLORESCENCE_CRUST"
+          ],
+          "reason": "Direct in-situ tons/ha/year measurement requires runoff plots or caesium-137 radionuclide tracking."
+        },
+        "soil_organic_matter_decline": {
+          "status": "OPERATIONAL_VIA_TASK_A_SOC_REGRESSION",
+          "diagnostic_threshold": "Topsoil SOC < 5.0 g C/kg indicates severe organic matter depletion."
+        }
+      }
+    },
+    "task_e_environmental_surrogate": {
+      "balanced_accuracy": 0.7857142857142857,
+      "macro_f1": 0.7936507936507936
+    },
+    "domain_applicability": {
+      "detector_type": "IsolationForest_and_Texture_Conservation",
+      "contamination": 0.05,
+      "features": [
+        "clay_fraction",
+        "sand_fraction",
+        "silt_fraction",
+        "upper_depth",
+        "lower_depth",
+        "latitude",
+        "longitude"
+      ],
+      "valid_bounds": {
+        "clay_fraction": {
+          "q01": 9.97,
+          "q99": 66.78,
+          "min": 9.97,
+          "max": 66.78
+        },
+        "sand_fraction": {
+          "q01": 22.51,
+          "q99": 60.19,
+          "min": 22.51,
+          "max": 60.19
+        },
+        "silt_fraction": {
+          "q01": 2.56,
+          "q99": 67.52,
+          "min": 2.56,
+          "max": 67.52
+        },
+        "upper_depth": {
+          "q01": 0.0,
+          "q99": 217.6400000000001,
+          "min": 0.0,
+          "max": 270.0
+        },
+        "lower_depth": {
+          "q01": 3.0,
+          "q99": 258.2000000000005,
+          "min": 3.0,
+          "max": 300.0
+        },
+        "latitude": {
+          "q01": -29.482143621070804,
+          "q99": 50.599809,
+          "min": -29.4973328557876,
+          "max": 50.599809
+        },
+        "longitude": {
+          "q01": -117.24296015,
+          "q99": 153.245578795556,
+          "min": -117.296668999999,
+          "max": 153.264691659662
+        }
+      },
+      "texture_mass_conservation_rule": "abs((clay + sand + silt) - 100.0) <= 5.0"
+    }
+  }
+}
