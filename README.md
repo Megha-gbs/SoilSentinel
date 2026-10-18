@@ -1,5 +1,13 @@
 # Soil Sentinel — Automated Data Collection Pipeline
 
+> 🚀 **Live Production Deployment on IBM LinuxONE (s390x):**  
+> **Web Portal:** [http://148.100.109.202:3100/index.html](http://148.100.109.202:3100/index.html)  
+> **System & Model Health Status:** [http://148.100.109.202:3100/api/health](http://148.100.109.202:3100/api/health)  
+> **Target Architecture:** IBM LinuxONE / Linux on IBM Z (s390x), Node.js v22.23.3 (node:sqlite zero-compilation built-in engine), Python ML Bridge (port 5101), OpenCV 4.6.0.  
+> **Demo Credentials:**  
+> - 🌾 **Farmer Workspace:** farmer.demo@soilsentinel.local | DemoSoil2026!  
+> - 🔬 **Researcher Workspace:** researcher.demo@soilsentinel.local | DemoSoil2026!
+
 Soil Sentinel is an automated data collection and preprocessing pipeline for agricultural risk monitoring and soil health intelligence. It automatically queries authoritative environmental data sources without requiring manual browser downloads.
 
 ## Data Sources
@@ -155,6 +163,19 @@ python src/Model/train_model.py
 ---
 
 ## Full-Stack Web Application & API Gateway
+
+### Live IBM LinuxONE (s390x) Deployment
+
+The production instance of SoilSentinel is actively running on an **IBM LinuxONE (Linux on IBM Z, s390x)** mainframe server:
+
+* **Live Application URL:** [http://148.100.109.202:3100/index.html](http://148.100.109.202:3100/index.html)
+* **Live System Health Check:** [http://148.100.109.202:3100/api/health](http://148.100.109.202:3100/api/health)
+* **Verified Runtime Stack:**
+  - **Target Architecture:** s390x (IBM Z Enterprise Architecture)
+  - **Node.js Engine:** v22.23.3 (running native zero-compilation node:sqlite DatabaseSync)
+  - **Python ML Bridge:** Active on port 5101 with multi-task heuristic & surrogate inference
+  - **Vision Engine:** OpenCV 4.6.0 enabled for morphological soil analysis
+  - **Persistence:** Relational user management and 144+ persisted assessments in SQLite
 
 SoilSentinel includes a role-based Node.js Express gateway and responsive web interfaces:
 

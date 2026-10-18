@@ -160,3 +160,18 @@ cat logs/audit_log.csv | head -n 5
 ```
 
 The resulting `outputs/predictions.csv` contains 30 columns including spatial-temporal identifiers, the composite score, risk category, dynamic environmental stress, static baseline vulnerability, and individual indicator sub-scores. The audit trail records timestamped ISO 8601 entries without storing raw features or credentials.
+
+---
+
+## 5. Live Production Deployment on IBM LinuxONE
+
+The full-stack SoilSentinel platform is actively deployed and operational on IBM LinuxONE:
+
+* **Production URL:** [http://148.100.109.202:3100/index.html](http://148.100.109.202:3100/index.html)
+* **System & API Health Check:** [http://148.100.109.202:3100/api/health](http://148.100.109.202:3100/api/health)
+* **Target Architecture:** IBM LinuxONE / Linux on IBM Z (s390x)
+* **Node.js Engine:** v22.23.3 (running native zero-compilation 
+ode:sqlite DatabaseSync)
+* **Python Microservice:** Active on port 5101 with multi-task inference
+* **Computer Vision Engine:** OpenCV 4.6.0 enabled for morphological soil analysis
+* **Database:** Active SQLite with 144+ persisted assessments
